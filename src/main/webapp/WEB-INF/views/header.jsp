@@ -17,7 +17,7 @@
               <a class="nav-link" href="index.html">병원소개</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">자가진단</a>
+              <a class="nav-link" onclick="window.open('BMI','BMI test','width = 200, height = 100, top = 120, left = 100, location = no')">자가진단</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="doctors.html">치료후기</a>

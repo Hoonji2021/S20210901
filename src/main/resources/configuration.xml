@@ -3,7 +3,8 @@
 <configuration>
 	<typeAliases>
 		<!-- <typeAlias alias="Member" type="com.oracle.jhBootMybatis02.model.Member"/> -->
-		<typeAlias alias="Pconsult" type="com.han.S20210901.model.Pconsult"/>
-		<typeAlias alias="Replys"   type="com.han.S20210901.model.Replys"/>
+		<typeAlias alias="Pconsult" 			type="com.han.S20210901.model.Pconsult"/>
+		<typeAlias alias="Replys"   			type="com.han.S20210901.model.Replys"/>
+		<typeAlias alias="MemberManagement"   	type="com.han.S20210901.model.MemberManagement"/>
 	</typeAliases>
 </configuration>
