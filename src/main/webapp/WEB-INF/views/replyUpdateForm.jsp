@@ -116,10 +116,11 @@ function replydel() {
 					class="btn btn-sm btn-primary">목록</button>
 			</div>
 			<br> <br>
-			<!------------- 댓글------------- -->
-		
-			<c:if test="${id!=null }">
-				<form action="insertReply" method="post">
+			<!------------- ------------- -->
+
+			<c:forEach var="reply" items="${replys }"><!-- 댓글리스트에 있는 것들 하나씩 출력 -->
+			 <c:if test="${replyupdatenum == reply.replynum }"><!-- 댓글 리스트중 수정 버튼 누른 댓글만 아래내용으로 출력  -->
+				<form action="replyUpdatePro">
 					<div class="card-body" style="width: 100%; padding-right: 0px;">
 						<ul class="list-group list-group-flush"
 							style="width: 100%; padding-right: 0px;">
@@ -130,18 +131,20 @@ function replydel() {
 										class="fa fa-lock fa-lg"></i> </label>
 										<input type="hidden" name="id" value="${id }"> 
 										<input type="hidden" name="pnum" value="${pdetail.pnum}">
+										<input type="hidden" name="replynum" value="${reply.replynum }">
 								</div> <textarea class="form-control" id="exampleFormControlTextarea1"
-									rows="3" name="reply"></textarea>
+									rows="3" name="reply">${reply.reply }</textarea>
 								<button type="submit" class="btn btn-primary btn-sm "
-									style="margin-top: 10px;">댓글입력</button>
+									style="margin-top: 10px;">수정완료</button>
 							</li>
 						</ul>
 					</div>
 				</form>
 			</c:if>
-			<!------------ 댓글 리스트 -------------->
-			<c:forEach var="reply" items="${replys }">
-				<c:if test="${pdetail.pnum == reply.pnum }">
+			
+			<!------------  -------------->
+			
+				<c:if test="${replyupdatenum != reply.replynum }"><!-- 수정할 댓글이 아닌 녀석들은 아래내용으로 출력 reply.prseq가 수정할 댓글번호 -->
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item">
@@ -149,27 +152,6 @@ function replydel() {
 									<fmt:formatDate value="${reply.replydate }" var="replydate" pattern="yy-MM-dd"/>
 									<label for="replyId"><i class="fa fa-user-circle fa-lg"></i></label>
 									&nbsp;&nbsp;${reply.id }&nbsp;&nbsp;${replydate }
-									<c:if test="${id==reply.id }">&nbsp;&nbsp;&nbsp;&nbsp; 
-							 			
-							 			
-							 			<!-- 여기 해야함 -->
-							 			<form action="replyUpdateForm">
-							 				<input type="hidden" name="replynum" value="${reply.replynum }">
-							 				<input type="hidden" name="pnum" value="${reply.pnum}">
-							 				<input type="hidden" name="id" value="${reply.id }">
-							 				<input type="submit" value="댓글수정" class="btn btn-sm btn-primary">
-							 					
-										</form>
-										
-										
-											&nbsp;
-										<form action="replyDelete" method="post" onsubmit="return replydel()">
-											<input type="hidden" name="replynum" value="${reply.replynum }">
-											<input type="hidden" name="pnum" value="${reply.pnum}"> 
-											<input type="hidden" name="id" value="${reply.id }">
-											<input type="submit" value="댓글삭제" class="btn btn-sm btn-primary">
-										</form>
-									</c:if>
 								</div>
 								<div class="form-control" id="exampleFormControlTextarea1">${reply.reply }</div>
 							</li>
@@ -177,7 +159,9 @@ function replydel() {
 					</div>
 				</c:if>
 			</c:forEach>
-			
+		
+		
+		
 		</div>
 	</article>
 
