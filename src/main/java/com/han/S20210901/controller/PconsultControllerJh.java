@@ -25,6 +25,7 @@ public class PconsultControllerJh {
 	@Autowired
 	private ReplysService replysService;
 
+<<<<<<< HEAD
 	 
 	
 //	@RequestMapping(value = "index")
@@ -36,6 +37,8 @@ public class PconsultControllerJh {
 	
 
 
+=======
+>>>>>>> f18bdefd1f780f1c73da5c053616156656604972
 	@RequestMapping(value = "index")
 	public String test1(Model model) {
 		String id = "a1";
@@ -43,7 +46,10 @@ public class PconsultControllerJh {
 		return "main";
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f18bdefd1f780f1c73da5c053616156656604972
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, String id, Model model, Pconsult pconsult) {
 		System.out.println("PcontrollerJh pConsultList() start...");
@@ -54,10 +60,17 @@ public class PconsultControllerJh {
 		
 		//페이징 totalCnt = 12,1
 		Paging pg = new Paging(totalCnt, currentPage);
+<<<<<<< HEAD
 		
 		pconsult.setStart(pg.getStart());
 		pconsult.setEnd(pg.getEnd());
 		
+=======
+		
+		pconsult.setStart(pg.getStart());
+		pconsult.setEnd(pg.getEnd());
+		
+>>>>>>> f18bdefd1f780f1c73da5c053616156656604972
 		// 리스트 모두 가져오기
 		List<Pconsult> pConsultList = pconsultService.pConsultAll(pconsult);
 
