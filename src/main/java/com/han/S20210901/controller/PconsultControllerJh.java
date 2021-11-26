@@ -24,7 +24,7 @@ public class PconsultControllerJh {
 
 	@Autowired
 	private ReplysService replysService;
-<<<<<<< HEAD
+
 	 
 	
 //	@RequestMapping(value = "index")
@@ -34,7 +34,7 @@ public class PconsultControllerJh {
 //		return "main";
 //	}
 	
-=======
+
 
 	@RequestMapping(value = "index")
 	public String test1(Model model) {
@@ -43,7 +43,7 @@ public class PconsultControllerJh {
 		return "main";
 	}
 
->>>>>>> f18bdefd1f780f1c73da5c053616156656604972
+
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, String id, Model model, Pconsult pconsult) {
 		System.out.println("PcontrollerJh pConsultList() start...");
