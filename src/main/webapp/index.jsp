@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+merge test
 <%
 	response.sendRedirect("main");
 %>
