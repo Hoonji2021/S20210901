@@ -9,11 +9,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-git test
-=======
-merge test
->>>>>>> 0f8ad733d6930d74fedf94b11c97d5fbcdf52eea
 <%
 	response.sendRedirect("main");
 %>
