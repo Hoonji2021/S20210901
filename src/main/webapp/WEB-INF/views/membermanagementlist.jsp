@@ -49,10 +49,11 @@ body{
   <!-- Back to top button -->
   <div class="back-to-top"></div>
   <%@include file="header.jsp" %>
-	<div class="row" style="margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
+	<%@include file="empOperationNav.jsp" %>
+	<!-- <div class="row" style="margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
 		<div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="MemberManagementInside">회원관리</a></div>
-        <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a>직원관리</a></div>
-	</div>
+        <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="EmpManagementInside">직원관리</a></div>
+	</div> -->
 	
 	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 	<%-- <div>Pconsult(1대1상담) 게시물 개수 : ${totalCnt}</div> --%>

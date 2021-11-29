@@ -10,8 +10,7 @@
 <body>
 <h1>test</h1>
 <%
-	response.sendRedirect("index");
+	response.sendRedirect("main");
 %>
-
 </body>
 </html>

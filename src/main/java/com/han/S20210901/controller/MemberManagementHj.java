@@ -17,7 +17,7 @@ public class MemberManagementHj {
 	@Autowired
 	private MemberManagementService membermanagementService;
 	
-	@RequestMapping(value = {"index.html" , "MemberManagementInside"})     //임시로 페이지 구현
+	@RequestMapping(value =  "MemberManagementMain")    
 	public String index(Model model, MemberManagement memberManagement) {
 		System.out.println("MemberManagementHj MemberManagement() start...");
 		//멤버테이블 회원수 구하기

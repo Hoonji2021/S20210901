@@ -44,7 +44,7 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
+  
 </head>
 <body>
 
@@ -60,10 +60,10 @@ body{
         <h3 class="display-5" >아픔과 비밀을 공유하는 </h3>
         <div class="display-4" >마음의 주치의가 되어드리겠습니다.</div>
         
-        <a href="pConsultCount?id=${id }" class="btn btn-primary" style="margin-top: 30px; color: white; background-color: black">진료예약</a>
+        <a href="pConsultCount" class="btn btn-primary" style="margin-top: 30px; color: white; background-color: black">진료예약</a>
       </div>
     </div>
-  </div>
+  </div> 
 
 
   <div class="bg-light">

@@ -17,4 +17,5 @@ public class MemberManagement {
 	private String phone;
 	@DateTimeFormat(pattern = "yyyy-MM-dd" )
 	private Date regdate;
+	private int state;
 }

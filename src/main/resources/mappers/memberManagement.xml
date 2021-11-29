@@ -6,6 +6,6 @@
 		select count(*) FROM member
 	</select>
 	<select id="HjMemberManagementList" parameterType="MemberManagement" resultType="MemberManagement">
-		select id, email, name, addr, phone, regdate from member
+		select * from member where state = 1
 	</select>
 </mapper>
