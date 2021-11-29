@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> ea5bea6f3dddd3ae8976448aace076481502d95f
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -73,7 +70,7 @@
 	</nav>
 </header>
 
-<<<<<<< HEAD
+
  <%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 =======
 <%--  <%@ page language="java" contentType="text/html; charset=UTF-8"

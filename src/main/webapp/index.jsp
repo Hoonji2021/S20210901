@@ -8,11 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-<h1>test</h1>
-=======
 
->>>>>>> ea5bea6f3dddd3ae8976448aace076481502d95f
+
 <%
 	response.sendRedirect("main");
 %>
