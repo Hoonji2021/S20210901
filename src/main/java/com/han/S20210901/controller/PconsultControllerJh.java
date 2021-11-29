@@ -177,5 +177,12 @@ public class PconsultControllerJh {
 		model.addAttribute("result", result);
 		return "replyUpdatePro";
 	}
+	
+	@GetMapping(value = "myselfTest")
+	public String myselfTest() {
+		
+		return "myselfTest";
+	}
+
 
 }
