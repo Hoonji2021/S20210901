@@ -5,14 +5,5 @@
 		<!-- <typeAlias alias="Member" type="com.oracle.jhBootMybatis02.model.Member"/> -->
 		<typeAlias alias="Pconsult" type="com.han.S20210901.model.Pconsult"/>
 		<typeAlias alias="Replys"   type="com.han.S20210901.model.Replys"/>
-<<<<<<< HEAD
-		<typeAlias alias="Member" type="com.han.S20210901.model.Member"/>
 	</typeAliases>
-=======
-		<typeAlias alias="Clinic" type="com.han.S20210901.model.Clinic"/>
-
-	</typeAliases> 
-
-
->>>>>>> 0f8ad733d6930d74fedf94b11c97d5fbcdf52eea
 </configuration>
