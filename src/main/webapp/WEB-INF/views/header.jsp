@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea5bea6f3dddd3ae8976448aace076481502d95f
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -20,38 +23,42 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupport">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="index.html">병원소개</a>
+					<li class="nav-item"><a class="nav-link" href="#">병원소개</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="about.html">자가진단</a>
+					<li class="nav-item"><a class="nav-link" href="#">자가진단</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="doctors.html">치료후기</a>
+					<li class="nav-item"><a class="nav-link" href="#">치료후기</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="blog.html">온라인상담</a>
+					<li class="nav-item"><a class="nav-link" href="pConsultCount">온라인상담</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="contact.html">강연&방송</a>
+					<li class="nav-item"><a class="nav-link" href="#">강연&방송</a>
 
 
 					</li>
 					<c:choose>
 					<c:when test="${varSessionId=='admin'}">
-                	varSessionId = ${varSessionId} 
+                	 
                 	 <li class="nav-item"><a
 								class="btn btn-primary ml-lg-3"
 								style="background-color: #5F5F5F" href="empOperation">관리자</a></li>
 						</c:when>
+						
 						<c:when test="${empty varSessionId }">
-							<li class="nav-item">varSessionId = ${varSessionId} <a
+							<li class="nav-item"> <a
 								class="btn btn-primary ml-lg-3"
-								style="background-color: #5F5F5F" href="#">로그인 / 회원가입</a>
+								style="background-color: #5F5F5F" href="login">로그인 / 회원가입</a>
 
 							</li>
 						</c:when>
 
 						<c:when test="${!empty varSessionId}">
-                	varSessionId = ${varSessionId} 
+                	  <li class="nav-item"><a
+								class="nav-link"
+								 href="myPage">마이페이지</a></li>
+					
                 	 <li class="nav-item"><a
 								class="btn btn-primary ml-lg-3"
-								style="background-color: #5F5F5F" href="#">로그아웃</a></li>
+								style="background-color: #5F5F5F" href="logout">로그아웃</a></li>
 						</c:when>
 						
 					</c:choose>
@@ -66,7 +73,11 @@
 	</nav>
 </header>
 
+<<<<<<< HEAD
  <%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+=======
+<%--  <%@ page language="java" contentType="text/html; charset=UTF-8"
+>>>>>>> ea5bea6f3dddd3ae8976448aace076481502d95f
     pageEncoding="UTF-8"%>
   <header>
 
@@ -105,5 +116,9 @@
     </nav>
   </header>
   
+<<<<<<< HEAD
 >>>>>>> f18bdefd1f780f1c73da5c053616156656604972
+=======
+
+>>>>>>> ea5bea6f3dddd3ae8976448aace076481502d95f
  --%>

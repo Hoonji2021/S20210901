@@ -2,11 +2,26 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+<<<<<<< HEAD
 		<typeAlias alias="Pconsult" 			type="com.han.S20210901.model.Pconsult"/>
 		<typeAlias alias="Replys"   			type="com.han.S20210901.model.Replys"/>
 		<typeAlias alias="MemberManagement"   	type="com.han.S20210901.model.MemberManagement"/>
 		<typeAlias alias="EmpManagement"   	type="com.han.S20210901.model.EmpManagement"/>
 		<typeAlias alias="Member" type="com.han.S20210901.model.Member"/>
+=======
+		<!-- <typeAlias alias="Member" type="com.oracle.jhBootMybatis02.model.Member"/> -->
+		<typeAlias alias="Pconsult" type="com.han.S20210901.model.Pconsult"/>
+		<typeAlias alias="Replys"   type="com.han.S20210901.model.Replys"/>
+
+		<typeAlias alias="Member" type="com.han.S20210901.model.Member"/>
+
+
+>>>>>>> ea5bea6f3dddd3ae8976448aace076481502d95f
 		<typeAlias alias="Clinic" type="com.han.S20210901.model.Clinic"/>
 	</typeAliases> 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ea5bea6f3dddd3ae8976448aace076481502d95f
 </configuration>

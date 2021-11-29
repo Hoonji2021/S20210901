@@ -2,6 +2,9 @@ package com.han.S20210901.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +35,17 @@ public class LoginControllerKs {
 		System.out.println("ReservationRestController loginDo() start...");
 
 		List<Member> data = ls.getIdPw(id);
-
+		
 		return data;
 	}
+	
+	   @GetMapping(value = "logout")
+	   public String logout(HttpServletRequest request) {
+	      System.out.println("LoginControllerKs logout() start...");
+	      HttpSession session = request.getSession();
+	      session.invalidate();
+	      
+	      return "redirect:main";
+	   }
 
 }
