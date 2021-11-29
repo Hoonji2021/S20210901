@@ -66,7 +66,7 @@ body{
 			<div class="col">
 				<label for="id">
 					<h5>작성자 : </h5> </label>
-				<input type="text" name="id" value="${id}" style="width: 100%;" readonly="readonly">
+				<input type="text" name="id" value="${varSessionId}" style="width: 100%;" readonly="readonly">
 			</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">

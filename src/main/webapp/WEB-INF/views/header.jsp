@@ -7,7 +7,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
 		<div class="container">
-			<a class="navbar-brand" href="#"><span>침, 그리고 찌르다</span></a>
+			<a class="navbar-brand" href="index"><span>침, 그리고 찌르다</span></a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupport" aria-controls="navbarSupport"
@@ -19,38 +19,42 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupport">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="index.html">병원소개</a>
+					<li class="nav-item"><a class="nav-link" href="#">병원소개</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="about.html">자가진단</a>
+					<li class="nav-item"><a class="nav-link" href="myselfTest">자가진단</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="doctors.html">치료후기</a>
+					<li class="nav-item"><a class="nav-link" href="#">치료후기</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="blog.html">온라인상담</a>
+					<li class="nav-item"><a class="nav-link" href="pConsultCount">온라인상담</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="contact.html">강연&방송</a>
+					<li class="nav-item"><a class="nav-link" href="#">강연&방송</a>
 
 
 					</li>
 					<c:choose>
 					<c:when test="${varSessionId=='admin'}">
-                	varSessionId = ${varSessionId} 
+                	 
                 	 <li class="nav-item"><a
 								class="btn btn-primary ml-lg-3"
 								style="background-color: #5F5F5F" href="empOperation">관리자</a></li>
 						</c:when>
+						
 						<c:when test="${empty varSessionId }">
-							<li class="nav-item">varSessionId = ${varSessionId} <a
+							<li class="nav-item"> <a
 								class="btn btn-primary ml-lg-3"
-								style="background-color: #5F5F5F" href="#">로그인 / 회원가입</a>
+								style="background-color: #5F5F5F" href="login">로그인 / 회원가입</a>
 
 							</li>
 						</c:when>
 
 						<c:when test="${!empty varSessionId}">
-                	varSessionId = ${varSessionId} 
+                	  <li class="nav-item"><a
+								class="nav-link"
+								 href="myPage">마이페이지</a></li>
+					
                 	 <li class="nav-item"><a
 								class="btn btn-primary ml-lg-3"
-								style="background-color: #5F5F5F" href="#">로그아웃</a></li>
+								style="background-color: #5F5F5F" href="logout">로그아웃</a></li>
 						</c:when>
 						
 					</c:choose>

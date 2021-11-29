@@ -47,7 +47,7 @@ body{
   <script type="text/javascript">
 	$(function () {
 		$('#writeclick').click(function () {
-			location.href="pCousultInsertForm?id=${id}";
+			location.href="pCousultInsertForm";
 		});
 		
 		$('#noclick').click(function() {
@@ -101,7 +101,7 @@ body{
 				<td>${plist.id }</td>
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">
-					<a href="pConsultDetail?pnum=${plist.pnum}&id=${id}" style="color: black;">${plist.ptitle }</a>
+					<a href="pConsultDetail?pnum=${plist.pnum}" style="color: black;">${plist.ptitle }</a>
 					<!-- 비밀번호 아이콘 -->
 					<div id="dropdown" style="display: inline-block;">
 						<div class="input-group input-group-sm mb-3" style="width: 100%;">
@@ -133,19 +133,16 @@ body{
 		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
-	<c:if test="${id!=null }">
+	<c:if test="${varSessionId != null }">
 		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
 			<button id="writeclick" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
 		</div>
 	</c:if>
-	<c:if test="${id == null }">
+	<c:if test="${varSessionId == null }">
 		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
 			<button id="noclick" type="submit" style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
 		</div>
 	</c:if>
-	
-
-
 	<%@include file="footer.jsp" %>
 	
 </body>

@@ -30,9 +30,9 @@ const submitAjax = () => {
 		}
 		
 		if (dataId === id.value && dataPw === pw.value) {
-			alert("로그인 성공");
+			
 			form.id = id.value;
-			form.action = "index";
+			form.action = "main";
 			form.method = "POST";
 			form.submit();
 		} else if(dataId === id.value && dataPw !== pw.value) {

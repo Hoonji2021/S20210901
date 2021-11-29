@@ -13,7 +13,7 @@
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">회원 관리</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진 관리</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">공지사항 관리</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="#">1:1상담 관리</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="pConsultCount">1:1상담 관리</a></div>
     </div>
      <div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
 
