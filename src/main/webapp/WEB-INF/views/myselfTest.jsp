@@ -58,6 +58,7 @@ body{
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
 
 	</div>
+	<form action="TestResult">
 	<div class="row" style="margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
 		<div class="container">
 			<div class="row justify-content-md-center">
@@ -434,7 +435,7 @@ body{
 			</tbody>
 		</table>
 	</div>
-   
+   </form>
 	<%@include file="footer.jsp" %>
 </body>
 </html>
