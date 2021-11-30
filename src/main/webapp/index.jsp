@@ -8,7 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <%
 	response.sendRedirect("main");
 %>

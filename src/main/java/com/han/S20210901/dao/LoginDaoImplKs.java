@@ -15,13 +15,13 @@ public class LoginDaoImplKs implements LoginDaoKs {
 	private SqlSession session;
 
 	public List<Member> getIdPw(String id) {
-		System.out.println("ReservationDaoImpl getIdPw() start...");
+		System.out.println("LoginDaoImplKs getIdPw() start...");
 
 		List<Member> data = null;
 		try {
 			data = session.selectList("ksGetIdPw", id);
 		} catch (Exception e) {
-			System.out.println("ReservationDaoImpl getIdPw() Error ->>>>> " + e.getMessage());
+			System.out.println("LoginDaoImplKs getIdPw() Error ->>>>> " + e.getMessage());
 		}
 		return data;
 	}

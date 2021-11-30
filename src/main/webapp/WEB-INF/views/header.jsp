@@ -58,15 +58,13 @@
 						</c:when>
 						
 					</c:choose>
-
-
-
 				</ul>
 			</div>
 			<!-- .navbar-collapse -->
 		</div>
 		<!-- .container -->
 	</nav>
+<<<<<<< Updated upstream
 </header>
 
 <%--  <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -110,3 +108,6 @@
   
 
  --%>
+=======
+</header>
+>>>>>>> Stashed changes

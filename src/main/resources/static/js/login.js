@@ -1,6 +1,7 @@
 const form = document.querySelector("#loginForm");
 const id = document.querySelector("#id");
 const pw = document.querySelector("#pw");
+const state = document.querySelector("#state");
 
 function doSubmit(event){
     event.preventDefault();
@@ -15,28 +16,38 @@ const submitAjax = () => {
         type: "POST",
         data: param
 	}).done(function(data) {
-		console.log(data);
 		let dataId = "";
 		let dataPw = "";
+		let dataState = 0;
 		
 		if(data.length === 0) {
 			dataId = "";
 			dataPw = "";
+			dataState = 0;
 		} else if(data.length > 0) {
 			for(var i=0; i<data.length; i++) {
-				dataId = data[0].id
-				dataPw = data[0].pw
+				dataId = data[0].id;
+				dataPw = data[0].pw;
+				dataState = data[0].state;
 			}
 		}
 		
-		if (dataId === id.value && dataPw === pw.value) {
-			
-			form.id = id.value;
+		state.value = dataState;
+		
+		if(dataState === 3) {
+			alert("탈퇴 회원입니다");
+		} else if (dataId === id.value && dataPw === pw.value && dataState === 1 || dataState === 2) {
+			alert("로그인 성공");
 			form.action = "main";
 			form.method = "POST";
 			form.submit();
 		} else if(dataId === id.value && dataPw !== pw.value) {
 			alert("비밀번호가 틀렸습니다");
+		} else if(dataId === id.value && dataPw === pw.value && dataState === 4) {
+			alert("관리자 로그인");
+			form.action = "main";
+			form.method = "POST";
+			form.submit();
 		} else {
 			alert("아이디가 틀렸습니다");
 		} 
