@@ -54,7 +54,7 @@ body{
 			var answer;
 			answer = confirm("회원만 가능한 기능입니다. 로그인 하시겠습니까?");
 			if(answer == true){
-				location.href="pConsultCount";//1대1게시판 목록화면 회원가입창으로 이동되게 해야함.
+				location.href="login";//1대1게시판 목록화면 회원가입창으로 이동되게 해야함.
 			}
 		});
 		

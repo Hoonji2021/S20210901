@@ -78,9 +78,15 @@ body{
 								<br>
 							<div class="row">
 								<div class="col" style="border: 1px dotted gray;">
-									<span> 이미 의원에서도 질병으로 판정을 받는 경우가 많다. 하지만, 뚜렷한 호전이 없는 경우가
-											대부분이므로 한의학적으로 치료를 한다. 치료의 판정도 서양의학적인 검사 소견의 호전을 같이 참고해야 한다. </span><br>
-									<span> </span>
+									<span>  </span><br>
+									<ul>
+										<li>생활의 조절이 필요하다.</li>
+										<li>가벼운 운동을 한다.</li>
+										<li>가능하면 기공이 좋다.</li>
+										<li>기분을 가볍고 즐겁게 유지한다.</li>
+										<li>생각을 원대히 하고, 시야를 넓게 한다.</li>
+										<li>미래에 대해서 생각한다.</li>
+									</ul>
 								</div>
 							</div>
 					</c:when>
