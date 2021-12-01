@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	response.sendRedirect("faqList");
-%>
+비번확인 : ${fpw }
 </body>
-</html> 
+</html>
