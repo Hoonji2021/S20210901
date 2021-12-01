@@ -45,7 +45,9 @@ body{
 <body>
 
   <!-- Back to top button -->
-  <div class="back-to-top"></div>
+  <div class="back-to-top">
+  	
+  </div>
    
     <%@include file="header.jsp" %>
     
@@ -235,13 +237,7 @@ body{
       </div>
     </div>
   </div>
-
-  
- <%@include file="footer.jsp" %>
- 
- 
-
-
+	<%@include file="footer.jsp" %>
   
 </body>
 </html>
