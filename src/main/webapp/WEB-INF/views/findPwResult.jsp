@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-
-    response.sendRedirect("main");
-
-%>
-1234
+비번확인 : ${fpw }
 </body>
-</html> 
+</html>

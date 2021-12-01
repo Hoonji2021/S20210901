@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +10,15 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("게시물 삭제 성공");
-		location.href="pConsultCount";
+		alert("글작성 성공");
+		location.href="faqList";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("게시물 삭제  실패");
-		history.go(-1);
+		alert("글작성 실패");
+		location.href="faqList";
 	</script>
 </c:if>
-
 </body>
 </html>

@@ -10,12 +10,10 @@ public interface OconsultDao {
 
 	List<Oconsult> listOconsult(Oconsult oconsult);
 
-
 	Oconsult oconsultDetail(int onum);
 
 	int oconsultUpdate(Oconsult oconsult);
 
 	int oconsultCount(int onum);
-
 
 }

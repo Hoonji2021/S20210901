@@ -23,11 +23,17 @@
 	
 <!-- 수정 -->
 	<update id="ghOconsultUpdate" parameterType="oconsult">
-		update oconsult
-		set	   
+		update oconsult 
+		set	   otitle =#{otitle}, owriter =#{owriter}
+			   ocontent =#{ocontent}   
 	</update>
+	
 <!-- 조회수 +1 -->
-	<!-- <update id="ghOconsultCount" parameterType="onum" result></update> -->
+	<update id="ghOconsultCount" parameterType="int">
+		update 	oconsult 
+		set 	ocount=ocount+1 
+		Where	onum = #{onum}
+	</update>
 	
 
 

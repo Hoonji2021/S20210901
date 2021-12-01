@@ -30,7 +30,6 @@ public class PconsultControllerJh {
 	private ReplysService replysService;
 
 
-	 
 	@RequestMapping(value = "index")
 	public String test1(Model model) {
 		return "main";
@@ -47,6 +46,7 @@ public class PconsultControllerJh {
 		
 		//페이징 totalCnt = 12,1
 		Paging pg = new Paging(totalCnt, currentPage);
+
 
 		pconsult.setStart(pg.getStart());
 		pconsult.setEnd(pg.getEnd());

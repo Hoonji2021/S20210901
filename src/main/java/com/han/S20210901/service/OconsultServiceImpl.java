@@ -53,7 +53,6 @@ public class OconsultServiceImpl implements OconsultService {
 		int count = od.oconsultCount(onum);
 		return count;
 	}
-
 	
 
 }

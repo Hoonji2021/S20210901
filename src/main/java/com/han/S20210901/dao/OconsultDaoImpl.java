@@ -25,7 +25,6 @@ public class OconsultDaoImpl implements OconsultDao {
 		
 		return tot;
 	}
-	
 	@Override
 	public List<Oconsult> listOconsult(Oconsult oconsult) {
 		List<Oconsult> oconsultList = null;
@@ -38,7 +37,6 @@ public class OconsultDaoImpl implements OconsultDao {
 		}
 		return oconsultList;
 	}
-
 	@Override
 	public Oconsult oconsultDetail(int onum) {
 		System.out.println("OconsultDaoImpl oconsultDetail start..");
@@ -67,12 +65,13 @@ public class OconsultDaoImpl implements OconsultDao {
 		System.out.println("OconsultDaoImpl oconsultCount start...");
 		int count = 0;
 		try {
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			count = session.update("ghOconsultCount", onum);
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		} catch (Exception e) {
 			System.out.println("OconsultDaoImpl oconsultUpdate Exception->"+e.getMessage());
 		}
 		return 0;
 	}
-
 
 }

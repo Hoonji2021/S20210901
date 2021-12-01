@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.han.S20210901.model.Oconsult;
 import com.han.S20210901.service.OconsultService;
 import com.han.S20210901.service.Paging;
@@ -43,7 +42,7 @@ public class OconsultControllerGh {
 	@GetMapping(value = "oconsultDetail")
 	public String oconsultDetail(int onum, Model model) {
 		System.out.println("OconsultController Start oconsultDetail...");
-		// 
+		// 조회수 +1
 		int count = os.oconsultCount(onum);
 		Oconsult oconsult = os.oconsultDetail(onum);
 		model.addAttribute("oconsult", oconsult);
@@ -59,11 +58,31 @@ public class OconsultControllerGh {
 		return "oconsultUpdateForm";
 	}
 	
+	// 수정
 	@PostMapping(value = "oconsultUpdate")
 	public String oconsultUpdate(Oconsult oconsult, Model model) {
 		int k = os.oconsultUpdate(oconsult);
 		System.out.println("os.update(oconsult) k-->"+k);
 		return "forward:oconsultList"; //똑같은 컨트롤러로 가서 메소드실행/ redirect-model은 안가져감 ,forward-model같이 가져감
 	}
+	
+	
+	// 삭제 oconsultDelete  onum
+	
+	// 목록
+	// 글쓰기
+	// 나중에 만들기 empcontrolller 에서 96번째 줄
+//	@GetMapping(value = "oconsultWriteForm")
+//	public String oconsultDetail( )
+//	
+	
 
+	
 }
+	
+	
+	
+	
+	
+	
+

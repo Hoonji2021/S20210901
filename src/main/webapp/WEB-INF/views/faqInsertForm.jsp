@@ -41,57 +41,37 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  
+  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
-	<%@include file="header.jsp" %>
+  <%@include file="header.jsp" %>
 	
-	<form action="pConsultInsertPro" method="post">
-	<div class="container" style="margin: 5% auto;" >
-		<h2>게시물 등록</h2>
-		<hr style="border-top:3px solid #000000">
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="ptitle">
-					<h5>제목 : </h5> </label>
-				<input type="text" name="ptitle" placeholder="제목을 입력하세요" style="width: 100%;">
-				<input type="hidden" name="pnum" value="1">
-				</div>
-		</div>
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="id">
-					<h5>작성자 : </h5> </label>
-				<input type="text" name="id" value="${varSessionId}" style="width: 100%;" readonly="readonly">
-			</div>
-		</div>
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="ptitle">
-				<h5>내용 :</h5> </label>
-					<textarea rows="3" name="pcontent" placeholder="내용을 입력하세요" style="width: 100%;"></textarea>
-			</div>
-		</div>
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="pw">
-				<h5>비밀번호 :</h5> </label>
-					 <input type="password" name="pw" placeholder="비밀번호를 입력하세요" style="width: 20%;">
-			</div>
-		</div>
-		<div style="margin: 0 auto; float: right;">
-			<!-- 비어있거나 올바르지 않다면 alert 처리하기 -->	
-			<input type="submit" value="작성완료" class="btn btn-sm btn-primary">
-			<!-- 취소하면 정말 취소하시겠습니까 alert 처리하기 -->
-			<button type="button" onclick="location.href='pConsultCount'" class="btn btn-sm btn-primary">취소</button>	
-			
-		</div>
-	</div>
-	</form>
+	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
 
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">FAQ</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
+
+    </div>
+    <form action="faqInsertPro">
+    <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
+		<tr><th>질문</th></tr>
+		<tr><td><input type="text" name="ftitle"></td></tr>
+		<tr><th>답변</th></tr>
+		<tr><td>
+			<textarea cols="50" rows="10" name="fcontent"></textarea>
+		</td></tr>
+		<tr><td colspan="2">
+			<input type="submit" value="입력완료">
+		</td></tr>
+	</table>
+	</form>
 	<%@include file="footer.jsp" %>
+
 </body>
 </html>

@@ -6,7 +6,14 @@
 		<typeAlias alias="Replys"   type="com.han.S20210901.model.Replys"/>
 		<typeAlias alias="Member" type="com.han.S20210901.model.Member"/>
 		<typeAlias alias="Clinic" type="com.han.S20210901.model.Clinic"/>
+
 		<typeAlias alias="Oconsult"   type="com.han.S20210901.model.Oconsult"/>
+
 		<typeAlias alias="PunchHg" type="com.han.S20210901.model.PunchHg"/>
-	</typeAliases> 
+
+		<typeAlias alias="Faq"   type="com.han.S20210901.model.Faq"/>
+		<typeAlias alias="Notice"   type="com.han.S20210901.model.Notice"/>
+	</typeAliases>
+	
+
 </configuration>

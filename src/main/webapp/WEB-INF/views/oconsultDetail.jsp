@@ -38,10 +38,6 @@ body{
 }
 </style>
 <script type="text/javascript">
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> origin/master
 function fn_oconsultUpdate(opw){
 	if(frm.opw.value!=opw){
 		alert("비밀번호가 일치하지 않습니다.");
@@ -65,31 +61,12 @@ function fn_oconsultdel(opw){
 			frm.opw.focus();
 		}
 	}
-<<<<<<< HEAD
-=======
-=======
-function pconsultdel() {
-	var check;
-	check = confirm("정말 삭제하시겠습니까?");
-	if(check == true){
-		location.href="pCosultDelete?pnum=${pdetail.pnum}";
-	}else if(check == false){
-		return false;
-	}
-	
-	return true;
->>>>>>> Stashed changes
->>>>>>> origin/master
 }
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> origin/master
 </head>
 
 <body>
@@ -116,41 +93,6 @@ function pconsultdel() {
 			 	<input type="hidden" name="onum" value="${oconsult.onum}">
 				<div class="col">날짜 : ${odate }</div>
 				<div class="col">조회수 : ${oconsult.ocount }</div>
-<<<<<<< HEAD
-=======
-=======
-  
-  
-</head>
-<body>
-
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-	<%@include file="header.jsp" %>
-	<body>
-
-	<article>
-
-		<div class="container" style="margin: 5% auto;">
-			<h2>1대1 상담</h2>
-			<hr style="border-top: 3px solid #000000">
-			<fmt:formatDate value="${pdetail.pdate }" var="pdate"
-				pattern="yy-MM-dd" />
-
-			<div class="row" style="margin: 5% auto; margin-bottom: 2%">
-				<div class="col">
-					<h4>제목 : ${pdetail.ptitle }</h4>
-				</div>
-			</div>
-			<div class="row" style="margin: 0 auto;">
-				<div class="col">작성자 : ${pdetail.id }</div>
-			</div>
-			<div class="row row-cols-auto" style="margin: 0 auto;">
-
-				<div class="col">날짜 : ${pdate }</div>
-				<div class="col">조회수 : ${pdetail.pcount }</div>
->>>>>>> Stashed changes
->>>>>>> origin/master
 				<div class="col"></div>
 				<div class="col"></div>
 				<div class="col"></div>
@@ -158,10 +100,6 @@ function pconsultdel() {
 			</div>
 			<hr style="background-color: #fff; border-top: 2px dotted #bbb;">
 			<div class="row" style="margin: 2% auto;">
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> origin/master
 				<div class="col-8">${oconsult.ocontent }</div>
 			</div>
 
@@ -176,91 +114,9 @@ function pconsultdel() {
 			<button onclick="location.href='pConsultCount?id=${id}'" class="btn btn-sm btn-primary">목록</button> --%>
 		</div>		
 			<br><br>	
-		<%@include file="footer.jsp" %>
-	</form>
-<<<<<<< HEAD
-=======
-=======
-				<div class="col-8">${pdetail.pcontent }</div>
-			</div>
-
-			<div style="margin: 3% auto; float: right;">
-				<c:if test="${id == pdetail.id }">
-					<button
-						onclick="location.href='pConsultUpdateForm?pnum=${pdetail.pnum}'"
-						class="btn btn-sm btn-primary">수정</button>
-					<button onclick="return pconsultdel()"
-						class="btn btn-sm btn-primary">삭제</button>
-					<!-- location.href='pCosultDelete?pnum=${pdetail.pnum}' -->
-				</c:if>
-				<button onclick="location.href='pConsultCount?id=${id}'"
-					class="btn btn-sm btn-primary">목록</button>
-			</div>
-			<br> <br>
-			<!------------- 댓글------------- -->
 		
-			<c:if test="${id!=null }">
-				<form action="insertReplyFormAction.do?pid=${pid }" name="frm"
-					onsubmit="return chk()">
-					<div class="card-body" style="width: 100%; padding-right: 0px;">
-						<ul class="list-group list-group-flush"
-							style="width: 100%; padding-right: 0px;">
-							<li class="list-group-item">
-								<div class="form-inline mb-2">
-									<label for="replyId"><i class="fa fa-user-circle fa-lg"></i></label>
-									&nbsp;&nbsp;${id} <label for="replyPassword" class="ml-4"><i
-										class="fa fa-lock fa-lg"></i> </label> 
-										<input type="password"
-										class="form-control-sm" placeholder="Enter password"
-										name="passwd2" style="margin-left: 8px;"> 
-										<input
-										type="hidden" name="passwd" value="${member.passwd }">
-										<input type="hidden" name="pid" value="${pid }">
-								</div> <textarea class="form-control" id="exampleFormControlTextarea1"
-									rows="3" name="reply"></textarea>
-								<button type="submit" class="btn btn-primary btn-sm "
-									style="margin-top: 10px;">댓글입력</button>
-							</li>
-						</ul>
-					</div>
-				</form>
-			</c:if>
-			<!------------ 댓글 리스트 -------------->
-			<c:forEach var="reply" items="${replys }">
-				<c:if test="${pdetail.pnum == reply.pnum }">
-					<div class="card-body">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								<div class="form-inline mb-2">
-									<fmt:formatDate value="${reply.replydate }" var="replydate" pattern="yy-MM-dd"/>
-									<label for="replyId"><i class="fa fa-user-circle fa-lg"></i></label>
-									&nbsp;&nbsp;${reply.id }&nbsp;&nbsp;${replydate }
-									<c:if test="${id==reply.id }">&nbsp;&nbsp;&nbsp;&nbsp; 
-							 	<span><a onclick="location.href='replyUpdateForm.do?id=${id }&replynum=${reply.replynum}&pnum=${pdetail.pnum}';"
-											class="btn btn-sm btn-primary" style="color: white;">댓글수정</a></span>
-											&nbsp;
-										<form action="replyDeleteAction.do" onsubmit="return chk2()">
-											<input type="hidden" name="pid" value="${pid }"> <input
-												type="hidden" name="prseq" value="${list.prseq }"> <input
-												type="submit" value="댓글삭제"
-												class="btn btn-sm btn-primary">
+	</form>
 
-										</form>
-									</c:if>
-								</div>
-								<div class="form-control" id="exampleFormControlTextarea1">${reply.reply }</div>
-							</li>
-						</ul>
-					</div>
-				</c:if>
-			</c:forEach>
-			
-		</div>
-	</article>
-
-
-	<%@include file="footer.jsp" %>
->>>>>>> Stashed changes
->>>>>>> origin/master
 </body>
+	<%@include file="footer.jsp" %>
 </html>
