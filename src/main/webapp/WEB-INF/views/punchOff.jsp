@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 var result = ${result}
-if(result > 0){alert("퇴근 시간 등록 완료");}
-else{alert("퇴근 시간 등록 실패")}	
-	location.href='main'
+if(result > 0){alert("퇴근 시간 등록 완료"); location.href='main'}
+else{alert("퇴근 시간 등록 실패"); location.href='punch'}	
+	
 </script>
 </head>
 <body>
