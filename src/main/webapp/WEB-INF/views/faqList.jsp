@@ -131,8 +131,6 @@ div{
 			</tr>
 		</c:forEach>
 	</table> --%>
-	
-	<%@include file="footer.jsp" %>
-
 </body>
+	<%@include file="footer.jsp" %>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-	response.sendRedirect("faqList");
+	response.sendRedirect("main");
 %>
 </body>
 </html> 
