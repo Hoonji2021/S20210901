@@ -5,11 +5,7 @@
 <header>
 <title>침 그리고 찌르다.</title>
 	<c:set var="varSessionId" value="${sessionId }" scope="session" />
-<<<<<<< HEAD
-=======
 	<c:set var="varSessionState" value="${sessionState }" scope="session"/>
-	
->>>>>>> 05ec08a7076b618c107b27f2a20f05036538866b
 	<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
 		<div class="container">
 
