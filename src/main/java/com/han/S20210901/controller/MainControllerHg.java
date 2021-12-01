@@ -21,15 +21,20 @@ public class MainControllerHg {
 		  HttpSession session = null;
 		  
 		  session = request.getSession();
+		  System.out.println("request.getParameter(id)->"+request.getParameter("id"));
+		  System.out.println("request.getParameter(state)->"+request.getParameter("state"));
 		  
 		  if(request.getParameter("id")!=null) {
 			  session.setAttribute("sessionId", request.getParameter("id"));
+			  session.setAttribute("sessionState", request.getParameter("state"));
 		  }
-		  
+		  System.out.println("request.getParameter(state)->"+request.getParameter("state"));
 		  
 	      System.out.println("id ->>>>>>>>>>>>>> " + request.getParameter("id"));
 	      System.out.println("sessionId->"+session.getAttribute("sessionId"));
+	      System.out.println("sessionState->"+session.getAttribute("sessionState"));
 	      model.addAttribute("sessionId", session.getAttribute("sessionId"));
+	      model.addAttribute("sessionState",session.getAttribute("sessionState"));
 		
 		
 		return "main";

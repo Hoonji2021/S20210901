@@ -15,6 +15,9 @@
 		<div class="passForm">
 			<input type="password" id="pw" class="pw" name="pw" placeholder="PW">
 		</div>
+		<div class="stateForm">
+			<input type="hidden" id="state" name="state" >
+		</div>
 		<input type="submit" id="login_submit" class="btn" value="LOG IN">
 		<div class="bottomText">
 			Don't you have ID? <a href="#">sign up</a>

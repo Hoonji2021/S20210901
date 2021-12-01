@@ -1,5 +1,3 @@
-<!-- 진료내역 페이지 -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -36,10 +34,10 @@ body{
 	font-family: 'MaruBuri-Regular';
 }
 
-#clinicOperation{
+#punchOperation{
 	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
 }
-#clinicOperationA{
+#punchOperationA{
 	color: white;
 }
 </style>
@@ -52,42 +50,31 @@ body{
   
 </head>
 <body>
-
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-   
-    <%@include file="header.jsp" %>
-    <%@ include file="empOperationNav.jsp"%>
-   
-    <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
-		<thead>
-			<tr style="font-family: NanumBarunGothic">
-				<th>번호</th>
-				<th>환자명</th>
-				<th>진료내역</th>
-				<th>진료일</th>
-				<!-- <th>진료 시간</th> -->
-				<th><select><option>담당의</option></select></th>
-			</tr>	
-		</thead>
-		<tbody>
-		
-		<c:forEach items="${clinicList}" var="clinicList" >
-		<fmt:formatDate value="${clinicList.cdate }" var="cdate" pattern="yy-MM-dd hh:mm:ss"/>
-			<tr style="font-family: NanumBarunGothic">
-				<td style="width: 100px;">${clinicList.cnum}</td>
-				<td>${clinicList.name }</td>
-				<td style="width: 500px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color: black;">${clinicList.ccontent }</a></td>
-				 <td style="width: 200px;">${cdate }</td>
-				<td style="width: 118px;">${clinicList.ename }</td> 
-			</tr>
-		</c:forEach>
-		
-		</tbody>
-		<td colspan="4"><button>새 진료 작성</button></td>
-		
-	</table>
 	
-    <%@include file="footer.jsp" %>
+	 <!-- Back to top button -->
+  <div class="back-to-top"></div>
+  <%@ include file="header.jsp" %>
+  <%@ include file="empOperationNav.jsp" %>
+  <div style="text-align: center;">
+  <c:choose>
+  <c:when test="${varSessionState==4}">
+  		<button class="btn btn-primary ml-lg-3"
+  				style="background-color: #5F5F5F; text-align:center;"><a href="qrMaker" style="color:white;">QR생성</a></button>
+  		<button class="btn btn-primary ml-lg-3"
+  				style="background-color: #5F5F5F; text-align:center;"><a href="punchList" style="color:white;">출퇴근 기록부 조회</a></button>
+  		
+  </c:when>
+  </c:choose>
+  <c:choose>
+  <c:when test="${varSessionState!=4 }">
+	    <button class="btn btn-primary ml-lg-3"
+				style="background-color: #5F5F5F; text-align: center;"><a href="punchOnQR" style="color:white;">출근</a></button>
+  		<button class="btn btn-primary ml-lg-3"
+				style="background-color: #5F5F5F; text-align: center;"><a href="punchOffQR" style="color:white;">퇴근</a></button>
+  		<p/>!!!!!!!!!!!!!!!!!!신중히 누르세요!!!!!!!!!!!!!!!!
+  </c:when>
+  </c:choose>
+  </div>
+  <%@ include file="footer.jsp" %>
 </body>
 </html>
