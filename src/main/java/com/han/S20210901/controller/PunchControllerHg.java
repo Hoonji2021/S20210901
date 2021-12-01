@@ -78,9 +78,9 @@ public class PunchControllerHg {
 	}
 	
 	@PostMapping(value="qrcode")
-	public String qrcode() {
+	public String qrcode(HttpServletRequest request, Model model) {
 		System.out.println("PunchControllerHg qrcode() Starts...");
-		
+		model.addAttribute("empId",request.getParameter("empId"));
 		return "qrcode";
 	}
 }

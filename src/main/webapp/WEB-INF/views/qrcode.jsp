@@ -4,12 +4,12 @@
 <%@ page import = "java.awt.image.BufferedImage, javax.imageio.ImageIO" %>
 <%@ page import = "com.google.zxing.qrcode.QRCodeWriter, com.google.zxing.common.BitMatrix, com.google.zxing.BarcodeFormat, com.google.zxing.client.j2se.MatrixToImageWriter" %>
 <%
-	String sessionId = request.getParameter("sessionId");
+	String empId = request.getParameter("empId");
 	int nCheck = 1;
 	String savedFileName = "";
 	
 	//sessionId 확인
-	if(sessionId == null || sessionId.equals("")){
+	if(empId == null || empId.equals("")){
 		nCheck = 0;
 	}
 	else{
@@ -20,7 +20,7 @@
 	
 	//QRCode 생성
 	QRCodeWriter writer = new QRCodeWriter();
-	BitMatrix qrCode = writer.encode(sessionId, BarcodeFormat.QR_CODE, 200,200);
+	BitMatrix qrCode = writer.encode(empId, BarcodeFormat.QR_CODE, 200,200);
 	
 	BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(qrCode);
 	
@@ -30,13 +30,58 @@
 		
 %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>QR Code 생성하기</title>
+
+<link href="css/board.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/maicons.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet"href="vendor/owl-carousel/css/owl.carousel.css">
+<link rel="stylesheet" href="vendor/animate/animate.css">
+<link rel="stylesheet" href="css/theme.css">
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
+<script src="vendor/wow/wow.min.js"></script>
+<script src="js/theme.js"></script>
+<style type="text/css">
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+	font-family: 'MaruBuri-Regular';
+}
+#punchOperation{
+	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
+}
+#punchOperationA{
+	color: white;
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  
+  
 </head>
 <body>
-<h1>${sessionId } 직원의 QR Code가 생성되었습니다.</h1>
+ <!-- Back to top button -->
+  <div class="back-to-top"></div>
+   
+    <%@include file="header.jsp" %>
+    <%@include file="empOperationNav.jsp" %>
+<div style="text-align: center;">
+<h6	>직원의 QR Code가 생성되었습니다.<br>(클릭 시 다운로드 됩니다.)</h6>
 <%
 	if(nCheck==1){
 		String qrcode = request.getContextPath() + "/img/"+savedFileName + ".png";
@@ -48,6 +93,7 @@
 	}
 	
 %>
-<a href="main">Main으로 돌아가기</a>
+</div>
+<%@include file="footer.jsp" %>
 </body>
 </html>
