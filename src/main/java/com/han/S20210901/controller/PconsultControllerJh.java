@@ -29,13 +29,8 @@ public class PconsultControllerJh {
 	@Autowired
 	private ReplysService replysService;
 
+
 	 
-//	@RequestMapping(value = "index")
-//	public String test1(Model model) {
-//		String id = "a1";
-//		model.addAttribute("id", id);
-//		return "main";
-//	}
 	@RequestMapping(value = "index")
 	public String test1(Model model) {
 		return "main";
@@ -52,9 +47,11 @@ public class PconsultControllerJh {
 		
 		//페이징 totalCnt = 12,1
 		Paging pg = new Paging(totalCnt, currentPage);
+
 		pconsult.setStart(pg.getStart());
 		pconsult.setEnd(pg.getEnd());
 		
+
 		// 리스트 모두 가져오기
 		List<Pconsult> pConsultList = pconsultService.pConsultAll(pconsult);
 		model.addAttribute("totalCnt", totalCnt);

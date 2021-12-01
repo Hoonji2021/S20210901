@@ -5,8 +5,11 @@
 <header>
 <title>침 그리고 찌르다.</title>
 	<c:set var="varSessionId" value="${sessionId }" scope="session" />
+<<<<<<< HEAD
+=======
 	<c:set var="varSessionState" value="${sessionState }" scope="session"/>
 	
+>>>>>>> 05ec08a7076b618c107b27f2a20f05036538866b
 	<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
 		<div class="container">
 
@@ -18,9 +21,6 @@
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
-
-
 			<div class="collapse navbar-collapse" id="navbarSupport">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="#">병원소개</a>
@@ -29,10 +29,10 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">치료후기</a>
 					</li>
+
 					<li class="nav-item"><a class="nav-link" href="pConsultCount">온라인상담</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">강연&방송</a>
-
 
 					</li>
 					<c:choose>
