@@ -29,7 +29,6 @@ public class PconsultControllerJh {
 	@Autowired
 	private ReplysService replysService;
 
-
 	@RequestMapping(value = "index")
 	public String test1(Model model) {
 		return "main";
@@ -197,6 +196,12 @@ public class PconsultControllerJh {
 		model.addAttribute("myTest", myTest);
 		
 		return "myselfTestResult";
+	}
+	
+	@GetMapping(value = "myselfTest2")
+	public String myselfTest2() {
+		
+		return "myselfTest2";
 	}
 
 
