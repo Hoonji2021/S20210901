@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -78,6 +77,8 @@ body{
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
 
     </div>
+    							
+	<c:set var="num" value="${pg.total-pg.start+1 }"></c:set>
 	
 	<table style="width: 68%; margin: 0 auto; margin-bottom: 1%">
 	<%-- <div>Pconsult(1대1상담) 게시물 개수 : ${totalCnt}</div> --%>
@@ -99,7 +100,7 @@ body{
 				<td>${plist.id }</td>
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">
-					<a href="pCosultDetail?pnum=${plist.pnum}&id=${id}" style="color: black;">${plist.ptitle }</a>
+					<a href="pConsultDetail?pnum=${plist.pnum}&id=${id}" style="color: black;">${plist.ptitle }</a>
 					<!-- 비밀번호 아이콘 -->
 					<div id="dropdown" style="display: inline-block;">
 						<div class="input-group input-group-sm mb-3" style="width: 100%;">
@@ -110,18 +111,27 @@ body{
               		 		</span>
              				 	<input type="password" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="basic-addon1">
             			</div>
-            				
-					
 					</div>
-					
 				</td>
 				<!-- 제목 끝 -->
 				<td style="width: 180px;">${pdate }</td>
 				<td style="width: 100px;">${plist.pcount }</td>
 			</tr>
+			<%-- <c:set var="num" value="${num-1 }"></c:set> --%>
 		</c:forEach>
 		</tbody>		
 	</table>
+	<div style="margin: 0 auto; text-align: center;">
+	<c:if test="${pg.startPage > pg.pageBlock}">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+	</c:if>
+	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${i}">[${i}]</a>
+	</c:forEach>
+	<c:if test="${pg.endPage > pg.totalPage }">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+	</c:if>
+	</div> 
 	<c:if test="${id!=null }">
 		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
 			<button id="writeclick" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
@@ -132,15 +142,7 @@ body{
 			<button id="noclick" type="submit" style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
 		</div>
 	</c:if>
-	<%-- <c:if test="${pg.startPage > pg.pageBlock}">
-		<a href="empList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
-	</c:if>
-	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a href="empList?currentPage=${i}">[${i}]</a>
-	</c:forEach>
-	<c:if test="${pg.endPage > pg.totalPage }">
-		<a href="empList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
-	</c:if> --%>
+	
 
 
 	<%@include file="footer.jsp" %>
