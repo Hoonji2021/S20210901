@@ -62,6 +62,7 @@ body{
 	
 	<div class="row tm-mb-90 tm-gallery" style="margin: 0 8%;">
             <c:forEach var="notice" items="${noticeList }" varStatus="status">
+            <fmt:formatDate value="${notice.ndate }" var="ndate" pattern="yy-MM-dd"/>
         		<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
         			<figure class="effect-ming tm-video-item">
         				<img src="upload/${notice.nimg }" alt="Image" class="img-fluid" >
@@ -71,17 +72,17 @@ body{
         			</figcaption>
         			</figure>
         			<div>
-	                    <span>${notice.ndate }</span>
+	                    <span>${ndate }</span>
 	                    <span>조회수 ${notice.ncount }</span>
-	                    <!-- 관리자용으로 조건 걸기 -->
-	                    <c:if test="id.equal(admin)">
-	                    	<span><button onclick="location.href='noticeDelete?nnum=${notice.nnum}'">삭제</button></span>
-	                  	</c:if>
                 	</div>
                 </div>
         	</c:forEach>
         </div> 
-	    <span><button onclick="location.href='noticeInsertForm'">글쓰기</button></span>
+        <c:choose>
+        	<c:when test="${ varSessionState==4}">
+	    		<button onclick="location.href='noticeInsertForm'">글쓰기</button>        		
+        	</c:when>
+        </c:choose>
 
 	<%@include file="footer.jsp" %>
 </body>

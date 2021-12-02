@@ -172,7 +172,7 @@ body{
         </div>
 
         <div class="col-12 text-center mt-4 wow zoomIn">
-          <a href="blog.html" class="btn btn-primary">더보기</a>
+          <a href="noticeList" class="btn btn-primary">더보기</a>
         </div>
 
       </div>
@@ -184,7 +184,9 @@ body{
 
   <div class="page-section">
     <div class="container">
-      <h2 class="text-center mb-5 wow fadeInUp">강연&방송</h2>
+      <h2 class="text-center mb-5 wow fadeInUp">
+      	<a href="mediaList">강연&방송</a>
+      	</h2>
 
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
         <div class="item">

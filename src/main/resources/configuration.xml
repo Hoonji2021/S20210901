@@ -15,6 +15,8 @@
 		<typeAlias alias="Faq"   type="com.han.S20210901.model.Faq"/>
 		<typeAlias alias="Notice"   type="com.han.S20210901.model.Notice"/>
 
+		<typeAlias alias="Media"   type="com.han.S20210901.model.Media"/>
+
 		<typeAlias alias="MemberManagement"   	type="com.han.S20210901.model.MemberManagement"/>
 		<typeAlias alias="EmpManagement"   	type="com.han.S20210901.model.EmpManagement"/>
 	</typeAliases> 

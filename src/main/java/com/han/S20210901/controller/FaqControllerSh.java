@@ -29,6 +29,7 @@ public class FaqControllerSh {
 	@RequestMapping(value = "faqUpdateForm")
 	public String faqUpdateForm(int fnum, Model model) {
 		System.out.println("faqController faqUpdateForm start");
+		// 업데이트, fnum 가져가서 해당하는 로우 값 jsp에 뿌려주기
 		Faq faq = fs.faqUpdateForm(fnum);
 		model.addAttribute("faq", faq);
 		return "faqUpdateForm";
@@ -37,6 +38,7 @@ public class FaqControllerSh {
 	@RequestMapping(value = "faqUpdatePro")
 	public String faqUpdatePro(Faq faq, Model model) {
 		System.out.println("faqController faqUpdatePro start");
+		// 업데이트 성공하면 1 실패하면 0 alert창 띄움
 		int result = 0;
 		result = fs.faqUpdatePro(faq);
 		model.addAttribute("result", result);
@@ -45,13 +47,14 @@ public class FaqControllerSh {
 	
 	@RequestMapping(value = "faqInsertForm")
 	public String faqInsertForm(Model model) {
-		
+		// 글작성이라 바로 뷰로 감
 		return "faqInsertForm";
 	}
 	
 	@RequestMapping(value = "faqInsertPro")
 	public String faqInsertPro(Faq faq, Model model) {
 		System.out.println("faqController insertPro start");
+		// insert 성공하면 1, 실패하면 0 Pro로 보내서 alert창 띄움
 		int result = 0;
 		result = fs.faqInsertPro(faq);
 		model.addAttribute("result", result);
@@ -61,18 +64,11 @@ public class FaqControllerSh {
 	@RequestMapping(value = "faqDeletePro")
 	public String faqDelete(int fnum, Model model) {
 		System.out.println("faqController faqDelete start");
+		// delete 성공하면 1, 실패하면 0 Pro로 보내서 alert창 띄움
 		int result = 0;
 		result = fs.faqDeletePro(fnum);
 		model.addAttribute("result", result);
 		return "faqDeletePro";
 	}
-	
-//	@RequestMapping(value = "faqDetail")
-//	public String faqDetail(int fnum, Model model) {
-//		System.out.println("FaqControllerSh faqDetail start");
-//		// faq 상세페이지, 서현
-//		Faq faq = fs.faqDetail(fnum);
-//		model.addAttribute("faq", faq);
-//		return "faqDetail";
-//	}
+
 }

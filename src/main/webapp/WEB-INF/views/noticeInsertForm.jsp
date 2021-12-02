@@ -65,7 +65,7 @@ body{
 		<tr><th>본문</th></tr>
 		<tr><td>
 			<input type="file" name="file"><p>
-			<input type="hidden" name="path" value="${pageContext.request.contextPath}/resources/image/"><p>
+			<input type="hidden" name="path" value="resources/image/"><p>
 			<textarea cols="50" rows="10" name="ncontent"></textarea>
 		</td></tr>
 		<tr><td colspan="2">

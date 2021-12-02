@@ -9,11 +9,11 @@
 	</select>
 	
 	<select id="noticeListSh" parameterType="Notice" resultType="Notice">
-		select * from notice order by nnum
+		select * from notice order by nnum desc
 		<!-- select * 
 		from (select rownum rn, a.* 
 		from (select * from notice order by ndate desc) a)
-		where rn BETWEEN #{nStartPage} and #{nEndPage} -->
+		where rn BETWEEN #{start} and #{end} -->
 	</select>
 	
 	<select id="noticeDetailSh" parameterType="int" resultType="Notice">
@@ -27,7 +27,7 @@
 	
 	<update id="noticeUpdateSh" parameterType="Notice">
 		update  notice 
-		set     ncontent=#{ncontent}, ntitle=#{ntitle}, nimg=#{nimg}, ndate=#{ndate , jdbcType=VARCHAR} 
+		set     ncontent=#{ncontent}, ntitle=#{ntitle}
 		where   nnum=#{nnum}
 	</update>
 	
