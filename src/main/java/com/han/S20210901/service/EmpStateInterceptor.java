@@ -11,7 +11,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 @Component
 public class EmpStateInterceptor implements HandlerInterceptor {
-	public List empNeed = Arrays.asList("/punch*", "/empOperation");//,"/punchOnQR","/puncOffQR","/punchOn","/punchOff");
+	public List empNeed = Arrays.asList("/punch*", "/empOperation","/Member*","/Emp*");//,"/punchOnQR","/puncOffQR","/punchOn","/punchOff");
 
 	public List empNoNeed = Arrays.asList("/main");
 	

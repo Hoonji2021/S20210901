@@ -11,11 +11,14 @@
 <link rel="stylesheet"href="vendor/owl-carousel/css/owl.carousel.css">
 <link rel="stylesheet" href="vendor/animate/animate.css">
 <link rel="stylesheet" href="css/theme.css">
+
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
+
+
 <style type="text/css">
 @font-face {
     font-family: 'GowunBatang-Regular';
@@ -32,6 +35,7 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+
 </style>
 
   <meta charset="UTF-8">
@@ -49,9 +53,7 @@ body{
   </div>
    
     <%@include file="header.jsp" %>
-    
 
-  
    <!-- 정지훈 / 1대1 상담 -->
   <div class="page-hero bg-image" style="background-image: url(img/main_vimg01.png);">
     <div class="hero-section">
@@ -238,7 +240,11 @@ body{
       </div>
     </div>
   </div>
-	<%@include file="footer.jsp" %>
+
+
+ <%@include file="footer.jsp" %>
+ 
+
   
 </body>
 </html>
