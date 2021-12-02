@@ -15,7 +15,7 @@ public class LoginServiceImplKs implements LoginServiceKs {
 	private LoginDaoKs ld;
 
 	public List<Member> getIdPw(String id) {
-		System.out.println("ReservationServiceImpl getIdPw() start");
+		System.out.println("LoginServiceImpl getIdPw() start");
 		
 		return ld.getIdPw(id);
 	}
