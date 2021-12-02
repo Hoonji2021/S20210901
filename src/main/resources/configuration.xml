@@ -7,10 +7,13 @@
 		<typeAlias alias="Member" type="com.han.S20210901.model.Member"/>
 		<typeAlias alias="Clinic" type="com.han.S20210901.model.Clinic"/>
 
+		<typeAlias alias="Oconsult"   type="com.han.S20210901.model.Oconsult"/>
+
 		<typeAlias alias="PunchHg" type="com.han.S20210901.model.PunchHg"/>
 
 		<typeAlias alias="Faq"   type="com.han.S20210901.model.Faq"/>
 		<typeAlias alias="Notice"   type="com.han.S20210901.model.Notice"/>
+		<typeAlias alias="Media"   type="com.han.S20210901.model.Media"/>
 	</typeAliases>
 	
 

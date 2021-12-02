@@ -58,29 +58,21 @@ body{
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
 
     </div>
-    
+    <form action="mediaInsertResult" method="post" enctype="multipart/form-data">
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
-    <fmt:formatDate value="${notice.ndate }" var="ndate" pattern="yy-MM-dd"/>
 		<tr><th>제목</th></tr>
-		<tr><td>${notice.ntitle }</td></tr>
-		<tr><th>날짜</th></tr>
-		<tr><td>${ndate }</td></tr>
-		<tr><th>조회수</th></tr>
-		<tr><td>${notice.ncount }</td></tr>
+		<tr><td><input type="text" name="mtitle"></td></tr>
+		<tr><th>본문</th></tr>
 		<tr><td>
-		<div><img alt="img" src="upload/${notice.nimg }"></div>
-		<p>${notice.ncontent }<p></td></tr>
-		<c:choose>
-			<c:when test="${ varSessionState==4}">
-				<tr><td colspan="2">
-				<button onclick="location.href='noticeDelete?nnum=${notice.nnum}'">삭제</button>
-				<button onclick="location.href='noticeUpdate?nnum=${notice.nnum}'">수정</button>
-			</td></tr>
-			</c:when>
-		</c:choose>
-		
+			<input type="url" name="link">
+			<input type="file" name="file"><p>
+			<input type="hidden" name="path" value="resources/image/"><p>
+		</td></tr>
+		<tr><td colspan="2">
+			<input type="submit" value="입력완료">
+		</td></tr>
 	</table>
-	
+	</form>
 	<%@include file="footer.jsp" %>
 
 </body>

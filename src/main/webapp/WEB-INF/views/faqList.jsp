@@ -37,7 +37,7 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
-div{
+.faq_div{
 	width: 68%; 
 	margin: 0 auto; 
 	margin-bottom: 1%;
@@ -53,30 +53,15 @@ div{
   <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <script type="text/javascript">
-	<%-- var contextPath='${pageContext.request.contextPath}';
-	var src='${pageContext.request.contextPath}/images/';
-	var contextPath='${pageContext.request.contextPath}';
-	function getFaqList(fNum) {
-		$.ajax({
-			url:"<%=context%>/faqListResult",
-			data:{fnum : fNum},
-			dataType:'text',
-			success:function(data){
-				$('#faq_list').append(data);
-			}
-		});
-	} --%>
 	
-	$(function (){
-		$('#faq_list').click(function() {
-			if($('#answer_list').css("display") == "none"){
-				$('#answer_list').show();
-			}
-			if($('#answer_list').css("display") != "none"){
-				$('#answer_list').hide();
-			}
-		});
-	});
+	function faq_list(num) {
+		if($('#faq_list'+num).next().css('display')=='none'){
+			$('#faq_list'+num).next().show();
+		}else{
+			$('#faq_list'+num).next().hide();
+		}
+	}
+	
 </script>
 <body>
 
@@ -93,44 +78,30 @@ div{
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
 
     </div>
-    <c:forEach var="faq" items="${faqList }">
-	    <div id="faq_list">
-	    	${faq.fnum }&nbsp;${faq.ftitle}
-	    	<c:choose>
-		    	<c:when test="${ varSessionState==4}">
-			    	<button onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
-		    		<button onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
-	    		</c:when>
-	    	</c:choose>
-	    	
-	    </div>
-	   <!--  <hr style="width: 70%"> -->
-	    <div id="answer_list" style="display: none;">
-	    	${faq.fcontent }
-	    </div>
-	    <br>
-    </c:forEach>
-    
+    <div>
+	    <c:forEach var="faq" items="${faqList }" varStatus="status">
+		    <div class="faq_div" id="faq_list${status.index}" onclick="faq_list(${status.index})">
+		    	${faq.fnum }&nbsp;${faq.ftitle}
+		    	<c:choose>
+			    	<c:when test="${ varSessionState==4}">
+				    	<button onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
+			    		<button onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
+		    		</c:when>
+		    	</c:choose>
+		    	
+		    </div>
+		    <div class="faq_div" id="answer_list" style="display: none;">
+		    	${faq.fcontent }
+		    </div>
+		    <br>
+	    </c:forEach>
+    </div>
 		    <c:choose>
 		    	<c:when test="${ varSessionState==4}">
 		    		<button onclick="location.href='faqInsertForm'">작성</button>
 	    		</c:when>
 	    	</c:choose>
-    
-    
-    
-	<%-- <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
-		<tr style="font-family: NanumBarunGothic">
-			<th>번호</th><th>글제목</th><th>글내용</th>
-		</tr>
-		<c:forEach var="faq" items="${faqList }">
-			<tr style="font-family: NanumBarunGothic">
-				<td style="width: 100px;">${faq.fnum}</td>
-				<td><a href="faqDetail?fnum=${faq.fnum}" style="color: black;">${faq.ftitle}</a></td>
-				<td>${faq.fcontent}</td>
-			</tr>
-		</c:forEach>
-	</table> --%>
+
 </body>
 	<%@include file="footer.jsp" %>
 </html>
