@@ -4,12 +4,12 @@
 <%@ page import = "java.awt.image.BufferedImage, javax.imageio.ImageIO" %>
 <%@ page import = "com.google.zxing.qrcode.QRCodeWriter, com.google.zxing.common.BitMatrix, com.google.zxing.BarcodeFormat, com.google.zxing.client.j2se.MatrixToImageWriter" %>
 <%
-	String sessionId = request.getParameter("sessionId");
+	String empId = request.getParameter("empId");
 	int nCheck = 1;
 	String savedFileName = "";
 	
 	//sessionId 확인
-	if(sessionId == null || sessionId.equals("")){
+	if(empId == null || empId.equals("")){
 		nCheck = 0;
 	}
 	else{
@@ -20,7 +20,7 @@
 	
 	//QRCode 생성
 	QRCodeWriter writer = new QRCodeWriter();
-	BitMatrix qrCode = writer.encode(sessionId, BarcodeFormat.QR_CODE, 200,200);
+	BitMatrix qrCode = writer.encode(empId, BarcodeFormat.QR_CODE, 200,200);
 	
 	BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(qrCode);
 	
@@ -36,7 +36,7 @@
 <title>QR Code 생성하기</title>
 </head>
 <body>
-<h1>${sessionId } 직원의 QR Code가 생성되었습니다.</h1>
+<h1>직원의 QR Code가 생성되었습니다.</h1>
 <%
 	if(nCheck==1){
 		String qrcode = request.getContextPath() + "/img/"+savedFileName + ".png";

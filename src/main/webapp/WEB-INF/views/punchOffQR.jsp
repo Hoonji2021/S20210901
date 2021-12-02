@@ -3,57 +3,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="css/board.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/maicons.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet"href="vendor/owl-carousel/css/owl.carousel.css">
+<link rel="stylesheet" href="vendor/animate/animate.css">
+<link rel="stylesheet" href="css/theme.css">
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
+<script src="vendor/wow/wow.min.js"></script>
+<script src="js/theme.js"></script>
+<style type="text/css">
+
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+	font-family: 'MaruBuri-Regular';
+}
+
+#punchOperation{
+	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
+}
+#punchOperationA{
+	color: white;
+}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jsQR.js"></script>
-<style type="text/css">
-	body {
-		text-align: center;
-	}
-	main {
-		width:100%;
-		height:100%;
-		text-align:center;
-		margin: 0px auto;
-	}
-	main > div {
-		width:1%;
-		height:98%;
-	}
-	main > div:first-child {
-		width:49%;
-	}
-	main > div:last-child {
-		background-color:#D3D3D3;
-		width:49%;
-	}
-	div#output {
-		background-color:#BDBEBD;
-		padding-left:10px;
-		padding-right:10px;
-		padding-top:10px;
-		padding-bottom:10px;
-	}
-	div#frame {
-		border:2px solid #005666;
-		background-color:#FFFFFF;
-		margin-left:10px;
-		margin-right:10px;
-		padding-left:8px;
-		padding-right:8px;
-		padding-top:8px;
-		padding-bottom:8px;
-	}
-	div#outputLayer {
-		text-align:center;
-	}
-	canvas {
-		width:50%;
-	}
-</style>
+
 </head>
+<%@ include file = "header.jsp" %>
 <body>
 
+<%@ include file = "empOperationNav.jsp" %>
 <main style="text-align: center;">
 
 	 <div id="test">
@@ -82,7 +76,6 @@
 
 	<div style="text-align: center;">
 
-		<h1>스캔</h1>
 
 		<div id="frame">
 
@@ -99,7 +92,7 @@
 	</div>
 
 </main>
-
+<%@ include file = "footer.jsp" %>
 </body>
 
 </html>

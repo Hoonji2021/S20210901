@@ -12,6 +12,6 @@
     response.sendRedirect("main");
 
 %>
-1234
+
 </body>
 </html> 
