@@ -87,11 +87,13 @@ body{
 				</div>
 				<div class="col-4" style="text-align: left;"><input type="text" name="name">
 				</div>
-				
 			</div>
 		</div>
+		
 	</div>
+	
 	<div class="row" style="margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
+		<hr>
 		<table style="text-align: center; margin: 0 auto;">
 			<tbody>
 				<tr>
