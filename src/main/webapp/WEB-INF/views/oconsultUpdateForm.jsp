@@ -67,7 +67,6 @@ function fn_oconsultcan(){
 
 	<form action="oconsultUpdate" method="post">
 		<input type="hidden" name="onum" value="${oconsult.onum }">
-		<input type="hidden" name="odate" value="${oconsult.odate }">
 		
 		<div class="container" style="margin: 5% auto;">
 			<h2>공개상담글 수정</h2>

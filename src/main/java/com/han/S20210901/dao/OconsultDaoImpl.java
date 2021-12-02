@@ -52,26 +52,36 @@ public class OconsultDaoImpl implements OconsultDao {
 	@Override
 	public int oconsultUpdate(Oconsult oconsult) {
 		System.out.println("OconsultDaoImpl oconsultUpdate start...");
-		int kkk = 0;
+		int k = 0;
 		try {
-			kkk = session.update("ghOconsultUpdate", oconsult);
+			k = session.update("ghOconsultUpdate", oconsult);
 		} catch (Exception e) {
 			System.out.println("OconsultDaoImpl oconsultUpdate Exception->"+e.getMessage());
 		}
-		return kkk;
+		return k;
 	}
 	@Override
-	public int oconsultCount(int onum) {
+	public int oconsultCount(int rn) {
 		System.out.println("OconsultDaoImpl oconsultCount start...");
 		int count = 0;
 		try {
-			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			count = session.update("ghOconsultCount", onum);
-			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			count = session.update("ghOconsultCount", rn);
 		} catch (Exception e) {
 			System.out.println("OconsultDaoImpl oconsultUpdate Exception->"+e.getMessage());
 		}
-		return 0;
+		return count; 
 	}
+	@Override
+	public int oconsultInsert(Oconsult oconsult) {
+		System.out.println("OconsultDaoImpl oconsultCount start...");
+		int result = 0;
+		try {
+			result = session.insert("ghOconsultInsert", oconsult);
+		} catch (Exception e) {
+			System.out.println("OconsultDaoImpl oconsultInsert Exception->"+e.getMessage());
+		}
+		return result;
+	}
+
 
 }

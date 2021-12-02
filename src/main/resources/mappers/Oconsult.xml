@@ -6,26 +6,28 @@
 	<select id="ghOconsultTotal" resultType="int">
 		SELECT count(*) FROM oconsult
 	</select>
+	
 	<select id="ghOconsultListAll" parameterType="Oconsult" resultType="Oconsult">
 		SELECT *
 		FROM
 	 	  (
 	 	  	Select rownum rn, a.*
-	 	  	From	(select * from oconsult order by onum) a
+	 	  	From	(select * from oconsult order by odate desc) a
 	 	  )
 	 	  WHERE rn between #{start} and #{end}
 	</select>
 	
 <!-- 상세페이지 -->
 	<select id="ghOconsultSelOne" parameterType="int" resultType="Oconsult">
-		select * From oconsult Where onum =#{onum}
+		select * From oconsult Where rn =#{rn}
 	</select>
 	
 <!-- 수정 -->
-	<update id="ghOconsultUpdate" parameterType="oconsult">
+	<update id="ghOconsultUpdate" parameterType="Oconsult">
 		update oconsult 
-		set	   otitle =#{otitle}, owriter =#{owriter}
-			   ocontent =#{ocontent}   
+		set	   otitle =#{otitle}, owriter =#{owriter},
+			   ocontent =#{ocontent} 
+		where  onum=#{onum}  
 	</update>
 	
 <!-- 조회수 +1 -->
@@ -35,7 +37,11 @@
 		Where	onum = #{onum}
 	</update>
 	
-
+<!-- 글쓰기 -->
+	<insert id="ghOconsultInsert" parameterType="Oconsult">
+		INSERT INTO	oconsult (otitle, owriter, ocontent, onum, opw, odate)
+		VALUES (#{otitle}, #{owriter}, #{ocontent}, oconsult_seq.nextval, #{opw}, sysdate) 
+	</insert>
 
 
 
