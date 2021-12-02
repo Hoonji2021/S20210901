@@ -34,11 +34,6 @@ body{
 	font-family: 'MaruBuri-Regular';
 }
 </style>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
   <title>One Health - Medical Center HTML5 Template</title>
 </head>
@@ -52,7 +47,7 @@ body{
 
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="myselfTest">심장질환</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="myselfTest2" style="color: white;">우울증</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">치료후기</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="myselfTest3">공황장애</a></div>
            
     </div>
     
@@ -73,7 +68,8 @@ body{
 				<div class="col-4" style="text-align: left;"><input type="text" name="name"></div>	
 			</div>
 			
-			<br><p><b style="color: red;">우울증 자가진단</b> : 번호, 문항, 해당되지않음, 가끔그렇다, 자주느낀다, 항상 으로 구성<br>
+			<br>
+			<p><b style="color: red;">우울증 자가진단</b> : 번호, 문항, 해당되지않음, 가끔그렇다, 자주느낀다, 항상 으로 구성<br>
 										  					이 질문지는 여러분이 일상생활에서 경험할 수 있는 내용들로 구성되어 있습니다.<br>
 										  					각 문장을 자세히 읽어보시고, 최근 3~4주 이내 얼마나 자주 그렇게 경험하거나 느끼시는지<br> 자신을 가장 잘 나타낸다고
 										  					생각되는 번호에 표시하여 주십시오.</p>

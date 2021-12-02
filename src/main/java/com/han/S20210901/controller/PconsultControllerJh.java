@@ -217,6 +217,13 @@ public class PconsultControllerJh {
 			
 		return "myselfTestResult2";
 	}
+	                     
+	@GetMapping(value = "myselfTest3")
+	public String myselfTest3(MyselfTest myTest, Model model) {
+		System.out.println("PconsultControllerJh myselfTest3() Start...");
+		
+		return "myselfTest3";
+	}
 
 
 }

@@ -55,7 +55,7 @@ body{
 
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/101" style="color: white;">심장질환</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="myselfTest2">우울증</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">치료후기</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="myselfTest3">공황장애</a></div>
 	</div>
   	<div class="container" style=" margin: 3% auto; width: 65%; text-align: left; font-size: 18px; font-family: NanumBarunGothic;">
   		<div class="row">
