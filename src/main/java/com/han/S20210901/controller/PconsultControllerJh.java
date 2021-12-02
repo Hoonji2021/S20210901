@@ -30,11 +30,6 @@ public class PconsultControllerJh {
 	private ReplysService replysService;
 
 
-	@RequestMapping(value = "index")
-	public String test1(Model model) {
-		return "main";
-	}
-
 
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, Model model, Pconsult pconsult) {

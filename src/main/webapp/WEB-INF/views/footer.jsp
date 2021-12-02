@@ -22,7 +22,7 @@
           </ul>
         </div>
         <div class="col-sm">
-          <h5>Contact</h5>
+          <h5><a href="map" style="color: white;">Contact</a></h5>
           <p>2호선 이대역 6번출구 앞 중앙빌딩 3층</p>
           <p>02-123-4567</p>
           <p>choongang@naver.com</p>

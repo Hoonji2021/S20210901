@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.han.S20210901.service.LoginCheck;
 import com.han.S20210901.service.PunchServiceHg;
 
 @Controller
@@ -17,10 +18,11 @@ public class PunchControllerHg {
 	
 	
 	@GetMapping(value="punch")
-	public String punch() {
+	public String punch(HttpServletRequest request) {
 		System.out.println("PunchControllerHg punch() Starts...");
-		
+	
 		return "punch";
+		
 	}
 	
 	@GetMapping(value="punchOn")
@@ -78,9 +80,10 @@ public class PunchControllerHg {
 	}
 	
 	@PostMapping(value="qrcode")
-	public String qrcode() {
+	public String qrcode(HttpServletRequest request, Model model) {
 		System.out.println("PunchControllerHg qrcode() Starts...");
 		
+		model.addAttribute("empId",request.getParameter("empId"));
 		return "qrcode";
 	}
 }
