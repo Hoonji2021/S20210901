@@ -10,13 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("수정되었습니다");
-		location.href="pConsultDetail?id=${id}&pnum=${pnum}";
+		alert("게시물 삭제 성공");
+		location.href="memberManagementlist";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("수정되지 않았습니다");
+		alert("게시물 삭제  실패");
 		history.go(-1);
 	</script>
 </c:if>

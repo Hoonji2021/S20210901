@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +9,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("수정되었습니다");
-		location.href="pConsultDetail?id=${id}&pnum=${pnum}";
+		alert("글이 작성되었습니다.");
+		location.href="oconsultList";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("수정되지 않았습니다");
+		alert("글이 작성되지 않았습니다.");
 		history.go(-1);
 	</script>
 </c:if>

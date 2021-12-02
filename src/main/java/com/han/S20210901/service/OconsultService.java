@@ -16,4 +16,7 @@ public interface OconsultService {
 
 	int oconsultCount(int onum);
 
+	int oconsultInsert(Oconsult oconsult);
+
+
 }

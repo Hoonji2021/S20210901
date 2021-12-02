@@ -35,66 +35,67 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
-</style>
-<script type="text/javascript">
-function fn_oconsultcan(){
-	var check;
-	check = confirm("정말 취소하시겠습니까?");
-	if(check == true){
-		location.href="oconsultList"
-	}
+#EmpManagementMain{
+	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
 }
-</script>
+#EmpManagementMainA{
+	color: white;
+}
+</style>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  
 </head>
-
 <body>
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
-	<%@include file="header.jsp" %>
+  <%@include file="header.jsp" %>
+  <%@include file="empOperationNav.jsp" %>	
 	
-	<form action="oconsultWrite" >
-	<div class="container" style="margin: 5% auto;" >
-		<h2>게시물 등록</h2>
-		<hr style="border-top:3px solid #000000">
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="otitle">
-					<h5>제목 : </h5> </label>
-				<input type="text" name="otitle" placeholder="제목을 입력하세요" style="width: 100%;" required="required">
-				<!--???  <input type="hidden" name="onum" value="1"> -->
-				</div>
-		</div>
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="id">
-					<h5>작성자 : </h5> </label>
-				<input type="text" name="owriter" placeholder="작성자를 입력하세요" style="width: 100%;" required="required" >
+	<c:choose>
+	<c:when test="${varSessionState==4 }">
+	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
+	<%-- <div>Pconsult(1대1상담) 게시물 개수 : ${totalCnt}</div> --%>
+		<thead>
+			<tr style="font-family: NanumBarunGothic">
+				<th>ID</th>
+				<th>Email</th>
+				<th>이름</th>
+				<th>주소</th>
+				<th>연락처</th>
+				<th>입사일</th>
+				<th>직원번호</th>
+				<th>부서</th>
+			</tr>	
+		</thead>
+		<tbody>
+		
+		<c:forEach items="${empList}" var="emplist" >
+			<tr style="font-family: NanumBarunGothic; border-bottom: 1px solid #ddd;">
+				<td style="width: 5%; border-right: 1px solid #ddd; border-left:1px solid #ddd;">${emplist.id}</td>
+				<td style="width: 10%; border-right: 1px solid #ddd;">${emplist.email }</td>
+				<td style="width: 5%; border-right: 1px solid #ddd;">${emplist.name }</td>
+				<td style="width: 23%; text-align: left; border-right: 1px solid #ddd;">${emplist.addr }</td>
+				<td style="width: 20%; border-right: 1px solid #ddd;">${emplist.phone }</td>
+				<td style="width: 15%; border-right: 1px solid #ddd;"><fmt:formatDate value="${emplist.regdate}" pattern="yyyy-MM-dd"/></td>
+				<td style="width: 5%; border-right: 1px solid #ddd;">${emplist.empno }</td>
+				<td style="width: 5%; border-right: 1px solid #ddd;">${emplist.dept }</td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+	</c:when>
+		<c:when test="${varSessionState!=4 }">
+			<div style="text-align: center;">
+				<h1>접근 권한이 없습니다.</h1>
 			</div>
-		</div>
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="otitle">
-				<h5>내용 :</h5> </label>
-					<textarea rows="3" name="ocontent" placeholder="내용을 입력하세요" style="width: 100%;" required="required"></textarea>
-			</div>
-		</div>
+		</c:when>
+	</c:choose>
+	 <%@include file="footer.jsp" %>
 	
-		<div style="margin: 0 auto; float: right;">
-			<input type="password" placeholder="  글 비밀번호 입력하세요" required="required">
-			<input type="submit" value="작성완료" class="btn btn-sm btn-primary">
-			<!-- 취소하면 정말 취소하시겠습니까 alert 처리하기 -->
-			<button type="button" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary">취소</button>	
-			
-		</div>
-	</div>
-	</form>
-
-	<%@include file="footer.jsp" %>
 </body>
 </html>

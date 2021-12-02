@@ -29,11 +29,11 @@ public class PconsultControllerJh {
 	@Autowired
 	private ReplysService replysService;
 
+	
 	@RequestMapping(value = "main")
 	public String test1(Model model) {
 		return "main";
 	}
-
 
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, Model model, Pconsult pconsult) {

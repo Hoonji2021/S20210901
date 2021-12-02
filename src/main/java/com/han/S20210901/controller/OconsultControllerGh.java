@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.han.S20210901.model.Oconsult;
 import com.han.S20210901.service.OconsultService;
 import com.han.S20210901.service.Paging;
@@ -35,16 +37,19 @@ public class OconsultControllerGh {
 		model.addAttribute("total", 		total);
 		model.addAttribute("listOconsult", 	listOconsult);
 		model.addAttribute("pg", 			pg);
+		
+		
 		return "oconsultList";
 	}
 	
 	// 제목 누르면 나타나는 상세페이지
 	@GetMapping(value = "oconsultDetail")
-	public String oconsultDetail(int onum, Model model) {
+	public String oconsultDetail(int rn, Model model) {
 		System.out.println("OconsultController Start oconsultDetail...");
 		// 조회수 +1
-		int count = os.oconsultCount(onum);
-		Oconsult oconsult = os.oconsultDetail(onum);
+		int count = os.oconsultCount(rn);
+		System.out.println("OconsultController oconsultDetail count->" +count);
+		Oconsult oconsult = os.oconsultDetail(rn);
 		model.addAttribute("oconsult", oconsult);
 		return "oconsultDetail";
 	}
@@ -67,10 +72,27 @@ public class OconsultControllerGh {
 	}
 	
 	
+	// 글쓰기 폼
+	@RequestMapping(value = "oconsultWriteForm" )
+	public String oconsultWriteForm(Model model) {
+		System.out.println("OconsultController oconsultWriteForm Start...");
+		return "oconsultWriteForm";
+	}
+	
+	// 글쓰기
+	@RequestMapping(value = "oconsultWrite") 
+	public String oconsultWrite(Oconsult oconsult, Model model) {
+		System.out.println("OconsultController oconsultWrite Start...");
+		int result = os.oconsultInsert(oconsult);
+		model.addAttribute("result", result);
+		return "oconsultWritePro";
+	}
+	
+	
 	// 삭제 oconsultDelete  onum
 	
 	// 목록
-	// 글쓰기
+	
 	// 나중에 만들기 empcontrolller 에서 96번째 줄
 //	@GetMapping(value = "oconsultWriteForm")
 //	public String oconsultDetail( )

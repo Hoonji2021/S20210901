@@ -66,6 +66,15 @@ div{
 			}
 		});
 	} --%>
+	function faq_list() {
+		if (answer_list.style = "display: none") {
+			console.log("안녕");
+			answer_list.show();
+		}else
+			console.log("ㅋㅋ");
+			answer_list.hide();
+	}
+	
 	
 	$(function (){
 		$('#faq_list').click(function() {
@@ -94,7 +103,7 @@ div{
 
     </div>
     <c:forEach var="faq" items="${faqList }">
-	    <div id="faq_list">
+	    <div id="faq_list" name="faq_list" class="faq_list" onclick="faq_list()">
 	    	${faq.fnum }&nbsp;${faq.ftitle}
 	    	<c:choose>
 		    	<c:when test="${ varSessionState==4}">

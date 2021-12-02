@@ -57,7 +57,17 @@ body{
    
     <%@include file="header.jsp" %>
     <%@ include file="empOperationNav.jsp"%>
-   
+	<div style="text-align: center; font-family: 'GowunBatang-Regular';">
+		<select name="searchOption" >
+		<optgroup label="검색방식" >
+			<option >담당의</option>
+			<option >환자명</option>
+			<option >진료일</option>
+			</optgroup>
+		</select>
+		<input type="search">
+		<button>검색</button>
+	</div>    <p>
     <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 		<thead>
 			<tr style="font-family: NanumBarunGothic">
@@ -65,8 +75,7 @@ body{
 				<th>환자명</th>
 				<th>진료내역</th>
 				<th>진료일</th>
-				<!-- <th>진료 시간</th> -->
-				<th><select><option>담당의</option></select></th>
+				<th>담당의</th>
 			</tr>	
 		</thead>
 		<tbody>
@@ -83,9 +92,27 @@ body{
 		</c:forEach>
 		
 		</tbody>
-		<td colspan="4"><button>새 진료 작성</button></td>
+		</table>
+		<div style="margin: 0 auto; text-align: center;">
+	<c:if test="${pg.startPage > pg.pageBlock}">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+	</c:if>
+	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${i}">[${i}]</a>
+	</c:forEach>
+	<c:if test="${pg.endPage > pg.totalPage }">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+	</c:if>
+	</div> 
+	<c:if test="${varSessionId != null }">
+		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
+			<button id="writeclick" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">새 진료 작성</button>
+		</div>
+	</c:if>
+	
 		
-	</table>
+		
+	
 	
     <%@include file="footer.jsp" %>
 </body>
