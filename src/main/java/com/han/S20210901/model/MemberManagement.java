@@ -18,4 +18,9 @@ public class MemberManagement {
 	@DateTimeFormat(pattern = "yyyy-MM-dd" )
 	private Date regdate;
 	private int state;
+	
+	//조회용
+	private String pageNum;  
+	private int start; 		 
+	private int end;
 }

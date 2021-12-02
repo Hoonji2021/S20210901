@@ -24,4 +24,9 @@ public class EmpManagement {
 	//Emp table
 	private int empno;
 	private String dept;
+	
+	//조회용
+	private String pageNum;  
+	private int start; 		 
+	private int end;
 }

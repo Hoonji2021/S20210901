@@ -30,4 +30,11 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 		return memberManagementList;
 	}
 
+	@Override
+	public int memberManagementDelete(String id) {
+		System.out.println("MemberManagementDaoImpl memberManagementDelete() Start...");
+		int result = session.delete("MemberManagementDelete", id);
+		return result;
+	}
+
 }

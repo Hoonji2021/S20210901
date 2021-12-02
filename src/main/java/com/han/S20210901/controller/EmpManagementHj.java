@@ -26,7 +26,7 @@ public class EmpManagementHj {
 		model.addAttribute("empList", empManagementList);
 		
 		//empmanagementinside
-		return "empmanagementinside";
+		return "empmanagementlist";
 	}
 	
 	

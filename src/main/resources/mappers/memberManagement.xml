@@ -3,9 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberManagement">
 	<select id="HjMemberManagementCnt" resultType="int">
-		select count(*) FROM member
+		select count(*) FROM member where state = 1
 	</select>
 	<select id="HjMemberManagementList" parameterType="MemberManagement" resultType="MemberManagement">
-		select * from member where state = 1
+		select * 
+		from
+			 ( 
+  			 select rownum rn, a.* from
+    		 (select * from member order by id) a <!-- a는 서브쿼리를 뜻함 -->
+    		 )
+		where state = 1 and rn between #{start} and #{end}
 	</select>
+	
+	<update id="MemberManagementDelete" parameterType="String">
+		update member set state = 3 where id = #{id} 
+	</update>
 </mapper>

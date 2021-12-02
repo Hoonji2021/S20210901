@@ -9,5 +9,7 @@ public interface MemberManagementDao {
 	int memberManagementTotal();
 	
 	List<MemberManagement> MemberManagementALL(MemberManagement memberManagement);
+
+	int memberManagementDelete(String id);
 	
 }

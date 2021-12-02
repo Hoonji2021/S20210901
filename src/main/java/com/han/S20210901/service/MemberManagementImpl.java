@@ -28,4 +28,11 @@ public class MemberManagementImpl implements MemberManagementService {
 		return memberManagementList;
 	}
 
+	@Override
+	public int memberManagementDelete(String id) {
+		System.out.println("MemberManagementServiceImpl memberManagementDelete() Start...");
+		int result = memberManagementDao.memberManagementDelete(id);
+		return result;
+	}
+
 }

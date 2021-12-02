@@ -9,4 +9,6 @@ public interface MemberManagementService {
 	int MemberManagementTotal();
 	
 	List<MemberManagement> MemberManagementAll(MemberManagement memberManagement);
+
+	int memberManagementDelete(String id);
 }
