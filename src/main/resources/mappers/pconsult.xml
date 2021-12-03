@@ -11,12 +11,12 @@
 		FROM
   			 ( 
   			 select rownum rn, a.* from
-    		 (select * from pconsult order by pnum) a <!-- a는 서브쿼리를 뜻함 -->
+    		 (select * from pconsult order by pnum desc) a <!-- a는 서브쿼리를 뜻함 -->
     		 )
 		WHERE rn between #{start} and #{end} 
 	</select>
 	<select id="jhPconsultDetail" parameterType="int" resultType="Pconsult">
-		select * from pconsult where pnum = #{pnum}
+		select * from pconsult where pnum = #{pnum} 
 	</select>
 	<update id="PconsultUpdate" parameterType="Pconsult">
 		update pconsult set ptitle=#{ptitle}, pcontent=#{pcontent}
@@ -25,8 +25,10 @@
 	<update id="PcountPlus" parameterType="int">
 		update pconsult set pcount=pcount+1 where pnum=#{pnum}
 	</update>
-	<insert id="PconsultInsert" parameterType="Pconsult">
-		insert into pconsult values(#{id},pconsult_seq.nextval,#{ptitle},sysdate,0,#{pcontent},#{pw})
+	<insert id="PconsultInsert" parameterType="Pconsult" useGeneratedKeys="false" >
+		insert into pconsult 
+		values(#{id},pconsult_seq.nextval,#{ptitle},sysdate,0,#{pcontent},#{pw})
+		<selectKey keyProperty="pnum" resultType="int" order="AFTER"> SELECT pconsult_seq.CURRVAL FROM DUAL </selectKey> 
 	</insert>
 	<delete id="PconsultDelete" parameterType="int">
 		delete from pconsult where pnum=#{pnum}

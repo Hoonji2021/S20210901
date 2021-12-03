@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
 <link href="css/board.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/maicons.css">
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -43,18 +41,17 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
   <script type="text/javascript">
 	$(function () {
 		$('#writeclick').click(function () {
-			location.href="pCousultInsertForm?id=${id}";
+			location.href="pCousultInsertForm";
 		});
 		
 		$('#noclick').click(function() {
 			var answer;
 			answer = confirm("회원만 가능한 기능입니다. 로그인 하시겠습니까?");
 			if(answer == true){
-				location.href="pConsultCount";//1대1게시판 목록화면 회원가입창으로 이동되게 해야함.
+				location.href="login";//1대1게시판 목록화면 회원가입창으로 이동되게 해야함.
 			}
 		});
 		
@@ -69,14 +66,12 @@ body{
   <%@include file="header.jsp" %>
 	
 	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/101" style="color: white;">온라인상담</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/102">공개상담</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="pConsultCount" style="color: white;">온라인상담</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">치료후기</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">강연&방송</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
-
     </div>
     							
 	<c:set var="num" value="${pg.total-pg.start+1 }"></c:set>
@@ -101,7 +96,7 @@ body{
 				<td>${plist.id }</td>
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">
-					<a href="pConsultDetail?pnum=${plist.pnum}&id=${id}" style="color: black;">${plist.ptitle }</a>
+					<a href="pConsultDetail?pnum=${plist.pnum}" style="color: black;">${plist.ptitle }</a>
 					<!-- 비밀번호 아이콘 -->
 					<div id="dropdown" style="display: inline-block;">
 						<div class="input-group input-group-sm mb-3" style="width: 100%;">
@@ -133,19 +128,16 @@ body{
 		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
-	<c:if test="${id!=null }">
+	<c:if test="${varSessionId != null }">
 		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
 			<button id="writeclick" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
 		</div>
 	</c:if>
-	<c:if test="${id == null }">
+	<c:if test="${varSessionId == null }">
 		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
 			<button id="noclick" type="submit" style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
 		</div>
 	</c:if>
-	
-
-
 	<%@include file="footer.jsp" %>
 	
 </body>

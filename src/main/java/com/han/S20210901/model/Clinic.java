@@ -14,4 +14,8 @@ public class Clinic {
 	private Date cdate;
 	private String ctime;
 	private String ccontent;
+	
+	// 조회용
+	private String name;
+	private String ename;
 }

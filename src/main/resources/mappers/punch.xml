@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Punch">
+	<insert id="hgPunchOn" parameterType="String">
+		insert into punch (empno, pundate, starttime) values ((select empno from emp where id = #{sessionId}), sysdate,systimestamp)
+	</insert>
+	<insert id="hgPunchOff" parameterType="String">
+		insert into punch (empno, pundate, endtime) values ((select empno from emp where id = #{sessionId}), sysdate,systimestamp)
+	</insert>
+</mapper>

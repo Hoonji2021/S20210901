@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -12,11 +11,14 @@
 <link rel="stylesheet"href="vendor/owl-carousel/css/owl.carousel.css">
 <link rel="stylesheet" href="vendor/animate/animate.css">
 <link rel="stylesheet" href="css/theme.css">
+
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
+
+
 <style type="text/css">
 @font-face {
     font-family: 'GowunBatang-Regular';
@@ -33,6 +35,7 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+
 </style>
 
   <meta charset="UTF-8">
@@ -45,12 +48,12 @@ body{
 <body>
 
   <!-- Back to top button -->
-  <div class="back-to-top"></div>
+  <div class="back-to-top">
+  	
+  </div>
    
     <%@include file="header.jsp" %>
-    
 
-  
    <!-- 정지훈 / 1대1 상담 -->
   <div class="page-hero bg-image" style="background-image: url(img/main_vimg01.png);">
     <div class="hero-section">
@@ -58,7 +61,7 @@ body{
         <h3 class="display-5" >아픔과 비밀을 공유하는 </h3>
         <div class="display-4" >마음의 주치의가 되어드리겠습니다.</div>
         
-        <a href="pConsultCount" class="btn btn-primary" style="margin-top: 30px; color: white; background-color: black">진료예약</a>
+        <a href="reservationCalendar" class="btn btn-primary" style="margin-top: 30px; color: white; background-color: black">진료예약</a>
       </div>
     </div>
   </div> 
@@ -169,7 +172,7 @@ body{
         </div>
 
         <div class="col-12 text-center mt-4 wow zoomIn">
-          <a href="blog.html" class="btn btn-primary">더보기</a>
+          <a href="noticeList" class="btn btn-primary">더보기</a>
         </div>
 
       </div>
@@ -181,7 +184,9 @@ body{
 
   <div class="page-section">
     <div class="container">
-      <h2 class="text-center mb-5 wow fadeInUp">강연&방송</h2>
+      <h2 class="text-center mb-5 wow fadeInUp">
+      	<a href="mediaList">강연&방송</a>
+      	</h2>
 
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
         <div class="item">
@@ -236,11 +241,9 @@ body{
     </div>
   </div>
 
-  
+
  <%@include file="footer.jsp" %>
  
- 
-
 
   
 </body>

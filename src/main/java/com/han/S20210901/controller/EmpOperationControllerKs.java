@@ -19,14 +19,11 @@ public class EmpOperationControllerKs {
 	private ReservationServiceKs rs;
 	
 	// 관리자 예약관리 캘린더 경성
-	@GetMapping("reservationOperation")
+	@GetMapping("reservationOperationCalendar")
 	public String empOperation(HttpServletRequest request, Model model) {
 		System.out.println("EmpOperationControllerKs makeAReservationOperation() start...");
-		//String sessionId = (String)request.getSession().getAttribute("sessionId");
-		String sessionId = "admin";
-		model.addAttribute("sessionId",sessionId);
 		
-		return "reservationOperation";
+		return "reservationOperationCalendar";
 	}
 	
 	// 관리자 예약관리에서 예약등록, 의사들이 다음일정 잡을 때 쓰는.. 경성

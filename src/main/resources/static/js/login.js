@@ -9,10 +9,10 @@ function doSubmit(event){
 }
 
 const submitAjax = () => {
-	const param = {"id":id.value, "pw":pw.value};
-	
-	$.ajax({
-		url: "loginDo",
+   const param = {"id":id.value, "pw":pw.value};
+   
+   $.ajax({
+      url: "loginDo",
         type: "POST",
         data: param
 	}).done(function(data) {

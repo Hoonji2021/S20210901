@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -112,7 +111,7 @@ function replydel() {
 						class="btn btn-sm btn-primary">삭제</button>
 					<!-- location.href='pCosultDelete?pnum=${pdetail.pnum}' -->
 				</c:if>
-				<button onclick="location.href='pConsultCount?id=${id}'"
+				<button onclick="location.href='pConsultCount'"
 					class="btn btn-sm btn-primary">목록</button>
 			</div>
 			<br> <br>
@@ -129,7 +128,7 @@ function replydel() {
 									<label for="replyId"><i class="fa fa-user-circle fa-lg"></i></label>
 									&nbsp;&nbsp;${id} <label for="replyPassword" class="ml-4"><i
 										class="fa fa-lock fa-lg"></i> </label>
-										<input type="hidden" name="id" value="${id }"> 
+										<input type="hidden" name="id" value="${pdetail.id }"> 
 										<input type="hidden" name="pnum" value="${pdetail.pnum}">
 										<input type="hidden" name="replynum" value="${reply.replynum }">
 								</div> <textarea class="form-control" id="exampleFormControlTextarea1"

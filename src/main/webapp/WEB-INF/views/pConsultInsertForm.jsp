@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -66,7 +65,7 @@ body{
 			<div class="col">
 				<label for="id">
 					<h5>작성자 : </h5> </label>
-				<input type="text" name="id" value="${id}" style="width: 100%;" readonly="readonly">
+				<input type="text" name="id" value="${varSessionId}" style="width: 100%;" readonly="readonly">
 			</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">
