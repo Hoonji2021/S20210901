@@ -19,5 +19,9 @@
 	<select id="mediaDetailSh" parameterType="int" resultType="Media">
 		select * from media where mnum=#{mnum}
 	</select>
+	
+	<insert id="mediaInsertPro" parameterType="Media">
+		insert into media values(MEDIA_SEQ.nextval,0,#{mtitle},#{link},sysdate,#{msumnail})
+	</insert>
 
 </mapper>

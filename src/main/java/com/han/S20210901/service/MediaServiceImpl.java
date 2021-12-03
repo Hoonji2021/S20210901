@@ -31,4 +31,10 @@ public class MediaServiceImpl implements MediaService {
 		return md.mediaDetail(mnum);
 	}
 
+	@Override
+	public int mediaInsertPro(Media media) {
+		System.out.println("mediaService mediaInsertPro start");
+		return md.mediaInsertPro(media);
+	}
+
 }

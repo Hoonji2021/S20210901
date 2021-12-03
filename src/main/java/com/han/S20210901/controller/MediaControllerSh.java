@@ -51,4 +51,13 @@ public class MediaControllerSh {
 		return "mediaInsertForm";
 	}
 	
+	@RequestMapping(value = "mediaInsertPro")
+	public String mediaInsertPro(Media media, Model model) {
+		System.out.println("mediaController mediaInsertPro start");
+		int result = 0;
+		result = ms.mediaInsertPro(media);
+		model.addAttribute("result", result);
+		return "mediaInsertPro";
+	}
+	
 }

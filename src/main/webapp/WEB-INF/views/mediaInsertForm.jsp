@@ -58,14 +58,14 @@ body{
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
 
     </div>
-    <form action="mediaInsertResult" method="post" enctype="multipart/form-data">
+    <form action="mediaInsertPro" method="post" enctype="multipart/form-data">
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
 		<tr><th>제목</th></tr>
-		<tr><td><input type="text" name="mtitle"></td></tr>
+		<tr><td><input type="text" name="mtitle" readonly="readonly"></td></tr>
 		<tr><th>본문</th></tr>
 		<tr><td>
-			<input type="url" name="link">
-			<input type="file" name="file"><p>
+			<input type="url" name="link" required="required" placeholder="영상링크 입력"><p>
+			<input type="file" name="file" required="required"><p>
 			<input type="hidden" name="path" value="resources/image/"><p>
 		</td></tr>
 		<tr><td colspan="2">

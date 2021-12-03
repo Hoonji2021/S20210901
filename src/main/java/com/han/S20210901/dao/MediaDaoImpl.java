@@ -30,4 +30,10 @@ public class MediaDaoImpl implements MediaDao {
 		System.out.println("mediaDao mediaDetail start");
 		return session.selectOne("mediaDetailSh", mnum);
 	}
+
+	@Override
+	public int mediaInsertPro(Media media) {
+		System.out.println("mediaDao mediaInsertPro start");
+		return session.insert("mediaInsertProSh", media);
+	}
 }
