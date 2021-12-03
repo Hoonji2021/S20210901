@@ -18,5 +18,7 @@ public interface OconsultDao {
 
 	int oconsultInsert(Oconsult oconsult);
 
+	int oconsultDelete(int onum);
+
 
 }

@@ -48,9 +48,9 @@ public class OconsultServiceImpl implements OconsultService {
 	}
 
 	@Override
-	public int oconsultCount(int rn) {
+	public int oconsultCount(int onum) {
 		System.out.println("oconsultServiceImpl oconsultCount ...");
-		int count = od.oconsultCount(rn);
+		int count = od.oconsultCount(onum);
 		return count;
 	}
 
@@ -59,6 +59,14 @@ public class OconsultServiceImpl implements OconsultService {
 		int result = 0;
 		System.out.println("oconsultServiceImpl oconsultInsert ...");
 		result = od.oconsultInsert(oconsult);
+		return result;
+	}
+
+	@Override
+	public int oconsultDelete(int onum) {
+		int result = 0;
+		System.out.println("oconsultServiceImpl oconsultDelete ...");
+		result = od.oconsultDelete(onum);
 		return result;
 	}
 

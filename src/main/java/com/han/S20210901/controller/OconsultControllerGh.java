@@ -24,7 +24,7 @@ public class OconsultControllerGh {
 	@RequestMapping(value = "oconsultList")
 	public String oconsultList(Oconsult oconsult, String currentPage, Model model) {
 		System.out.println("OconsultController Start list...");
-		//공개상담 게시물 총 개수 구하기
+		//공개상담 리스트 총 개수 
 		int total = os.total();
 		System.out.println("OconsultController total=>" + total);
 		// Paging
@@ -44,12 +44,12 @@ public class OconsultControllerGh {
 	
 	// 제목 누르면 나타나는 상세페이지
 	@GetMapping(value = "oconsultDetail")
-	public String oconsultDetail(int rn, Model model) {
+	public String oconsultDetail(int onum, Model model) {
 		System.out.println("OconsultController Start oconsultDetail...");
 		// 조회수 +1
-		int count = os.oconsultCount(rn);
+		int count = os.oconsultCount(onum);
 		System.out.println("OconsultController oconsultDetail count->" +count);
-		Oconsult oconsult = os.oconsultDetail(rn);
+		Oconsult oconsult = os.oconsultDetail(onum);
 		model.addAttribute("oconsult", oconsult);
 		return "oconsultDetail";
 	}
@@ -89,7 +89,14 @@ public class OconsultControllerGh {
 	}
 	
 	
-	// 삭제 oconsultDelete  onum
+	// 삭제  onum
+	@RequestMapping(value = "oconsultDelete")
+	public String oconsultDelete(int onum, Model model) {
+		System.out.println("OconsultController oconsultDelete Start...");
+		int result = os.oconsultDelete(onum);
+		model.addAttribute("result", result);
+		return "oconsultList";
+	}
 	
 	// 목록
 	

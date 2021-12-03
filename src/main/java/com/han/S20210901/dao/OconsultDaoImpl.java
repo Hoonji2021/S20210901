@@ -15,7 +15,7 @@ public class OconsultDaoImpl implements OconsultDao {
 	@Override
 	public int total() {
 		int tot = 0;
-		System.out.println("Oconsult total Start ...");
+		System.out.println("OconsultDaoImpl total Start ...");
 		try {
 			//    Mapper    ------>   Map ID (Naming Rule)
 			tot = session.selectOne("ghOconsultTotal");
@@ -61,11 +61,11 @@ public class OconsultDaoImpl implements OconsultDao {
 		return k;
 	}
 	@Override
-	public int oconsultCount(int rn) {
+	public int oconsultCount(int onum) {
 		System.out.println("OconsultDaoImpl oconsultCount start...");
 		int count = 0;
 		try {
-			count = session.update("ghOconsultCount", rn);
+			count = session.update("ghOconsultCount", onum);
 		} catch (Exception e) {
 			System.out.println("OconsultDaoImpl oconsultUpdate Exception->"+e.getMessage());
 		}
@@ -81,6 +81,21 @@ public class OconsultDaoImpl implements OconsultDao {
 			System.out.println("OconsultDaoImpl oconsultInsert Exception->"+e.getMessage());
 		}
 		return result;
+	}
+	@Override
+	public int oconsultDelete(int onum) {
+		System.out.println("OconsultDaoImpl oconsultDelete start... ");
+		int result = 0;
+		try {
+			result = session.delete("ghOconsultDelete", onum);
+		} catch (Exception e) {
+			System.out.println("OconsultDaoImpl delete Exception->"+e.getMessage());
+		}
+		return result;
+		
+		
+		
+		return 0;
 	}
 
 

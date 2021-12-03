@@ -55,7 +55,7 @@ function fn_oconsultdel(opw){
 		var check; // 변수선언
 		check = confirm("정말 삭제하시겠습니까?");
 		if(check == true){
-			location.href="oconsultDelete?rn=${oconsult.rn}";
+			location.href="oconsultDelete?rn=${oconsult.onum}";
 		}else{
 			frm.opw.value="";
 			frm.opw.focus();
@@ -90,6 +90,8 @@ function fn_oconsultdel(opw){
 				<div class="col">작성자 : ${oconsult.owriter }</div>
 			</div>
 			<div class="row row-cols-auto" style="margin: 0 auto;">
+				
+			 	<input type="hidden" name="rn" value="${oconsult.rn}">
 			 	<input type="hidden" name="onum" value="${oconsult.onum}">
 				<div class="col">날짜 : ${odate }</div>
 				<div class="col">조회수 : ${oconsult.ocount }</div>
@@ -107,7 +109,7 @@ function fn_oconsultdel(opw){
 			<input type="password" name="opw" required="required" maxlength="5" 
 				placeholder="글 비밀번호 입력" style="text-align:center" size="13" >
 			<input type="submit" value="수정" class="btn btn-sm btn-primary">
-			<input type="button" value="삭제" onclick="return fn_oconsultdel(${oconsult.opw })" class="btn btn-sm btn-primary">
+			<input type="button" value="삭제" onclick="return fn_oconsultdel(${oconsult.onum })" class="btn btn-sm btn-primary">
 			<input type="button" value="목록" onclick="location.href='oconsultList'" class="btn btn-sm btn-primary">
 
 
