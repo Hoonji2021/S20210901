@@ -71,6 +71,8 @@ public class PconsultDaoImpl implements PconsultDao{
 		System.out.println("PconsultDaoImpl pConsultInsert() Start...");
 		try {
 			session.insert("PconsultInsert", pconsult);
+			System.out.println("PconsultDaoImpl pConsultInsert pconsult.getPnum()->"+pconsult.getPnum());
+
 		}catch (Exception e) {
 			System.out.println("PconsultDaoImpl pConsultInsert Exception->"+e.getMessage());
 		}

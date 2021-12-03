@@ -10,9 +10,9 @@
 		from
 			 ( 
   			 select rownum rn, a.* from
-    		 (select * from member order by id) a <!-- a는 서브쿼리를 뜻함 -->
+    		 (select * from member where state=1 order by id) a <!-- a는 서브쿼리를 뜻함 -->
     		 )
-		where state = 1 and rn between #{start} and #{end}
+		where rn between #{start} and #{end}
 	</select>
 	
 	<update id="MemberManagementDelete" parameterType="String">

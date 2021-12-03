@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -104,7 +103,7 @@ function replydel() {
 			</div>
 
 			<div style="margin: 3% auto; float: right;">
-				<c:if test="${id == pdetail.id }">
+				<c:if test="${varSessionId == pdetail.id }">
 					<button
 						onclick="location.href='pConsultUpdateForm?pnum=${pdetail.pnum}'"
 						class="btn btn-sm btn-primary">수정</button>
@@ -112,13 +111,13 @@ function replydel() {
 						class="btn btn-sm btn-primary">삭제</button>
 					<!-- location.href='pCosultDelete?pnum=${pdetail.pnum}' -->
 				</c:if>
-				<button onclick="location.href='pConsultCount?id=${id}'"
+				<button onclick="location.href='pConsultCount'"
 					class="btn btn-sm btn-primary">목록</button>
 			</div>
 			<br> <br>
 			<!------------- 댓글------------- -->
 		
-			<c:if test="${id!=null }">
+			<c:if test="${varSessionId!=null }">
 				<form action="insertReply" method="post">
 					<div class="card-body" style="width: 100%; padding-right: 0px;">
 						<ul class="list-group list-group-flush"
@@ -126,9 +125,9 @@ function replydel() {
 							<li class="list-group-item">
 								<div class="form-inline mb-2">
 									<label for="replyId"><i class="fa fa-user-circle fa-lg"></i></label>
-									&nbsp;&nbsp;${id} <label for="replyPassword" class="ml-4"><i
+									&nbsp;&nbsp;${varSessionId } <label for="replyPassword" class="ml-4"><i
 										class="fa fa-lock fa-lg"></i> </label>
-										<input type="hidden" name="id" value="${id }"> 
+										<input type="hidden" name="id" value="${varSessionId }"> 
 										<input type="hidden" name="pnum" value="${pdetail.pnum}">
 								</div> <textarea class="form-control" id="exampleFormControlTextarea1"
 									rows="3" name="reply"></textarea>
@@ -149,7 +148,7 @@ function replydel() {
 									<fmt:formatDate value="${reply.replydate }" var="replydate" pattern="yy-MM-dd"/>
 									<label for="replyId"><i class="fa fa-user-circle fa-lg"></i></label>
 									&nbsp;&nbsp;${reply.id }&nbsp;&nbsp;${replydate }
-									<c:if test="${id==reply.id }">&nbsp;&nbsp;&nbsp;&nbsp; 
+									<c:if test="${varSessionId ==reply.id }">&nbsp;&nbsp;&nbsp;&nbsp; 
 							 			
 							 			
 							 			<!-- 여기 해야함 -->

@@ -23,21 +23,21 @@ public class EmpOperationControllerHg {
 	@GetMapping("empOperation")
 	public String empOperation(HttpServletRequest request, Model model) {
 		//String sessionId = (String)request.getSession().getAttribute("sessionId");
-		String sessionId = "admin";
-		model.addAttribute("sessionId",sessionId);
+//		String sessionId = "admin";
+//		model.addAttribute("sessionId",sessionId);
 		return "empOperation";
 	}
 	@GetMapping("clinicOperation")
 	public String clinicOperation(HttpServletRequest request, Model model) {
 		
-		String sessionId = "admin";
+//		String sessionId = "admin";
 		
 		List<Clinic> clinicList = clinicSerivice.clinicAll();
 		
 		
 		
 		model.addAttribute("clinicList",clinicList);
-		model.addAttribute("sessionId",sessionId);
+//		model.addAttribute("sessionId",sessionId);
 		return "clinicOperation";
 	}
 	

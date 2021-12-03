@@ -3,6 +3,7 @@ package com.han.S20210901.service;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class Paging {
@@ -42,5 +43,7 @@ public class Paging {
 		}
 		
 	}
+
+
 
 }

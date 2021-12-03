@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -49,10 +48,12 @@ body{
 <body>
 
   <!-- Back to top button -->
-  <div class="back-to-top"></div>
-   
+  <div class="back-to-top">
+  	
+  </div>
+    <%-- <%@include file="modal.jsp" %>  --%>
     <%@include file="header.jsp" %>
-
+	
    <!-- 정지훈 / 1대1 상담 -->
   <div class="page-hero bg-image" style="background-image: url(img/main_vimg01.png);">
     <div class="hero-section">
@@ -60,7 +61,7 @@ body{
         <h3 class="display-5" >아픔과 비밀을 공유하는 </h3>
         <div class="display-4" >마음의 주치의가 되어드리겠습니다.</div>
         
-        <a href="pConsultCount" class="btn btn-primary" style="margin-top: 30px; color: white; background-color: black">진료예약</a>
+        <a href="reservationCalendar" class="btn btn-primary" style="margin-top: 30px; color: white; background-color: black">진료예약</a>
       </div>
     </div>
   </div> 
@@ -237,12 +238,8 @@ body{
       </div>
     </div>
   </div>
-
+  
  <%@include file="footer.jsp" %>
  
- 
-
-
-  
 </body>
 </html>

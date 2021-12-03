@@ -2,7 +2,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -35,6 +34,13 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+
+#clinicOperation{
+	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
+}
+#clinicOperationA{
+	color: white;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -50,9 +56,8 @@ body{
   <div class="back-to-top"></div>
    
     <%@include file="header.jsp" %>
-    <jsp:include page="empOperationNav.jsp">
-    	<jsp:param name="selectedPage" value="clinicOperation"></jsp:param>
-    </jsp:include>
+    <%@ include file="empOperationNav.jsp"%>
+   
     <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 		<thead>
 			<tr style="font-family: NanumBarunGothic">
@@ -78,9 +83,27 @@ body{
 		</c:forEach>
 		
 		</tbody>
-		<td colspan="4"><button>새 진료 작성</button></td>
+		</table>
+		<div style="margin: 0 auto; text-align: center;">
+	<c:if test="${pg.startPage > pg.pageBlock}">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+	</c:if>
+	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${i}">[${i}]</a>
+	</c:forEach>
+	<c:if test="${pg.endPage > pg.totalPage }">
+		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+	</c:if>
+	</div> 
+	<c:if test="${varSessionId != null }">
+		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
+			<button id="writeclick" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">새 진료 작성</button>
+		</div>
+	</c:if>
+	
 		
-	</table>
+		
+	
 	
     <%@include file="footer.jsp" %>
 </body>
