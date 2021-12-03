@@ -79,12 +79,12 @@ body{
 		<c:forEach var="listOconsult" items="${listOconsult}" >
 		<fmt:formatDate value="${listOconsult.odate }" var="odate" pattern="yy-MM-dd"/>
 			<tr style="font-family: NanumBarunGothic">
-				<td style="width: 100px;">${listOconsult.onum}</td>
+				<td style="width: 100px;">${listOconsult.rn}</td>
 				<td>${listOconsult.owriter }</td>
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">
 						<!-- oconsultDetail.jsp가 아닌 무조건 oconsultDetail 컨트롤러로 먼저 간다 -->
-					<a href="oconsultDetail?onum=${listOconsult.onum}" style="color: black;">${listOconsult.otitle }</a>
+					<a href="oconsultDetail?rn=${listOconsult.rn}" style="color: black;">${listOconsult.otitle }</a>
 				</td>
 				<td style="width: 180px;">${odate }</td>
 				<td style="width: 100px;">${listOconsult.ocount }</td>
@@ -92,25 +92,26 @@ body{
 		</c:forEach>
 		</tbody>		
 	</table>
-	
-		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
-			<button onclick="location.href='oconsultWriteForm'" style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
-		</div>
 
-	
-	
-	<%-- <c:if test="${pg.startPage > pg.pageBlock}">
-		<a href="empList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+	<div style="margin: 0 auto; text-align: center;">
+	<c:if test="${pg.startPage > pg.pageBlock}">
+		<a class="btn btn-primary btn-sm" href="oconsultList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a href="empList?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="oconsultList?currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a href="empList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
-	</c:if> --%>
-
-
-	<%@include file="footer.jsp" %>
+		<a class="btn btn-primary btn-sm" href="oconsultList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+	</c:if>
+	</div>
 	
+	<div
+		style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%;">
+		<button onclick="location.href='oconsultWriteForm'"
+			style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">글쓰기</button>
+	</div>
+
+	<%@include file="footer.jsp"%>
+
 </body>
 </html>

@@ -36,6 +36,15 @@ body{
 	font-family: 'MaruBuri-Regular';
 }
 </style>
+<script type="text/javascript">
+function fn_oconsultcan(){
+	var check;
+	check = confirm("정말 취소하시겠습니까?");
+	if(check == true){
+		location.href="oconsultList"
+	}
+}
+</script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,44 +58,38 @@ body{
   <div class="back-to-top"></div>
 	<%@include file="header.jsp" %>
 	
-	<form action="pConsultInsertPro" method="post">
+	<form action="oconsultWrite" >
 	<div class="container" style="margin: 5% auto;" >
 		<h2>게시물 등록</h2>
 		<hr style="border-top:3px solid #000000">
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
-				<label for="ptitle">
+				<label for="otitle">
 					<h5>제목 : </h5> </label>
-				<input type="text" name="ptitle" placeholder="제목을 입력하세요" style="width: 100%;">
-				<input type="hidden" name="pnum" value="1">
+				<input type="text" name="otitle" placeholder="제목을 입력하세요" style="width: 100%;" required="required">
+				<!--???  <input type="hidden" name="onum" value="1"> -->
 				</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
 				<label for="id">
 					<h5>작성자 : </h5> </label>
-				<input type="text" name="id" value="${id}" style="width: 100%;" readonly="readonly">
+				<input type="text" name="owriter" placeholder="작성자를 입력하세요" style="width: 100%;" required="required" >
 			</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
-				<label for="ptitle">
+				<label for="otitle">
 				<h5>내용 :</h5> </label>
-					<textarea rows="3" name="pcontent" placeholder="내용을 입력하세요" style="width: 100%;"></textarea>
+					<textarea rows="3" name="ocontent" placeholder="내용을 입력하세요" style="width: 100%;" required="required"></textarea>
 			</div>
 		</div>
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="pw">
-				<h5>비밀번호 :</h5> </label>
-					 <input type="password" name="pw" placeholder="비밀번호를 입력하세요" style="width: 20%;">
-			</div>
-		</div>
+	
 		<div style="margin: 0 auto; float: right;">
-			<!-- 비어있거나 올바르지 않다면 alert 처리하기 -->	
+			<input type="password" placeholder="  글 비밀번호 입력하세요" required="required">
 			<input type="submit" value="작성완료" class="btn btn-sm btn-primary">
 			<!-- 취소하면 정말 취소하시겠습니까 alert 처리하기 -->
-			<button type="button" onclick="location.href='pConsultCount'" class="btn btn-sm btn-primary">취소</button>	
+			<button type="button" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary">취소</button>	
 			
 		</div>
 	</div>

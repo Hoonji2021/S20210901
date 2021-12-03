@@ -10,13 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("댓글 수정 성공");
+		alert("수정되었습니다");
 		location.href="pConsultDetail?id=${id}&pnum=${pnum}";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("댓글 수정  실패");
+		alert("수정되지 않았습니다");
 		history.go(-1);
 	</script>
 </c:if>

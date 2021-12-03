@@ -9,7 +9,7 @@
 
 
             <div id="clinicOperation" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="clinicOperationA" href="clinicOperation">진료 관리</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">예약 관리</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="reservationOperationCalendar">예약 관리</a></div>
 			<div id="" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="" href="#">강연&영상 관리</a></div>
             <div id="oconsultList" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="oconsultListA" href="oconsultList">공개상담 관리</a></div>            
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">공지사항 관리</a></div>

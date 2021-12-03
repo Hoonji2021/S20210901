@@ -53,7 +53,6 @@ body{
   <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <script type="text/javascript">
-	
 	function faq_list(num) {
 		if($('#faq_list'+num).next().css('display')=='none'){
 			$('#faq_list'+num).next().show();
@@ -78,6 +77,7 @@ body{
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
 
     </div>
+
     <div>
 	    <c:forEach var="faq" items="${faqList }" varStatus="status">
 		    <div class="faq_div" id="faq_list${status.index}" onclick="faq_list(${status.index})">

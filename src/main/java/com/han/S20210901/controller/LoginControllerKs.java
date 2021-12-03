@@ -35,17 +35,18 @@ public class LoginControllerKs {
 		System.out.println("ReservationRestController loginDo() start...");
 
 		List<Member> data = ls.getIdPw(id);
-		
+
 		return data;
 	}
-	
-	   @GetMapping(value = "logout")
-	   public String logout(HttpServletRequest request) {
-	      System.out.println("LoginControllerKs logout() start...");
-	      HttpSession session = request.getSession();
-	      session.invalidate();
-	      
-	      return "redirect:main";
-	   }
+
+	// 로그아웃, 경성
+	@GetMapping(value = "logout")
+	public String logout(HttpServletRequest request) {
+		System.out.println("LoginControllerKs logout() start...");
+		HttpSession session = request.getSession();
+		session.invalidate();
+
+		return "redirect:main";
+	}
 
 }

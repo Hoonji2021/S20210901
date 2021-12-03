@@ -29,7 +29,11 @@ public class PconsultControllerJh {
 	@Autowired
 	private ReplysService replysService;
 
-
+	
+	@RequestMapping(value = "main")
+	public String test1(Model model) {
+		return "main";
+	}
 
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, Model model, Pconsult pconsult) {
@@ -192,6 +196,33 @@ public class PconsultControllerJh {
 		model.addAttribute("myTest", myTest);
 		
 		return "myselfTestResult";
+	}
+	
+	@GetMapping(value = "myselfTest2")
+	public String myselfTest2(MyselfTest myTest, Model model) {
+		System.out.println("PconsultControllerJh myselfTest2() Start...");
+		
+		return "myselfTest2";
+	}
+	
+	@PostMapping(value = "TestResult2")
+	public String TestResult2(MyselfTest myTest, Model model) {
+		int testTotal = myTest.getMyTest1()+myTest.getMyTest2()+myTest.getMyTest3()+myTest.getMyTest4()+myTest.getMyTest5()+
+						myTest.getMyTest6()+myTest.getMyTest7()+myTest.getMyTest8()+myTest.getMyTest9()+myTest.getMyTest10()+
+						myTest.getMyTest11()+myTest.getMyTest12()+myTest.getMyTest13()+myTest.getMyTest14()+myTest.getMyTest15();
+		System.out.println("TestResult2 testTotal ->"+testTotal);
+		
+		model.addAttribute("total", testTotal);
+		model.addAttribute("myTest", myTest);
+			
+		return "myselfTestResult2";
+	}
+	                     
+	@GetMapping(value = "myselfTest3")
+	public String myselfTest3(MyselfTest myTest, Model model) {
+		System.out.println("PconsultControllerJh myselfTest3() Start...");
+		
+		return "myselfTest3";
 	}
 
 

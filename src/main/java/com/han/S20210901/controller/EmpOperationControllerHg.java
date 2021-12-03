@@ -1,6 +1,5 @@
 package com.han.S20210901.controller;
 
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,6 @@ public class EmpOperationControllerHg {
 	@Autowired
 	private ClinicService clinicSerivice;
 	
-	
 	@GetMapping("empOperation")
 	public String empOperation(HttpServletRequest request, Model model) {
 		//String sessionId = (String)request.getSession().getAttribute("sessionId");
@@ -27,6 +25,7 @@ public class EmpOperationControllerHg {
 //		model.addAttribute("sessionId",sessionId);
 		return "empOperation";
 	}
+	
 	@GetMapping("clinicOperation")
 	public String clinicOperation(HttpServletRequest request, Model model) {
 		
@@ -34,12 +33,8 @@ public class EmpOperationControllerHg {
 		
 		List<Clinic> clinicList = clinicSerivice.clinicAll();
 		
-		
-		
 		model.addAttribute("clinicList",clinicList);
 //		model.addAttribute("sessionId",sessionId);
 		return "clinicOperation";
 	}
-	
-	
 }
