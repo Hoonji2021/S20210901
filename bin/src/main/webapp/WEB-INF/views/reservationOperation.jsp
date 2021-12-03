@@ -53,9 +53,6 @@ body {
 	<div class="back-to-top"></div>
 
 	<%@include file="header.jsp"%>
-	<jsp:include page="empOperationNav.jsp">
-		<jsp:param name="selectedPage" value="reservationOperation"></jsp:param>
-	</jsp:include>
 
 	<div class="calendar">
 		<div class="header">
