@@ -33,7 +33,7 @@
 	</script>
 	
 </head>
-<body>
+<body> 
   <div class="modal fade" id="modalRegisterForm0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -102,10 +102,10 @@
     </div>
   </div>
 </div>
-	<div class="banner" style="position: absolute; z-index: 120; right: 10px;  margin: 0; border: 0; padding: 0;">
-			<div class="text-center" id="chase" style="position:absolute; width: 200px;  height: 300px; background-color: white-space; right:10px; z-index: 120; border-radius: 30px; margin-top: 100px; ">
-				 <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" style="width: 120px; height: 120px; margin: 0; border: 0; padding: 0; border-radius: 30px;" data-target="#modalRegisterForm0"><img src="img/modal/BMI.png" style="width: 120px; height: 120px; border-radius: 30px;"></a>
-			 	  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" style="width: 120px; height: 120px; margin: 0; border: 0; padding: 0; border-radius: 30px;"data-target="#modalRegisterForm1"><img src="img/modal/height.png" style="width: 120px; height: 120px; border-radius: 30px;"></a>
+	<div class="banner" style="position: absolute; z-index: 120;  margin: 0; border: 0; padding: 0; top: 50px; right: 1px; ">
+			<div class="text-center" id="chase" style="position:absolute; width: 120px;  height: 300px; background-color: white-space; z-index: 120; border-radius: 30px; margin-top: 120px; right:0px; ">
+				 <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" style="width: 100px; height: 100px; margin: 0; border: 0; padding: 0; border-radius: 30px;  " data-target="#modalRegisterForm0"><img src="img/modal/BMI.png" style="width: 120px; height: 120px; border-radius: 30px; "></a>
+			 	  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" style="width: 100px; height: 100px; margin: 0; border: 0; padding: 0; border-radius: 30px; "data-target="#modalRegisterForm1"><img src="img/modal/height.png" style="width: 120px; height: 120px; border-radius: 30px; "></a>
 			</div>	    
 	</div>
 </body>
