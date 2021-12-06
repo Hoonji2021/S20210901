@@ -55,7 +55,7 @@ function fn_oconsultdel(opw){
 		var check; // 변수선언
 		check = confirm("정말 삭제하시겠습니까?");
 		if(check == true){
-			location.href="oconsultDelete?onum=${oconsult.onum}";
+			location.href="oconsultDelete?rn=${oconsult.rn}";
 		}else{
 			frm.opw.value="";
 			frm.opw.focus();
@@ -72,9 +72,9 @@ function fn_oconsultdel(opw){
 <body>
   <!-- Back to top button -->
   <div class="back-to-top"></div>
-	<%@include file="header.jsp" %>
+<%@include file="header.jsp" %>
 	
-		<div class="container" style="margin: 5% auto;">
+	<div class="container" style="margin: 5% auto;">
 			<h2>공개 상담</h2>
 			
 	<form action="oconsultUpdateForm" method="post" name="frm" onsubmit="return fn_oconsultUpdate(${oconsult.opw })">
@@ -109,13 +109,15 @@ function fn_oconsultdel(opw){
 			<input type="submit" value="수정" class="btn btn-sm btn-primary">
 			<input type="button" value="삭제" onclick="return fn_oconsultdel(${oconsult.opw })" class="btn btn-sm btn-primary">
 			<input type="button" value="목록" onclick="location.href='oconsultList'" class="btn btn-sm btn-primary">
-			
-		<%-- 	<button onclick="return pconsultdel()" class="btn btn-sm btn-primary">삭제</button>
+
+
+				<%-- 	<button onclick="return pconsultdel()" class="btn btn-sm btn-primary">삭제</button>
 			<button onclick="location.href='pConsultCount?id=${id}'" class="btn btn-sm btn-primary">목록</button> --%>
+			
 		</div>		
 			<br><br>	
-		
 	</form>
+</div>
 
 </body>
 	<%@include file="footer.jsp" %>

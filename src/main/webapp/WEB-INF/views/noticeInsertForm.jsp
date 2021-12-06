@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<%
-	String context = request.getContextPath();
-%>
 <html lang="ko">
 <head>
 
@@ -37,12 +34,6 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
-.faq_div{
-	width: 68%; 
-	margin: 0 auto; 
-	margin-bottom: 1%;
-	font-family: NanumBarunGothic;
-}
 </style>
 
   <meta charset="UTF-8">
@@ -52,16 +43,6 @@ body{
   
   <title>One Health - Medical Center HTML5 Template</title>
 </head>
-<script type="text/javascript">
-	function faq_list(num) {
-		if($('#faq_list'+num).next().css('display')=='none'){
-			$('#faq_list'+num).next().show();
-		}else{
-			$('#faq_list'+num).next().hide();
-		}
-	}
-	
-</script>
 <body>
 
   <!-- Back to top button -->
@@ -77,31 +58,22 @@ body{
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
 
     </div>
-
-    <div>
-	    <c:forEach var="faq" items="${faqList }" varStatus="status">
-		    <div class="faq_div" id="faq_list${status.index}" onclick="faq_list(${status.index})">
-		    	${faq.fnum }&nbsp;${faq.ftitle}
-		    	<c:choose>
-			    	<c:when test="${ varSessionState==4}">
-				    	<button onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
-			    		<button onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
-		    		</c:when>
-		    	</c:choose>
-		    	
-		    </div>
-		    <div class="faq_div" id="answer_list" style="display: none;">
-		    	${faq.fcontent }
-		    </div>
-		    <br>
-	    </c:forEach>
-    </div>
-		    <c:choose>
-		    	<c:when test="${ varSessionState==4}">
-		    		<button onclick="location.href='faqInsertForm'">작성</button>
-	    		</c:when>
-	    	</c:choose>
+    <form action="noticeInsertResult" method="post" enctype="multipart/form-data">
+    <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
+		<tr><th>제목</th></tr>
+		<tr><td><input type="text" name="ntitle"></td></tr>
+		<tr><th>본문</th></tr>
+		<tr><td>
+			<input type="file" name="file"><p>
+			<input type="hidden" name="path" value="resources/image/"><p>
+			<textarea cols="50" rows="10" name="ncontent"></textarea>
+		</td></tr>
+		<tr><td colspan="2">
+			<input type="submit" value="입력완료">
+		</td></tr>
+	</table>
+	</form>
+	<%@include file="footer.jsp" %>
 
 </body>
-	<%@include file="footer.jsp" %>
 </html>

@@ -29,7 +29,7 @@
 
 					<li class="nav-item"><a class="nav-link" href="pConsultCount">온라인상담</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">강연&방송</a>
+					<li class="nav-item"><a class="nav-link" href="mediaList">강연&방송</a>
 
 					</li>
 					<c:choose>

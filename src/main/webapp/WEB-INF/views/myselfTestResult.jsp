@@ -51,6 +51,12 @@ body{
   <!-- Back to top button -->
   <div class="back-to-top"></div>
   <%@include file="header.jsp" %>
+   <div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
+
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/101" style="color: white;">심장질환</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="myselfTest2">우울증</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="myselfTest3">공황장애</a></div>
+	</div>
   	<div class="container" style=" margin: 3% auto; width: 65%; text-align: left; font-size: 18px; font-family: NanumBarunGothic;">
   		<div class="row">
   			<div class="col">
@@ -178,9 +184,12 @@ body{
 				<hr>
 			</div>
 		</div>
-		<div class="row" style="text-align: center;">
-			<div class="col">
+		<div class="row justify-content-md-center" style="text-align: center;">
+			<div class="col col-lg-2">
 			<button class="btn btn-sm btn-primary" onclick="location.href='pConsultCount'">상담받기</button>
+			</div>
+			<div class="col col-lg-2">
+			<button class="btn btn-sm btn-primary" onclick="location.href='myselfTest'">다시하기</button>
 			</div>
 			
 		</div>
