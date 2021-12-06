@@ -7,14 +7,72 @@
 	<link rel="stylesheet" href="./bootstrapt/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="./bootstrapt/css/bootstrap.css" />
 	<script src="./bootstrapt/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(window).scroll(function(event){
+			if(jQuery(window).scrollTop() > jQuery(".banner").offset().top) {
+				jQuery("#chase").css("position", "fixed");
+			}else if((jQuery(window).scrollTop() < jQuery(".banner").offset().top)) {
+				jQuery("#chase").css("position", "static");
+			}
+		});
+		function getBMICal(){
+			var vWeight = $('#weight').val();
+			var vHeight = $('#height').val();
+			/* alert("Vdeptno->"+Vdeptno); */
+			$.ajax({
+				url:"getBmiCal",  
+				data:{weight : vWeight, height:vHeight},
+				dataType:'text',
+				success:function(data){
+					 /* alert("success ajax Data"+data);   */
+					 $('#BMI').val(data);     /*  input Tag */
+					
+				}
+			});
+		}
+	</script>
+	
 </head>
 <body>
-  <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  <div class="modal fade" id="modalRegisterForm0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+        <h4 class="modal-title w-100 font-weight-bold">BMI 계산기</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="height" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-name">신장(cm)</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="text" id="weight" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-email">체중(kg)</label>
+        </div>
+		  <div class="md-form mb-4">
+          	<img src="img/modal/height_sc.jpg" style="height: 150px; width: 430px;">
+          <label data-error="wrong"></label>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">	
+					<input type="button" id="btn_BMI"     value="계산하기"  onclick="getBMICal()">
+					<input type="text"  id="BMI" style="width: 70px;" >
+				</div>	
+    </div>
+  </div>
+</div>
+  <div class="modal fade" id="modalRegisterForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">키 계산기</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -44,9 +102,10 @@
     </div>
   </div>
 </div>
-
-<div class="text-center" style="position: absolute; right: 1px; height: 1000px; background-color: blue; ">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Launch
-    Modal Register Form</a>
-</div>
+	<div class="banner" style="position: absolute; z-index: 120; right: 10px;  margin: 0; border: 0; padding: 0;">
+			<div class="text-center" id="chase" style="position:absolute; width: 200px;  height: 300px; background-color: white-space; right:10px; z-index: 120; border-radius: 30px; margin-top: 100px; ">
+				 <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" style="width: 120px; height: 120px; margin: 0; border: 0; padding: 0; border-radius: 30px;" data-target="#modalRegisterForm0"><img src="img/modal/BMI.png" style="width: 120px; height: 120px; border-radius: 30px;"></a>
+			 	  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" style="width: 120px; height: 120px; margin: 0; border: 0; padding: 0; border-radius: 30px;"data-target="#modalRegisterForm1"><img src="img/modal/height.png" style="width: 120px; height: 120px; border-radius: 30px;"></a>
+			</div>	    
+	</div>
 </body>
