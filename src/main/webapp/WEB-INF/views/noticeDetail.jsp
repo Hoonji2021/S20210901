@@ -60,21 +60,25 @@ body{
     </div>
     
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
+    <fmt:formatDate value="${notice.ndate }" var="ndate" pattern="yy-MM-dd"/>
 		<tr><th>제목</th></tr>
 		<tr><td>${notice.ntitle }</td></tr>
 		<tr><th>날짜</th></tr>
-		<tr><td>${notice.ndate }</td></tr>
+		<tr><td>${ndate }</td></tr>
 		<tr><th>조회수</th></tr>
 		<tr><td>${notice.ncount }</td></tr>
 		<tr><td>
 		<div><img alt="img" src="upload/${notice.nimg }"></div>
 		<p>${notice.ncontent }<p></td></tr>
-		<!-- 관리자용 공지사항 수정으로 이동, 조건 어떻게 줘야할지 모루겠다 -->
-		<%-- <c:if test=""> --%>
-		<tr><td colspan="2">
-			<button onclick="location.href='noticeUpdate?nnum=${notice.nnum}'">수정</button>
-		</td></tr>
-		<%-- </c:if> --%>
+		<c:choose>
+			<c:when test="${ varSessionState==4}">
+				<tr><td colspan="2">
+				<button onclick="location.href='noticeDelete?nnum=${notice.nnum}'">삭제</button>
+				<button onclick="location.href='noticeUpdate?nnum=${notice.nnum}'">수정</button>
+			</td></tr>
+			</c:when>
+		</c:choose>
+		
 	</table>
 	
 	<%@include file="footer.jsp" %>

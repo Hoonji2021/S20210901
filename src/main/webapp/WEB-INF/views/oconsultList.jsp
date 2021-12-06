@@ -84,6 +84,7 @@ body{
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">
 						<!-- oconsultDetail.jsp가 아닌 무조건 oconsultDetail 컨트롤러로 먼저 간다 -->
+						<c:forEach begin="1" end="${listOconsult.oindent }">-</c:forEach>
 					<a href="oconsultDetail?onum=${listOconsult.onum}" style="color: black;">${listOconsult.otitle }</a>
 				</td>
 				<td style="width: 180px;">${odate }</td>

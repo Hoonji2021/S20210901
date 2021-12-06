@@ -10,13 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("게시물 삭제 성공");
-		location.href="pConsultCount";
+		alert("답변이 작성되었습니다");
+		location.href="oconsultList";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("게시물 삭제  실패");
+		alert("답변이 작성되지 않았습니다");
 		history.go(-1);
 	</script>
 </c:if>

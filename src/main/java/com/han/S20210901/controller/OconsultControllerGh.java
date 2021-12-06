@@ -90,13 +90,47 @@ public class OconsultControllerGh {
 	
 	
 	// 삭제  onum
-	@RequestMapping(value = "oconsultDelete")
+	@RequestMapping(value = "oconsultDelete" )
 	public String oconsultDelete(int onum, Model model) {
 		System.out.println("OconsultController oconsultDelete Start...");
 		int result = os.oconsultDelete(onum);
 		model.addAttribute("result", result);
-		return "oconsultList";
+		return "redirect:oconsultList";
 	}
+	
+	// 답변 view
+	@RequestMapping(value = "oconsultReplyForm")
+	public String oconsultReply(int onum, Model model) {
+		System.out.println("OconsultController oconsultReplyForm Start...");
+		Oconsult oconsult = os.oconsultReplyForm(onum);
+		model.addAttribute("oconsult", oconsult);
+		return "oconsultReplyForm";
+	}
+	
+	// 답변
+	  @RequestMapping(value = "oconsultReplyPro") 
+	  public String oconsultReplyPro(Oconsult oconsult, Model model ) {
+		  System.out.println("OconsultController oconsultReplyPro Start...");
+		  //답변
+		  System.out.println("otitle "+oconsult.getOtitle());
+			System.out.println("owriter "+oconsult.getOwriter());
+			System.out.println("ocontent "+oconsult.getOcontent());
+			System.out.println("onum "+oconsult.getOnum());
+			System.out.println("opw "+oconsult.getOpw());
+			System.out.println("odate "+oconsult.getOdate());
+			System.out.println("ocount "+oconsult.getOcount());
+			System.out.println("ogroup "+oconsult.getOgroup());
+			System.out.println("ostep "+oconsult.getOstep());
+			System.out.println("oindent "+oconsult.getOindent());
+		  int k = os.oconsultReplyshape(oconsult);
+		  System.out.println("OconsultController oconsultReplyPro k->" +k);
+		  int result = os.oconsultReplyPro(oconsult);
+		  System.out.println(result);
+		  model.addAttribute("result", result);
+		  return "oconsultReplyPro";
+	  }
+	 
+	
 	
 	// 목록
 	

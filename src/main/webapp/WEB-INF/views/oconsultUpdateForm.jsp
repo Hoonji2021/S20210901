@@ -92,8 +92,8 @@ function fn_oconsultcan(){
 					<label for="ocontent">
 						<h5>내용 :</h5>
 					</label>
-					<textarea rows="3" name="ocontent" style="width: 100%;" required="required">
-					${oconsult.ocontent}</textarea>
+					<pre><textarea rows="3" name="ocontent" style="width: 100%;" required="required">
+					${oconsult.ocontent}</textarea></pre>
 				</div>
 			</div>
 

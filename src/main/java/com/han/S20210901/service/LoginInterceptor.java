@@ -13,7 +13,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class LoginInterceptor implements HandlerInterceptor {
 		
 		public List loginNeed
-			= Arrays.asList("/punch*","/empOperation","/reservationCalendar","/Member*","/Emp*");
+			= Arrays.asList("/punch*","/empOperation", "/reservationCalendar", "/makeAReservation", "/Member*", "/Emp*", "/updateReservation");
 		
 		public List loginNoNeed
 			= Arrays.asList("main");

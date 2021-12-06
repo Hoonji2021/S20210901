@@ -13,7 +13,7 @@
 		FROM
 	 	  (
 	 	  	Select rownum rn, a.*
-	 	  	From	(select * from oconsult order by odate desc) a
+	 	  	From	(select * from oconsult order by ogroup desc, ostep asc) a
 	 	  )
 	 	  WHERE rn between #{start} and #{end}
 	</select>
@@ -48,8 +48,17 @@
 	<delete id="ghOconsultDelete" parameterType="int" >
 		DELETE FROM oconsult WHERE onum=#{onum}
 	</delete>
+	
+<!-- 답글 - ostep + 1  -->
+	<update id="ghOconsultReplyShape" parameterType="Oconsult">
+		update oconsult set ostep = ostep+1 where ogroup= #{ogroup} and ostep > #{ostep}
+	</update>
 
-
+<!-- 답글 -->
+	<insert id="ghOconsultReplyPro" parameterType="Oconsult">
+		INSERT INTO	oconsult (otitle, owriter, ocontent, onum, opw, odate, ocount, ogroup, ostep, oindent)
+		VALUES (#{otitle}, #{owriter}, #{ocontent}, oconsult_seq.nextval, 1234, sysdate, 0, #{ogroup}, #{ostep}+1, #{oindent}+1) 
+	</insert>
 
 
 </mapper>
