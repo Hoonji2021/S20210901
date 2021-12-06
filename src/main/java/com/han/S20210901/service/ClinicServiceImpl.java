@@ -41,6 +41,15 @@ public class ClinicServiceImpl implements ClinicService {
 		return clinicList;
 	}
 
+	@Override
+	public int clinicInsert(Clinic newClinic) {
+		System.out.println("ClinicServiceImpl clinicInsert starts...");
+		
+		int result = clinicDao.clinicInsert(newClinic);
+		
+		return result;
+	}
+
 	
 
 

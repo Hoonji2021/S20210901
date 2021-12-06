@@ -17,7 +17,18 @@
 		</div>
 		<div class="stateForm">
 			<input type="hidden" id="state" name="state" >
+			
 		</div>
+		<div class="nameForm">
+			<input type="hidden" id="name" class="name" name="name">
+		</div>
+		<div class="empnoForm">
+			<input type="hidden" id="empno" class ="empno" name="empno">
+		</div>
+		<div class="deptForm">
+			<input type="hidden" id="dept" class="dept" name="dept">
+		</div>
+		
 		<input type="submit" id="login_submit" class="btn" value="LOG IN">
 		<div class="bottomText">
 			Don't you have ID? <a href="#">sign up</a>

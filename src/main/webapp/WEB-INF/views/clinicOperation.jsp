@@ -38,7 +38,10 @@ body{
 #clinicOperation{
 	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
 }
-#clinicOperationA{
+#clinicOperationA {
+	color: white;
+}
+#clinicWriteFormA {
 	color: white;
 }
 </style>
@@ -51,7 +54,6 @@ body{
   
 </head>
 <body>
-
   <!-- Back to top button -->
   <div class="back-to-top"></div>
    
@@ -108,7 +110,7 @@ body{
 	</div> 
 	<c:if test="${varSessionId != null }">
 		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
-			<button id="writeclick" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">새 진료 작성</button>
+			<button id="clinicWriteForm" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm"><a id="clinicWriteFormA" href="clinicWriteForm">새 진료 작성</a></button>
 		</div>
 	</c:if>
 	

@@ -14,4 +14,7 @@ public interface ClinicDao {
 		//진료내역 전체 불러오기
 		List<Clinic> clinicAll();
 		List<Clinic> searchRecord(String clientName);
+		
+		//진료내역 등록
+		int clinicInsert(Clinic newClinic);
 }

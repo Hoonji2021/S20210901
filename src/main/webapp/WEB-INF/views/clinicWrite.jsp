@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -35,6 +34,9 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+#clinicWriteProA{
+	color:white;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -44,51 +46,41 @@ body{
   
   
 </head>
+
+
 <body>
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
 	<%@include file="header.jsp" %>
 	
-	<form action="pConsultInsertPro" method="post">
+	<form action="clinicWritePro" method="post">
 	<div class="container" style="margin: 5% auto;" >
-		<h2>게시물 등록</h2>
+		<h2>진료 내역 등록</h2>
 		<hr style="border-top:3px solid #000000">
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
-				<label for="ptitle">
-					<h5>제목 : </h5> </label>
-				<input type="text" name="ptitle" placeholder="제목을 입력하세요" style="width: 100%;">
-				<input type="hidden" name="pnum" value="1">
-				</div>
-		</div>
-		<div class="row" style="margin: 3% auto;">
-			<div class="col">
-				<label for="id">
-					<h5>작성자 : </h5> </label>
-				<input type="text" name="id" value="${id}" style="width: 100%;" readonly="readonly">
+					<h5>환자ID : </h5> 
+				<input type="text" name="id" placeholder="환자ID를 입력하세요." style="width: 100%;">
 			</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
-				<label for="ptitle">
-				<h5>내용 :</h5> </label>
-					<textarea rows="3" name="pcontent" placeholder="내용을 입력하세요" style="width: 100%;"></textarea>
+					<h5>담당의 : </h5>
+				<input type="text" name="ename" value="${sessionName}" style="width: 100%;" readonly="readonly">
 			</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
-				<label for="pw">
-				<h5>비밀번호 :</h5> </label>
-					 <input type="password" name="pw" placeholder="비밀번호를 입력하세요" style="width: 20%;">
+				<h5>진료 내역 :</h5>
+					<textarea rows="3" name="ccontent" placeholder="내용을 입력하세요" style="width: 100%;"></textarea>
 			</div>
 		</div>
+		<input type="hidden" value="${sessionEmpno }" name="empno">
+		<input type="hidden" value="${sessionDept }" name="dept">
+		<input type="hidden" value="${result }" name="result">
 		<div style="margin: 0 auto; float: right;">
-			<!-- 비어있거나 올바르지 않다면 alert 처리하기 -->	
-			<input type="submit" value="작성완료" class="btn btn-sm btn-primary">
-			<!-- 취소하면 정말 취소하시겠습니까 alert 처리하기 -->
-			<button type="button" onclick="location.href='pConsultCount'" class="btn btn-sm btn-primary">취소</button>	
-			
+			<input type="submit" class="btn btn-sm btn-primary" value="등록">
 		</div>
 	</div>
 	</form>

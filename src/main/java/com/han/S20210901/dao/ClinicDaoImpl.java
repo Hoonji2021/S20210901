@@ -59,4 +59,13 @@ public class ClinicDaoImpl implements ClinicDao {
 		return clinicList;
 	}
 
+	@Override
+	public int clinicInsert(Clinic newClinic) {
+		System.out.println("ClinicDaoImpl clinicInsert starts...");
+		
+		int result = session.insert("HGclinicInsert",newClinic);
+		System.out.println("is it works?");
+		return result;
+	}
+
 }
