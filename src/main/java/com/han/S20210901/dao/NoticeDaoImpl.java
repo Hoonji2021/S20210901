@@ -42,12 +42,12 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public Notice noticeDetail(int nnum) {
-		// 공지사항 자세히보기
 		System.out.println("NoticeDaoImpl noticeDetail start");
 		Notice notice = null;
-		notice = session.selectOne("noticeDetailSh", nnum);
 		// 공지사항 조회수 업데이트
 		session.update("ncountUpdateSh", nnum);
+		// 공지사항 자세히보기
+		notice = session.selectOne("noticeDetailSh", nnum);
 		return notice;
 	}
 

@@ -9,19 +9,30 @@
 	</select>
 	
 	<select id="mediaListSh" parameterType="Media" resultType="Media">
-		select * from media order by mnum desc
-		<!-- select * 
+		select * 
 		from (select rownum rn, a.* 
-		from (select * from notice order by ndate desc) a)
-		where rn BETWEEN #{nStartPage} and #{nEndPage} -->
+		from (select * from media order by mnum desc) a)
+		where rn BETWEEN #{start} and #{end}
 	</select>
+	
+	<update id="mediaCountSh" parameterType="int">
+		update media set mcount = mcount + 1 where mnum=#{mnum}
+	</update>
 	
 	<select id="mediaDetailSh" parameterType="int" resultType="Media">
 		select * from media where mnum=#{mnum}
 	</select>
 	
-	<insert id="mediaInsertPro" parameterType="Media">
-		insert into media values(MEDIA_SEQ.nextval,0,#{mtitle},#{link},sysdate,#{msumnail})
+	<insert id="mediaInsertProSh" parameterType="Media">
+		insert into media values(MEDIA_SEQ.nextval,0,#{mtitle},#{link},sysdate,'')
 	</insert>
+	
+	<delete id="mediaDeleteProSh" parameterType="int">
+		delete from media where mnum=#{mnum}
+	</delete>
+	
+	<update id="mediaUpdateProSh" parameterType="Media">
+		update media set mtitle = #{mtitle}, link = #{link} where mnum=#{mnum}
+	</update>
 
 </mapper>

@@ -13,6 +13,10 @@
 	<select id="findPwSh" parameterType="Member" resultType="java.lang.String">
 		select pw from member where email=#{email}
 	</select>
+	
+	<update id="findPwResultSh" parameterType="Member">
+		update member set pw=#{pw} where id=#{id} and email=#{email}
+	</update>
 </mapper>	
 
 

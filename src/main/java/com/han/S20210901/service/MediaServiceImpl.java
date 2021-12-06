@@ -37,4 +37,16 @@ public class MediaServiceImpl implements MediaService {
 		return md.mediaInsertPro(media);
 	}
 
+	@Override
+	public int mediaDeletePro(int mnum) {
+		// 강연방송 삭제
+		return md.mediaDeletePro(mnum);
+	}
+
+	@Override
+	public int mediaUpdatePro(Media media) {
+		// 강연방송 업데이트
+		return md.mediaUpdatePro(media);
+	}
+
 }
