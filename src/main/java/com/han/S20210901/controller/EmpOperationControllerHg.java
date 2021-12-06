@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.han.S20210901.model.Clinic;
 import com.han.S20210901.service.ClinicService;
+import com.han.S20210901.service.Paging;
 
 @Controller
 public class EmpOperationControllerHg {
 	
 	@Autowired
-	private ClinicService clinicSerivice;
+	private ClinicService clinicService;
 	
 	
 	@GetMapping("empOperation")
@@ -28,16 +29,26 @@ public class EmpOperationControllerHg {
 		return "empOperation";
 	}
 	@GetMapping("clinicOperation")
-	public String clinicOperation(HttpServletRequest request, Model model) {
+	public String clinicOperation(Clinic clinic, String currentPage, Model model, HttpServletRequest request) {
 		
-//		String sessionId = "admin";
+		System.out.println("EmpOperationControllerHg clinicOperation starts...");
+		System.out.println("Parameter currentPage-> "+currentPage);
+		System.out.println("EmpOperationControllerHg clinicOperation request.getParameter(search)->"+request.getParameter("search"));
 		
-		List<Clinic> clinicList = clinicSerivice.clinicAll();
+		String search = (String) request.getParameter("search");
+		List<Clinic> clinicList = null;
 		
+		int totCnt = clinicService.clinicTotal(search);
 		
+		if(search==null) clinicList = clinicService.clinicAll();
+		else clinicList = clinicService.clinicSearch(search);
+		Paging pg = new Paging(totCnt, currentPage);
 		
 		model.addAttribute("clinicList",clinicList);
-//		model.addAttribute("sessionId",sessionId);
+		model.addAttribute("totalCnt", totCnt);
+		model.addAttribute("pg", pg);
+		
+		
 		return "clinicOperation";
 	}
 	

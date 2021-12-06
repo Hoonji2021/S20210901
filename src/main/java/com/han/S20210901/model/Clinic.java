@@ -22,6 +22,9 @@ public class Clinic {
 	private String ename; //의사명
 	private String name;  //환자명
 	
+	private String pageNum;
+	private int start;
+	private int end;
 	
 	
 }

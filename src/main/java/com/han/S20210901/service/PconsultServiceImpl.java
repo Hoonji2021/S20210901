@@ -24,6 +24,7 @@ public class PconsultServiceImpl implements PconsultService{
 	@Override
 	public List<Pconsult> pConsultAll(Pconsult pconsult) {
 		System.out.println("PconsultServiceImpl pConsultAll() Start...");
+		
 		List<Pconsult> pConsultList = pconsultDao.pConsultAll(pconsult);
 		return pConsultList;
 	}
