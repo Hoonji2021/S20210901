@@ -41,9 +41,9 @@
 	
 	<select id="noticeListMainSh" parameterType="Notice" resultType="Notice">
 		select * 
-		from notice 
-		where nnum between 1 and 3 
-		order by nnum
+		from (select rownum rn, a.* 
+		from (select * from notice order by nnum desc) a)
+		where rn BETWEEN 1 and 6
 	</select>
 
 </mapper>
