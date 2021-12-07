@@ -50,13 +50,12 @@ body{
   <%@include file="header.jsp" %>
 	
 	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
-
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="#">치료후기</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4""><a href="mediaList" style="color: white;">강연&방송</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="#">소식</a></div>
     </div>
     <form action="mediaUpdatePro">
 	    <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">

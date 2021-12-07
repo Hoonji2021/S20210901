@@ -36,7 +36,7 @@
 	</update>
 	
 	<select id="mediaListMainSh" parameterType="Media" resultType="Media">
-			select * 
+		select * 
 		from (select rownum rn, a.* 
 		from (select * from media order by mnum desc) a)
 		where rn BETWEEN 1 and 10
