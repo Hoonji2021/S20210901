@@ -18,5 +18,13 @@ public interface OconsultService {
 
 	int oconsultInsert(Oconsult oconsult);
 
+	int oconsultDelete(int onum);
+
+	Oconsult oconsultReplyForm(int onum);
+
+	int oconsultReplyshape(Oconsult oconsult);
+
+	int oconsultReplyPro(Oconsult oconsult);
+
 
 }

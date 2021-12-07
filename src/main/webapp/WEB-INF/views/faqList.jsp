@@ -39,9 +39,24 @@ body{
 }
 .faq_div{
 	width: 68%; 
+	height: 80px;
+	line-height: 85px;
+	vertical-align: middle;
 	margin: 0 auto; 
 	margin-bottom: 1%;
 	font-family: NanumBarunGothic;
+	background-color: #EAEAEA;
+}
+.answer_div{
+	width: 68%; 
+	height: 80px;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: center;
+	margin: 0 auto; 
+	margin-bottom: 1%;
+	font-family: NanumBarunGothic;
+	background-color: #FAE0D4;
 }
 </style>
 
@@ -90,7 +105,7 @@ body{
 		    	</c:choose>
 		    	
 		    </div>
-		    <div class="faq_div" id="answer_list" style="display: none;">
+		    <div class="answer_div" id="answer_list" style="display: none;">
 		    	${faq.fcontent }
 		    </div>
 		    <br>

@@ -64,7 +64,7 @@ body{
             <fmt:formatDate value="${notice.ndate }" var="ndate" pattern="yy-MM-dd"/>
         		<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
         			<figure class="effect-ming tm-video-item">
-        				<a a href="noticeDetail?nnum=${notice.nnum }">
+        				<a href="noticeDetail?nnum=${notice.nnum }">
         					<img src="upload/${notice.nimg }" alt="Image" class="img-fluid" >
         				</a>
         			<figcaption>

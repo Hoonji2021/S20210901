@@ -38,5 +38,12 @@
 	<insert id="noticeUploadFormSh" parameterType="Notice">
 		insert into notice values (NOTICE_SEQ.nextval, sysdate, 0, #{ncontent}, #{ntitle}, #{nimg})
 	</insert>
+	
+	<select id="noticeListMainSh" parameterType="Notice" resultType="Notice">
+		select * 
+		from notice 
+		where nnum between 1 and 3 
+		order by nnum
+	</select>
 
 </mapper>

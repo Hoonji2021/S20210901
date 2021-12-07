@@ -34,5 +34,12 @@
 	<update id="mediaUpdateProSh" parameterType="Media">
 		update media set mtitle = #{mtitle}, link = #{link} where mnum=#{mnum}
 	</update>
+	
+	<select id="mediaListMainSh" parameterType="Media" resultType="Media">
+		select * 
+		from media 
+		where mnum BETWEEN 1 and 10
+		order by mnum desc
+	</select>
 
 </mapper>

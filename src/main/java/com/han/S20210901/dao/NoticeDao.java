@@ -12,5 +12,6 @@ public interface NoticeDao {
 	int noticeDelete(int nnum);
 	int noticeInsert();
 	int noticeUploadForm(Notice notice);
+	List<Notice> noticeListMain(Notice notice);
 
 }
