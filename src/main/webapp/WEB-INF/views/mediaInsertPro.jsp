@@ -10,14 +10,14 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("이메일 전송 성공! 비밀번호를 변경해 주세요");
-		location.href="login";
+		alert("글작성 성공");
+		location.href="mediaList";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("이메일 전송 실패");
-		location.href="login";
+		alert("글작성 실패");
+		location.href="mediaList";
 	</script>
 </c:if>
 </body>

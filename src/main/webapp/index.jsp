@@ -10,5 +10,6 @@
 <%
     response.sendRedirect("main");
 %>
+
 </body>
 </html> 

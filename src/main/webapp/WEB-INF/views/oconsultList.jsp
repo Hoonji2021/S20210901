@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
 <link href="css/board.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/maicons.css">
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -57,8 +56,8 @@ body{
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5;  background-color: #5396E4 "><a href="oconsultList" style="color: white;">공개상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">치료후기</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">강연&방송</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="mediaList">강연&방송</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
 
     </div>
@@ -84,7 +83,8 @@ body{
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">
 						<!-- oconsultDetail.jsp가 아닌 무조건 oconsultDetail 컨트롤러로 먼저 간다 -->
-					<a href="oconsultDetail?rn=${listOconsult.rn}" style="color: black;">${listOconsult.otitle }</a>
+						<c:forEach begin="1" end="${listOconsult.oindent }">-</c:forEach>
+					<a href="oconsultDetail?onum=${listOconsult.onum}" style="color: black;">${listOconsult.otitle }</a>
 				</td>
 				<td style="width: 180px;">${odate }</td>
 				<td style="width: 100px;">${listOconsult.ocount }</td>

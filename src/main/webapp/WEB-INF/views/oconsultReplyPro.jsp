@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +10,16 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("이메일 전송 성공! 비밀번호를 변경해 주세요");
-		location.href="login";
+		alert("답변이 작성되었습니다");
+		location.href="oconsultList";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("이메일 전송 실패");
-		location.href="login";
+		alert("답변이 작성되지 않았습니다");
+		history.go(-1);
 	</script>
 </c:if>
+
 </body>
 </html>

@@ -16,9 +16,9 @@
           <h5>FAQ</h5>
           <ul class="footer-menu" >
             <li><a href="faqList">한방으로 정신과 치료가 가능한가요?</a></li>
-            <li><a href="noticeList">양방치료와는 어떻게 다른가요?</a></li>
-            <li><a href="#">치료기간은 얼마나 걸리나요?</a></li>
-            <li><a href="#">비용이 얼마죠? 보험은 되나요?</a></li>
+            <li><a href="faqList">양방치료와는 어떻게 다른가요?</a></li>
+            <li><a href="faqList">치료기간은 얼마나 걸리나요?</a></li>
+            <li><a href="faqList">비용이 얼마죠? 보험은 되나요?</a></li>
           </ul>
         </div>
         <div class="col-sm">

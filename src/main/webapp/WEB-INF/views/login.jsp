@@ -34,6 +34,10 @@
 			Don't you have ID? <a href="#">sign up</a>
 		</div>
 	</form>
+		<di>
+			<button onclick="location.href='findId'">아이디 찾기</button>
+			<button onclick="location.href='findPw'">비밀번호 찾기</button>
+		</di>
 	<script src="js/login.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 </body>

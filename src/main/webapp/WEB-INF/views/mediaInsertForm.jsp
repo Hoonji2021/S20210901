@@ -50,26 +50,29 @@ body{
   <%@include file="header.jsp" %>
 	
 	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
-
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="#">치료후기</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4""><a href="mediaList" style="color: white;">강연&방송</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="#">소식</a></div>
     </div>
-    <form action="mediaInsertResult" method="post" enctype="multipart/form-data">
+    <form action="mediaInsertPro" method="post" enctype="multipart/form-data">
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
 		<tr><th>제목</th></tr>
-		<tr><td><input type="text" name="mtitle"></td></tr>
-		<tr><th>본문</th></tr>
+		<tr><td><input type="text" name="mtitle" required="required"></td></tr>
+		<tr><th>썸네일</th></tr>
 		<tr><td>
-			<input type="url" name="link">
-			<input type="file" name="file"><p>
-			<input type="hidden" name="path" value="resources/image/"><p>
+			https://youtu.be/<input type="text" name="link" required="required" placeholder="영상링크 입력"><p>
+			<p class="mt_10">
+			유튜브 동영상 우클릭 -> 동영상 url 복사후 https://youtu.be/뒷부분 ID 입력<br>
+			*ID를 정확히 입력해야 Player 및 썸네일 이미지가 정상적으로 출력이 됩니다!*</p>
+			<!-- <input type="file" name="file" required="required"><p>
+			<input type="hidden" name="path" value="resources/image/"><p> -->
 		</td></tr>
 		<tr><td colspan="2">
 			<input type="submit" value="입력완료">
+			
 		</td></tr>
 	</table>
 	</form>

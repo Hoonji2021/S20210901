@@ -16,7 +16,6 @@
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
-
 <style type="text/css">
 
 @font-face {
@@ -58,46 +57,29 @@ body{
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="#">소식</a></div>
     </div>
-	
-	<div class="row tm-mb-90 tm-gallery" style="margin: 0 8%;">
-            <c:forEach var="media" items="${mediaList }" varStatus="status">
-            <fmt:formatDate value="${media.mdate }" var="mdate" pattern="yy-MM-dd"/>
-        		<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-        			<figure class="effect-ming tm-video-item">
-        				<a href="mediaDetail?mnum=${media.mnum }">
-        					<img src="https://img.youtube.com/vi/${media.link}/mqdefault.jpg" alt="Image" class="img-fluid" >
-        				</a>
-        			<figcaption>
-        				<h6>${media.mtitle }
-        				<a href="mediaDetail?mnum=${media.mnum }">자세히 보기</a></h6>
-        			</figcaption>
-        			</figure>
-        			<div>
-	                    <span>${mdate }</span>
-	                    <span>조회수 ${media.mcount }</span>
-                	</div>
-                </div>
-        	</c:forEach>
-        </div> 
-         <div style="margin: 0 auto; text-align: center;">
-	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="mediaList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
-	</c:if>
-	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="mediaList?currentPage=${i}">[${i}]</a>
-	</c:forEach>
-	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="mediaList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
-	</c:if>
-	</div> 
-	<c:choose>
-        	<c:when test="${ varSessionState==4}">
-        		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
-	    			<button onclick="location.href='mediaInsertForm'" class="btn btn-info btn-sm">글쓰기</button>
-	    		</div>		
-        	</c:when>
-        </c:choose>
-
+    <form action="mediaUpdatePro">
+	    <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
+	    <fmt:formatDate value="${media.mdate }" var="mdate" pattern="yy-MM-dd"/>
+	    	<tr><th>글번호</th></tr>
+			<tr><td><input type="hidden" name="mnum" value="${media.mnum }">${media.mnum }</td></tr>
+			<tr><th>제목</th></tr>
+			<tr><td><input type="text" name="mtitle" value="${media.mtitle }"></td></tr>
+			<tr><th>날짜</th></tr>
+			<tr><td>${mdate }</td></tr>
+			<tr><th>조회수</th></tr>
+			<tr><td>${media.mcount }</td></tr>
+			<tr><td>
+			<tr><td>
+				https://youtu.be/<input type="text" name="link" required="required" placeholder="영상ID 입력"><p>
+				<p class="mt_10">*ID를 정확히 입력해야 Player 및 썸네일 이미지가 정상적으로 출력이 됩니다.*</p>
+			</td></tr>
+			<tr><td colspan="2">
+				<input type="submit" value="입력완료">
+				
+			</td></tr>
+		</table>
+	</form>
 	<%@include file="footer.jsp" %>
+
 </body>
 </html>

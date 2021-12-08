@@ -39,9 +39,24 @@ body{
 }
 .faq_div{
 	width: 68%; 
+	height: 80px;
+	line-height: 85px;
+	vertical-align: middle;
 	margin: 0 auto; 
 	margin-bottom: 1%;
 	font-family: NanumBarunGothic;
+	background-color: #EAEAEA;
+}
+.answer_div{
+	width: 68%; 
+	height: 80px;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: center;
+	margin: 0 auto; 
+	margin-bottom: 1%;
+	font-family: NanumBarunGothic;
+	background-color: #FAE0D4;
 }
 </style>
 
@@ -70,11 +85,11 @@ body{
 	
 	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
 
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="faqList" style="color: white;">FAQ</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="map">오시는길</a></div>
 
     </div>
 
@@ -90,7 +105,7 @@ body{
 		    	</c:choose>
 		    	
 		    </div>
-		    <div class="faq_div" id="answer_list" style="display: none;">
+		    <div class="answer_div" id="answer_list" style="display: none;">
 		    	${faq.fcontent }
 		    </div>
 		    <br>
