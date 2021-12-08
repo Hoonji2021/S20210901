@@ -99,8 +99,8 @@ body{
 		    	${faq.fnum }&nbsp;${faq.ftitle}
 		    	<c:choose>
 			    	<c:when test="${ varSessionState==4}">
-				    	<button onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
-			    		<button onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
+				    	<button class="btn btn-primary" onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
+			    		<button class="btn btn-primary" onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
 		    		</c:when>
 		    	</c:choose>
 		    	
@@ -111,11 +111,16 @@ body{
 		    <br>
 	    </c:forEach>
     </div>
-		    <c:choose>
-		    	<c:when test="${ varSessionState==4}">
-		    		<button onclick="location.href='faqInsertForm'">작성</button>
-	    		</c:when>
-	    	</c:choose>
+		    
+	<c:choose>
+		<c:when test="${ varSessionState==4}">
+			<div
+				style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%;">
+				<button onclick="location.href='mediaInsertForm'"
+					class="btn btn-info btn-sm">글쓰기</button>
+			</div>
+		</c:when>
+	</c:choose>
 
 </body>
 	<%@include file="footer.jsp" %>

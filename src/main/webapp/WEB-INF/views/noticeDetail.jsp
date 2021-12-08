@@ -73,8 +73,8 @@ body{
 		<c:choose>
 			<c:when test="${ varSessionState==4}">
 				<tr><td colspan="2">
-				<button onclick="location.href='noticeDelete?nnum=${notice.nnum}'">삭제</button>
-				<button onclick="location.href='noticeUpdate?nnum=${notice.nnum}'">수정</button>
+				<button class="btn btn-primary" onclick="location.href='noticeDelete?nnum=${notice.nnum}'">삭제</button>
+				<button class="btn btn-primary" onclick="location.href='noticeUpdate?nnum=${notice.nnum}'">수정</button>
 			</td></tr>
 			</c:when>
 		</c:choose>

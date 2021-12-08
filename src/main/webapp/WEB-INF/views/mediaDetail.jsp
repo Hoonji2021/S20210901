@@ -75,8 +75,8 @@ body{
 		<c:choose>
 			<c:when test="${ varSessionState==4}">
 				<tr><td colspan="2">
-				<button onclick="location.href='mediaDeletePro?mnum=${media.mnum}'">삭제</button>
-				<button onclick="location.href='mediaUpdate?mnum=${media.mnum}'">수정</button>
+				<button class="btn btn-primary" onclick="location.href='mediaDeletePro?mnum=${media.mnum}'">삭제</button>
+				<button class="btn btn-primary" onclick="location.href='mediaUpdate?mnum=${media.mnum}'">수정</button>
 			</td></tr>
 			</c:when>
 		</c:choose>

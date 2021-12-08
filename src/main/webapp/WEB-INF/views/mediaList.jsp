@@ -89,14 +89,16 @@ body{
 	<c:if test="${pg.endPage > pg.totalPage }">
 		<a class="btn btn-primary btn-sm" href="mediaList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
-	</div> 
+	</div>
 	<c:choose>
-        	<c:when test="${ varSessionState==4}">
-        		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
-	    			<button onclick="location.href='mediaInsertForm'" class="btn btn-info btn-sm">글쓰기</button>
-	    		</div>		
-        	</c:when>
-        </c:choose>
+		<c:when test="${ varSessionState==4}">
+			<div
+				style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%;">
+				<button onclick="location.href='mediaInsertForm'"
+					class="btn btn-info btn-sm">글쓰기</button>
+			</div>
+		</c:when>
+	</c:choose>
 
 	<%@include file="footer.jsp" %>
 </body>
