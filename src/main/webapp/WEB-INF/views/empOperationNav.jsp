@@ -6,6 +6,7 @@
     
 
     <div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
+<<<<<<< HEAD
 
 
             <div id="clinicOperation" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="clinicOperationA" href="clinicOperation">진료 관리</a></div>
@@ -15,6 +16,17 @@
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">공지사항 관리</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="pConsultCount">1:1상담 관리</a></div>
 
+=======
+
+            <div id="clinicOperation" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5;"><a id="clinicOperationA" href="clinicOperation">진료 관리</a></div>
+            <div id = "reservationOperation" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="reservationOperationA" href="reservationOperation">예약 관리</a></div>
+            <div id = "MemberManagement" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="MemberManagementA" href="MemberManagementMain">회원 관리</a></div>
+            <div id = "EmpManagement" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="EmpManagementA" href="EmpManagementMain">의료진 관리</a></div>
+            <div id = "" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a id="empOperationA" href="#">공지사항 관리</a></div>
+            <div id = "pConsultCount" class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a id="pConsultCountA" href="pConsultCount">1:1상담 관리</a></div>
+            
+
+>>>>>>> 4146cac2b20640ce0e90d395078232781ef747ff
     </div>
      <div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
 

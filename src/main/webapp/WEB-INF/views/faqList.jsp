@@ -116,7 +116,7 @@ body{
 		<c:when test="${ varSessionState==4}">
 			<div
 				style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%;">
-				<button onclick="location.href='mediaInsertForm'"
+				<button onclick="location.href='faqInsertForm'"
 					class="btn btn-info btn-sm">글쓰기</button>
 			</div>
 		</c:when>

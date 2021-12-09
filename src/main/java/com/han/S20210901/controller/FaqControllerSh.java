@@ -47,7 +47,6 @@ public class FaqControllerSh {
 	
 	@RequestMapping(value = "faqInsertForm")
 	public String faqInsertForm(Model model) {
-		// 글작성이라 바로 뷰로 감
 		return "faqInsertForm";
 	}
 	
