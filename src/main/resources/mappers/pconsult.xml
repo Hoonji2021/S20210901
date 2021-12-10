@@ -9,10 +9,16 @@
 	<select id="jhPconsultList" parameterType="Pconsult" resultType="Pconsult">
 		SELECT * 
 		FROM
-  			 ( 
-  			 select rownum rn, a.* from
-    		 (select * from pconsult order by pnum desc) a <!-- a는 서브쿼리를 뜻함 -->
-    		 )
+  			 ( select rownum rn, a.* 
+               from    ( select  distinct p.* ,
+			                    CASE    WHEN r.id = 'admin' THEN 1
+					                    ELSE 0
+					            END AS adminReplyChk
+                         from    pconsult  p
+                                ,(SELECT * FROM replys WHERE id = 'admin')  r
+                         where   p.pnum = r.pnum (+)
+                         order by p.pnum desc) a 
+             )
 		WHERE rn between #{start} and #{end} 
 	</select>
 	<select id="jhPconsultDetail" parameterType="int" resultType="Pconsult">

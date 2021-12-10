@@ -15,4 +15,7 @@
 		update replys set reply=#{reply} where replynum=#{replynum} 
 	
 	</update>
+	<delete id="deleteReplyAll" parameterType="int">
+		delete from replys where pnum = #{pnum}
+	</delete>
 </mapper>

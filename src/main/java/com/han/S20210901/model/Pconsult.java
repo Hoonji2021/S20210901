@@ -23,4 +23,5 @@ public class Pconsult {
 	private String pageNum;  
 	private int start; 		 
 	private int end;
+	private int adminReplyChk;
 }
