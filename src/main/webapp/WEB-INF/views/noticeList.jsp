@@ -55,17 +55,18 @@ body{
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">FAQ</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="faqList">FAQ</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
 
     </div>
-	
 	<div class="row tm-mb-90 tm-gallery" style="margin: 0 8%;">
             <c:forEach var="notice" items="${noticeList }" varStatus="status">
             <fmt:formatDate value="${notice.ndate }" var="ndate" pattern="yy-MM-dd"/>
         		<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
         			<figure class="effect-ming tm-video-item">
-        				<img src="upload/${notice.nimg }" alt="Image" class="img-fluid" >
+        				<a a href="noticeDetail?nnum=${notice.nnum }">
+        					<img src="upload/${notice.nimg }" alt="Image" class="img-fluid" >
+        				</a>
         			<figcaption>
         				<h6>${notice.ntitle }
         				<a href="noticeDetail?nnum=${notice.nnum }">자세히 보기</a></h6>
@@ -77,10 +78,23 @@ body{
                 	</div>
                 </div>
         	</c:forEach>
-        </div> 
+        </div>
+        <div style="margin: 0 auto; text-align: center;">
+	<c:if test="${pg.startPage > pg.pageBlock}">
+		<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+	</c:if>
+	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
+		<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${i}">[${i}]</a>
+	</c:forEach>
+	<c:if test="${pg.endPage > pg.totalPage }">
+		<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+	</c:if>
+	</div> 
         <c:choose>
         	<c:when test="${ varSessionState==4}">
-	    		<button onclick="location.href='noticeInsertForm'">글쓰기</button>        		
+        		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
+	    			<button onclick="location.href='noticeInsertForm'" class="btn btn-info btn-sm">글쓰기</button>
+	    		</div>		
         	</c:when>
         </c:choose>
 

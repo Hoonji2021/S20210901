@@ -71,6 +71,14 @@ function fn_oconsultdel(opw){
 		}
 	}
 }
+
+function fn_oconsultcan(){
+	var check;
+	check = confirm("정말 취소하겠습니까?");
+	if(check == true){
+		location.href="oconsultList"
+	}
+}
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

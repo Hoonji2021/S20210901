@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.han.S20210901.model.Notice;
 import com.han.S20210901.service.NoticeService;
+import com.han.S20210901.service.PagingSh;
 
 @Controller
 public class NoticeControllerSh {
@@ -26,16 +27,21 @@ public class NoticeControllerSh {
 	private NoticeService ns;
 	
 	@RequestMapping(value = "noticeList")
-	public String noticeList(Notice notice, Model model) {
-		//공지사항 목록 가져옴
+	public String noticeList(Notice notice, Model model, String currentPage) {
 		System.out.println("NoticeController noticeList start");
-		// notice 총 갯수
-		int nTotal = ns.nTotal();
-		// 
+		// notice 페이징
+		int totalCnt = ns.nTotal();
+		PagingSh pg = new PagingSh(totalCnt, currentPage);
+
+		notice.setStart(pg.getStart());
+		notice.setEnd(pg.getEnd());
+		//공지사항 목록 가져옴
 		List<Notice> noticeList = null;
 		noticeList = ns.noticeList(notice);
 		model.addAttribute("noticeList", noticeList);
-		model.addAttribute("nTotal", nTotal);
+		model.addAttribute("nTotal", totalCnt);
+		model.addAttribute("pg", pg);
+		
 		return "noticeList";
 	}
 	

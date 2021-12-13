@@ -16,4 +16,5 @@ public class Member {
 	private String phone;
 	private Date regdate;
 	private int state;
+	
 }

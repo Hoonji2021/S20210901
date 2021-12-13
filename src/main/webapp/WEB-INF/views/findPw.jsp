@@ -50,8 +50,11 @@ body{
 	<%@include file="header.jsp"%>
 	
 	<!-- 이메일? -->
-	이메일 입력 : <input type="email" name="email">
-	<input type="button" value="확인" onclick="location.href='findPwResult?email=${email}'">
+	<form action="findPwResult">
+		아이디 입력 : <input type="text" name="id">
+		이메일 입력 : <input type="email" name="email">
+		<input type="submit" value="확인">
+	</form>
 	<%@include file="footer.jsp" %>
 </body>
 </html>

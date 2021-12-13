@@ -86,7 +86,7 @@ function fn_oconsultcan(){
 		</div>
 	
 		<div style="margin: 0 auto; float: right;">
-			<input type="password" placeholder="  글 비밀번호 입력하세요" required="required">
+			<input type="password" name="opw" placeholder="글 비밀번호 입력하세요" required="required">
 			<input type="submit" value="작성완료" class="btn btn-sm btn-primary">
 			<!-- 취소하면 정말 취소하시겠습니까 alert 처리하기 -->
 			<button type="button" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary">취소</button>	

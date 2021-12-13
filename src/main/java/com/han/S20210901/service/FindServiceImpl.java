@@ -24,4 +24,12 @@ public class FindServiceImpl implements FindService {
 		return fpw;
 	}
 
+	@Override
+	public int findPwResult(Member member) {
+		// 임시비밀번호 전송
+		int result = 0;
+		result = fd.findPwResult(member);
+		return result;
+	}
+
 }
