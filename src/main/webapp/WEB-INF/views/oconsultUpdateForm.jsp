@@ -100,7 +100,7 @@ function fn_oconsultcan(){
 			<div style="margin: 0 auto; float: right;">
 				
 				<input type="submit" value="확인" class="btn btn-sm btn-primary">
-				<input type="button" value="취소" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary"></button>
+				<input type="button" value="취소" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary"></input>
 			</div>
 		</div>
 	</form>

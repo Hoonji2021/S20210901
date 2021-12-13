@@ -28,6 +28,7 @@ public class PconsultDaoImpl implements PconsultDao{
 		System.out.println("PconsultDaoImpl pConsultAll() Start...");
 		List<Pconsult> pConsultList = session.selectList("jhPconsultList",pconsult);
 
+		System.out.println("PconsultDaoImpl pConsultAll pConsultList.size()->"+pConsultList.size());
 		
 		return pConsultList;
 	}
@@ -37,6 +38,7 @@ public class PconsultDaoImpl implements PconsultDao{
 	public Pconsult pConsultDetail(int pnum) {
 		System.out.println("PconsultDaoImpl pConsultDetail() Start...");
 		Pconsult pconsult = session.selectOne("jhPconsultDetail",pnum);
+		
 		return pconsult;
 	}
 

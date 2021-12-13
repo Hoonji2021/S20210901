@@ -33,22 +33,14 @@ function check(index){
 }
 
 /* value 값을 받고 삭제하기위해 check 값과 비교 후 삭제하는 함수 */
-function memberdel(i,cid) {
-	
-	 var check = document.getElementById("input_check"+i).value;
-	
-	console.log("check의 값은 -> "+ check);
-	console.log("cid->"+cid);
-	
- 	 if(confirm("정말 삭제하시겠습니까?")){	
-		if(check == 1){
-			
-			location.href="memberManagementDelete?id="+cid;
-			console.log("성공");
-		}
-	}else
-			console.log("실패");
-			return false; 
+function memberdel() {
+ 	 if(confirm("정말 삭제하시겠습니까?")){
+ 		alert("삭제 성공");
+ 		return true; 
+ 	 } else {
+		alert("삭제 실패");
+ 	    return false; 
+	}
 }
 
 </script>
@@ -130,7 +122,8 @@ body{
 						<td style="width: 15%; border-right: 1px solid #ddd;"><fmt:formatDate value="${memberlist.regdate}" pattern="yyyy-MM-dd"/></td>
 						<!-- member삭제 -->
 						<td style="width: 6%; border-right: 1px solid #ddd;">
-							<form id="fr" onsubmit="memberdel('${status.index}','${memberlist.id}')">
+							<form id="fr" action="memberManagementDelete"  onsubmit="return memberdel()">
+								<input type="hidden"   id="input_checkId${status.index}"  name="id"  value="${memberlist.id}"  >
 								<input type="checkbox" id="input_check${status.index}" value="0" onclick="check(${status.index})">
 								<input type="submit" value="삭제">
 							</form>	

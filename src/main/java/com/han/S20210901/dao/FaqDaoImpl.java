@@ -28,31 +28,6 @@ public class FaqDaoImpl implements FaqDao {
 	}
 
 	@Override
-	public Faq faqDetail(int fnum) {
-		System.out.println("FaqDaoImpl faqDetail start");
-		Faq faq = null;
-		try {
-			// faq상세페이지, 서현
-			faq = session.selectOne("faqDetailSh", fnum);
-		} catch (Exception e) {
-			System.out.println("FaqDaoImpl faqDetail Exception-> " + e.getMessage());
-		}
-		return faq;
-	}
-
-	@Override
-	public String faqListResult(int fnum) {
-		String faq = null;
-		try {
-			// faq상세페이지, 서현
-			faq = session.selectOne("faqResultSh", fnum);
-		} catch (Exception e) {
-			System.out.println("FaqDaoImpl faqResultSh Exception-> " + e.getMessage());
-		}
-		return faq;
-	}
-
-	@Override
 	public Faq faqUpdateForm(int fnum) {
 		// faq 업데이트 폼
 		System.out.println("faqDaoImpl faqUpdateForm start");

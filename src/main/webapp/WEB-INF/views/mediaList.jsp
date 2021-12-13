@@ -35,6 +35,10 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+#media{
+	background-color: #5396E4;
+	color: white;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -54,8 +58,8 @@ body{
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="#">치료후기</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4""><a href="mediaList" style="color: white;">강연&방송</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; " id="media"><a id="media" href="mediaList">강연&방송</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; " id="notice"><a id="notice" href="noticeList">공지사항</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="#">소식</a></div>
     </div>
 	
@@ -89,14 +93,16 @@ body{
 	<c:if test="${pg.endPage > pg.totalPage }">
 		<a class="btn btn-primary btn-sm" href="mediaList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
-	</div> 
+	</div>
 	<c:choose>
-        	<c:when test="${ varSessionState==4}">
-        		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
-	    			<button onclick="location.href='mediaInsertForm'" class="btn btn-info btn-sm">글쓰기</button>
-	    		</div>		
-        	</c:when>
-        </c:choose>
+		<c:when test="${ varSessionState==4}">
+			<div
+				style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%;">
+				<button onclick="location.href='mediaInsertForm'"
+					class="btn btn-info btn-sm">글쓰기</button>
+			</div>
+		</c:when>
+	</c:choose>
 
 	<%@include file="footer.jsp" %>
 </body>

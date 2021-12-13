@@ -51,7 +51,6 @@ body{
   <div class="back-to-top">
   	
   </div>
-   
     <%@include file="header.jsp" %>
 
    <!-- 정지훈 / 1대1 상담 -->
@@ -170,9 +169,9 @@ body{
         </div>
 	</c:forEach>
           </div>
-        </div>
-        
+        </div>  
       </div>
+
 <%@include file="footer.jsp" %>
   
 </body>

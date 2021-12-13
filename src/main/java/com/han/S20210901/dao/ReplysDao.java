@@ -13,5 +13,7 @@ public interface ReplysDao {
 	void deleteReply(int replynum);
 
 	int replyUpdate(Replys reply);
+
+	int deleteReplyAll(int pnum);
 	
 }

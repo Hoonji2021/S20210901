@@ -21,7 +21,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupport">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="#">병원소개</a>
+					<li class="nav-item"><a class="nav-link" href="introduce">병원소개</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="myselfTest">자가진단</a>
 					</li>

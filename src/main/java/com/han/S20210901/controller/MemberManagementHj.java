@@ -46,9 +46,10 @@ public class MemberManagementHj {
 	}
 		@GetMapping(value = "memberManagementDelete")
 		public String memberManagementDelete(String id, Model model) {
-			System.out.println("MemberManagementHJ memberManagementDelete Start...");
+			System.out.println("Controller MemberManagementHJ memberManagementDelete Start...");
+			System.out.println("Controller MemberManagementHJ memberManagementDelete id -> "+ id);
 			int result = membermanagementService.memberManagementDelete(id);
-			System.out.println("memberManagementDelete result->" + result);
+			System.out.println("Controller memberManagementDelete result->" + result);
 			model.addAttribute("result", result);
 			
 			return "memberManagementDeletePro";
