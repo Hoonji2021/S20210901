@@ -1,5 +1,3 @@
-<!-- 이 파일은 관리자 페이지 네비게이션을 따로 모아둔 페이지입니다. -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>

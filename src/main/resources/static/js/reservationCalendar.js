@@ -67,7 +67,7 @@ function ajaxData() {
     const viewMonth = date.getMonth() + 1;
 	let viewDate = "";
 
-    if (viewMonth == 1 || viewMonth == 2 || viewMonth == 3 || viewMonth == 7 || viewMonth == 8 || viewMonth == 10 || viewMonth == 12) {
+    if (viewMonth == 1 || viewMonth == 3 || viewMonth == 7 || viewMonth == 8 || viewMonth == 10 || viewMonth == 12) {
 			viewDate = "31";
 		} else if (viewMonth == 4 || viewMonth == 6 || viewMonth == 9 || viewMonth == 11) {
             viewDate = "30";
