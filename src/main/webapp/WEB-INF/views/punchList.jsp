@@ -89,13 +89,12 @@ body{
     <%@include file="header.jsp" %>
     <%@ include file="empOperationNav.jsp"%>
     <c:set var="num" value="${pg.total-pg.start+1 }"></c:set>
-    <c:set var="clientName" value="${search }"></c:set>
 	<div style="text-align: center; font-family: 'GowunBatang-Regular';">
 		<select name="searchOption"  onchange="searchBy(this)" >
 		
 			<option value=""  >==검색방식==</option>
-			<option value="punchSearchByEmpno" >직원번호</option>
-			<option value="punchSearchByDate" >날짜</option>
+			<option value="punchList" >직원번호</option>
+			<option value="punchList" >날짜</option>
 			
 		</select>
 		<form name="optionType" id = "optionType">
@@ -128,13 +127,13 @@ body{
 		</table>
 		<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="punchList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="punchList?search=${search }&currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="punchList?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="punchList?search=${search }&currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="punchList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="punchList?search=${search }&currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
 	
