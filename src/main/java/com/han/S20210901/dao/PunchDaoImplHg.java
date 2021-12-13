@@ -34,17 +34,17 @@ public class PunchDaoImplHg implements PunchDaoHg {
 
 	@Override
 	public int punchTotal(String search, int searchType) {
-		System.out.println("PunchDaoImpl punchTotal() starst...");
+		System.out.println("PunchDaoImpl punchTotal() starts...");
 		int result = 0;
 		switch (searchType) {
 		case 0:
 			result = session.selectOne("HGpunchTotalFull");
 			break;
 		case 1:
-		//	result = session.selectOne("HgpunchTotalEmpno",search);
+			result = session.selectOne("HgpunchTotalEmpno",search);
 			break;
 		case 2:
-		//	result = session.selectOne("HgpunchTotalDate",search);
+			result = session.selectOne("HgpunchTotalDate",search);
 			break;
 		}
 		

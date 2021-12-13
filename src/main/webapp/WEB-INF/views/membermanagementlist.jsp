@@ -92,7 +92,7 @@ body{
 			<option id="searchByPhone">연락처</option>
 			</optgroup>
 		</select>
-		<input type="search">
+		<input id="search" name="search">
 		<button>검색</button>
 	</div>    <p>
 	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">

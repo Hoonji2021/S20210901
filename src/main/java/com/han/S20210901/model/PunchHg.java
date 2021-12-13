@@ -20,4 +20,5 @@ public class PunchHg {
 	private int end;
 	private int pageNum;
 	private String search;
+	private String searchType;
 }

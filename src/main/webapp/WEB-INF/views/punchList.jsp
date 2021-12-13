@@ -19,16 +19,20 @@
 	function searchBy(searchOption){ 
 		var inputType = document.getElementById("search");
 			inputType.value = "";		
-		
+		var searchType = document.getElementById("searchType");
+			searchType.value = "";
+			
 			selectType = searchOption.value;
 			
 		if(searchOption.value == "punchSearchByEmpno"){
-			$("#optionType").attr("action","punchSearchByEmpno");
+			$("#optionType").attr("action","punchList");
 			inputType.type = "search";
+			searchType.value = "1";
 		}
 		else if(searchOption.value == "punchSearchByDate"){
-			$("#optionType").attr("action","punchSearchByDate");
+			$("#optionType").attr("action","punchList");
 			inputType.type = "date";
+			searchType.value = "2";
 		}
 		
 	}
@@ -93,14 +97,51 @@ body{
 		<select name="searchOption"  onchange="searchBy(this)" >
 		
 			<option value=""  >==검색방식==</option>
-			<option value="punchList" >직원번호</option>
-			<option value="punchList" >날짜</option>
+		<c:choose>
+			<c:when test="${searchType==0 }">
+					<option value="punchSearchByEmpno" >직원번호</option>
+					<option value="punchSearchByDate" >날짜</option>
+			</c:when> 
+			<c:when test="${searchType==1 }">
+					<option value="punchSearchByEmpno" selected="selected">직원번호</option>
+					<option value="punchSearchByDate" >날짜</option>
+			</c:when> 
+			<c:when test="${searchType==2 }">
+					<option value="punchSearchByEmpno" >직원번호</option>
+					<option value="punchSearchByDate" selected="selected">날짜</option>
+			</c:when>
+		</c:choose>
+		
+			
 			
 		</select>
-		<form name="optionType" id = "optionType">
-			<input id= "search" name="search"  required="required" >
+		
+		<c:choose>
+			<c:when test="${searchType == 0 }">
+				<form name="optionType" id = "optionType">
+					<input id= "search" name="search"  required="required" >
+					<input type="hidden" id="searchType" name="searchType">
+					<input type="submit" value="검색" onclick="return chk()">
+					
+				</form>
+			</c:when>
+			<c:when test="${searchType =='1'}">
+			<form name="optionType" id = "optionType">
+			<input type="search" id= "search" name="search" value="${ search}" required="required" >
+			<input type="hidden" id="searchType" name="searchType">
 			<input type="submit" value="검색" onclick="return chk()">
 		</form>
+			</c:when>
+		<c:when test="${searchType == '2'}">
+		<form name="optionType" id = "optionType">
+			<input type="date" id= "search" name="search" value="${ search}" required="required" >
+			<input type="hidden" id="searchType" name="searchType">
+			<input type="submit" value="검색" onclick="return chk()">
+		</form>
+		</c:when>	
+		</c:choose>
+		
+		
 	</div>    <p>
     <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 		<thead>
