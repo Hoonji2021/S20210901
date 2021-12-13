@@ -39,24 +39,29 @@ body{
 }
 .faq_div{
 	width: 68%; 
-	height: 80px;
+	height: 100%;
 	line-height: 85px;
 	vertical-align: middle;
 	margin: 0 auto; 
-	margin-bottom: 1%;
 	font-family: NanumBarunGothic;
-	background-color: #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
+	border-bottom-color: #EAEAEA;
 }
 .answer_div{
 	width: 68%; 
-	height: 80px;
+	height: 100%; 
+	padding: 3%;
 	line-height: 30px;
 	vertical-align: middle;
 	text-align: center;
 	margin: 0 auto; 
-	margin-bottom: 1%;
 	font-family: NanumBarunGothic;
-	background-color: #FAE0D4;
+	background-color: #F6F6F6;
+	
+}
+#faq{
+	background-color: #5396E4;
+	color: white;
 }
 </style>
 
@@ -88,7 +93,7 @@ body{
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="faqList" style="color: white;">FAQ</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="faq"><a id="faq" href="faqList">FAQ</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="map">오시는길</a></div>
 
     </div>
@@ -103,7 +108,7 @@ body{
 			    		<button class="btn btn-primary" onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
 		    		</c:when>
 		    	</c:choose>
-		    	
+		    
 		    </div>
 		    <div class="answer_div" id="answer_list" style="display: none;">
 		    	${faq.fcontent }

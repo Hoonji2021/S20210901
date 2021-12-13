@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <link href="css/board.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/maicons.css">
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -36,41 +36,40 @@ body{
 }
 </style>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
-<title>KaKao 지도</title>
+  
+  <title>One Health - Medical Center HTML5 Template</title>
 </head>
+
 <body>
-<%@include file="header.jsp" %>
-	<div style="margin: auto; margin-top: 3%; text-align: center; border-bottom: 1px solid #ddd; padding-bottom: 2rem; margin-bottom: 3rem; position: relative; width: 700px;" > <h2>오시는 길</h2> </div>
 
-	<div id="map" style="width:700px; height:400px; margin: auto;"></div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d54050e68e9ca3773323605b48cc9abe"></script>
+	<!-- Back to top button -->
+	<div class="back-to-top"></div>
+	<%@include file="header.jsp"%>
 
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(37.556396670428946, 126.94519695864987),
-			level: 3
-		};
+	<div align="center">
 
-		var map = new kakao.maps.Map(container, options);
-	</script>
-	
-	<div style=" margin: auto; text-align: center;   border-bottom: 1px solid #ddd; padding: 3rem 0; width: 700px; height: 3%">
-		<p style="color: #000; font-weight: 500; line-height: 50px; float: left; font-family: NanumBarunGothic; "><img src="img/map/map_ic.png"> 마포구 대흥동 중앙정보처리학원</p>
-		<div style="float: right; width: 30%;">
-			<p>	
-				<span> 
-					<img src="img/map/tel_ic.png"  style="float: left; height: 21%; width: 21%; margin-left: 30%;"><b style="float: left; text-align: left"> TEL<br>"02-1111-1234"</b>
-					
-				</span>
-			</p>
-		</div>
-	 </div>
-	 
-<%@include file="footer.jsp" %>
+        <img src="img/1_01.png" usemap="#image-map">
+        <map name="image-map">
+        </map>
+        <img src="img/1_02.png" usemap="#image-map2">
+        <map name="image-map2">
+        </map>
+        <img src="img/1_03.png" usemap="#image-map3">
+        <map name="image-map3">
+        </map>
+        <img src="img/1_04.png" usemap="#image-map4">
+        <map name="image-map4">
+        </map>
+        <img src="img/1_05.png" usemap="#image-map5">
+        <map name="image-map5">
+        </map>
+    </div>
+
+	<%@include file="footer.jsp" %>
+
 </body>
 </html>

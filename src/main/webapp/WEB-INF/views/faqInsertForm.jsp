@@ -34,6 +34,10 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+#faq{
+	background-color: #5396E4;
+	color: white;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -51,11 +55,11 @@ body{
 	
 	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
 
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="faq"><a id="faq" href="faqList">FAQ</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="maq">오시는길</a></div>
 
     </div>
     <form action="faqInsertPro">

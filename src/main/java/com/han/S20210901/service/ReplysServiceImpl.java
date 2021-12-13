@@ -40,4 +40,13 @@ public class ReplysServiceImpl implements ReplysService {
 		int result = replysDao.replyUpdate(reply);
 		return result;
 	}
+
+	@Override
+	public int deleteReplyAll(int pnum) {
+		System.out.println("ReplysServiceImpl deleteReplyAll() start...");
+		int result2 = replysDao.deleteReplyAll(pnum);
+		
+		return result2;
+		
+	}
 }

@@ -48,15 +48,19 @@ body{
 	<!-- Back to top button -->
 	<div class="back-to-top"></div>
 	<%@include file="header.jsp"%>
-	
-	<c:if test="${fid != null}">
-		<div>일치하는 아이디 : ${fid }</div>
-	</c:if>
-	
-	<c:if test="${fid == null}">
-		<div>일치하는 아이디가 없습니다. </div>
-	</c:if>
-
+	<div align="center" style="margin: 5%;">
+		<c:if test="${fid != null}">
+			<h5>일치하는 아이디 : ${fid }</h5>
+		</c:if>
+		
+		<c:if test="${fid == null}">
+			<h5>일치하는 아이디가 없습니다. </h5>
+		</c:if>
+	</div>	
+	<div align="center">
+		<button class="btn btn-primary" onclick="location.href='login'">로그인 페이지로</button>
+		<button class="btn btn-primary" onclick="location.href='findPw'">비밀번호 찾기</button>
+	</div>
 	<%@include file="footer.jsp" %>
 </body>
 </html>

@@ -1,15 +1,16 @@
-$(function () {
-	$('#writeclick').click(function () {
-		location.href="pCountInsertForm?id=${id}";
-	});
+const subBar = document.querySelector("a#subTitle");
+const inpuBar =  document.querySelector("input#inputbar");
+const submitBar = document.querySelector("input#submitbar");
+
+const HIDDEN_CLASS = "hidden";
+
+function openBar(event){
+	event.preventDefault();
+    console.log("hello");
+    inpuBar.classList.toggle(HIDDEN_CLASS);
+    submitBar.classList.toggle(HIDDEN_CLASS);
+}
+
+subBar.addEventListener("click",openBar);
 	
-	$('#noclick').click(function() {
-		var answer;
-		answer = confirm("회원만 가능한 기능입니다. 로그인 하시겠습니까?");
-		if(answer == true){
-			location.href="pConsultCount";
-		}else
-			history.go(-1);
-	});
 	
-});

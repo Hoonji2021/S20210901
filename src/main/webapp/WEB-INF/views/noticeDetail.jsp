@@ -34,6 +34,10 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+#notice{
+	background-color: #5396E4;
+	color: white;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -53,9 +57,9 @@ body{
 
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
             <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="noticeList" style="color: white;">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="faqList">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="map">오시는길</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="notice"><a id="notice" href="noticeList">공지사항</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="faq"><a id="faq" href="faqList">FAQ</a></div>
+            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="map">오시는길</a></div>
 
     </div>
     

@@ -69,5 +69,10 @@ public class FaqControllerSh {
 		model.addAttribute("result", result);
 		return "faqDeletePro";
 	}
+	
+	@RequestMapping(value = "introduce")
+	public String introduce() {
+		return "introduce";
+	}
 
 }
