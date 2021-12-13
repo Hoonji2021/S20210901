@@ -1,9 +1,8 @@
+<!-- 회원정보 수정 폼 - 금희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <link href="css/board.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/maicons.css">
@@ -16,7 +15,12 @@
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
+
 <style type="text/css">
+input {
+	margin: .4rem;
+}
+
 @font-face {
 	font-family: 'MaruBuri-Regular';
 	src:
@@ -45,65 +49,65 @@ body {
 	font-family: 'MaruBuri-Regular';
 }
 </style>
-<script type="text/javascript">
-function fn_oconsultcan(){
-	var check;
-	check = confirm("정말 취소하시겠습니까?");
-	if(check == true){
-		location.href="oconsultList"
-	}
-}
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta name="copyright" content="MACode ID, https://macodeid.com/">
-</head>
 
+<title>Insert title here</title>
+<script type="text/javascript">
+	function test() {
+		if (!(frm.pw.value == frm.pwChk.value)) {
+			alert("비밀번호가 일치하지 않습니다");
+			return false;
+		}
+	}
+</script>
+</head>
 <body>
 	<!-- Back to top button -->
 	<div class="back-to-top"></div>
 	<%@include file="header.jsp"%>
 
-	<form action="oconsultUpdate" method="post">
-		<input type="hidden" name="onum" value="${oconsult.onum }">
-		
-		<div class="container" style="margin: 5% auto;">
-			<h2>공개상담글 수정</h2>
-			<hr style="border-top: 3px solid #000000">
-			<div class="row" style="margin: 3% auto;">
-				<div class="col">
-					<label for="otitle">
-						<h5>제목 :</h5>
-					</label> <input type="text" name="otitle" value="${oconsult.otitle }" 
-						style="width: 100%;" required="required"> <!-- value가 dto가 oconsult인 otitle에 들어가>컨트롤러에서 oconsult로 뭉탱이로 받아 -->
-				</div>
+	<div style="text-align: center; margin-top: 100px;">
+		<form action="memberUpdatePro" name="frm" onsubmit="return test()">
+			<h2>회원정보 수정</h2>
+			<p>Edit profile</p>
+			<hr style="width: 30%; height: 40px">
+			회원 ID <br>
+			<input type="hidden" name="id" required="required"
+				value="${member.id}">${member.id} <br>
+			<div style="margin-top: 2%">
+				비밀번호 <br>
+				<input type="text" name="pw" required="required"> <br>
 			</div>
-			<div class="row" style="margin: 3% auto;">
-				<div class="col">
-					<label for="owriter">
-						<h5>작성자 :</h5>
-					</label> <input type="text" name="owriter" value="${oconsult.owriter }"
-						style="width: 100%;" readonly="readonly">
-				</div>
+			<div style="margin-top: 2%">
+				비밀번호 확인 <br>
+				<input type="text" name="pwChk" required="required"> <br>
 			</div>
-			<div class="row" style="margin: 3% auto;">
-				<div class="col">
-					<label for="ocontent">
-						<h5>내용 :</h5>
-					</label>
-					<pre><textarea rows="3" name="ocontent" style="width: 100%;" required="required">
-					${oconsult.ocontent}</textarea></pre>
-				</div>
+			<div style="margin-top: 2%">
+				이메일 <br> <input type="text" name="email" required="required"
+					value="${member.email }"> <br>
 			</div>
-
-			<div style="margin: 0 auto; float: right;">
-				
-				<input type="submit" value="확인" class="btn btn-sm btn-primary">
-				<input type="button" value="취소" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary"></input>
+			<div style="margin-top: 2%">
+				이름 <br>
+				<input type="text" name="name" required="required"
+					value="${member.name }"> <br>
 			</div>
-		</div>
-	</form>
+			<div style="margin-top: 2%">
+				주소 <br>
+				<input type="text" name="addr" required="required"
+					value="${member.addr }"> <br>
+			</div>
+			<div style="margin-top: 2%">
+				핸드폰 번호 <br>
+				<input type="text" name="phone" class="phone" maxlength="13" required="required"
+					value="${member.phone }"><br>
+			</div>
+			<input type="submit" value="확인" class="btn btn-sm btn-primary">
+		</form>
+	</div>
 	<%@include file="footer.jsp"%>
+<script src="js/memberJoin.js"></script>
 </body>
 </html>

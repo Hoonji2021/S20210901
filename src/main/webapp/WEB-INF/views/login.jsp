@@ -7,6 +7,10 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" href="css/theme.css">
 
+<style type="text/css">
+
+</style>
+
 </head>
 <body>
 	<form class="loginForm" id="loginForm">
@@ -40,11 +44,11 @@
 			<button onclick="location.href='findPw'" class="btn" style="width: 45%;">비밀번호 찾기</button>
 		</div>
 		<div class="bottomText">
-			Don't you have ID? <a href="#">sign up</a>
+			Don't you have ID? <a href="memberJoinForm">sign up</a>
 		</div>
 		
 	</form>
-		
+
 	<script src="js/login.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 </body>

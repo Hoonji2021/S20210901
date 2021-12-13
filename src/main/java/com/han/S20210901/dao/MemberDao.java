@@ -1,9 +1,9 @@
-package com.han.S20210901.service;
+package com.han.S20210901.dao;
 
 import com.han.S20210901.model.Member;
 
-public interface MemberService {
-	
+public interface MemberDao {
+
 	int memberJoin(Member member);
 
 	int memberIdChk(Member member);

@@ -117,17 +117,14 @@ function fn_oconsultdel(opw){
 		<div style="margin: 3% auto; float: right;">
 			<input type="password" name="opw" required="required" maxlength="5" 
 				placeholder="글 비밀번호 입력" style="text-align:center" size="13">
-			<input type="submit" value="수정" class="btn btn-sm btn-primary">
-			<input type="button" value="삭제" onclick="fn_oconsultdel(${oconsult.opw })" class="btn btn-sm btn-primary">
-			<input type="button" value="목록" onclick="location.href='oconsultList'" class="btn btn-sm btn-primary">
+					<input type="submit" value="수정" class="btn btn-sm btn-primary">
+					<input type="button" value="삭제" onclick="fn_oconsultdel(${oconsult.opw })" class="btn btn-sm btn-primary">
+				<input type="button" value="목록" onclick="location.href='oconsultList'" class="btn btn-sm btn-primary">
 			<c:choose>
 				<c:when test="${varSessionState==4 }">
 					<button onclick="location.href='oconsultReplyForm?onum=${oconsult.onum}'" class="btn btn-sm btn-primary">답변</button>
 				</c:when>
 			</c:choose>
-
-
-			
 		</div>		
 			<br><br>	
 	</form>
