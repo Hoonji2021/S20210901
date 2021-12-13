@@ -83,12 +83,20 @@ body{
   <div class="back-to-top"></div>
   <%@include file="header.jsp" %>
   <%@include file="empOperationNav.jsp" %>
-	<!-- <div class="row" style="margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-		<div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="MemberManagementInside">회원관리</a></div>
-        <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="EmpManagementInside">직원관리</a></div>
-	</div> -->
+<div style="text-align: center; font-family: 'GowunBatang-Regular';">
+		<select name="searchOption" >
+		<optgroup label="검색방식" >
+			<option id="searchById">아이디</option>
+			<option id="searchByEmail">이메일</option>
+			<option id="searchByName">이름</option>
+			<option id="searchByPhone">연락처</option>
+			</optgroup>
+		</select>
+		<input type="search">
+		<button>검색</button>
+	</div>    <p>
 	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
-	<%-- <div>Pconsult(1대1상담) 게시물 개수 : ${totalCnt}</div> --%>
+
 	
 	<c:choose>
 		<c:when test="${varSessionState==4}">

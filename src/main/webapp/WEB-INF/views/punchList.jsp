@@ -22,19 +22,13 @@
 		
 			selectType = searchOption.value;
 			
-		if(searchOption.value == "clinicSearchByClientName"){
-			$("#optionType").attr("action","clinicSearchByClientName");
+		if(searchOption.value == "punchSearchByEmpno"){
+			$("#optionType").attr("action","punchSearchByEmpno");
 			inputType.type = "search";
 		}
-		else if(searchOption.value == "clinicSearchByDoctorName"){
-			$("#optionType").attr("action","clinicSearchByDoctorName");
-			inputType.type = "search";
-		}
-		else if(searchOption.value == "clinicSearchByDate"){
-			$("#optionType").attr("action","clinicSearchByDate");
+		else if(searchOption.value == "punchSearchByDate"){
+			$("#optionType").attr("action","punchSearchByDate");
 			inputType.type = "date";
-			
-			
 		}
 		
 	}
@@ -72,13 +66,10 @@ body{
 	font-family: 'MaruBuri-Regular';
 }
 
-#clinicOperation{
+#punchOperation{
 	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
 }
-#clinicOperationA {
-	color: white;
-}
-#clinicWriteFormA {
+#punchOperationA {
 	color: white;
 }
 </style>
@@ -103,13 +94,11 @@ body{
 		<select name="searchOption"  onchange="searchBy(this)" >
 		
 			<option value=""  >==검색방식==</option>
-			<option value="clinicSearchByDoctorName" >담당의</option>
-			<option value="clinicSearchByClientName" >환자명</option>
-			<option value="clinicSearchByDate">진료일</option>
+			<option value="punchSearchByEmpno" >직원번호</option>
+			<option value="punchSearchByDate" >날짜</option>
 			
 		</select>
 		<form name="optionType" id = "optionType">
-			<!-- <input name="search1" type="text" required="required" ><br> -->
 			<input id= "search" name="search"  required="required" >
 			<input type="submit" value="검색" onclick="return chk()">
 		</form>
@@ -117,23 +106,21 @@ body{
     <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 		<thead>
 			<tr style="font-family: NanumBarunGothic">
-				<th>번호</th>
-				<th>환자명</th>
-				<th>진료내역</th>
-				<th>진료일</th>
-				<th>담당의</th>
+				<th>직원번호</th>
+				<th>날짜</th>
+				<th>출근시간</th>
+				<th>퇴근시간</th>
 			</tr>	
 		</thead>
 		<tbody>
 		
-		<c:forEach items="${clinicList}" var="clinicList" >
-		<fmt:formatDate value="${clinicList.cdate }" var="cdate" pattern="yy-MM-dd hh:mm:ss"/>
+		<c:forEach items="${punchList}" var="punchList" >
+		<fmt:formatDate value="${punchList.pundate }" var="pundate" pattern="yy-MM-dd"/>
 			<tr style="font-family: NanumBarunGothic">
-				<td style="width: 100px;">${clinicList.cnum}</td>
-				<td>${clinicList.name }</td>
-				<td style="width: 500px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color: black;">${clinicList.ccontent }</a></td>
-				 <td style="width: 200px;">${cdate }</td>
-				<td style="width: 118px;">${clinicList.ename }</td> 
+				<td style="width: 100px;">${punchList.empno}</td>
+				<td style="width: 200px;">${pundate }</td>
+				<td style="width: 118px;">${punchList.starttime }</td> 
+				<td style="width: 118px;">${punchList.endtime }</td> 
 			</tr>
 		</c:forEach>
 		
@@ -141,20 +128,16 @@ body{
 		</table>
 		<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="punchList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="punchList?currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="punchList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
-	<c:if test="${varSessionId != null }">
-		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
-			<button id="clinicWriteForm" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm"><a id="clinicWriteFormA" href="clinicWriteForm">새 진료 작성</a></button>
-		</div>
-	</c:if>
+	
 	
 		
 		

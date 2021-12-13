@@ -34,9 +34,8 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
-#faq{
-	background-color: #5396E4;
-	color: white;
+#clinicWriteProA{
+	color:white;
 }
 </style>
 
@@ -45,37 +44,46 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
+  
 </head>
+
 <body>
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
+	<%@include file="header.jsp" %>
 	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="faq"><a id="faq" href="faqList">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="maq">오시는길</a></div>
-
-    </div>
-    <form action="faqInsertPro">
-    <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
-		<tr><th>질문</th></tr>
-		<tr><td><input type="text" name="ftitle"></td></tr>
-		<tr><th>답변</th></tr>
-		<tr><td>
-			<textarea cols="50" rows="10" name="fcontent"></textarea>   
-		</td></tr>
-		<tr><td colspan="2">
-			<input type="submit" value="입력완료">
-		</td></tr>
-	</table>
+	<form action="clinicWritePro" method="post">
+	<div class="container" style="margin: 5% auto;" >
+		<h2>진료 내역 등록</h2>
+		<hr style="border-top:3px solid #000000">
+		<div class="row" style="margin: 3% auto;">
+			<div class="col">
+					<h5>환자ID : </h5> 
+				<input type="text" name="id" placeholder="환자ID를 입력하세요." style="width: 100%;">
+			</div>
+		</div>
+		<div class="row" style="margin: 3% auto;">
+			<div class="col">
+					<h5>담당의 : </h5>
+				<input type="text" name="ename" value="${sessionName}" style="width: 100%;" readonly="readonly">
+			</div>
+		</div>
+		<div class="row" style="margin: 3% auto;">
+			<div class="col">
+				<h5>진료 내역 :</h5>
+					<textarea rows="3" name="ccontent" placeholder="내용을 입력하세요" style="width: 100%;"></textarea>
+			</div>
+		</div>
+		<input type="hidden" value="${sessionEmpno }" name="empno">
+		<input type="hidden" value="${sessionDept }" name="dept">
+		<input type="hidden" value="${result }" name="result">
+		<div style="margin: 0 auto; float: right;">
+			<input type="submit" class="btn btn-sm btn-primary" value="등록">
+		</div>
+	</div>
 	</form>
-	<%@include file="footer.jsp" %>
 
+	<%@include file="footer.jsp" %>
 </body>
 </html>

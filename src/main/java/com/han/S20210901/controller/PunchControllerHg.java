@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.han.S20210901.service.LoginCheck;
 import com.han.S20210901.service.PunchServiceHg;
 
 @Controller

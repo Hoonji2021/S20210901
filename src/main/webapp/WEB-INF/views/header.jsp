@@ -7,6 +7,7 @@
 <title>침 그리고 찌르다.</title>
 	<c:set var="varSessionId" value="${sessionId }" scope="session" />
 	<c:set var="varSessionState" value="${sessionState }" scope="session"/>
+	<c:set var="varSessionName" value="${sessionName }" scope="session"/>
 	<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
 		<div class="container">
 

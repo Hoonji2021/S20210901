@@ -32,7 +32,7 @@ public class Paging {
 		//	1.2 ->올림해서 2					12		5
 		//3
 		totalPage = (int)Math.ceil((double)total / rowPage);
-		System.out.println("totalPage" + totalPage);
+		System.out.println("totalPage->" + totalPage);
 	//		pageblock1 =			1								10		
 		startPage = currentPage - (currentPage - 1) % pageBlock;
 	//		10 = 	1		+	10		-1
