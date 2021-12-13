@@ -12,18 +12,16 @@
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
-  <script type="text/javascript">
-  let selectType = "";
- 
-		
-	function searchBy(searchOption){ 
-		var inputType = document.getElementById("search");
-			inputType.value = "";		
-		
-			selectType = searchOption.value;
-			
+<script type="text/javascript">
+let selectType = searchOption.value;
+
+
+function searchBy(searchOption){
+	var inputType = document.getElementById("search");
+		inputType.value = "";
 		if(searchOption.value == "clinicSearchByClientName"){
 			$("#optionType").attr("action","clinicSearchByClientName");
+			
 			inputType.type = "search";
 		}
 		else if(searchOption.value == "clinicSearchByDoctorName"){
@@ -33,7 +31,6 @@
 		else if(searchOption.value == "clinicSearchByDate"){
 			$("#optionType").attr("action","clinicSearchByDate");
 			inputType.type = "date";
-			
 			
 		}
 		
@@ -102,16 +99,15 @@ body{
 	<div style="text-align: center; font-family: 'GowunBatang-Regular';">
 		<select name="searchOption"  onchange="searchBy(this)" >
 		
-			<option value=""  >==검색방식==</option>
+			<option value="" >==검색방식==</option>
 			<option value="clinicSearchByDoctorName" >담당의</option>
 			<option value="clinicSearchByClientName" >환자명</option>
-			<option value="clinicSearchByDate">진료일</option>
+			<option value="clinicSearchByDate" selected="selected" >진료일</option>
 			
 		</select>
 		<form name="optionType" id = "optionType">
-			<!-- <input name="search1" type="text" required="required" ><br> -->
-			<input id= "search" name="search"  required="required" >
-			<input type="submit" value="검색" onclick="return chk()">
+			<input id="search" name="search" type="date" required="required" value="${search }">
+			<input type="submit"value="검색" onclick="return chk()">
 		</form>
 	</div>    <p>
     <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
@@ -141,13 +137,13 @@ body{
 		</table>
 		<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="clinicSearchByDate?search=${search }&currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="clinicSearchByDate?search=${search }&currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="clinicSearchByDate?search=${search }&currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
 	<c:if test="${varSessionId != null }">

@@ -27,7 +27,7 @@
 	</update>
 	<insert id="PconsultInsert" parameterType="Pconsult" useGeneratedKeys="false" >
 		insert into pconsult 
-		values(#{id},pconsult_seq.nextval,#{ptitle},sysdate,0,#{pcontent},#{pw})
+		values(pconsult_seq.nextval,#{id},#{ptitle},sysdate,0,#{pcontent},#{pw})
 		<selectKey keyProperty="pnum" resultType="int" order="AFTER"> SELECT pconsult_seq.CURRVAL FROM DUAL </selectKey> 
 	</insert>
 	<delete id="PconsultDelete" parameterType="int">

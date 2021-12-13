@@ -19,5 +19,11 @@ public class Clinic {
 	// 조회용
 	private String name;
 	private String ename;
+	private int start;
+	private int end;
+	private int pageNum;
+	private String clientName;
+	private String doctorName;
+	private String searchDate;
 
 }

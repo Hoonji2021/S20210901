@@ -11,32 +11,45 @@ import com.han.S20210901.model.Clinic;
 @Service
 public class ClinicServiceImpl implements ClinicService {
 	
-	@Autowired
-	private Searching searching;
 	
 	@Autowired
 	private ClinicDao clinicDao;
 	
 	@Override
-	public int clinicTotal(String search) {
+	public int clinicTotal(String search, int searchType) {
 		System.out.println("ClinicServiceImpl clinicTotal(search) Start...");
 		int totalCnt = 0;
-			 totalCnt = clinicDao.clinicTotal(search); 
+			 totalCnt = clinicDao.clinicTotal(search, searchType); 
 		return totalCnt;
 	}
 
 	@Override
-	public List<Clinic> clinicAll() {
-		
-		List<Clinic> clinicList = clinicDao.clinicAll();
+	public List<Clinic> clinicAll(Clinic clinic) {
+		System.out.println("ClinicServiceImpl clinicAll clinic.getStart()->"+ clinic.getStart());
+		System.out.println("ClinicServiceImpl clinicAll clinic.getEnd()->"+ clinic.getEnd());
+
+		List<Clinic> clinicList = clinicDao.clinicAll(clinic);
 		
 		return clinicList;
 	}
 
 	@Override
-	public List<Clinic> clinicSearch(String search) {
+	public List<Clinic> clinicSearch(Clinic clinic, int searchType) { //searchType 1: 담당의 검색  2: 환자 검색  3: 진료일 검색
 		System.out.println("ClinicServiceImpl clinicSearch starts...");
-		List<Clinic> clinicList = clinicDao.searchRecord(search);
+		List<Clinic> clinicList=null;
+		switch (searchType) {
+		case 1:
+			 clinicList = clinicDao.searchDoctorRecord(clinic);	
+			break;
+		case 2:
+			clinicList = clinicDao.searchClientRecord(clinic);
+			break;
+		case 3:
+			clinicList = clinicDao.searchDateRecord(clinic);
+			break;
+		
+		}
+		
 		
 		return clinicList;
 	}

@@ -7,58 +7,90 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.han.S20210901.model.Clinic;
-import com.han.S20210901.service.Search;
 
 @Repository
 public class ClinicDaoImpl implements ClinicDao {
 	
-	@Autowired
-	private Search searching;
+
 	
 	@Autowired
 	private SqlSession session;
 	@Override
-	public int clinicTotal(String search) {
+	public int clinicTotal(String search,int searchType) {
 		System.out.println("ClinicDaoImpl clinicTotal starts...");
 		int totCnt = 0 ;
-		System.out.println("ClinicDaoImpl search->"+search);
-		if(search==null) {
-			System.out.println("검색어search=>"+search);
+		
+		switch (searchType) {
+		case 0:
 			totCnt = session.selectOne("HGclinicTotCnt");
-		}
-		else {
-			System.out.println("!!!!!!!!!!!!!!!!!test1");
+			
+			break;
+		case 1:
+			if(session.selectOne("HGclinicDoctorNameTotCnt",search)!=null)
+			{	
+				System.out.println("검색어search=>"+search);
+				totCnt = session.selectOne("HGclinicDoctorNameTotCnt",search);
+			}
+			break;
+			
+		case 2:
 			if(session.selectOne("HGclinicClientNameTotCnt",search)!=null)
 			{	
 				System.out.println("검색어search=>"+search);
 				totCnt = session.selectOne("HGclinicClientNameTotCnt",search);
 			}
-			System.out.println("ClinicDaoImpl clinicTotal totCnt->"+totCnt);
-			System.out.println("!!!!!!!!!!!!!!!!!test2");
+			break;
+			
+		case 3:
+			if(session.selectOne("HGclinicDateTotCnt",search)!=null)
+			{	
+				System.out.println("검색어search=>"+search);
+				totCnt = session.selectOne("HGclinicDateTotCnt",search);
+			}
+			break;
 		}
-		System.out.println("ClinicDaoImpl clinicTotal totCnt->"+totCnt);
-		return totCnt;
+			
+
+			return totCnt;
 	}
 
 	@Override
-	public List<Clinic> clinicAll() {
-		List<Clinic> clinicList = session.selectList("HGclinicList");
+	public List<Clinic> clinicAll(Clinic clinic) {
+		System.out.println("ClinicDaoImpl clinicAll clinic.getStart()->"+ clinic.getStart());
+		System.out.println("ClinicDaoImpl clinicAll clinic.getEnd()->"+ clinic.getEnd());
+		List<Clinic> clinicList = session.selectList("HGclinicList",clinic);
+		return clinicList;
+	}
+	@Override
+	public List<Clinic> searchDoctorRecord(Clinic clinic) {
+		System.out.println("ClinicDaoImpl searchDoctorRecord starts...");
+		List<Clinic> clinicList =null;
+		if(session.selectList("HGdoctorNameClinicList",clinic)!=null)
+			clinicList = session.selectList("HGdoctorNameClinicList",clinic);
 		return clinicList;
 	}
 
+	
 	@Override
-	public List<Clinic> searchRecord(String clientName) {
-		System.out.println("ClinicDaoImpl searchRecord starts...");
+	public List<Clinic> searchClientRecord(Clinic clinic) {
+		System.out.println("ClinicDaoImpl searchClientRecord starts...");
 		
 		List<Clinic> clinicList =null;
 		
-		if(session.selectList("HGclientNameClinicList",clientName)!=null)
-			clinicList = session.selectList("HGclientNameClinicList",clientName);
+		if(session.selectList("HGclientNameClinicList",clinic)!=null)
+			clinicList = session.selectList("HGclientNameClinicList",clinic);
 		
 		
 		return clinicList;
 	}
-
+	@Override
+	public List<Clinic> searchDateRecord(Clinic clinic) {
+		System.out.println("ClinicDaoImpl searchDateRecord starts...");
+		List<Clinic> clinicList = null;
+		if(session.selectList("HGdateClinicList",clinic)!=null)
+			clinicList = session.selectList("HGdateClinicList",clinic);
+		return clinicList;
+	}
 	@Override
 	public int clinicInsert(Clinic newClinic) {
 		System.out.println("ClinicDaoImpl clinicInsert starts...");
@@ -67,5 +99,7 @@ public class ClinicDaoImpl implements ClinicDao {
 		System.out.println("is it works?");
 		return result;
 	}
+
+	
 
 }
