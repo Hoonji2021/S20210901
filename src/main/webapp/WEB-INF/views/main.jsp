@@ -51,9 +51,8 @@ body{
   <div class="back-to-top">
   	
   </div>
-    <%-- <%@include file="modal.jsp" %>  --%>
     <%@include file="header.jsp" %>
-	<%-- <%@include file="modal.jsp" %> --%>
+	<%@include file="modal.jsp" %>
    <!-- 정지훈 / 1대1 상담 -->
   <div class="page-hero bg-image" style="background-image: url(img/main_vimg01.png);">
     <div class="hero-section">
