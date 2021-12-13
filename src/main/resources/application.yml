@@ -16,6 +16,18 @@ spring:
     hibernate:
       ddl-auto: none
       
+   # gmail Transfer   
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tjgus971116@gmail.com
+    password: spring!20210901
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true      
+      
    #view resolver(Templete -> JSP Use)
   mvc:
     view:

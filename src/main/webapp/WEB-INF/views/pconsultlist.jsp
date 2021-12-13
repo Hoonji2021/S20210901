@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="vendor/animate/animate.css">
 <link rel="stylesheet" href="css/theme.css">
 <script src="js/jquery-3.5.1.min.js"></script>
-<!-- <script src="js/pconsultList.js"></script> -->
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
+<script src="https://use.fontawesome.com/e23eda4ad0.js"></script>
 <style type="text/css">
 
 @font-face {
@@ -34,6 +34,9 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+.hidden{
+	display: none;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -41,8 +44,12 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <script type="text/javascript">
-	$(function () {
+  
+</head>
+<script type="text/javascript">
+	const HIDDEN_CLASS = "hidden";
+	
+  	$(function () {
 		$('#writeclick').click(function () {
 			location.href="pCousultInsertForm";
 		});
@@ -53,12 +60,44 @@ body{
 			if(answer == true){
 				location.href="login";//1대1게시판 목록화면 회원가입창으로 이동되게 해야함.
 			}
-		});
-		
+		});	
 		
 	});
-   </script>
-</head>
+  	
+  	
+	function fn_chkClick(index) {
+		var i = index;
+		var test;
+		var check;
+		var inputbarIndex = document.getElementById('inputbar'+index);
+		var submitbarIndex = document.getElementById('submitbar'+index);
+		inputbarIndex.classList.toggle(HIDDEN_CLASS);
+		inputbarIndex.focus();
+		submitbarIndex.classList.toggle(HIDDEN_CLASS);
+		
+	}
+	
+	 function chk(index) {
+		var pwIndex = document.getElementById('pw'+index);
+		var pw2Index = document.getElementById('inputbar'+index);
+		
+ 	 	if(!pw2Index.value || pw2Index.value == "" ){
+			alert("비밀번호를 입력하세요");
+			pw2Index.focus();
+			return false;
+			
+		}
+	 	if (pwIndex.value != pw2Index.value) {
+			alert("암호가 다릅니다");
+			pw2Index.focus();
+			return false;
+		} 
+		
+		return true;
+	} 
+	
+
+  </script>
 <body>
 
   <!-- Back to top button -->
@@ -89,31 +128,60 @@ body{
 		</thead>
 		<tbody>
 		
-		<c:forEach items="${pList}" var="plist" >
+		<c:forEach items="${pList}" var="plist" varStatus="status" >
 		<fmt:formatDate value="${plist.pdate }" var="pdate" pattern="yy-MM-dd"/>
 			<tr style="font-family: NanumBarunGothic">
 				<td style="width: 100px;">${plist.pnum}</td>
 				<td>${plist.id }</td>
+				
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">
-					<a href="pConsultDetail?pnum=${plist.pnum}" style="color: black;">${plist.ptitle }</a>
+				<c:choose>
+				
+				<c:when test="${varSessionId eq 'admin' }">
+					<a href="pConsultDetail?pnum=${plist.pnum }">${plist.ptitle }</a>
+				</c:when>
+				
+				<c:otherwise>
+					<form id="dropBox" action="pConsultDetail" name="frm" onsubmit="return chk(${status.index})">
+				 	<div id="subTitle" onclick="fn_chkClick(${status.index})" style="cursor: pointer; margin: 0; display: inline-block;">${plist.ptitle }</div>
 					<!-- 비밀번호 아이콘 -->
-					<div id="dropdown" style="display: inline-block;">
-						<div class="input-group input-group-sm mb-3" style="width: 100%;">
-             				 <span class="input-group-text" id="basic-addon1">
-               			 	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
- 						 	<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path>
-							 </svg>
-              		 		</span>
-             				 	<input type="password" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="basic-addon1">
-            			</div>
-					</div>
+				 	<div id="dropdown" style="display: inline-block;">
+                  		<div class="input-group input-group-sm mb-3" style="width: 100%;">
+                          <span class="input-group-text" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                      		<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path>
+                      		</svg>
+                           </span>
+                           	 <input type="hidden" id="pw${status.index}" value="${plist.pw }"><!-- pw도 인덱스를 붙여줘야 한다.. -->
+                           	 <input type="hidden" name="pnum" value="${plist.pnum}">	<!-- pnum만 파라미터로 보낼거기 때문에 애만 name 써줌 -->
+                           	 
+                             <!--비밀번호입력하는 bar  -->
+                             <input id="inputbar${status.index}"  type="password" class="form-control hidden" placeholder="비밀번호 4글자 입력" aria-label="Input group example" aria-describedby="basic-addon1" maxlength="4">
+                    		
+                    		 <!-- 입력 버튼 -->
+                    		 <input id="submitbar${status.index}" type="submit" class="form-control2 hidden" value="입력" style="color: white; background-color: black; font-size: 13px; border: 0px;">
+                    		
+                    	 </div>
+               		 </div>
+               		 <!-- 답변완료 / 답변대기  -->
+               		 <c:if test="${plist.adminReplyChk == 1 }">
+               		 <span style="color: red; font-size: 13px;">[답변완료]</span>
+              		 </c:if>
+              		 <c:if test="${plist.adminReplyChk == 0 }">
+               		 <span style="color: gray; font-size: 13px;">[답변대기]</span>
+              		 </c:if>
+               	</form>
+				</c:otherwise>
+				</c:choose>	 
+				
 				</td>
 				<!-- 제목 끝 -->
+				
 				<td style="width: 180px;">${pdate }</td>
 				<td style="width: 100px;">${plist.pcount }</td>
 			</tr>
-			<%-- <c:set var="num" value="${num-1 }"></c:set> --%>
+			
 		</c:forEach>
 		</tbody>		
 	</table>
@@ -139,6 +207,6 @@ body{
 		</div>
 	</c:if>
 	<%@include file="footer.jsp" %>
-	
+	<!-- <script src="js/pconsultList.js"></script> -->
 </body>
 </html>

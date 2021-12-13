@@ -7,6 +7,7 @@
 <title>침 그리고 찌르다.</title>
 	<c:set var="varSessionId" value="${sessionId }" scope="session" />
 	<c:set var="varSessionState" value="${sessionState }" scope="session"/>
+	<c:set var="varSessionName" value="${sessionName }" scope="session"/>
 	<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
 		<div class="container">
 
@@ -20,7 +21,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupport">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="#">병원소개</a>
+					<li class="nav-item"><a class="nav-link" href="introduce">병원소개</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="myselfTest">자가진단</a>
 					</li>

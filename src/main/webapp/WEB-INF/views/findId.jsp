@@ -59,6 +59,9 @@ body{
 	<%@include file="header.jsp"%>
 
 	<form action="findIdResult">
+	<div align="center" style="margin-top: 5%;">
+	<h5>아이디 찾기</h5>
+	<hr width="23%;">
 	<table>
 		<tr>
 			<td>이름</td>
@@ -69,9 +72,10 @@ body{
 			<td><input type="text" name="phone" required="required" oninput="autoHyphen(this)" maxlength="13"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="확인"></td>
+			<td colspan="2"><input class="btn btn-primary" type="submit" value="확인"></td>
 		</tr>
 	</table>
+	</div>
 	</form>
 
 	<%@include file="footer.jsp" %>

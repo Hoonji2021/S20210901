@@ -92,15 +92,15 @@ function fn_oconsultcan(){
 					<label for="ocontent">
 						<h5>내용 :</h5>
 					</label>
-					<textarea rows="3" name="ocontent" style="width: 100%;" required="required">
-					${oconsult.ocontent}</textarea>
+					<pre><textarea rows="3" name="ocontent" style="width: 100%;" required="required">
+					${oconsult.ocontent}</textarea></pre>
 				</div>
 			</div>
 
 			<div style="margin: 0 auto; float: right;">
 				
 				<input type="submit" value="확인" class="btn btn-sm btn-primary">
-				<input type="button" value="취소" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary"></button>
+				<input type="button" value="취소" onclick="return fn_oconsultcan()" class="btn btn-sm btn-primary"></input>
 			</div>
 		</div>
 	</form>

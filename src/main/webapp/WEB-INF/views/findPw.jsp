@@ -50,8 +50,25 @@ body{
 	<%@include file="header.jsp"%>
 	
 	<!-- 이메일? -->
-	이메일 입력 : <input type="email" name="email">
-	<input type="button" value="확인" onclick="location.href='findPwResult?email=${email}'">
+	<form action="findPwResult">
+	<div align="center" style="margin-top: 5%;">
+	<h5>임시 비밀번호 발급</h5>
+	<hr width="22%;">
+	<table>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" name="id" required="required"></td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="email" name="email" required="required"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input class="btn btn-primary" type="submit" value="확인"></td>
+		</tr>
+	</table>
+	</div>
+	</form>
 	<%@include file="footer.jsp" %>
 </body>
 </html>

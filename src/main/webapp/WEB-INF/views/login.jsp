@@ -5,6 +5,12 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" href="css/theme.css">
+
+<style type="text/css">
+
+</style>
+
 </head>
 <body>
 	<form class="loginForm" id="loginForm">
@@ -17,12 +23,32 @@
 		</div>
 		<div class="stateForm">
 			<input type="hidden" id="state" name="state" >
+			
 		</div>
+		<div class="nameForm">
+			<input type="hidden" id="name" class="name" name="name">
+		</div>
+		<div class="empnoForm">
+			<input type="hidden" id="empno" class ="empno" name="empno">
+		</div>
+		<div class="deptForm">
+			<input type="hidden" id="dept" class="dept" name="dept">
+		</div>
+		
 		<input type="submit" id="login_submit" class="btn" value="LOG IN">
-		<div class="bottomText">
-			Don't you have ID? <a href="#">sign up</a>
+		<hr>
+		<br>
+		<br>
+		<div>
+			<button onclick="location.href='findId'" class="btn" style="width: 45%;">아이디 찾기</button><p>
+			<button onclick="location.href='findPw'" class="btn" style="width: 45%;">비밀번호 찾기</button>
 		</div>
+		<div class="bottomText">
+			Don't you have ID? <a href="memberJoinForm">sign up</a>
+		</div>
+		
 	</form>
+
 	<script src="js/login.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 </body>

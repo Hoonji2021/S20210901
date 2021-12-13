@@ -9,21 +9,21 @@
 	</select>
 	
 	<select id="noticeListSh" parameterType="Notice" resultType="Notice">
-		select * from notice order by nnum desc
-		<!-- select * 
+		select * 
 		from (select rownum rn, a.* 
-		from (select * from notice order by ndate desc) a)
-		where rn BETWEEN #{start} and #{end} -->
-	</select>
-	
-	<select id="noticeDetailSh" parameterType="int" resultType="Notice">
-		select * from notice where nnum=#{nnum}
+		from (select * from notice order by nnum desc) a)
+		where rn BETWEEN #{start} and #{end}
 	</select>
 	
 	<select id="ncountUpdateSh" parameterType="int">
 		<!-- 공지사항 조회수 업데이트 -->
 		update notice set ncount=ncount+1 where nnum=#{nnum}
 	</select>
+	
+	<select id="noticeDetailSh" parameterType="int" resultType="Notice">
+		select * from notice where nnum=#{nnum}
+	</select>
+	
 	
 	<update id="noticeUpdateSh" parameterType="Notice">
 		update  notice 
@@ -38,5 +38,12 @@
 	<insert id="noticeUploadFormSh" parameterType="Notice">
 		insert into notice values (NOTICE_SEQ.nextval, sysdate, 0, #{ncontent}, #{ntitle}, #{nimg})
 	</insert>
+	
+	<select id="noticeListMainSh" parameterType="Notice" resultType="Notice">
+		select * 
+		from (select rownum rn, a.* 
+		from (select * from notice order by nnum desc) a)
+		where rn BETWEEN 1 and 6
+	</select>
 
 </mapper>

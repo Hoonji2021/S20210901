@@ -47,15 +47,24 @@ function fn_oconsultUpdate(opw){
 }
 
 function fn_oconsultdel(opw){
-	if(frm.opw.value!=opw){
+	
+	var check; // 변수선언
+	var frmOpw = frm.opw.value;
+	
+	if(frmOpw=="" || frmOpw == null){
+		alert("비밀번호를 넣어 주세요");
+		frm.opw.focus();
+		return false;
+	}
+	
+	if(frmOpw!=opw){
 		alert("비밀번호가 일치하지 않습니다.");
 		frm.opw.focus();
 		return false;
 	} else {
-		var check; // 변수선언
 		check = confirm("정말 삭제하시겠습니까?");
 		if(check == true){
-			location.href="oconsultDelete?rn=${oconsult.rn}";
+			location.href="oconsultDelete?onum=${oconsult.onum}";
 		}else{
 			frm.opw.value="";
 			frm.opw.focus();
@@ -90,6 +99,8 @@ function fn_oconsultdel(opw){
 				<div class="col">작성자 : ${oconsult.owriter }</div>
 			</div>
 			<div class="row row-cols-auto" style="margin: 0 auto;">
+				
+			 	<input type="hidden" name="rn" value="${oconsult.rn}">
 			 	<input type="hidden" name="onum" value="${oconsult.onum}">
 				<div class="col">날짜 : ${odate }</div>
 				<div class="col">조회수 : ${oconsult.ocount }</div>
@@ -105,15 +116,15 @@ function fn_oconsultdel(opw){
 
 		<div style="margin: 3% auto; float: right;">
 			<input type="password" name="opw" required="required" maxlength="5" 
-				placeholder="글 비밀번호 입력" style="text-align:center" size="13" >
-			<input type="submit" value="수정" class="btn btn-sm btn-primary">
-			<input type="button" value="삭제" onclick="return fn_oconsultdel(${oconsult.opw })" class="btn btn-sm btn-primary">
-			<input type="button" value="목록" onclick="location.href='oconsultList'" class="btn btn-sm btn-primary">
-
-
-				<%-- 	<button onclick="return pconsultdel()" class="btn btn-sm btn-primary">삭제</button>
-			<button onclick="location.href='pConsultCount?id=${id}'" class="btn btn-sm btn-primary">목록</button> --%>
-			
+				placeholder="글 비밀번호 입력" style="text-align:center" size="13">
+					<input type="submit" value="수정" class="btn btn-sm btn-primary">
+					<input type="button" value="삭제" onclick="fn_oconsultdel(${oconsult.opw })" class="btn btn-sm btn-primary">
+				<input type="button" value="목록" onclick="location.href='oconsultList'" class="btn btn-sm btn-primary">
+			<c:choose>
+				<c:when test="${varSessionState==4 }">
+					<button onclick="location.href='oconsultReplyForm?onum=${oconsult.onum}'" class="btn btn-sm btn-primary">답변</button>
+				</c:when>
+			</c:choose>
 		</div>		
 			<br><br>	
 	</form>

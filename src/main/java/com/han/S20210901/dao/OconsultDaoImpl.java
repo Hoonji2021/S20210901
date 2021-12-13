@@ -15,7 +15,7 @@ public class OconsultDaoImpl implements OconsultDao {
 	@Override
 	public int total() {
 		int tot = 0;
-		System.out.println("Oconsult total Start ...");
+		System.out.println("OconsultDaoImpl total Start ...");
 		try {
 			//    Mapper    ------>   Map ID (Naming Rule)
 			tot = session.selectOne("ghOconsultTotal");
@@ -61,11 +61,11 @@ public class OconsultDaoImpl implements OconsultDao {
 		return k;
 	}
 	@Override
-	public int oconsultCount(int rn) {
+	public int oconsultCount(int onum) {
 		System.out.println("OconsultDaoImpl oconsultCount start...");
 		int count = 0;
 		try {
-			count = session.update("ghOconsultCount", rn);
+			count = session.update("ghOconsultCount", onum);
 		} catch (Exception e) {
 			System.out.println("OconsultDaoImpl oconsultUpdate Exception->"+e.getMessage());
 		}
@@ -79,6 +79,63 @@ public class OconsultDaoImpl implements OconsultDao {
 			result = session.insert("ghOconsultInsert", oconsult);
 		} catch (Exception e) {
 			System.out.println("OconsultDaoImpl oconsultInsert Exception->"+e.getMessage());
+		}
+		return result;
+	}
+	@Override
+	public int oconsultDelete(int onum) {
+		System.out.println("OconsultDaoImpl oconsultDelete start... ");
+		int result = 0;
+		try {
+			result = session.delete("ghOconsultDelete", onum);
+		} catch (Exception e) {
+			System.out.println("OconsultDaoImpl delete Exception->"+e.getMessage());
+		}
+		return result;
+		
+	}
+	@Override
+	public Oconsult oconsultReplyForm(int onum) {
+		System.out.println("OconsultDaoImpl oconsultReplyForm start... ");
+		Oconsult oconsult = new Oconsult();
+		try {
+			oconsult = session.selectOne("ghOconsultSelOne", onum); 
+		} catch (Exception e) {
+			System.out.println("OconsultDaoImpl oconsultReplyForm Exception->"+e.getMessage());
+		}
+		return oconsult;
+	}
+	@Override
+	public int oconsultReplyshape(Oconsult oconsult) {
+		System.out.println("OconsultDaoImpl oconsultReplyshape start... ");
+		int k = 0;
+		try {
+			k = session.update("ghOconsultReplyShape", oconsult);
+		} catch (Exception e) {
+			System.out.println("OconsultDaoImpl oconsultReplyshape Exception->"+e.getMessage());
+		}
+		return k;
+	}
+	@Override
+	public int oconsultReplyPro(Oconsult oconsult) {
+		System.out.println("OconsultDaoImpl oconsultReplyPro start...");
+		int result = 0;
+		try {
+			result = session.insert("ghOconsultReplyPro", oconsult);
+			System.out.println("otitle "+oconsult.getOtitle());
+			System.out.println("owriter "+oconsult.getOwriter());
+			System.out.println("ocontent "+oconsult.getOcontent());
+			System.out.println("onum "+oconsult.getOnum());
+			System.out.println("opw "+oconsult.getOpw());
+			System.out.println("odate "+oconsult.getOdate());
+			System.out.println("ocount "+oconsult.getOcount());
+			System.out.println("ogroup "+oconsult.getOgroup());
+			System.out.println("ostep "+oconsult.getOstep());
+			System.out.println("oindent "+oconsult.getOindent());
+			
+			
+		} catch (Exception e) {
+			System.out.println("OconsultDaoImpl oconsultReplyPro Exception->"+e.getMessage());
 		}
 		return result;
 	}

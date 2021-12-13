@@ -39,4 +39,11 @@ public class ReplysDaoImpl implements ReplysDao {
 		int result = session.update("replyUpdate", reply);
 		return result;
 	}
+
+	@Override
+	public int deleteReplyAll(int pnum) {
+		System.out.println("ReplysDaoImpl deleteReplyAll() start...");
+		int result2 = session.delete("deleteReplyAll", pnum);
+		return result2;
+	}
 }

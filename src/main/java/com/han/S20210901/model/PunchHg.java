@@ -10,10 +10,14 @@ import lombok.Setter;
 public class PunchHg {
 	private int empno;
 	private Date pundate;
-	private String startTime;
-	private String endTime;
+	private String starttime;
+	private String endtime;
 	
 	//조회용
 	private String ename;
 	private String dept;
+	private int start;
+	private int end;
+	private int pageNum;
+	private String search;
 }

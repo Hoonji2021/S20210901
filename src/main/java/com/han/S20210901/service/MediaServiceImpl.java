@@ -31,4 +31,28 @@ public class MediaServiceImpl implements MediaService {
 		return md.mediaDetail(mnum);
 	}
 
+	@Override
+	public int mediaInsertPro(Media media) {
+		System.out.println("mediaService mediaInsertPro start");
+		return md.mediaInsertPro(media);
+	}
+
+	@Override
+	public int mediaDeletePro(int mnum) {
+		// 강연방송 삭제
+		return md.mediaDeletePro(mnum);
+	}
+
+	@Override
+	public int mediaUpdatePro(Media media) {
+		// 강연방송 업데이트
+		return md.mediaUpdatePro(media);
+	}
+
+	@Override
+	public List<Media> mediaListMain(Media media) {
+		// 강연방송 list 메인용(페이징x)
+		return md.mediaListMain(media);
+	}
+
 }

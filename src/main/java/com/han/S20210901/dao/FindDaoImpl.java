@@ -24,4 +24,13 @@ public class FindDaoImpl implements FindDao {
 		return fpw;
 	}
 
+	@Override
+	public int findPwResult(Member member) {
+		// 
+		System.out.println("fdDaoImpl findPwResult start");
+		int result = 0;
+		result = session.update("findPwResultSh", member);
+		return result;
+	}
+
 }

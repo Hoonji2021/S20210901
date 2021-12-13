@@ -28,12 +28,13 @@ public class PconsultControllerJh {
 
 	@Autowired
 	private ReplysService replysService;
-
 	
-	@RequestMapping(value = "main")
+
+	@RequestMapping(value = "index")
 	public String test1(Model model) {
 		return "main";
 	}
+
 
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, Model model, Pconsult pconsult) {
@@ -42,17 +43,21 @@ public class PconsultControllerJh {
 		// 1대1상담 게시물 총 개수 구하기
 		int totalCnt = pconsultService.pConsultTotal();
 		System.out.println("pConsultList() totalCnt ->" + totalCnt);
+		System.out.println("pconsult.getPageNum()->"+pconsult.getPageNum());
+		System.out.println("pconsult.getPtitle()->"+pconsult.getPtitle());
 		
 		//페이징 totalCnt = 12,1
+		System.out.println("currentPage->"+currentPage);
 		Paging pg = new Paging(totalCnt, currentPage);
 
-
+		//paging
 		pconsult.setStart(pg.getStart());
 		pconsult.setEnd(pg.getEnd());
-		
 
 		// 리스트 모두 가져오기
 		List<Pconsult> pConsultList = pconsultService.pConsultAll(pconsult);
+		System.out.println("PcontrollerJh pConsultCount pConsultList.size()->"+pConsultList.size());
+		
 		model.addAttribute("totalCnt", totalCnt);
 		model.addAttribute("pList", pConsultList);
 		model.addAttribute("pg", pg);
@@ -75,7 +80,11 @@ public class PconsultControllerJh {
 		// 해당 pnum에 대한 댓글 가져오기
 		List<Replys> replys = replysService.replysOfPnum(pnum);
 		System.out.println("PcontrollerJh pCosultDetail() pconsult.pnum");
-
+		
+		//해당 pnum에 댓글이 하나라도 있다면 adminReplyChk은 1 하나도 없다면 0
+//		int replyCount = reply
+		
+		
 		model.addAttribute("pdetail", pconsult); 
 		model.addAttribute("replys", replys);
 
@@ -125,7 +134,15 @@ public class PconsultControllerJh {
 	@GetMapping(value = "pCosultDelete")
 	public String pCosultDelete(int pnum, Model model) {
 		System.out.println("PcontrollerJh pCosultDelete Start...");
+		//해당 게시물 삭제
 		int result = pconsultService.pConsultDelete(pnum);
+		//해당 게시물에 달린 댓글들 모두 삭제
+		int result2 = replysService.deleteReplyAll(pnum);
+		if(result2 == 1) {
+			System.out.println(pnum+"번 게시물에 대한 모든 댓글 삭제 성공!");
+		}else {
+			System.out.println(pnum+"번 게시물에 대한 댓글 삭제 실패ㅠ");
+		}
 		System.out.println("pCosultDelete result->" + result);
 		model.addAttribute("result", result);
 		return "pconsultDeletePro";
@@ -136,6 +153,8 @@ public class PconsultControllerJh {
 	public String insertReply(Replys reply, Model model) {
 		System.out.println("PcontrollerJh insertReply() Start...");
 		replysService.insertReply(reply);
+		
+	
 		
 		return "forward:pConsultDetail";
 	}
@@ -187,7 +206,7 @@ public class PconsultControllerJh {
 	
 	@PostMapping(value = "TestResult")
 	public String TestResult(MyselfTest myTest, Model model) {
-		
+		//자가진단 점수 합산
 		int testTotal = myTest.getMyTest1()+myTest.getMyTest2()+myTest.getMyTest3()+myTest.getMyTest4()+myTest.getMyTest5()+
 						myTest.getMyTest6()+myTest.getMyTest7()+myTest.getMyTest8()+myTest.getMyTest9()+myTest.getMyTest10();
 		
@@ -207,6 +226,7 @@ public class PconsultControllerJh {
 	
 	@PostMapping(value = "TestResult2")
 	public String TestResult2(MyselfTest myTest, Model model) {
+		//자가진단 점수 합산
 		int testTotal = myTest.getMyTest1()+myTest.getMyTest2()+myTest.getMyTest3()+myTest.getMyTest4()+myTest.getMyTest5()+
 						myTest.getMyTest6()+myTest.getMyTest7()+myTest.getMyTest8()+myTest.getMyTest9()+myTest.getMyTest10()+
 						myTest.getMyTest11()+myTest.getMyTest12()+myTest.getMyTest13()+myTest.getMyTest14()+myTest.getMyTest15();

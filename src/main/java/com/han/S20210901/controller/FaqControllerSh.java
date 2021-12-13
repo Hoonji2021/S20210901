@@ -47,7 +47,6 @@ public class FaqControllerSh {
 	
 	@RequestMapping(value = "faqInsertForm")
 	public String faqInsertForm(Model model) {
-		// 글작성이라 바로 뷰로 감
 		return "faqInsertForm";
 	}
 	
@@ -69,6 +68,11 @@ public class FaqControllerSh {
 		result = fs.faqDeletePro(fnum);
 		model.addAttribute("result", result);
 		return "faqDeletePro";
+	}
+	
+	@RequestMapping(value = "introduce")
+	public String introduce() {
+		return "introduce";
 	}
 
 }
