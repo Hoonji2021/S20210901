@@ -50,19 +50,11 @@ body{
 </head>
 <body>
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
+  	<!-- Back to top button -->
+  	<div class="back-to-top"></div>
+  	<%@include file="header.jsp" %>
+	<%@include file="hospitalNav.jsp"%>
 	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="notice"><a id="notice" href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="faqList">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="map">오시는길</a></div>
-
-    </div>
 	<div class="row tm-mb-90 tm-gallery" style="margin: 0 8%;">
             <c:forEach var="notice" items="${noticeList }" varStatus="status">
             <fmt:formatDate value="${notice.ndate }" var="ndate" pattern="yy-MM-dd"/>
@@ -84,16 +76,16 @@ body{
         	</c:forEach>
         </div>
         <div style="margin: 0 auto; text-align: center;">
-	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
-	</c:if>
-	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${i}">[${i}]</a>
-	</c:forEach>
-	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
-	</c:if>
-	</div> 
+			<c:if test="${pg.startPage > pg.pageBlock}">
+				<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+			</c:if>
+			<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
+				<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${i}">[${i}]</a>
+			</c:forEach>
+			<c:if test="${pg.endPage > pg.totalPage }">
+				<a class="btn btn-primary btn-sm" href="noticeList?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+			</c:if>
+		</div> 
         <c:choose>
         	<c:when test="${ varSessionState==4}">
         		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >

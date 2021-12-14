@@ -49,18 +49,11 @@ body{
 </head>
 <body>
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
-	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="#">치료후기</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; " id="media"><a id="media" href="mediaList">강연&방송</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; " id="notice"><a id="notice" href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="#">소식</a></div>
-    </div>
+  	<!-- Back to top button -->
+  	<div class="back-to-top"></div>
+  	<%@include file="header.jsp" %>
+	<%@include file="hospitalNav.jsp"%>
+  
     <form action="mediaInsertPro" method="post" enctype="multipart/form-data">
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
 		<tr><th>제목</th></tr>
@@ -75,7 +68,7 @@ body{
 			<input type="hidden" name="path" value="resources/image/"><p> -->
 		</td></tr>
 		<tr><td colspan="2">
-			<input type="submit" value="입력완료">
+			<input class="btn btn-primary" type="submit" value="입력완료">
 			
 		</td></tr>
 	</table>
