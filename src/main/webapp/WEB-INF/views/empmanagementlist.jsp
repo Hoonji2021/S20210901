@@ -55,21 +55,7 @@ body{
   <div class="back-to-top"></div>
   <%@include file="header.jsp" %>
   <%@include file="empOperationNav.jsp" %>	
-<div style="text-align: center; font-family: 'GowunBatang-Regular';">
-		<select name="searchOption" >
-		<optgroup label="검색방식" >
-			<option id="searchById" >아이디</option>
-			<option id="searchByEmail">이메일</option>
-			<option id="searchByEname">이름</option>
-			<option id="searchByPhone">연락처</option>
-			<option id="searchByDate">입사일</option>
-			<option id="searchByEmpno">직원번호</option>
-			<option id="searchByDept">부서</option>
-			</optgroup>
-		</select>
-		<input type="search">
-		<button>검색</button>
-	</div>    <p>
+
 	<c:choose>
 	<c:when test="${varSessionState==4 }">
 	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">

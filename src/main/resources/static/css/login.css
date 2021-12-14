@@ -119,3 +119,9 @@
   .bottomText {
     text-align: center;
   }
+  
+ .idPwFind{
+ 	margin-bottom: 5px;
+ 	width: 120px;
+ 	left:60px;
+ }

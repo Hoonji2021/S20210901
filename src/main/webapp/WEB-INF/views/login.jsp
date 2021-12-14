@@ -39,14 +39,14 @@
 		<hr>
 		<br>
 		<br>
-		<div>
-			<button onclick="location.href='findId'" class="btn" style="width: 45%;">아이디 찾기</button><p>
-			<button onclick="location.href='findPw'" class="btn" style="width: 45%;">비밀번호 찾기</button>
-		</div>
-		<div class="bottomText">
-			Don't you have ID? <a href="memberJoinForm">sign up</a>
-		</div>
-		
+		      <div class="bottomText">
+         <p>Don't you have ID? <a href="memberJoinForm">sign up</a>
+      </div>
+      <br>
+      <div>
+         <input type="button" onclick="findId()" class="btn idPwFind" style="margin-bottom: 5px; width: 120px; left: 60px;" value="아이디찾기">
+         <input type="button" onclick="findPw()" class="btn idPwFind" style="margin-bottom: 5px; width: 120px; left: 60px;" value="비밀번호찾기">
+      </div>
 	</form>
 
 	<script src="js/login.js"></script>

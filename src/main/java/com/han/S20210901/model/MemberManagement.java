@@ -23,4 +23,9 @@ public class MemberManagement {
 	private String pageNum;  
 	private int start; 		 
 	private int end;
+	
+	//search 조회용 -- 추가 by 한글 2021.12.14.
+	private String search;
+	private int searchType;
+	private String searchOption;
 }
