@@ -7,10 +7,6 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" href="css/theme.css">
 
-<style type="text/css">
-
-</style>
-
 </head>
 <body>
 	<form class="loginForm" id="loginForm">
@@ -43,7 +39,7 @@
 			<p>Don't you have ID? <a href="memberJoinForm">sign up</a>
 		</div>
 		<br>
-		<div>
+		<div> 
 			<input type="button" onclick="findId()" class="btn idPwFind" style="margin-bottom: 5px; width: 120px; left: 60px;" value="아이디찾기">
 			<input type="button" onclick="findPw()" class="btn idPwFind" style="margin-bottom: 5px; width: 120px; left: 60px;" value="비밀번호찾기">
 		</div>
