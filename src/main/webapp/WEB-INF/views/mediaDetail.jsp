@@ -49,18 +49,10 @@ body{
 </head>
 <body>
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
-	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="#">치료후기</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; " id="media"><a id="media" href="mediaList">강연&방송</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="#">소식</a></div>
-    </div>
+  	<!-- Back to top button -->
+  	<div class="back-to-top"></div>
+  	<%@include file="header.jsp" %>
+	<%@include file="hospitalNav.jsp"%>
     
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
     <fmt:formatDate value="${media.mdate }" var="mdate" pattern="yy-MM-dd"/>

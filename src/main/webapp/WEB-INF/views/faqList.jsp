@@ -46,6 +46,7 @@ body{
 	font-family: NanumBarunGothic;
 	border-bottom: 1px solid #EAEAEA;
 	border-bottom-color: #EAEAEA;
+	text-align: center;
 }
 .answer_div{
 	width: 68%; 
@@ -85,18 +86,9 @@ body{
 <body>
 
   <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
-	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="faq"><a id="faq" href="faqList">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="map">오시는길</a></div>
-
-    </div>
+  	<div class="back-to-top"></div>
+  	<%@include file="header.jsp" %>
+	<%@include file="hospitalNav.jsp"%>
 
     <div>
 	    <c:forEach var="faq" items="${faqList }" varStatus="status">

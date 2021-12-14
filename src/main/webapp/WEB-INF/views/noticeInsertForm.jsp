@@ -49,19 +49,11 @@ body{
 </head>
 <body>
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
+  	<!-- Back to top button -->
+  	<div class="back-to-top"></div>
+  	<%@include file="header.jsp" %>
+	<%@include file="hospitalNav.jsp"%>
 	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="#">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="notice"><a id="notice" href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; " id="faq"><a id="faq" href="faqList">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="map">오시는길</a></div>
-
-    </div>
     <form action="noticeInsertResult" method="post" enctype="multipart/form-data">
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
 		<tr><th>제목</th></tr>
@@ -73,7 +65,7 @@ body{
 			<textarea cols="50" rows="10" name="ncontent"></textarea>
 		</td></tr>
 		<tr><td colspan="2">
-			<input type="submit" value="입력완료">
+			<input class="btn btn-primary" type="submit" value="입력완료">
 		</td></tr>
 	</table>
 	</form>

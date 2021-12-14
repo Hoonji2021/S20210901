@@ -34,6 +34,10 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+#introduce{
+	background-color: #5396E4;
+	color: white;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -49,6 +53,7 @@ body{
 	<!-- Back to top button -->
 	<div class="back-to-top"></div>
 	<%@include file="header.jsp"%>
+	<%@include file="hospitalNav.jsp"%>
 
 	<div align="center">
 
