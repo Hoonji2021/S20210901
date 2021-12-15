@@ -52,6 +52,7 @@ body{
   	
   </div>
     <%@include file="header.jsp" %>
+    <%@include file="modal.jsp" %>
 
     <%@include file="modal.jsp" %>
 

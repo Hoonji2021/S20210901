@@ -48,7 +48,7 @@ body{
   <!-- Back to top button -->
   <div class="back-to-top"></div>
    
-    <%@include file="header.jsp" %>
+    <%@include file="header.jsp" %> 
     <%@include file="myPageNav.jsp" %>
     <%@include file="footer.jsp" %>
 </body>

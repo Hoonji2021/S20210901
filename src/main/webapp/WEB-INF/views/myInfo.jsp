@@ -48,6 +48,13 @@ input {
 body {
 	font-family: 'MaruBuri-Regular';
 }
+
+#myInfo{
+	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
+}
+#myInfoA{
+	color: white;
+}
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +71,6 @@ body {
 	}
 	
 	function delChk() {
-		alert("탈퇴 왜 안나와")
 		var check;
 		check = confirm("정말 탈퇴하시겠습니까?");
 		if(check == true){
@@ -80,6 +86,7 @@ body {
 	<!-- Back to top button -->
 	<div class="back-to-top"></div>
 	<%@include file="header.jsp"%>
+	<%@ include file="myPageNav.jsp"%>
 
 	<div style="text-align: center; margin-top: 100px;">
 		<form action="memberUpdateForm" name="frm" onsubmit="return test()">

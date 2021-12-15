@@ -118,10 +118,15 @@ body {
 	}
         
     /*     window.location.href = "memberIdChk?id=" + userId; */
-       
-     
+   
+	const autoHyphen = (target) => {
+		target.value = target.value
+		.replace(/[^0-9]/, '')
+		.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+	}
 </script>
 </head>
+
 <body>
 	<!-- Back to top button -->
 	<div class="back-to-top"></div>
@@ -141,11 +146,11 @@ body {
 			<input type="hidden" id="idcheck" name="idcheck" value="0">
 
 			<div style="margin-top: 2%">
-				비밀번호 <br> <input type="text" name="pw" required="required">
+				비밀번호 <br> <input type="password" name="pw" required="required">
 				<br>
 			</div>
 			<div style="margin-top: 2%">
-				비밀번호 확인 <br> <input type="text" name="pwChk"
+				비밀번호 확인 <br> <input type="password" name="pwChk"
 					required="required"> <br>
 			</div>
 			<div style="margin-top: 2%">
@@ -161,7 +166,7 @@ body {
 				<br>
 			</div>
 			<div style="margin-top: 2%">
-				핸드폰 번호 <br> <input type="text" name="phone" class="phone" maxlength="13" required="required"><br>
+				핸드폰 번호 <br> <input type="text" name="phone" oninput="autoHyphen(this)" maxlength="13" required="required"><br>
 			</div>
 			<div style="margin-top: 3%">
 				<p style="margin-bottom: 1%">회원구분</p>
@@ -177,6 +182,5 @@ body {
 		</form>
 	</div>
 </body>
-<script src="js/memberJoin.js"></script>
 	<%@include file="footer.jsp"%>
 </html>
