@@ -17,6 +17,8 @@ public class MemberManagementImpl implements MemberManagementService {
 	@Override
 	public int MemberManagementTotal(MemberManagement memberManagement) {
 		System.out.println("MemberManagementServiceImpl MemberManagementTotal() Strat...");
+		System.out.println("memberManagement searchOption->"+memberManagement.getSearchOption());
+		System.out.println("memberManagement search->"+memberManagement.getSearch());
 		int totalCnt = memberManagementDao.memberManagementTotal(memberManagement);
 		return totalCnt;
 	}

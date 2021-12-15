@@ -32,23 +32,26 @@ public class MemberManagementHj {
 		 searchType = Integer.parseInt(request.getParameter("searchType"));
 		}
 		
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!->"+request.getParameter("searchOption"));
 		//멤버테이블 회원수 구하기
 		memberManagement.setSearch(search);
 		memberManagement.setSearchType(searchType);
-		switch (searchType) {
-		case 1:
-			memberManagement.setSearchOption("id");
-			break;
-		case 2:
-			memberManagement.setSearchOption("email");
-			break;
-		case 3:
-			memberManagement.setSearchOption("name");
-			break;
-		case 4:
-			memberManagement.setSearchOption("phone");
-			break;
-		}
+		memberManagement.setSearchOption(request.getParameter("searchOption"));
+		
+//		switch (searchType) {
+//		case 1:
+//			memberManagement.setSearchOption("id");
+//			break;
+//		case 2:
+//			memberManagement.setSearchOption("email");
+//			break;
+//		case 3:
+//			memberManagement.setSearchOption("name");
+//			break;
+//		case 4:
+//			memberManagement.setSearchOption("phone");
+//			break;
+//		}
 		 int totalCnt = membermanagementService.MemberManagementTotal(memberManagement);
 		 System.out.println("memberManagementList() totalCnt -> " + totalCnt);
 		 

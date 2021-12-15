@@ -5,6 +5,7 @@
 	<select id="HjMemberManagementCnt" resultType="int">
 		select count(*) FROM member where state = 1
 	</select>
+	
 	<select id="HGmemberManagementCntById" parameterType="MemberManagement" resultType="int">
 		select count(*) from member where state = 1 and id = #{search}
 	</select>
@@ -26,6 +27,7 @@
     		 )
 		where rn between #{start} and #{end}
 	</select>
+	
 	<select id="HGmemberManagementListById" parameterType="MemberManagement" resultType="MemberManagement">
 		select * 
 		from

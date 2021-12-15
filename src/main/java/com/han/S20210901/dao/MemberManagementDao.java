@@ -14,7 +14,6 @@ public interface MemberManagementDao {
 
 	int memberManagementDelete(String id);
 
-	List<MemberManagement> searchPage(String searchPage, int searchType, Model model);
 
 	
 }

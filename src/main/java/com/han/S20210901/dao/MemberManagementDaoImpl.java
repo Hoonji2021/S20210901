@@ -25,6 +25,8 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 			totalCnt = session.selectOne("HjMemberManagementCnt");
 			break;
 		case 1:
+			System.out.println("memberManagement searchOption->"+memberManagement.getSearchOption());
+			System.out.println("memberManagement search->"+memberManagement.getSearch());
 			totalCnt = session.selectOne("HGmemberManagementCntById",memberManagement.getSearch());
 			break;
 			
@@ -57,7 +59,10 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 			memberManagementList = session.selectList("HjMemberManagementList", memberManagement);
 			break;
 		case 1:
+			System.out.println("memberManagement searchOption"+memberManagement.getSearchOption());
+			System.out.println("memberManagement search"+memberManagement.getSearch());
 			memberManagementList = session.selectList("HGmemberManagementListById", memberManagement);
+			
 			break;
 		case 2:
 			memberManagementList = session.selectList("HGmemberManagementListByEmail", memberManagement);
@@ -82,11 +87,6 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 		return result;
 	}
 
-	@Override
-	public List<MemberManagement> searchPage(String searchPage, int searchType, Model model) {
-		System.out.println("MemberManagementDaoImpl searchPage starts..."); // by 한글
-		List<MemberManagement> memberManagementList = session.selectList("");
-		return null;
-	}
+
 
 }
