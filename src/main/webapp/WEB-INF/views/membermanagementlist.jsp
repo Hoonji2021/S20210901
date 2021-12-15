@@ -166,7 +166,7 @@ body{
 							<form id="fr" action="memberManagementDelete"  onsubmit="return memberdel()">
 								<input type="hidden"   id="input_checkId${status.index}"  name="id"  value="${memberlist.id}"  >
 								<input type="checkbox" id="input_check${status.index}" value="0" onclick="check(${status.index})">
-								<input type="submit" value="삭제">
+								<input type="submit" value="삭제" >
 							</form>	
 						</td>
 						
