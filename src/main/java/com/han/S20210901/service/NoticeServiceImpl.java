@@ -72,5 +72,11 @@ public class NoticeServiceImpl implements NoticeService {
 		return result;
 	}
 
+	@Override
+	public List<Notice> noticeListMain(Notice notice) {
+		// 공지사항 리스트 메인용
+		return nd.noticeListMain(notice);
+	}
+
 
 }

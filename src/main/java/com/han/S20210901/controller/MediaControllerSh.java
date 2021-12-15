@@ -35,6 +35,8 @@ public class MediaControllerSh {
 		model.addAttribute("mTotal", totalCnt);
 		model.addAttribute("pg", pg);
 		
+		System.out.println("mediaList.size-> " + mediaList.size());
+		
 		return "mediaList";
 	}
 	

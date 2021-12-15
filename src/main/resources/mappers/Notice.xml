@@ -38,5 +38,12 @@
 	<insert id="noticeUploadFormSh" parameterType="Notice">
 		insert into notice values (NOTICE_SEQ.nextval, sysdate, 0, #{ncontent}, #{ntitle}, #{nimg})
 	</insert>
+	
+	<select id="noticeListMainSh" parameterType="Notice" resultType="Notice">
+		select * 
+		from (select rownum rn, a.* 
+		from (select * from notice order by nnum desc) a)
+		where rn BETWEEN 1 and 6
+	</select>
 
 </mapper>

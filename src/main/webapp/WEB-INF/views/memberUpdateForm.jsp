@@ -62,6 +62,12 @@ body {
 			return false;
 		}
 	}
+	
+	const autoHyphen = (target) => {
+		target.value = target.value
+		.replace(/[^0-9]/, '')
+		.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+	}
 </script>
 </head>
 <body>
@@ -101,7 +107,7 @@ body {
 			</div>
 			<div style="margin-top: 2%">
 				핸드폰 번호 <br>
-				<input type="text" name="phone" class="phone" maxlength="13" required="required"
+				<input type="text" name="phone" class="phone" oninput="autoHyphen(this)" maxlength="13" required="required"
 					value="${member.phone }"><br>
 			</div>
 			<input type="submit" value="확인" class="btn btn-sm btn-primary">

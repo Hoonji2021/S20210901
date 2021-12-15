@@ -2,6 +2,9 @@ const form = document.querySelector("#loginForm");
 const id = document.querySelector("#id");
 const pw = document.querySelector("#pw");
 const state = document.querySelector("#state");
+const name = document.querySelector("#name");
+const empno = document.querySelector("#empno");
+const dept = document.querySelector("#dept");
 
 function doSubmit(event){
     event.preventDefault();
@@ -19,21 +22,35 @@ const submitAjax = () => {
 		let dataId = "";
 		let dataPw = "";
 		let dataState = 0;
+		let dataName = "";
+		let dataEmpno = 0;
+		let dataDept = "";
 		
 		if(data.length === 0) {
 			dataId = "";
 			dataPw = "";
 			dataState = 0;
+			dataName = "";
+			dataEmpno = 0;
+			dataDept = "";
 		} else if(data.length > 0) {
 			for(var i=0; i<data.length; i++) {
 				dataId = data[0].id;
 				dataPw = data[0].pw;
 				dataState = data[0].state;
+				dataName = data[0].name;
+				dataEmpno = data[0].empno;
+				dataDept = data[0].dept;
 			}
 		}
+		console.log(dataName);
+		console.log(dataEmpno);
+		console.log(dataDept);
 		
 		state.value = dataState;
-		
+		name.value = dataName;
+		empno.value = dataEmpno;
+		dept.value = dataDept;
 		if(dataState === 3) {
 			alert("탈퇴 회원입니다");
 		} else if (dataId === id.value && dataPw === pw.value && dataState === 1 || dataState === 2) {

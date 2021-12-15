@@ -51,9 +51,8 @@ body{
   <div class="back-to-top">
   	
   </div>
-   
     <%@include file="header.jsp" %>
- 
+    <%@include file="modal.jsp" %>
 
    <!-- 정지훈 / 1대1 상담 -->
   <div class="page-hero bg-image" style="background-image: url(img/main_vimg01.png);">
@@ -101,77 +100,36 @@ body{
     </div> <!-- .page-section -->
     
     <!-- 공지사항(한의원이야기) -->
+    
 	<div class="page-section bg-light">
     <div class="container">
       <h1 class="text-center wow fadeInUp">한의원 이야기</h1>
       <div class="row mt-5">
+      <c:forEach var="notice" items="${noticeList }" varStatus="status">
+	<fmt:formatDate value="${notice.ndate }" var="ndate" pattern="yy-MM-dd"/>
         <div class="col-lg-4 py-2 wow zoomIn">
           <div class="card-blog">
             <div class="header">
               <div class="post-category">
-                <a href="#">Covid19</a>
               </div>
-              <a href="blog-details.html" class="post-thumb">
-                <img src="img/blog/blog_1.jpg" alt="">
+              <a href="noticeDetail?nnum=${notice.nnum }" class="post-thumb">
+        		<img src="upload/${notice.nimg }" alt="Image" class="img-fluid" >
               </a>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">양금희 선생님 SCI 저널 논문 게재</a></h5>
+              <h5 class="post-title"><a href="noticeDetail?nnum=${notice.nnum }">${notice.ntitle }</a></h5>
               <div class="site-info">
                 <div class="avatar mr-2">
                  
-                  <span>관리자</span>
+                  <span>조회수 ${notice.ncount }</span>
                 </div>
-                <span class="mai-time"></span> 21-09-12
+                <span class="mai-time"></span>${ndate }
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 py-2 wow zoomIn">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-category">
-                <a href="#">Covid19</a>
-              </div>
-              <a href="blog-details.html" class="post-thumb">
-                <img src="img/blog/blog_2.jpg" alt="">
-              </a>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html"> 2021년 10월 부터 진료시간이 변경됩니다. 목요일 휴진. 화요일만 9시까지 야간진료 </a></h5>
-              <div class="site-info">
-                <div class="avatar mr-2">
-                 
-                  <span>관리자</span>
-                </div>
-                <span class="mai-time"></span> 21-10-18
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 py-2 wow zoomIn">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-category">
-                <a href="#">Covid19</a>
-              </div>
-              <a href="blog-details.html" class="post-thumb">
-                <img src="img/blog/blog_3.jpg" alt="">
-              </a>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">안녕하세요.2021년 한의원 추석 연휴 휴진 안내해드립니다^^</a></h5>
-              <div class="site-info">
-                <div class="avatar mr-2">
-                
-                  <span>관리자</span>
-                </div>
-                <span class="mai-time"></span> 21-11-01
-              </div>
-            </div>
-          </div>
-        </div>
-
+       
+ </c:forEach>
         <div class="col-12 text-center mt-4 wow zoomIn">
           <a href="noticeList" class="btn btn-primary">더보기</a>
         </div>
@@ -180,72 +138,42 @@ body{
     </div>
   </div> 
   <!-- end of 공지사항 -->
-   
+  
   </div> <!-- .bg-light -->
-
+  
   <div class="page-section">
     <div class="container">
-      <h2 class="text-center mb-5 wow fadeInUp">
-      	<a href="mediaList">강연&방송</a>
-      	</h2>
-
+      <h2 class="text-center mb-5 wow fadeInUp">강연&방송</h2>
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+	<c:forEach var="media" items="${mediaList }" varStatus="status">
+    <fmt:formatDate value="${media.mdate }" var="mdate" pattern="yy-MM-dd"/>
         <div class="item">
-          <div class="card-doctor">
+          <div class="row mt-5">
             <div class="header">
-              <img src="img/doctors/doctor_1.jpg" alt="">
+              <a href="mediaDetail?mnum=${media.mnum }">
+        		<img src="https://img.youtube.com/vi/${media.link}/mqdefault.jpg" alt="Image" class="img-fluid" >
+        	 </a>
             </div>
-            <div class="body">
-              <p class="text-xl mb-0">강연방송1</p>
-              <span class="text-sm text-grey">조회수 : 1</span>
+            <div class="body" style="margin: 0 8%;">
+            <a class="post-title" href="mediaDetail?mnum=${media.mnum }">
+              ${media.mtitle }
+            </a>
+            <div class="site-info">
+            <div class="avatar mr-2">
+              <span>조회수 : ${media.mcount }</span>
+              </div>
+              <span class="mai-time"></span>${mdate }
+              </div>
             </div>
+            
           </div>
         </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="img/doctors/doctor_2.jpg" alt="">
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">강연방송2</p>
-              <span class="text-sm text-grey">조회수 2</span>
-            </div>
+	</c:forEach>
           </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="img/doctors/doctor_3.jpg" alt="">
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">강연방송3</p>
-              <span class="text-sm text-grey">조회수3</span>
-            </div>
-              
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="img/doctors/doctor_3.jpg" alt="">
-             
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">강연방송3</p>
-              <span class="text-sm text-grey">조회수3</span>
-            </div>
-              
-          </div>
-        </div>
-        
+        </div>  
       </div>
-    </div>
-  </div>
 
-
- <%@include file="footer.jsp" %>
- 
-
+<%@include file="footer.jsp" %>
   
 </body>
 </html>

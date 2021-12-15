@@ -96,4 +96,10 @@ public class NoticeDaoImpl implements NoticeDao {
 		}
 		return result;
 	}
+
+	@Override
+	public List<Notice> noticeListMain(Notice notice) {
+		// 메인용 공지사항 리스트
+		return session.selectList("noticeListMainSh", notice);
+	}
 }

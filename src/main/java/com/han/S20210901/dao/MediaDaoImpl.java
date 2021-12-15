@@ -52,4 +52,10 @@ public class MediaDaoImpl implements MediaDao {
 		// 강연방송 업데이트
 		return session.update("mediaUpdateProSh", media);
 	}
+
+	@Override
+	public List<Media> mediaListMain(Media media) {
+		// 강연방송 메인용 페이징x
+		return session.selectList("mediaListMainSh", media);
+	}
 }

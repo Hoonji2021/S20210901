@@ -11,5 +11,6 @@ public interface MediaDao {
 	int mediaInsertPro(Media media);
 	int mediaDeletePro(int mnum);
 	int mediaUpdatePro(Media media);
+	List<Media> mediaListMain(Media media);
 
 }

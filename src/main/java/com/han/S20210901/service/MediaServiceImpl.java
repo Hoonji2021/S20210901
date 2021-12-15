@@ -49,4 +49,10 @@ public class MediaServiceImpl implements MediaService {
 		return md.mediaUpdatePro(media);
 	}
 
+	@Override
+	public List<Media> mediaListMain(Media media) {
+		// 강연방송 list 메인용(페이징x)
+		return md.mediaListMain(media);
+	}
+
 }
