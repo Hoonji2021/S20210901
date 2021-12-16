@@ -97,7 +97,6 @@ body{
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
     </div>
-	review 총 개수 : <span>${total }</span>
 	<div class="container1">
 	<c:forEach var="review" items="${reviewList}">
 	<fmt:formatDate value="${review.rdate }" var="rdate" pattern="yy-MM-dd"/>

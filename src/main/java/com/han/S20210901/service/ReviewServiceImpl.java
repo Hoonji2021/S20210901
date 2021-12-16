@@ -49,4 +49,15 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		return result;
 	}
+
+	@Override
+	public int reviewUpdate(Review review) {
+		System.out.println("ReviewServiceImpl reviewUpdate() Start...");
+		int result = reviewDao.updateReview(review);
+		System.out.println("ReviewServiceImpl reviewUpdate() result->"+result);
+		
+		return result;
+	}
+
+
 }

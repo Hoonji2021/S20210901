@@ -49,4 +49,12 @@ public class ReviewDaoImpl implements ReviewDao {
 		int result = session.delete("reviewDelete", rnum);
 		return result;
 	}
+
+	@Override
+	public int updateReview(Review review) {
+		int result = session.update("reviewUpdate", review);
+		return result;
+	}
+	
+
 }

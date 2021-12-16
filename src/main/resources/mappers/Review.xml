@@ -25,6 +25,10 @@
 	<delete id="reviewDelete" parameterType="int">
 		delete from review where rnum = #{rnum}
 	</delete>
+	<update id="reviewUpdate" parameterType="Review">
+		update review set rtitle=#{rtitle}, rcontent=#{rcontent}
+							where rnum=#{rnum}
+	</update>
 
 
 </mapper>

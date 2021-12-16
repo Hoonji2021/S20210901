@@ -112,7 +112,7 @@ function reviewdel() {
 		<div style="margin: 3% auto; float: right;">
 				<c:if test="${varSessionId == review.id }">
 					<button
-						onclick="location.href='pConsultUpdateForm?pnum=${pdetail.pnum}'"
+						onclick="location.href='reviewUpdateForm?rnum=${review.rnum}'"
 						class="btn btn-sm btn-primary">수정</button>
 					<button onclick="return reviewdel()"
 						class="btn btn-sm btn-primary">삭제</button>

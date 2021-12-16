@@ -71,4 +71,22 @@ public class ReviewControllerJh {
 		model.addAttribute("result", result);
 		return "reviewDeletePro";
 	}
+	@RequestMapping(value = "reviewUpdateForm")
+	public String reviewUpdate(int rnum, Model model) {
+		System.out.println("ReviewControllerJh reviewUpdate() Start...");
+		Review review = reviewService.reviewDetail(rnum);
+		
+		model.addAttribute("review", review);
+		
+		return "reviewUpdateForm";
+	}
+	@PostMapping(value = "reviewUpdatePro")
+	public String reviewUpdatePro(Review review, Model model) {
+		int result = reviewService.reviewUpdate(review);
+		
+		model.addAttribute("rnum", review.getRnum());
+		model.addAttribute("result", result);
+		
+		return "reviewUpdatePro";
+	}
 }
