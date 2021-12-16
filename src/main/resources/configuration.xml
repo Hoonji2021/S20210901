@@ -14,5 +14,6 @@
 		<typeAlias alias="MemberManagement"   	type="com.han.S20210901.model.MemberManagement"/>
 		<typeAlias alias="EmpManagement"   	type="com.han.S20210901.model.EmpManagement"/>
 		<typeAlias alias="Reservation" type="com.han.S20210901.model.Reservation"/>
+		<typeAlias alias="Review" type="com.han.S20210901.model.Review"/>
 	</typeAliases> 
 </configuration>
