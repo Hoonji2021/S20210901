@@ -1,8 +1,7 @@
-
 # http port set
 server:
 
-  port: 8582
+  port: 8583
 
   
 # Oracle Connect (JDBC)

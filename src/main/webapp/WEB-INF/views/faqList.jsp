@@ -93,7 +93,7 @@ body{
     <div>
 	    <c:forEach var="faq" items="${faqList }" varStatus="status">
 		    <div class="faq_div" id="faq_list${status.index}" onclick="faq_list(${status.index})">
-		    	${faq.fnum }&nbsp;${faq.ftitle}
+		    	${faq.rn }&nbsp;${faq.ftitle}
 		    	<c:choose>
 			    	<c:when test="${ varSessionState==4}">
 				    	<button class="btn btn-primary" onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
