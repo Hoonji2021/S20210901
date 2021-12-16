@@ -50,7 +50,16 @@ function fn_oconsultdel(opw){
 	
 	var check; // 변수선언
 	var frmOpw = frm.opw.value;
-	
+	if(${varSessionState} == 4) {
+		check = confirm("정말 삭제하시겠습니까?");
+		if(check == true){
+			location.href="oconsultDelete?onum=${oconsult.onum}";
+		}else{
+			frm.opw.value="";
+			frm.opw.focus();
+		}
+		return true;
+	}
 	if(frmOpw=="" || frmOpw == null){
 		alert("비밀번호를 넣어 주세요");
 		frm.opw.focus();

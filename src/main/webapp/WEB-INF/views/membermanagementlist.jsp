@@ -18,6 +18,41 @@
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
 <script type="text/javascript">
+
+let selectType="";
+
+function searchBy(searchOption){
+	var inputType = document.getElementById("search");
+		inputType.value = "";
+	var searchType = document.getElementById("searchType");
+		searchType.value = "";
+		
+		selectType = searchOption.value;
+		
+	if(searchOption.value=="id"){
+		searchType.value = "1";
+		
+	}
+	else if(searchOption.value=="email"){
+		searchType.value = "2";
+	}
+	else if(searchOption.value=="name"){
+		searchType.value = "3";
+	}
+	else if(searchOption.value=="phone"){
+		searchType.value = "4";
+	}
+}
+function chk(){
+	if(selectType == ""){
+		alert("검색 방식을 선택하세요");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
 /* input 체크여부 확인 함수 */
 function check(index){
 	var i = index;
@@ -103,16 +138,22 @@ body{
   <%@include file="header.jsp" %>
   <%@include file="empOperationNav.jsp" %>
 <div style="text-align: center; font-family: 'GowunBatang-Regular';">
-		<select name="searchOption" >
-		<optgroup label="검색방식" >
-			<option id="searchById">아이디</option>
-			<option id="searchByEmail">이메일</option>
-			<option id="searchByName">이름</option>
-			<option id="searchByPhone">연락처</option>
-			</optgroup>
+		
+		<form action="MemberManagementMain">
+		<select id="searchOption" name="searchOption" onchange="searchBy(this)">
+			<option value="">==검색방식==</option>
+			<option id="searchById" value="id">아이디</option>
+			<option id="searchByEmail" value="email">이메일</option>
+			<option id="searchByName" value="name">이름</option>
+			<option id="searchByPhone" value="phone">연락처</option>
 		</select>
-		<input type="search">
-		<button>검색</button>
+		
+			<input type="search" id="search" name="search" value="${search }" >
+			
+			<input type="hidden" id="searchType" name="searchType">
+			<input type="submit" value="검색" onclick="return chk()">
+		</form>
+		
 	</div>    <p>
 	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 
@@ -155,13 +196,13 @@ body{
 	</table>
 	<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
 		</c:when>

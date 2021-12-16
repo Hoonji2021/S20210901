@@ -100,6 +100,7 @@ body{
     <c:set var="num" value="${pg.total-pg.start+1 }"></c:set>
     <c:set var="clientName" value="${search }"></c:set>
 	<div style="text-align: center; font-family: 'GowunBatang-Regular';">
+		<form name="optionType" id = "optionType">
 		<select name="searchOption"  onchange="searchBy(this)" >
 		
 			<option value="" >==검색방식==</option>
@@ -108,7 +109,7 @@ body{
 			<option value="clinicSearchByDate">진료일</option>
 			
 		</select>
-		<form name="optionType" id = "optionType">
+		
 			<input id="search" name="search" required="required" value="${search }" >
 			<input type="submit"value="검색" onclick="return chk()">
 		</form>

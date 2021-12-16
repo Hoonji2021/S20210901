@@ -54,6 +54,8 @@ body{
     <%@include file="header.jsp" %>
     <%@include file="modal.jsp" %>
 
+    <%@include file="modal.jsp" %>
+
    <!-- 정지훈 / 1대1 상담 -->
   <div class="page-hero bg-image" style="background-image: url(img/main_vimg01.png);">
     <div class="hero-section">
@@ -76,7 +78,7 @@ body{
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p>온라인 상담</p>
+              <p><a href="pConsultCount">온라인 상담</a></p>
             </div>
           </div>
           <div class="col-sm">
@@ -84,7 +86,7 @@ body{
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p>치료후기</p>
+              <p><a href="#">치료후기</a></p>
             </div>
           </div>
           <div class="col-sm">
@@ -92,7 +94,7 @@ body{
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p>한방치료제</p>
+              <p><a href="#">한방치료제</a></p>
             </div>
           </div>
         </div>
