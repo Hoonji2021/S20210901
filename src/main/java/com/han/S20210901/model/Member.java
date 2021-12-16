@@ -20,5 +20,6 @@ public class Member {
 	// emp join용
 	private int empno;
 	private String dept;
-
+	
+	
 }

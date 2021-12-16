@@ -208,6 +208,7 @@ public class EmpOperationControllerHg {
 		String search = (String) request.getParameter("search");
 		String searchType = (String) request.getParameter("searchType");
 		List<PunchHg> punchList = null;
+		
 		int totCnt = 0;
 		if(searchType==null) searchType = "0" ;
 		
@@ -217,8 +218,8 @@ public class EmpOperationControllerHg {
 		punch.setStart(pg.getStart());
 		punch.setEnd(pg.getEnd());
 		punch.setSearch(search);
+		punch.setSearchType(searchType);
 		
-		//punch.set........... (search); 추후에 검색 모드 생기면 추가할 코드.
 
 		System.out.println("EmpControllerImpl clinicAll clinic.getStart()->"+ punch.getStart());
 		System.out.println("EmpControllerImpl clinicAll clinic.getEnd()->"+ punch.getEnd());
