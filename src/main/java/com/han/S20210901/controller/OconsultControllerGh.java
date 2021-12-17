@@ -16,16 +16,21 @@ import com.han.S20210901.model.Oconsult;
 import com.han.S20210901.service.OconsultService;
 import com.han.S20210901.service.Paging;
 
+//해당 클래스가 Controller임을 나타내기 위한 어노테이션
 @Controller
 public class OconsultControllerGh {
 	private static final Logger logger = LoggerFactory.getLogger(OconsultControllerGh.class);
+	
+	// /IoC 컨테이너 안에 존재하는 Bean을 자동으로 주입해 줌
 	@Autowired
 	private OconsultService os;
+	
+	//요청에 대해 어떤 Conrollter, 어떤 메소드가 처리할지를 맵핑하기 위한 어노테이션
 	@RequestMapping(value = "oconsultList")
 	public String oconsultList(Oconsult oconsult, String currentPage, Model model) {
 		System.out.println("OconsultController Start list...");
-		//공개상담 리스트 총 개수 
-		int total = os.total();
+		//공개상담 게시물 개수 
+		int total = os.total();   
 		System.out.println("OconsultController total=>" + total);
 		// Paging
 		Paging pg = new Paging(total, currentPage);

@@ -24,7 +24,7 @@ public class MemberControllerGh {
 		return "memberJoinForm";
 	}
 	
-	//회원가입- 금희
+	//회원가입(daum 주소 api)- 금희
 	@RequestMapping(value = "memberJoin") 
 	public String memberJoin(Model model, Member member) {
 		System.out.println("MemberControllerGh memberJoin() Start... "); 
