@@ -7,10 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Paging {
-	//1번페이지									//10번페이지
+	//1번페이지									//9번
 
 
-	private int currentPage = 1;	private int rowPage = 10;
+	private int currentPage = 1;	private int rowPage = 9;
 
 
 	//페이지 블럭 최대 10까지 [1][2]~[10]

@@ -16,8 +16,16 @@ public class MemberServiceImpl implements MemberService {
 	public int memberJoin(Member member) {
 		
 		System.out.println("MemberServiceImpl memberJoin() start... ");
+		String text1 = member.getText1();
+		String text2 = member.getText2();
+		String text3 = member.getText3();
+		String text4 = member.getText4();
+		String addr = text1+""+text2+""+text3+""+text4;
+		System.out.println("MemberServiceImpl memberJoin() addr -> " + addr);
+		member.setAddr(addr);
 		int result = md.memberJoin(member);
 		System.out.println("MemberServiceImpl memberJoin() result->" +result);
+		
 		return result;
 	}
 

@@ -13,7 +13,9 @@ public class OconsultServiceImpl implements OconsultService {
 	@Autowired
 	private OconsultDao od;
 
+	// 상속 관계인 부모 클래스와 자식 클래스 사이에서 부모 클래스의 메소드를 똑같이 가져와 사용
 	@Override
+	// 공개상담 게시물 개수 
 	public int total() {
 		System.out.println("OconsultServiceImpl Start total..." );
 		int totCnt = od.total();

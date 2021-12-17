@@ -4,7 +4,9 @@
 
 <mapper namespace="FaqSh">
 	<select id="faqListSh" resultType="Faq" parameterType="Faq">
-		select * from faq
+		select * 
+		from (select rownum rn, a.* 
+		from (select * from faq order by fnum) a)
 	</select>
 	
 	<select id="faqUpdateFormSh" parameterType="int" resultType="Faq">

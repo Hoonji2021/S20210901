@@ -18,7 +18,6 @@
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
 
 let selectType="";
 
@@ -54,8 +53,6 @@ function chk(){
 	}
 }
 
-=======
->>>>>>> 910300b29223f3d7d32206073860a969e077f2d3
 /* input 체크여부 확인 함수 */
 function check(index){
 	var i = index;
@@ -70,15 +67,8 @@ function check(index){
 	
 }
 
-<<<<<<< HEAD
-
-
-/* value 값을 받고 삭제하기위해 check 값과 비교 후 삭제하는 함수 */
-/*  function memberdel() {
-=======
 /* value 값을 받고 삭제하기위해 check 값과 비교 후 삭제하는 함수 */
 function memberdel() {
->>>>>>> 910300b29223f3d7d32206073860a969e077f2d3
  	 if(confirm("정말 삭제하시겠습니까?")){
  		alert("삭제 성공");
  		return true; 
@@ -86,30 +76,8 @@ function memberdel() {
 		alert("삭제 실패");
  	    return false; 
 	}
-<<<<<<< HEAD
-} */
-function memberdel(i,cid) {
-	
-	 var check = document.getElementById("input_check"+i).value;
-	
-	console.log("check의 값은 -> "+ check);
-	console.log("cid->"+cid);
-	
-	 if(confirm("정말 삭제하시겠습니까?")){	
-		if(check == 1){
-			alert("check 삭제 성공");
-			location.href="memberManagementDelete?id="+cid;
-		}else{
-			alert("check 삭제실패");
-			console.log("실패");
-			return false;
-	   }
-	 }
-}
-=======
 }
 
->>>>>>> 910300b29223f3d7d32206073860a969e077f2d3
 </script>
 
 <style type="text/css">
@@ -151,7 +119,6 @@ body{
   <%@include file="header.jsp" %>
   <%@include file="empOperationNav.jsp" %>
 <div style="text-align: center; font-family: 'GowunBatang-Regular';">
-<<<<<<< HEAD
 		
 		<form action="MemberManagementMain">
 		<select id="searchOption" name="searchOption" onchange="searchBy(this)">
@@ -168,18 +135,6 @@ body{
 			<input type="submit" value="검색" onclick="return chk()">
 		</form>
 		
-=======
-		<select name="searchOption" >
-		<optgroup label="검색방식" >
-			<option id="searchById">아이디</option>
-			<option id="searchByEmail">이메일</option>
-			<option id="searchByName">이름</option>
-			<option id="searchByPhone">연락처</option>
-			</optgroup>
-		</select>
-		<input type="search">
-		<button>검색</button>
->>>>>>> 910300b29223f3d7d32206073860a969e077f2d3
 	</div>    <p>
 	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 
@@ -208,17 +163,8 @@ body{
 						<td style="width: 15%; border-right: 1px solid #ddd;"><fmt:formatDate value="${memberlist.regdate}" pattern="yyyy-MM-dd"/></td>
 						<!-- member삭제 -->
 						<td style="width: 6%; border-right: 1px solid #ddd;">
-							<%-- <form id="fr" onsubmit="memberdel('${status.index}','${memberlist.id}')"> --%>
-							<!-- <form id="fr" action="memberManagementDelete"  onsubmit="return memberdel()"> -->
-								<input type="hidden"   id="input_checkId${status.index}"  name="id"  value="${memberlist.id}"  >
-								<input type="checkbox" id="input_check${status.index}" value="0" onclick="check(${status.index})">
-
-								<input type="button" onclick="memberdel('${status.index}','${memberlist.id}')" value="삭제">
-							<!-- </form> -->	
-
 							<form id="fr" action="memberManagementDelete"  onsubmit="return memberdel()">
-								<input type="hidden"   id="input_checkId${status.index}"  name="id"  value="${m
-								emberlist.id}"  >
+								<input type="hidden"   id="input_checkId${status.index}"  name="id"  value="${memberlist.id}"  >
 								<input type="checkbox" id="input_check${status.index}" value="0" onclick="check(${status.index})">
 								<input type="submit" value="삭제">
 							</form>	
@@ -230,13 +176,13 @@ body{
 	</table>
 	<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
 		</c:when>

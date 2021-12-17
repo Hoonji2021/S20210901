@@ -20,4 +20,12 @@ public class Member {
 	// emp join용
 	private int empno;
 	private String dept;
+	
+	// daum 주소
+	private String text1;
+	private String text2;
+	private String text3;
+	private String text4;
+	
+	
 }

@@ -27,7 +27,7 @@ public class MemberManagementHj {
 		System.out.println("request.getParameter(searchType)->"+request.getParameter("searchType"));
 		String search = null;
 		int searchType= 0;
-		if(request.getParameter("search")!=null) {
+		if(request.getParameter("search")!=null && !request.getParameter("search").equals("")) {
 		 search = (String) request.getParameter("search");
 		 searchType = Integer.parseInt(request.getParameter("searchType"));
 		}
