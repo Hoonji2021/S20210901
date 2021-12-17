@@ -115,9 +115,8 @@ function a_mouseover(index){
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4;" ><a href="reviewList" style="color: white;">치료후기</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="mediaList">강연&방송</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
     </div>
+    
 	<div class="container1">
 	<c:forEach var="review" items="${reviewList}" varStatus="status">
 	<fmt:formatDate value="${review.rdate }" var="rdate" pattern="yy-MM-dd"/>
