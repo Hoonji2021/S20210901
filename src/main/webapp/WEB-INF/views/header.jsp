@@ -25,7 +25,7 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="myselfTest">자가진단</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">치료후기</a>
+					<li class="nav-item"><a class="nav-link" href="reviewList">치료후기</a>
 					</li>
 
 					<li class="nav-item"><a class="nav-link" href="pConsultCount">온라인상담</a>

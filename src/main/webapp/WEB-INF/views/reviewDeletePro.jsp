@@ -10,13 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("댓글 수정 성공");
-		location.href="pConsultDetail?id=${id}&pnum=${pnum}";
+		alert("해당 치료후기를 삭제하였습니다.");
+		location.href="reviewList";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("댓글 수정  실패");
+		alert("치료후기 삭제 실패");
 		history.go(-1);
 	</script>
 </c:if>
