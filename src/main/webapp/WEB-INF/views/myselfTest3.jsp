@@ -75,7 +75,6 @@ body{
 
 </script>
  
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 

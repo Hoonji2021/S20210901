@@ -102,14 +102,11 @@ body{
 	<div style="text-align: center; font-family: 'GowunBatang-Regular';">
 		<form name="optionType" id = "optionType">
 		<select name="searchOption"  onchange="searchBy(this)" >
-		
 			<option value="" >==검색방식==</option>
 			<option value="clinicSearchByDoctorName"  >담당의</option>
 			<option value="clinicSearchByClientName" selected="selected" >환자명</option>
 			<option value="clinicSearchByDate">진료일</option>
-			
 		</select>
-		
 			<input id="search" name="search" required="required" value="${search }" >
 			<input type="submit"value="검색" onclick="return chk()">
 		</form>
@@ -155,11 +152,6 @@ body{
 			<button id="clinicWriteForm" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm"><a id="clinicWriteFormA" href="clinicWriteForm">새 진료 작성</a></button>
 		</div>
 	</c:if>
-	
-		
-		
-	
-	
     <%@include file="footer.jsp" %>
 </body>
 </html>

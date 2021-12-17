@@ -36,5 +36,4 @@ public class MemberManagementImpl implements MemberManagementService {
 		int result = memberManagementDao.memberManagementDelete(id);
 		return result;
 	}
-
 }

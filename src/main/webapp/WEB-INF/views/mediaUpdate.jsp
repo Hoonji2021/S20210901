@@ -45,7 +45,6 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 
@@ -53,7 +52,6 @@ body{
   	<div class="back-to-top"></div>
   	<%@include file="header.jsp" %>
 	<%@include file="hospitalNav.jsp"%>
-    
     <form action="mediaUpdatePro">
 	    <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
 	    <fmt:formatDate value="${media.mdate }" var="mdate" pattern="yy-MM-dd"/>

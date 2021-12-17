@@ -2,8 +2,8 @@ package com.han.S20210901.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,22 +38,11 @@ public class MemberManagementHj {
 		memberManagement.setSearchType(searchType);
 		memberManagement.setSearchOption(request.getParameter("searchOption"));
 		
-//		switch (searchType) {
-//		case 1:
-//			memberManagement.setSearchOption("id");
-//			break;
-//		case 2:
-//			memberManagement.setSearchOption("email");
-//			break;
-//		case 3:
-//			memberManagement.setSearchOption("name");
-//			break;
-//		case 4:
-//			memberManagement.setSearchOption("phone");
-//			break;
-//		}
+
 		 int totalCnt = membermanagementService.MemberManagementTotal(memberManagement);
 		 System.out.println("memberManagementList() totalCnt -> " + totalCnt);
+
+	
 		 
 		//페이징 totalCnt = 12,1
 		Paging pg = new Paging(totalCnt, currentPage);
@@ -61,11 +50,9 @@ public class MemberManagementHj {
 		memberManagement.setStart(pg.getStart());
 		memberManagement.setEnd(pg.getEnd());
 		
-		
-		
-		
 		//리스트 모두 가져오기
 		List<MemberManagement> memberManagementList = membermanagementService.MemberManagementAll(memberManagement,searchType);
+
 		
 		/* model.addAttribute("totalCnt", totalCnt); */
 		model.addAttribute("memberList", memberManagementList);

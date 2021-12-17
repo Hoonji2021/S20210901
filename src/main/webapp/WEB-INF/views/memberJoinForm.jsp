@@ -126,7 +126,6 @@ body {
 	}
 </script>
 </head>
-
 <body>
 	<!-- Back to top button -->
 	<div class="back-to-top"></div>
@@ -182,5 +181,6 @@ body {
 		</form>
 	</div>
 </body>
+<script src="js/memberJoin.js"></script>
 	<%@include file="footer.jsp"%>
 </html>

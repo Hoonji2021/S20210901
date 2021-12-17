@@ -45,10 +45,8 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
-
   	<!-- Back to top button -->
   	<div class="back-to-top"></div>
   	<%@include file="header.jsp" %>

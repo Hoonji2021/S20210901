@@ -43,9 +43,6 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 			break;
 		}
 		
-		
-		
-		
 		return totalCnt;
 	}
 
@@ -86,7 +83,5 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 		int result = session.delete("MemberManagementDelete", id);
 		return result;
 	}
-
-
 
 }

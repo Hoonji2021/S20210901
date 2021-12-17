@@ -84,8 +84,6 @@ body{
 		</div>
 	</div>
 	</form>
-
-
 	<%@include file="footer.jsp" %>
 </body>
 </html>

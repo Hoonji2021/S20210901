@@ -177,12 +177,6 @@ body{
 		<a class="btn btn-primary btn-sm" href="punchList?search=${search }&currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
-	
-	
-		
-		
-	
-	
     <%@include file="footer.jsp" %>
 </body>
 </html>

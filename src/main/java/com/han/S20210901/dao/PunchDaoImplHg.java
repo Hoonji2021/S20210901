@@ -45,6 +45,7 @@ public class PunchDaoImplHg implements PunchDaoHg {
 			break;
 		case 2:
 			result = session.selectOne("HgpunchTotalDate",search);
+		//	result = session.selectOne("HgpunchTotalEmpno",search);
 			break;
 		}
 		

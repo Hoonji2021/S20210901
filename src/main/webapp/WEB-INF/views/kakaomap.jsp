@@ -49,7 +49,6 @@ body{
 <body>
 <%@include file="header.jsp" %>
 <%@include file="hospitalNav.jsp"%>
-
 	<div style="margin: auto; margin-top: 3%; text-align: center; border-bottom: 1px solid #ddd; padding-bottom: 2rem; margin-bottom: 3rem; position: relative; width: 700px;" > <h2>오시는 길</h2> </div>
 
 	<div id="map" style="width:700px; height:400px; margin: auto;"></div>
