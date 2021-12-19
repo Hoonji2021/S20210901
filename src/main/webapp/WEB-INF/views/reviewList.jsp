@@ -46,7 +46,7 @@ body{
 	background: white;
 	width: 365px;
 	height: 32%;
-	margin: 20px 20px;
+	margin: 20px 20px 20px 90px;
 	display: inline-block;
 	float: left;
 	border: 1px solid gray;
@@ -75,6 +75,9 @@ body{
 	color: yellow;
 	
 }
+.blueborder{
+	border-color: blue;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -84,6 +87,24 @@ body{
   
   
 </head>
+<script type="text/javascript">
+
+function a_mouseover(index){
+	var id = document.getElementById("reviewgl"+index);
+	
+	$(id).mouseover(function(){
+	    $(id).css("border-color", "blue");
+	  });
+
+	  $(id).mouseout(function(){
+
+	    $(id).css("border-color", "grey");
+
+	  });
+		
+	}
+	
+</script>
 <body>
 
   <!-- Back to top button -->
@@ -93,15 +114,14 @@ body{
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4;" ><a href="reviewList" style="color: white;">치료후기</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">강연&방송</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="mediaList">강연&방송</a></div>
     </div>
-	<div class="container1">
-	<c:forEach var="review" items="${reviewList}">
+    <div style="text-align: center;">
+	<div class="container1" align="center">
+	<c:forEach var="review" items="${reviewList}" varStatus="status">
 	<fmt:formatDate value="${review.rdate }" var="rdate" pattern="yy-MM-dd"/>
-		<div class="reviewgl">
-			<a href="reviewDetail?rnum=${review.rnum }">
+		<div class="reviewgl"  id="reviewgl${status.index}" onmouseover="a_mouseover(${status.index})">
+			<a href="reviewDetail?rnum=${review.rnum }" id="Abutton" >
 				<h5 style="color: black; display: inline-block;"><b>${review.id }님의 후기</b></h5>
 				<p class="stars" style="float: right; margin-bottom: 0px;">
 					<!-- 선택한 별점 -->
@@ -124,6 +144,7 @@ body{
 		</div>
 	</c:forEach>
 	
+	</div>
 	</div>
 		<div style="margin: 0 auto; text-align: center; display: block;" >
 		<c:if test="${pg.startPage > pg.pageBlock}">

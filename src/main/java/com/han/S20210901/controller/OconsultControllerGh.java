@@ -36,6 +36,8 @@ public class OconsultControllerGh {
 		Paging pg = new Paging(total, currentPage);
 		oconsult.setStart(pg.getStart());
 		oconsult.setEnd(pg.getEnd());
+		System.out.println("!!!!->"+oconsult.getStart());
+		System.out.println("!!!!->"+oconsult.getEnd());
 		System.out.println("OconsultController oconsultList start......");
 		//리스트 모두 가져오기
 		List<Oconsult> listOconsult = os.listOconsult(oconsult);

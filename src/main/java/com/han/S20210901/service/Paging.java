@@ -22,6 +22,7 @@ public class Paging {
 	public Paging(int total, String currentPage1) {
 		this.total = total; // 12
 		System.out.println("total -> " + total);
+		
 		if(currentPage1 == null) {
 			this.currentPage = 1;
 		}else {

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.han.S20210901.model.Member;
+import com.han.S20210901.service.EmpService;
 import com.han.S20210901.service.MemberService;
 
 @Controller
@@ -17,6 +18,8 @@ public class MemberControllerGh {
 
 	@Autowired
 	private MemberService ms;
+	@Autowired
+	private EmpService empService;
 	
 	@RequestMapping(value = "memberJoinForm")
 	public String memberJoinForm(Model model) {
@@ -26,9 +29,16 @@ public class MemberControllerGh {
 	
 	//회원가입(daum 주소 api)- 금희
 	@RequestMapping(value = "memberJoin") 
-	public String memberJoin(Model model, Member member) {
+	public String memberJoin(Model model, Member member, HttpServletRequest request) {
 		System.out.println("MemberControllerGh memberJoin() Start... "); 
-		int result = ms.memberJoin(member); 
+		System.out.println("!!!!!! request dept->"+request.getParameter("dept"));
+		int result =0 ;
+		
+		
+		result = ms.memberJoin(member); 
+		if(request.getParameter("dept")!=null) {
+			result = empService.newEmp(member,request.getParameter("dept"));
+		}
 		model.addAttribute("result", result); 
 		return "memberJoinPro"; 
 	}

@@ -50,7 +50,7 @@ function fn_oconsultdel(opw){
 	
 	var check; // 변수선언
 	var frmOpw = frm.opw.value;
-	if(${varSessionState} == 4) {
+	if(${varSessionState == 4} ) {
 		check = confirm("정말 삭제하시겠습니까?");
 		if(check == true){
 			location.href="oconsultDelete?onum=${oconsult.onum}";

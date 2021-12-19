@@ -53,6 +53,7 @@ body{
   	<div class="back-to-top"></div>
   	<%@include file="header.jsp" %>
 	<%@include file="hospitalNav.jsp"%>
+
 	
 	<div class="row tm-mb-90 tm-gallery" style="margin: 0 8%;">
             <c:forEach var="media" items="${mediaList }" varStatus="status">

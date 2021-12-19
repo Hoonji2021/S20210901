@@ -76,6 +76,12 @@ body {
 	    if (state == 2) {
            var a = prompt("직원용 비밀번호를 입력하세요 ");
            if(a == '0222'){
+        	   var deptParam = prompt("부서를 입력하세요");
+        	   alert(deptParam);
+        	   var dept = document.getElementById("dept");
+        	   alert(dept.value);
+        	   dept.value = deptParam;
+        	   alert(dept.value);
            		return true;
            }else{
            		alert("비밀번호가 틀렸습니다");
@@ -233,6 +239,7 @@ body {
 					</select>
 				</div>
 			</div>
+			<input type="hidden" id="dept" name="dept">
 			<input type="submit" value="가입하기" class="btn btn-sm btn-primary"
 				style="margin-top: 5%">
 		</form>

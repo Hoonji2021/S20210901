@@ -39,7 +39,6 @@ public class PconsultControllerJh {
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, Model model, Pconsult pconsult) {
 		System.out.println("PcontrollerJh pConsultList() start...");
-		
 		// 1대1상담 게시물 총 개수 구하기
 		int totalCnt = pconsultService.pConsultTotal();
 		System.out.println("pConsultList() totalCnt ->" + totalCnt);
@@ -116,7 +115,6 @@ public class PconsultControllerJh {
 		// 이전 데이터를 가지고 게시물 수정폼으로 이동
 		Pconsult pconsult = pconsultService.pConsultDetail(pnum);
 		model.addAttribute("pdetail", pconsult);
-
 		return "pconsultUpdateform";
 	}
 
@@ -195,7 +193,7 @@ public class PconsultControllerJh {
 		model.addAttribute("pnum", pnum);
 
 		model.addAttribute("result", result);
-		return "replyUpdatePro";
+		return "replyUpdatePro"; 
 	}
 	
 }
