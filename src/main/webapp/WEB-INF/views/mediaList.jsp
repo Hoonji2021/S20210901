@@ -52,7 +52,13 @@ body{
   	<!-- Back to top button -->
   	<div class="back-to-top"></div>
   	<%@include file="header.jsp" %>
-	<%@include file="hospitalNav.jsp"%>
+  	
+  	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
+		<div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
+    	<div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
+    	<div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="reviewList">치료후기</a></div>
+    	<div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="mediaList" style="color: white;">강연&방송</a></div>
+    </div>
 
 	
 	<div class="row tm-mb-90 tm-gallery" style="margin: 0 8%;">
