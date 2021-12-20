@@ -58,7 +58,7 @@ body{
 	<div class="back-to-top"></div>
 	<%@include file="header.jsp"%>
 
-	<form action="findIdResult">
+	<form action="findIdResult" method="post">
 	<div align="center" style="margin-top: 5%;">
 	<h5>아이디 찾기</h5>
 	<hr width="23%;">

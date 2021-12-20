@@ -50,7 +50,7 @@ body{
 	<%@include file="header.jsp"%>
 	
 	<!-- 이메일? -->
-	<form action="findPwResult">
+	<form action="findPwResult" method="post">
 	<div align="center" style="margin-top: 5%;">
 	<h5>임시 비밀번호 발급</h5>
 	<hr width="22%;">

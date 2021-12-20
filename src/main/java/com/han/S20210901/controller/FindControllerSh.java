@@ -12,6 +12,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.han.S20210901.model.Member;
 import com.han.S20210901.service.FindService;
@@ -30,7 +31,7 @@ public class FindControllerSh {
 		return "findId";
 	}
 	
-	@RequestMapping(value = "findIdResult")
+	@RequestMapping(value = "findIdResult", method = RequestMethod.POST)
 	public String findId(Member member, Model model) {
 		System.out.println("FindIdController findId start");
 		String fid = null;
@@ -45,7 +46,7 @@ public class FindControllerSh {
 		return "findPw";
 	}
 	
-	@RequestMapping(value = "findPwResult")
+	@RequestMapping(value = "findPwResult", method = RequestMethod.POST)
 	public String findPwResult(Member member, Model model) {
 		System.out.println("findController pwfind start");
 		System.out.println("mailSending...");
