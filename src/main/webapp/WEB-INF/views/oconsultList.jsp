@@ -42,7 +42,6 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
 
 </head>
 <body>
@@ -55,15 +54,12 @@ body{
 
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="pConsultCount" >온라인상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5;  background-color: #5396E4 "><a href="oconsultList" style="color: white;">공개상담</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="/board/103">치료후기</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="reviewList">치료후기</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="mediaList">강연&방송</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="noticeList">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; color: black"><a href="/board/103">소식</a></div>
 
     </div>
 	
 	<table style="width: 68%; margin: 0 auto; margin-bottom: 1%">
-	<%-- <div>Pconsult(1대1상담) 게시물 개수 : ${totalCnt}</div> --%>
 		<thead>
 			<tr style="font-family: NanumBarunGothic">
 				<th>번호</th>
@@ -78,7 +74,7 @@ body{
 		<c:forEach var="listOconsult" items="${listOconsult}" >
 		<fmt:formatDate value="${listOconsult.odate }" var="odate" pattern="yy-MM-dd"/>
 			<tr style="font-family: NanumBarunGothic">
-				<td style="width: 100px;">${listOconsult.rn}</td>
+				<td style="width: 100px;">${listOconsult.rn2}</td>
 				<td>${listOconsult.owriter }</td>
 				<!-- 제목 -->
 				<td style="width: 500px; text-align: left;">

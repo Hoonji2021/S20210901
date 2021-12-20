@@ -45,7 +45,6 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 
@@ -64,11 +63,16 @@ body{
 		<tr><td><input type="hidden" name="ncount" value="${notice.ncount }">${notice.ncount }</td></tr>
 		<tr><td>
 			<textarea cols="50" rows="10" name="ncontent">${notice.ncontent }</textarea><p></td></tr>
-		
 		<tr><td colspan="2">
 			<input class="btn btn-primary" type="submit" value="수정완료">
 		</td></tr>
 		
+		<!-- 관리자용 공지사항 수정으로 이동, 조건 어떻게 줘야할지 모루겠다 -->
+		<%-- <c:if test=""> --%>
+		<tr><td colspan="2">
+			<input type="submit" value="수정완료">
+		</td></tr>
+		<%-- </c:if> --%>
 	</table>
 	</form>
 	<%@include file="footer.jsp" %>

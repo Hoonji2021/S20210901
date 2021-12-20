@@ -17,6 +17,84 @@
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
+<script type="text/javascript">
+	
+	function getTestResult() {
+		let nameObj = new Array();
+		let cnt = 0; 
+		let total = 0;
+		let chkValue = document.getElementsByTagName("input");
+		const HIDDEN_CLASS = "hidden";
+		
+		console.log("chkValue->",chkValue);
+		for(var i=0; i<chkValue.length; i++){
+			if(chkValue[i].type == "radio"){
+				if( nameObj[cnt-1] != chkValue[i].name){	
+					nameObj[cnt] = chkValue[i].name;
+					cnt++;
+					console.log("nameObj[cnt]->",nameObj[cnt]);
+					
+				}
+			}	
+		}
+		
+		for (var i = 0; i < nameObj.length; i++) { 
+			let chkValue = document.getElementsByName(nameObj[i]);//myTest1~
+			for (var j = 0; j < chkValue.length; j++) { 
+				if (chkValue[j].checked == true) { 
+					var numVal = parseInt(chkValue[j].value);
+					total = total+numVal;
+				
+				} 
+			} 
+		} 
+		
+		console.log("total->",total);
+		$("#total").text(total);
+		
+		//-------------------점수에 따른 결과
+		
+		const yourname = document.getElementById("yourname");
+		const resultname = yourname.value;
+		const resultCon = document.getElementById("resultContainer");
+		const condition = document.getElementById("condition");
+		
+		let conditionIs = "";
+		resultCon.style.display = "block";
+		
+		//이름 출력하기
+		$("#resultname").text(resultname);
+		
+		
+		if(total <= 15){
+			//진단 결과
+			conditionIs = "일반적인 상태(정상)";
+			$("#condition").text(conditionIs);
+			//처방 안내
+			const testResult1 = document.getElementById("testResult1");
+			testResult1.style.display = "block";
+			
+		}else if(total <= 30){
+			conditionIs = "우울증 초기 단계(가끔 우울하지만 극복 가능한 상태)";
+			$("#condition").text(conditionIs);
+			const testResult2 = document.getElementById("testResult2");
+			testResult2.style.display = "block";
+			
+		}else if(total <= 45){
+			conditionIs = "우울증 심각 단계(심한 우울증이 의심되며 주변 주변 지인들의 도움이 필요)";
+			$("#condition").text(conditionIs);
+			const testResult3 = document.getElementById("testResult3");
+			testResult3.style.display = "block";
+		}else{
+			conditionIs = "우울증 말기 단계(최대한 빨리 전문가의 상담치료가 필요)";
+			$("#condition").text(conditionIs);
+			const testResult4 = document.getElementById("testResult4");
+			testResult4.style.display = "block";
+		}
+		
+	} 
+
+</script>
 <style type="text/css">
 @font-face {
     font-family: 'GowunBatang-Regular';
@@ -33,9 +111,11 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+.hidden{
+	display: none;
+}
 </style>
   
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 
@@ -52,20 +132,12 @@ body{
     </div>
     
     
-    <form action="TestResult2" method="post">
+     <form id="myselfTest">
     <div class="row" style="margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
     	<div class="container">
-    		<div class="row justify-content-md-center">
-				<div class="col-4" style="background-color: lightgray">성별
-				</div>
-				<div class="col-4" style="text-align: left;"><input type="radio" value="남자" name="gender">남자 &nbsp;
-															<input type="radio" value="여자" name="gender">여자
-				</div>
-				
-			</div>
 			<div class="row justify-content-md-center">
 				<div class="col-4" style="background-color: lightgray">이름</div>
-				<div class="col-4" style="text-align: left;"><input type="text" name="name"></div>	
+				<div class="col-4" style="text-align: left;"><input id="yourname" type="text" name="name"></div>	
 			</div>
 			
 			<br>
@@ -209,14 +281,115 @@ body{
         
         <tr>
 			<td colspan="10" style="text-align: center;"><input size="2" type="hidden" name="total">
-				<input type="submit" value="결과보기" class="btn btn-sm btn-primary">
+				<input type="button" value="결과보기" class="btn btn-sm btn-primary" onclick="getTestResult(); this.onclick='';">
 			</td>
 		</tr>
     </tbody>    
-</table>
+</table>	
  </div>
-</form>
-    
+ </form> 
+
+
+	 <div class="container" style="margin: 3% auto; width: 65%; text-align: left; font-size: 18px; font-family: NanumBarunGothic;">
+	  	<div class="row">
+	  		<div class="col">
+	  		<span id="resultname" style="font-size: 35px;"></span>의 자가진단 결과는 다음과 같습니다.
+	  		</div>
+	  	</div>
+	  	<hr>
+
+
+		<div class="row stacked" style="margin-bottom: 20px;">
+			<div class="col-sm-4" style="text-align: center; background-color: gray; color: white"">
+				<div class="cal-widget" style="margin-top: 40px;">
+					<div class="cal-title" >TOTAL</div>
+					<div class="cal-int" >
+						<span id="total" style="font-size: 40px;"></span> 점
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="cal-widget-right">
+					<strong>우울증테스트결과 합산점수에 따라 우울증자가진단을 해볼 수 있다.</strong>
+					<ul>
+						<li>0 ~ 15점 : 일반적인 상태</li>
+						<li>16 ~ 30점 : 우울증 초기, 가끔 우울하지만 극복 가능한 상태</li>
+						<li>31 ~ 45점 : 심한 우울증이 의심되며 주변 주변 지인들의 도움이 필요</li>
+						<li>50점 이상은 전문가의 상담치료가 필요</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" id="resultContainer" style="display: none;">
+			<div class="col">
+							
+						<p>
+							결과 : <span id="condition" style="color: blue; font-size: 30px;">일반적인 상태 (정상)</span>
+							<div class="row">
+								<div class="col">
+									<span style="color: gray; font-size: 15px;">이럴 경우 대처하는 방안은 다음과 같습니다.(아래 내용 참조)</span>
+								</div>
+							</div>
+								<br>
+							<div class="row" id="testResult1" style="display: none;">
+								<div class="col" style="border: 1px dotted gray;">
+									<br>
+									<ul>
+										<li>가벼운 운동을 한다.</li>
+										<li>기분을 가볍고 즐겁게 유지한다.</li>
+									</ul>
+								</div>
+							</div>
+					
+					
+						
+							<div class="row " id="testResult2" style="display: none;">
+								<div class="col" style="border: 1px dotted gray;">
+									<br>
+									<ul>
+										<li>하루일과 중에서 5분이라도 반드시 일정한 시간을 건강을 위해서 쓴다.</li>
+										<li>취미활동을 만들어 여가시간을 활발히 보낸다.</li>
+										<li>가벼운 운동을 한다.</li>
+										<li>주변 사람들과 상담을 통해 심리적 안정을 얻는다.</li>
+										<li>한의원을 방문하여 조언을 듣는다.</li>
+										<li>심리, 감정과 관련된 독서를 한다.</li>
+									</ul>
+								</div>
+							</div>
+					
+						
+							<div class="row" id="testResult3" style="display: none;">
+								<div class="col" style="border: 1px dotted gray;">
+									<span> 일상생활 속에서 많은 노력을 하였음에도 불구하고 내 기분을 내가 통제하지 못하는 경우,
+									내 기분에 압도되는 경우에는 병원을 찾아 약물치료를 진행하는 것이 좋은지 정확하게 평가를 받아보는 것이 좋다.
+									만약 의사가 SSRI등 세로토닌(항우울 작용을 하는 신경전달물질)을 높아지게 하는 약을 권유한다면, 일상생활속
+									노력들과 약물치료를 병행하는 것이 좋다.</span><br>
+								</div>
+							</div>
+							
+						
+							<div class="row" id="testResult4" style="display: none;">
+								<div class="col" style="border: 1px dotted gray;">
+									<span> 우울증이 심각하게 진전이 된 상황에서는 환청, 환각 등 망상과 사고장애가 있을 수 있다.
+											이때는 약물치료가 매우 필수적이며 의사와 꾸준히 만나 정기적인 치료를 통해 나의 상태를 객관적으로 평가받고
+											내가 복용하고 있는 약물의 용량과 종류를 조정하는 과정이 매우 중요하다. 또한 이 단계에서는 일상생활에서 본인이 스스로 일상생활의
+											규칙을 찾고, 산책을 하고 운동 하는 등의 노력을 해야한다. </span><br>
+									<span> </span>
+								</div>
+							</div>
+				<hr>
+			</div>
+		</div>
+		<div class="row justify-content-md-center" style="text-align: center;">
+			<div class="col col-lg-2">
+			<button class="btn btn-sm btn-primary" onclick="location.href='pConsultCount'">상담받기</button>
+			</div>
+			<div class="col col-lg-2">
+			<button class="btn btn-sm btn-primary" onclick="location.href='myselfTest2'">다시하기</button>
+			</div>
+		</div>
+	</div>
     
    
     <%@include file="footer.jsp" %>

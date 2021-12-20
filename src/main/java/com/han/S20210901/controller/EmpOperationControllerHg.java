@@ -208,7 +208,7 @@ public class EmpOperationControllerHg {
 		String search = (String) request.getParameter("search");
 		String searchType = (String) request.getParameter("searchType");
 		List<PunchHg> punchList = null;
-		
+
 		int totCnt = 0;
 		if(searchType==null) searchType = "0" ;
 		
@@ -220,6 +220,7 @@ public class EmpOperationControllerHg {
 		punch.setSearch(search);
 		punch.setSearchType(searchType);
 		
+
 
 		System.out.println("EmpControllerImpl clinicAll clinic.getStart()->"+ punch.getStart());
 		System.out.println("EmpControllerImpl clinicAll clinic.getEnd()->"+ punch.getEnd());

@@ -39,7 +39,6 @@ public class PconsultControllerJh {
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, Model model, Pconsult pconsult) {
 		System.out.println("PcontrollerJh pConsultList() start...");
-		
 		// 1대1상담 게시물 총 개수 구하기
 		int totalCnt = pconsultService.pConsultTotal();
 		System.out.println("pConsultList() totalCnt ->" + totalCnt);
@@ -116,7 +115,6 @@ public class PconsultControllerJh {
 		// 이전 데이터를 가지고 게시물 수정폼으로 이동
 		Pconsult pconsult = pconsultService.pConsultDetail(pnum);
 		model.addAttribute("pdetail", pconsult);
-
 		return "pconsultUpdateform";
 	}
 
@@ -195,55 +193,7 @@ public class PconsultControllerJh {
 		model.addAttribute("pnum", pnum);
 
 		model.addAttribute("result", result);
-		return "replyUpdatePro";
+		return "replyUpdatePro"; 
 	}
 	
-	@GetMapping(value = "myselfTest")
-	public String myselfTest() {
-		
-		return "myselfTest";
-	}
-	
-	@PostMapping(value = "TestResult")
-	public String TestResult(MyselfTest myTest, Model model) {
-		//자가진단 점수 합산
-		int testTotal = myTest.getMyTest1()+myTest.getMyTest2()+myTest.getMyTest3()+myTest.getMyTest4()+myTest.getMyTest5()+
-						myTest.getMyTest6()+myTest.getMyTest7()+myTest.getMyTest8()+myTest.getMyTest9()+myTest.getMyTest10();
-		
-		System.out.println("TestResult testTotal ->"+testTotal);
-		model.addAttribute("total", testTotal);
-		model.addAttribute("myTest", myTest);
-		
-		return "myselfTestResult";
-	}
-	
-	@GetMapping(value = "myselfTest2")
-	public String myselfTest2(MyselfTest myTest, Model model) {
-		System.out.println("PconsultControllerJh myselfTest2() Start...");
-		
-		return "myselfTest2";
-	}
-	
-	@PostMapping(value = "TestResult2")
-	public String TestResult2(MyselfTest myTest, Model model) {
-		//자가진단 점수 합산
-		int testTotal = myTest.getMyTest1()+myTest.getMyTest2()+myTest.getMyTest3()+myTest.getMyTest4()+myTest.getMyTest5()+
-						myTest.getMyTest6()+myTest.getMyTest7()+myTest.getMyTest8()+myTest.getMyTest9()+myTest.getMyTest10()+
-						myTest.getMyTest11()+myTest.getMyTest12()+myTest.getMyTest13()+myTest.getMyTest14()+myTest.getMyTest15();
-		System.out.println("TestResult2 testTotal ->"+testTotal);
-		
-		model.addAttribute("total", testTotal);
-		model.addAttribute("myTest", myTest);
-			
-		return "myselfTestResult2";
-	}
-	                     
-	@GetMapping(value = "myselfTest3")
-	public String myselfTest3(MyselfTest myTest, Model model) {
-		System.out.println("PconsultControllerJh myselfTest3() Start...");
-		
-		return "myselfTest3";
-	}
-
-
 }

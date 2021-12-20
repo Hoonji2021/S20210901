@@ -186,7 +186,7 @@
 					<div id="heightContents"></div>
 				</div>
 				<div class="modal-footer d-flex justify-content-center">
-					<button class="btn btn-deep-orange" onclick="content()">Sign up</button>
+					<button class="btn btn-deep-orange" onclick="content()">결과보기</button>
 				</div>
 			</div>
 		</div>

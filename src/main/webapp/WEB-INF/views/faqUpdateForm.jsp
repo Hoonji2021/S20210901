@@ -44,8 +44,6 @@ body{
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
-  
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 
@@ -53,7 +51,6 @@ body{
   	<div class="back-to-top"></div>
   	<%@include file="header.jsp" %>
 	<%@include file="hospitalNav.jsp"%>
-   
     <form action="faqUpdatePro">
     <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
     	<tr><th>글번호</th></tr>

@@ -75,7 +75,6 @@ body{
 
 </script>
  
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 
@@ -114,94 +113,94 @@ body{
    		<table class="table table-striped" >
 				<tr>
 					<td>1. 맥박이 빠르게 뛰고 심장박동이 빠르다.</td>
-					<td><input type="radio" name="item1" id='item1' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item1" id='item1' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item1" id='item1' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item1" id='item1' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>2. 손발에 떨림이 있다.</td>
-					<td><input type="radio" name="item2" id='item2' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item2" id='item2' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item2" id='item2' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item2" id='item2' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>3. 숨이 막히는듯한 느낌이 든다.</td>
-					<td><input type="radio" name="item3" id='item3' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item3" id='item3' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item3" id='item3' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item3" id='item3' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>4. 속이 거북하거나 구역감이 있다.</td>
-					<td><input type="radio" name="item4" id='item4' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item4" id='item4' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item4" id='item4' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item4" id='item4' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>5. 오한이나 화끈한 느낌이 있다.</td>
-					<td><input type="radio" name="item5" id='item5' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item5" id='item5' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item5" id='item5' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item5" id='item5' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>6. 손발이 저리거나 마비되는 느낌이 있다.</td>
-					<td><input type="radio" name="item6" id='item6' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item6" id='item6' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item6" id='item6' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item6" id='item6' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>7. 땀이 많다.</td>
-					<td><input type="radio" name="item7" id='item7' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item7" id='item7' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item7" id='item7' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item7" id='item7' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>8. 호흡이 가쁘다.</td>
-					<td><input type="radio" name="item8" id='item8' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item8" id='item8' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item8" id='item8' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item8" id='item8' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>9. 가슴에 통증이 있다.</td>
-					<td><input type="radio" name="item9" id='item9' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item9" id='item9' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item9" id='item9' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item9" id='item9' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>10. 어지러움증이 있다.</td>
-					<td><input type="radio" name="item10" id='item10' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item10" id='item10' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item10" id='item10' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item10" id='item10' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
 					<td>11. 자신이 변한 것 같다.</td>
-					<td><input type="radio" name="item11" id='item11' value="1"
-						class="check">예</td>
-					<td><input type="radio" name="item11" id='item11' value="0"
-						class="check">아니오</td>
+					<td><label><input type="radio" name="item11" id='item11' value="1"
+						class="check">예</label></td>
+					<td><label><input type="radio" name="item11" id='item11' value="0"
+						class="check" checked="checked">아니오</label></td>
 				</tr>
 				<tr>
-					<td style="background-color: #FFF3F1;">12. 자제력을 잃을 것 같거나, 미칠 것 같은 두려움이 있다.</td>
-					<td><input type="radio" name="item12" id='item12' value="1"
-						class="check2">예</td>
-					<td><input type="radio" name="item12" id='item12' value="0"
-						class="check2">아니오</td>
+					<td style="background-color: lightpink;">12. 자제력을 잃을 것 같거나, 미칠 것 같은 두려움이 있다.</td>
+					<td><label><input type="radio" name="item12" id='item12' value="1"
+						class="check2">예</label></td>
+					<td><label><input type="radio" name="item12" id='item12' value="0"
+						class="check2" >아니오</label></td>
 				</tr>
 				<tr >
-					<td style="background: #FFF3F1;">13. 죽을 것 같은 공포가 있다.</td>
-					<td><input type="radio" name="item13" id='item13' value="1"
-						class="check2">예</td>
-					<td><input type="radio" name="item13" id='item13' value="0"
-						class="check2">아니오</td>
+					<td style="background: lightpink;">13. 죽을 것 같은 공포가 있다.</td>
+					<td><label><input type="radio" name="item13" id='item13' value="1"
+						class="check2">예</label></td>
+					<td><label><input type="radio" name="item13" id='item13' value="0"
+						class="check2">아니오</label></td>
 				</tr>
 			</table>
     </form>
@@ -210,32 +209,51 @@ body{
 				<div class="test-result">
 					<a href="javascript:save();" class="btn btn-sm btn-primary">테스트
 						결과보기</a>
-					<div class="box" id='box1' style="display: none;">
-						<p class="point">서일석정신건강의학과 불안, 공황 자가진단 결과</p>
+					<div class="box" id='box1' style="display: none; margin-top: 20px;"><br><br>
+						<p class="point" style="font-size: 30px">침, 그리고 찌르다 - 정신건강의학과 불안, 공황 자가진단 결과</p>
 						<p class="de01">
-							<span class="b">만약, 일반칼라의 질문 3개 이상, 분홍칼라의 심리 증상들 중에서 1개
+							<span class="b">만약, <b style="color: red; font-size: 20px;">일반칼라의 질문 3개 이상, 분홍칼라의 심리 증상들 중에서 1개
 								이상이 체크 되었다면 여러분은 공황증상을 경험 한 것 입니다. 그러나 공황을 경험 했다고 다 공황장애로 진단 받는
-								것은 아닙니다.<br> <br> 공황장애는
-							</span><br> 1) 예기치 않은 공황이 반복되고, 이후 또 다른 증상이 올 것에 대한 지속적으로 근심<br>
+								것은 아닙니다.</b><br> <br> 
+							</span>
+						</p>	
+							<span style="float: left;">
+							<b style="font-size: 50px bold black; ">공황장애</b>는<br> 1) 예기치 않은 공황이 반복되고, 이후 또 다른 증상이 올 것에 대한 지속적으로 근심<br>
 							: 위의 증상들이 반복 된다거나, 이후 또 유사 증상이 올 것 같아서 걱정이 됨 <br> <br>
 							2) 공황 또는 그 결과 (ex: 자제력 상실, 심장마비, 미칠 것 같은 공포)에 대한 걱정 <br> :
 							위의 증상들이 결국 나쁜 결과 (심장마비, 미칠 것 같은 공포)를 낳을 것 같아서 걱정이 됨 <br> <br>
 							3) 공황에 의한 심각한 행동 변화 (출근이나 외출을 하지 못하는 등) 등 <br> : 위의 증상들 때문에
 							최근 행동의 변화를 느낌 <br> <br> 3 가지중 한가지 이상이 적어도 한달 이상 지속 되어야
 							진단을 내릴 수 있습니다.
-						</p>
+							</span>
+							<br>
 
-						<p class="txt">상기 자가검진은 대체적인 경향을 체크할 수 있도록 제공한 것이므로, 진단을 대신 할
-							수 없으며, 자세한 사항은 정신건강의학과 전문의 또는 전문가와 상의 하시기 바랍니다.</p>
+						<p class="txt" style=""><b>상기 자가검진은 대체적인 경향을 체크할 수 있도록 제공한 것이므로, 진단을 대신 할
+							수 없으며, 자세한 사항은 정신건강의학과 전문의 또는 전문가와 상의 하시기 바랍니다.</b></p>
+						<div style="display: inline-block;">
+							<button class="btn btn-sm btn-primary" onclick="location.href='pConsultCount'">상담받기</button>
+						</div>
+						<div style="display: inline-block;">
+							<button class="btn btn-sm btn-primary" onclick="location.href='myselfTest3'">다시하기</button>
+						</div>	
+							
 					</div>
 
 					<div class="box" id='box2' style="display: none;">
-						<p class="point">서일석정신건강의학과 불안, 공황 자가진단 결과</p>
+						<p class="point">침, 그리고 찌르다 - 정신건강의학과 불안,공황 자가진단 결과</p>
 						<p class="de01">
-							<span class="b">공황증상을 경험하지 않았습니다.</span><br> <br>
-						<p class="txt">상기 자가검진은 대체적인 경향을 체크할 수 있도록 제공한 것이므로, 진단을 대신 할
-							수 없으며, 자세한 사항은 정신건강의학과 전문의 또는 전문가와 상의 하시기 바랍니다.</p>
+							<span class="b" style="color: red; font-size: 30px;">공황증상을 경험하지 않았습니다.</span><br> <br>
+						<p class="txt"><b>상기 자가검진은 대체적인 경향을 체크할 수 있도록 제공한 것이므로, 진단을 대신 할
+							수 없으며, 자세한 사항은 정신건강의학과 전문의 또는 전문가와 상의 하시기 바랍니다.</b></p>
+						<div style="display: inline-block;">
+						<button class="btn btn-sm btn-primary" onclick="location.href='pConsultCount'">상담받기</button>
+						</div>
+						<div style="display: inline-block;">
+						<button class="btn btn-sm btn-primary" onclick="location.href='myselfTest3'">다시하기</button>
+						</div>	
+						
 					</div>
+					
 				</div>
 			   </div>
 			</div>

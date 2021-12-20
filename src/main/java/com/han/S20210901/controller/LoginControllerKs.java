@@ -42,6 +42,7 @@ public class LoginControllerKs {
 		List<Member> data = ls.getIdPw(id);
 		System.out.println("!!!!!!!!!->"+data.get(0).getName());
 		System.out.println("!!!!!!!!!->"+data.get(0).getId());
+		System.out.println("확인하는 state->"+data.get(0).getState());
 		if(data.get(0).getState()==2 || data.get(0).getState()==4 ) {
 			Emp emp = empService.selectEmp(id);
 			System.out.println("emp.getEmpno()->"+emp.getEmpno());

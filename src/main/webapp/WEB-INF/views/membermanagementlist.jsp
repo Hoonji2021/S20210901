@@ -67,10 +67,8 @@ function check(index){
 	
 }
 
-
-
 /* value 값을 받고 삭제하기위해 check 값과 비교 후 삭제하는 함수 */
-/*  function memberdel() {
+function memberdel() {
  	 if(confirm("정말 삭제하시겠습니까?")){
  		alert("삭제 성공");
  		return true; 
@@ -78,25 +76,8 @@ function check(index){
 		alert("삭제 실패");
  	    return false; 
 	}
-} */
-function memberdel(i,cid) {
-	
-	 var check = document.getElementById("input_check"+i).value;
-	
-	console.log("check의 값은 -> "+ check);
-	console.log("cid->"+cid);
-	
-	 if(confirm("정말 삭제하시겠습니까?")){	
-		if(check == 1){
-			alert("check 삭제 성공");
-			location.href="memberManagementDelete?id="+cid;
-		}else{
-			alert("check 삭제실패");
-			console.log("실패");
-			return false;
-	   }
-	 }
 }
+
 </script>
 
 <style type="text/css">
@@ -182,12 +163,11 @@ body{
 						<td style="width: 15%; border-right: 1px solid #ddd;"><fmt:formatDate value="${memberlist.regdate}" pattern="yyyy-MM-dd"/></td>
 						<!-- member삭제 -->
 						<td style="width: 6%; border-right: 1px solid #ddd;">
-							<%-- <form id="fr" onsubmit="memberdel('${status.index}','${memberlist.id}')"> --%>
-							<!-- <form id="fr" action="memberManagementDelete"  onsubmit="return memberdel()"> -->
+							<form id="fr" action="memberManagementDelete"  onsubmit="return memberdel()">
 								<input type="hidden"   id="input_checkId${status.index}"  name="id"  value="${memberlist.id}"  >
 								<input type="checkbox" id="input_check${status.index}" value="0" onclick="check(${status.index})">
-								<input type="button" onclick="memberdel('${status.index}','${memberlist.id}')" value="삭제">
-							<!-- </form> -->	
+								<input type="submit" value="삭제">
+							</form>	
 						</td>
 						
 					</tr>
@@ -196,13 +176,13 @@ body{
 	</table>
 	<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
 		</c:when>

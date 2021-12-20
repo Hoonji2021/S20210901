@@ -61,7 +61,6 @@ body {
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-<title>Insert title here</title>
 <script type="text/javascript">
 	function test() {
 		if(!(frm.pw.value == frm.pwChk.value)){
@@ -71,6 +70,10 @@ body {
 	}
 	
 	function delChk() {
+<<<<<<< HEAD
+=======
+		alert("탈퇴 왜 안나와")
+>>>>>>> 910300b29223f3d7d32206073860a969e077f2d3
 		var check;
 		check = confirm("정말 탈퇴하시겠습니까?");
 		if(check == true){
@@ -86,7 +89,10 @@ body {
 	<!-- Back to top button -->
 	<div class="back-to-top"></div>
 	<%@include file="header.jsp"%>
+<<<<<<< HEAD
 	<%@ include file="myPageNav.jsp"%>
+=======
+>>>>>>> 910300b29223f3d7d32206073860a969e077f2d3
 
 	<div style="text-align: center; margin-top: 100px;">
 		<form action="memberUpdateForm" name="frm" onsubmit="return test()">

@@ -125,8 +125,7 @@ function replydel() {
 							<li class="list-group-item">
 								<div class="form-inline mb-2">
 									<label for="replyId"><i class="fa fa-user-circle fa-lg"></i></label>
-									&nbsp;&nbsp;${varSessionId } <label for="replyPassword" class="ml-4"><i
-										class="fa fa-lock fa-lg"></i> </label>
+									&nbsp;&nbsp;${varSessionId } 
 										<input type="hidden" name="id" value="${varSessionId }"> 
 										<input type="hidden" name="pnum" value="${pdetail.pnum}">
 								</div> <textarea class="form-control" id="exampleFormControlTextarea1"

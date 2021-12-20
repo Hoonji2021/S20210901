@@ -3,7 +3,6 @@ package com.han.S20210901.dao;
 import java.util.List;
 
 import org.springframework.ui.Model;
-
 import com.han.S20210901.model.MemberManagement;
 
 public interface MemberManagementDao {

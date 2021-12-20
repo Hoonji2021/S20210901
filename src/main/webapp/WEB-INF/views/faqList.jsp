@@ -71,7 +71,6 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <script type="text/javascript">
 	function faq_list(num) {
@@ -89,7 +88,6 @@ body{
   	<div class="back-to-top"></div>
   	<%@include file="header.jsp" %>
 	<%@include file="hospitalNav.jsp"%>
-
     <div>
 	    <c:forEach var="faq" items="${faqList }" varStatus="status">
 		    <div class="faq_div" id="faq_list${status.index}" onclick="faq_list(${status.index})">

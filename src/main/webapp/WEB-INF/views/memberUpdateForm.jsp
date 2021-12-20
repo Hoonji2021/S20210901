@@ -62,7 +62,6 @@ body {
 			return false;
 		}
 	}
-	
 	const autoHyphen = (target) => {
 		target.value = target.value
 		.replace(/[^0-9]/, '')
