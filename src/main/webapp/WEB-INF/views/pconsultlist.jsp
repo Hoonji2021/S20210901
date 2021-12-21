@@ -72,6 +72,7 @@ body{
 		var inputbarIndex = document.getElementById('inputbar'+index);
 		var submitbarIndex = document.getElementById('submitbar'+index);
 		inputbarIndex.classList.toggle(HIDDEN_CLASS);
+			
 		inputbarIndex.focus();
 		submitbarIndex.classList.toggle(HIDDEN_CLASS);
 		

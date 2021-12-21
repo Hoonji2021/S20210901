@@ -26,7 +26,7 @@
 		delete from review where rnum = #{rnum}
 	</delete>
 	<update id="reviewUpdate" parameterType="Review">
-		update review set rtitle=#{rtitle}, rcontent=#{rcontent}
+		update review set rtitle=#{rtitle}, rcontent=#{rcontent},star=#{star}
 							where rnum=#{rnum}
 	</update>
 
