@@ -17,6 +17,7 @@ import com.han.S20210901.model.Clinic;
 import com.han.S20210901.model.PunchHg;
 import com.han.S20210901.service.ClinicService;
 import com.han.S20210901.service.Paging;
+import com.han.S20210901.service.PconsultService;
 import com.han.S20210901.service.PunchServiceHg;
 
 @Controller
@@ -26,12 +27,25 @@ public class EmpOperationControllerHg {
 	private ClinicService clinicService;
 	@Autowired
 	private PunchServiceHg punchService;
+	@Autowired
+	private PconsultService pconsultService;
 	
 	@GetMapping("empOperation")
 	public String empOperation(HttpServletRequest request, Model model) {
 		//String sessionId = (String)request.getSession().getAttribute("sessionId");
 //		String sessionId = "admin";
 //		model.addAttribute("sessionId",sessionId);
+		//admin이 쓴 댓글 개수
+		int admintotal = pconsultService.adminTotal();
+		
+		//pconsult 총 개수 
+		int totalCnt = pconsultService.pConsultTotal();
+		
+		int resultTotal = totalCnt - admintotal; //7
+		System.out.println("resultTotal 개수 : "+resultTotal);
+		
+		model.addAttribute("resultTotal", resultTotal);
+		
 		return "empOperation";
 	}
 	

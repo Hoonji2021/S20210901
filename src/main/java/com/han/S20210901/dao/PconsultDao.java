@@ -19,5 +19,7 @@ public interface PconsultDao {
 	void pConsultInsert(Pconsult pconsult);
 
 	int pConsultDelete(int pnum);
+
+	int adminTotal();
 	
 }

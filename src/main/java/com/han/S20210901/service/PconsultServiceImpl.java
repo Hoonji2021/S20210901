@@ -63,4 +63,10 @@ public class PconsultServiceImpl implements PconsultService{
 		int result = pconsultDao.pConsultDelete(pnum);
 		return result;
 	}
+
+	@Override
+	public int adminTotal() {
+		int result = pconsultDao.adminTotal();
+		return result;
+	}
 }

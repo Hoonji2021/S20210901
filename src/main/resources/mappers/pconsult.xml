@@ -39,5 +39,20 @@
 	<delete id="PconsultDelete" parameterType="int">
 		delete from pconsult where pnum=#{pnum}
 	</delete>
+	<select id="adminTotal" resultType="int">
+		SELECT * 
+		FROM
+  			 ( select count(a.adminReplyChk)
+               from    ( select  distinct p.* ,
+			                    CASE    WHEN r.id = 'admin' THEN 1
+					                    ELSE 0
+					            END AS adminReplyChk
+                         from    pconsult  p
+                                ,(SELECT * FROM replys WHERE id = 'admin')  r
+                         where   p.pnum = r.pnum (+)
+                         order by p.pnum desc) a 
+               where a.adminReplyChk = 1
+             )
+	</select>
 
 </mapper>

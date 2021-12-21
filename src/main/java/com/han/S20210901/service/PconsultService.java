@@ -19,5 +19,7 @@ public interface PconsultService {
 	void pConsultInsert(Pconsult pconsult);
 
 	int pConsultDelete(int pnum);
+	// empOperation
+	int adminTotal();
 
 }
