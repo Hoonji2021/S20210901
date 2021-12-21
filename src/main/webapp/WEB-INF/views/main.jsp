@@ -84,7 +84,7 @@ body{
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p><a href="#">치료후기</a></p>
+              <p><a href="reviewList">치료후기</a></p>
             </div>
           </div>
           <div class="col-sm">

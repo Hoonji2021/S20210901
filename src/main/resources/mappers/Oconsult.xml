@@ -52,7 +52,7 @@
 
 <!-- 삭제 -->
 	<delete id="ghOconsultDelete" parameterType="int" >
-		DELETE FROM oconsult WHERE ogroup=#{onum} 
+		DELETE FROM oconsult WHERE onum=#{onum} 
 	</delete>
 	
 <!-- 답글 - ostep + 1  -->

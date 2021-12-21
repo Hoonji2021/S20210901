@@ -243,4 +243,11 @@ public class EmpOperationControllerHg {
 		
 		return "punchList";
 	}
+	@GetMapping(value="clinicDetail")
+	public String clinicDetail(HttpServletRequest request, Clinic clinic) {
+		
+		
+		
+		return "clinicDetail";
+	}
 }

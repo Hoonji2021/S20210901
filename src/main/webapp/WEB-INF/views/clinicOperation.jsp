@@ -124,12 +124,13 @@ body{
 		</thead>
 		<tbody>
 		
-		<c:forEach items="${clinicList}" var="clinicList" >
+		<c:forEach items="${clinicList}" var="clinicList" varStatus="status">
 		<fmt:formatDate value="${clinicList.cdate }" var="cdate" pattern="yy-MM-dd hh:mm:ss"/>
 			<tr style="font-family: NanumBarunGothic">
 				<td style="width: 100px;">${clinicList.cnum}</td>
 				<td>${clinicList.name }</td>
-				<td style="width: 500px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color: black;">${clinicList.ccontent }</a></td>
+				<td style="width: 500px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="clinicDetail?clinic=${status.current}" style="color: black;">${clinicList.ccontent }</a></td>
+				
 				 <td style="width: 200px;">${cdate }</td>
 				<td style="width: 118px;">${clinicList.ename }</td> 
 			</tr>

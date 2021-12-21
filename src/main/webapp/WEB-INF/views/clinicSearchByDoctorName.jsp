@@ -126,7 +126,7 @@ body{
 			<tr style="font-family: NanumBarunGothic">
 				<td style="width: 100px;">${clinicList.cnum}</td>
 				<td>${clinicList.name }</td>
-				<td style="width: 500px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color: black;">${clinicList.ccontent }</a></td>
+				<td style="width: 500px; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="clinicDetail?cnum=${clinicList.cnum }" style="color: black;">${clinicList.ccontent }</a></td>
 				 <td style="width: 200px;">${cdate }</td>
 				<td style="width: 118px;">${clinicList.ename }</td> 
 			</tr>
