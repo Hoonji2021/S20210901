@@ -87,4 +87,11 @@ public class PconsultDaoImpl implements PconsultDao{
 		int result = session.delete("PconsultDelete", pnum);
 		return result;
 	}
+
+
+	@Override
+	public int adminTotal() {
+		int result = session.selectOne("adminTotal");
+		return result;
+	}
 }

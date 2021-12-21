@@ -72,6 +72,7 @@ body{
 		var inputbarIndex = document.getElementById('inputbar'+index);
 		var submitbarIndex = document.getElementById('submitbar'+index);
 		inputbarIndex.classList.toggle(HIDDEN_CLASS);
+			
 		inputbarIndex.focus();
 		submitbarIndex.classList.toggle(HIDDEN_CLASS);
 		
@@ -134,12 +135,14 @@ body{
 				<td>${plist.id }</td>
 				
 				<!-- 제목 -->
+			
 				<td style="width: 500px; text-align: left;">
 				<c:choose>
 				
 				<c:when test="${varSessionId eq 'admin' }">
 					<a href="pConsultDetail?pnum=${plist.pnum }">${plist.ptitle }</a>
 				</c:when>
+				
 				
 				<c:otherwise>
 					<form id="dropBox" action="pConsultDetail" name="frm" onsubmit="return chk(${status.index})">
@@ -170,6 +173,7 @@ body{
               		 <c:if test="${plist.adminReplyChk == 0 }">
                		 <span style="color: gray; font-size: 13px;">[답변대기]</span>
               		 </c:if>
+              		
                	</form>
 				</c:otherwise>
 				</c:choose>	 
