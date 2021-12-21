@@ -14,6 +14,8 @@ public interface ClinicService {
 	List<Clinic> clinicSearch(Clinic clinic, int searchType);
 	// 진료내역 추가
 	int clinicInsert(Clinic newClinic);
+
+	Clinic clinicDetail(int cnum);
 	
 	
 	

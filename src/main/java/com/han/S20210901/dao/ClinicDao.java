@@ -20,4 +20,6 @@ public interface ClinicDao {
 		
 		//진료내역 등록
 		int clinicInsert(Clinic newClinic);
+
+		Clinic clinicDetail(int cnum);
 }

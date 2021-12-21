@@ -258,10 +258,10 @@ public class EmpOperationControllerHg {
 		return "punchList";
 	}
 	@GetMapping(value="clinicDetail")
-	public String clinicDetail(HttpServletRequest request, Clinic clinic) {
+	public String clinicDetail(HttpServletRequest request, int cnum, Model model) {
 		
-		
-		
+		Clinic clinic = clinicService.clinicDetail(cnum);
+		model.addAttribute("clinic",clinic);
 		return "clinicDetail";
 	}
 }

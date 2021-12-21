@@ -63,6 +63,14 @@ public class ClinicServiceImpl implements ClinicService {
 		return result;
 	}
 
+	@Override
+	public Clinic clinicDetail(int cnum) {
+		Clinic clinic = null;
+		
+		clinic = clinicDao.clinicDetail(cnum);
+		return clinic;
+	}
+
 	
 
 

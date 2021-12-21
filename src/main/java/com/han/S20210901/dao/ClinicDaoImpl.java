@@ -100,6 +100,13 @@ public class ClinicDaoImpl implements ClinicDao {
 		return result;
 	}
 
+	@Override
+	public Clinic clinicDetail(int cnum) {
+		
+		Clinic clinic = session.selectOne("HGclinicSelect",cnum); 
+		return clinic;
+	}
+
 	
 
 }

@@ -16,6 +16,29 @@
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
+
+<script type="text/javascript">
+
+	function updateEnable(){
+		var originContent = document.getElementById("originContent");
+		var newContent = document.getElementById("newContent");
+		var test = document.getElementById("updateClinic");
+		alert(originContent.value);
+		originContent.type="hidden";
+		newContent.type="text";
+		test.remove();
+		const newButton = document.createElement('button');
+		const newText = docuemnt.createTextNode('수정등록');
+		newButton.appendChild(newText);
+		var buttons = document.getElementById("buttons");
+		buttons.appendChild(newButton);
+		return true;
+		
+		 
+	}
+	
+</script>
+
 <style type="text/css">
 
 @font-face {
@@ -48,42 +71,47 @@ body{
 </head>
 
 <body>
-<h1>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
   <!-- Back to top button -->
   <div class="back-to-top"></div>
 	<%@include file="header.jsp" %>
 	
 	<form action="clinicWritePro" method="post">
 	<div class="container" style="margin: 5% auto;" >
-		<h2>진료 내역 등록</h2>
+		<h2>진료 내역</h2>
 		<hr style="border-top:3px solid #000000">
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
-					<h5>환자ID : </h5> 
-				<input type="text" name="id" placeholder="환자ID를 입력하세요." style="width: 100%;">
+					<h5>환자ID :</h5> 
+				<input readonly="readonly"  name="id" value= "${clinic.id}" style="width: 100%;">
 			</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
 					<h5>담당의 : </h5>
-				<input type="text" name="ename" value="${sessionName}" style="width: 100%;" readonly="readonly">
+				<input type="text" name="ename" value="${clinic.empno}" style="width: 100%;" readonly="readonly">
 			</div>
 		</div>
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">
 				<h5>진료 내역 :</h5>
-					<textarea rows="3" name="ccontent" placeholder="내용을 입력하세요" style="width: 100%;"></textarea>
+					<input id="originContent" readonly="readonly" value="${clinic.ccontent }" style="width:100%; height:45%;">
+					<input id="newContent" type="hidden" placeholder="새 진료내역을 입력하세요." style="width:100%;, height:45%">
 			</div>
 		</div>
 		<input type="hidden" value="${sessionEmpno }" name="empno">
 		<input type="hidden" value="${sessionDept }" name="dept">
 		<input type="hidden" value="${result }" name="result">
-		<div style="margin: 0 auto; float: right;">
-			<input type="submit" class="btn btn-sm btn-primary" value="등록">
+		<div id="buttons" style="margin: 0 auto; float: right;">
+		<button type="button" class="btn-sm btn-primary" id="updateClinic" onclick="return updateEnable()">수정</button>
+		<!-- <button type="button" class="btn-sm btn-primary" id="updateClinicDo" onclick="updateDo()">수정 등록</button> -->		
+			<input type="submit" class="btn btn-sm btn-primary" value="삭제">
 		</div>
+		
 	</div>
 	</form>
-
+	
+	
+	
 	<%@include file="footer.jsp" %>
 </body>
 </html>
