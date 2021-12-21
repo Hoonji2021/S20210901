@@ -1,16 +1,22 @@
 package com.han.S20210901.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.han.S20210901.model.MyselfTest;
+import com.han.S20210901.service.ReplysService;
 
 @Controller
 public class MyselfTestControllerJh {
-
+	
+	@Autowired
+	private ReplysService replyService;
+	
 	@GetMapping(value = "myselfTest")
 	public String myselfTest() {
 		
@@ -44,4 +50,20 @@ public class MyselfTestControllerJh {
 		
 		return "myselfTest3";
 	}
+	
+	
+	
+	@RequestMapping(value = "myselfTest4", produces = "application/text;charset=UTF-8") // 서버 프로그램
+	@ResponseBody // api or ajax쓸때 애 꼭 써줘야돼
+	public String myselfTest3(MyselfTest myselfTest) { // ajax에서 호출
+		System.out.println("myselfTest2.getMyTest1()->"+myselfTest.getMyTest1());
+		System.out.println("myselfTest2.getMyTest5()->"+myselfTest.getMyTest5());
+		System.out.println("myselfTest2.getMyTest10()->"+myselfTest.getMyTest10());
+		
+		int calTotal = replyService.calculatePoint(myselfTest);
+		String strCalTotal = String.valueOf(calTotal);
+		System.out.println("myselfTest2 strCalTotal->"+strCalTotal);
+		return strCalTotal; // 애를 호출한 ajax으로 날아간다. json컨버터
+	}
+
 }

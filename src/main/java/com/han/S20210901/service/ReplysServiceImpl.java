@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.han.S20210901.dao.ReplysDao;
+import com.han.S20210901.model.MyselfTest;
 import com.han.S20210901.model.Replys;
 
 @Service
@@ -48,5 +49,14 @@ public class ReplysServiceImpl implements ReplysService {
 		
 		return result2;
 		
+	}
+
+	@Override
+	public int calculatePoint(MyselfTest myselfTest) {
+		// 계산 구현 
+		int total = myselfTest.getMyTest1()+myselfTest.getMyTest2()+myselfTest.getMyTest3()+myselfTest.getMyTest4()+myselfTest.getMyTest5()+
+					myselfTest.getMyTest6()+myselfTest.getMyTest7()+myselfTest.getMyTest8()+myselfTest.getMyTest9()+myselfTest.getMyTest10()+
+					myselfTest.getMyTest11()+myselfTest.getMyTest12()+myselfTest.getMyTest13()+myselfTest.getMyTest14()+myselfTest.getMyTest15();
+		return total;
 	}
 }
