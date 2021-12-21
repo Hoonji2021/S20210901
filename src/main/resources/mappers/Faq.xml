@@ -4,15 +4,9 @@
 
 <mapper namespace="FaqSh">
 	<select id="faqListSh" resultType="Faq" parameterType="Faq">
-		select * from faq
-	</select>
-	
-	<select id="faqDetailSh" resultType="Faq" parameterType="int">
-		select * from faq where fnum=#{fnum}
-	</select>
-	
-	<select id="faqResultSh" resultType="java.lang.String" parameterType="int">
-		select fcontent from faq where fnum=#{fnum}
+		select * 
+		from (select rownum rn, a.* 
+		from (select * from faq order by fnum) a)
 	</select>
 	
 	<select id="faqUpdateFormSh" parameterType="int" resultType="Faq">

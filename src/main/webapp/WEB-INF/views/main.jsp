@@ -51,8 +51,8 @@ body{
   <div class="back-to-top">
   	
   </div>
-   
     <%@include file="header.jsp" %>
+    <%@include file="modal.jsp" %>
 
    <!-- 정지훈 / 1대1 상담 -->
   <div class="page-hero bg-image" style="background-image: url(img/main_vimg01.png);">
@@ -76,7 +76,7 @@ body{
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p>온라인 상담</p>
+              <p><a href="pConsultCount">온라인 상담</a></p>
             </div>
           </div>
           <div class="col-sm">
@@ -84,7 +84,7 @@ body{
               <div class="circle-shape bg-primary text-white">
                 <span class="mai-shield-checkmark"></span>
               </div>
-              <p>치료후기</p>
+              <p><a href="#">치료후기</a></p>
             </div>
           </div>
           <div class="col-sm">
@@ -92,7 +92,7 @@ body{
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p>한방치료제</p>
+              <p><a href="#">한방치료제</a></p>
             </div>
           </div>
         </div>
@@ -143,9 +143,7 @@ body{
   
   <div class="page-section">
     <div class="container">
-      <h2 class="text-center mb-5 wow fadeInUp">
-      	<a href="mediaList">강연&방송</a>
-      	</h2>
+      <h2 class="text-center mb-5 wow fadeInUp">강연&방송</h2>
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
 	<c:forEach var="media" items="${mediaList }" varStatus="status">
     <fmt:formatDate value="${media.mdate }" var="mdate" pattern="yy-MM-dd"/>
@@ -174,7 +172,8 @@ body{
           </div>
         </div>  
       </div>
-	<%@include file="footer.jsp" %>
+
+<%@include file="footer.jsp" %>
   
 </body>
 </html>

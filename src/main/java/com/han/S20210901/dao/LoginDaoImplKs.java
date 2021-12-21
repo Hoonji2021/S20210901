@@ -20,7 +20,8 @@ public class LoginDaoImplKs implements LoginDaoKs {
 		List<Member> data = null;
 		try {
 			data = session.selectList("ksGetIdPw", id);
-			System.out.println("state!!!!!!!!!!!!!!!!!!!!!!"+data.get(0).getState());
+			System.out.println("state!!!!!!!!!!!!!!!!!!!!!!->"+data.get(0).getState());
+			System.out.println("name!!!!!!!!!!!!!!!!!!!!!!!->"+data.get(0).getName());
 		} catch (Exception e) {
 			System.out.println("LoginDaoImplKs getIdPw() Error ->>>>> " + e.getMessage());
 		}

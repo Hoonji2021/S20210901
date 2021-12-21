@@ -3,21 +3,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
+<script src="vendor/wow/wow.min.js"></script>
+<script src="js/theme.js"></script>
+  <script type="text/javascript">
+  let selectType = "";
+ 
+		
+	function searchBy(searchOption){ 
+		var inputType = document.getElementById("search");
+			inputType.value = "";		
+		
+			selectType = searchOption.value;
+			
+		if(searchOption.value == "clinicSearchByClientName"){
+			$("#optionType").attr("action","clinicSearchByClientName");
+			inputType.type = "search";
+		}
+		else if(searchOption.value == "clinicSearchByDoctorName"){
+			$("#optionType").attr("action","clinicSearchByDoctorName");
+			inputType.type = "search";
+		}
+		else if(searchOption.value == "clinicSearchByDate"){
+			$("#optionType").attr("action","clinicSearchByDate");
+			inputType.type = "date";
+			
+			
+		}
+		
+	}
+	 function chk(){
+			if(selectType == ""){
+				alert("검색 방식을 선택하세요");
+				return false;
+			}
+			else{
+				return true;
+			}
+	}
+  </script>
 <link href="css/board.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/maicons.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet"href="vendor/owl-carousel/css/owl.carousel.css">
 <link rel="stylesheet" href="vendor/animate/animate.css">
 <link rel="stylesheet" href="css/theme.css">
-<script src="js/jquery-3.5.1.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
-<script src="vendor/wow/wow.min.js"></script>
-<script src="js/theme.js"></script>
+
 <style type="text/css">
 @font-face {
     font-family: 'GowunBatang-Regular';
@@ -38,7 +75,10 @@ body{
 #clinicOperation{
 	border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4;
 }
-#clinicOperationA{
+#clinicOperationA {
+	color: white;
+}
+#clinicWriteFormA {
 	color: white;
 }
 </style>
@@ -48,7 +88,7 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  
+
 </head>
 <body>
 
@@ -57,16 +97,20 @@ body{
    
     <%@include file="header.jsp" %>
     <%@ include file="empOperationNav.jsp"%>
+    <c:set var="num" value="${pg.total-pg.start+1 }"></c:set>
+    <c:set var="clientName" value="${search }"></c:set>
 	<div style="text-align: center; font-family: 'GowunBatang-Regular';">
-		<select name="searchOption" >
-		<optgroup label="검색방식" >
-			<option >담당의</option>
-			<option >환자명</option>
-			<option >진료일</option>
-			</optgroup>
+		<form name="optionType" id = "optionType">
+		<select name="searchOption"  onchange="searchBy(this)" >
+			<option value=""  >==검색방식==</option>
+			<option value="clinicSearchByDoctorName" >담당의</option>
+			<option value="clinicSearchByClientName" >환자명</option>
+			<option value="clinicSearchByDate">진료일</option>
 		</select>
-		<input type="search">
-		<button>검색</button>
+			<!-- <input name="search1" type="text" required="required" ><br> -->
+			<input id= "search" name="search"  required="required" >
+			<input type="submit" value="검색" onclick="return chk()">
+		</form>
 	</div>    <p>
     <table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
 		<thead>
@@ -95,25 +139,20 @@ body{
 		</table>
 		<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="pConsultCount?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="clinicOperation?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
 	<c:if test="${varSessionId != null }">
 		<div style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%; " >
-			<button id="writeclick" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm">새 진료 작성</button>
+			<button id="clinicWriteForm" type="submit"  style="font-family: NanumBarunGothic;" class="btn btn-info btn-sm"><a id="clinicWriteFormA" href="clinicWriteForm">새 진료 작성</a></button>
 		</div>
 	</c:if>
-	
-		
-		
-	
-	
     <%@include file="footer.jsp" %>
 </body>
 </html>

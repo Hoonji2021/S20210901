@@ -13,7 +13,7 @@ public class MapBMIControllerHj {
 		return "kakaomap";
 	}
 	
-	@RequestMapping(value = "BMI")
+	@RequestMapping(value = "bmi")
 	public String BMI() {
 		return "BMI";
 	}

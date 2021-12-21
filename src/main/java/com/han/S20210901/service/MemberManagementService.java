@@ -6,9 +6,7 @@ import com.han.S20210901.model.MemberManagement;
 
 public interface MemberManagementService {
 	
-	int MemberManagementTotal();
-	
-	List<MemberManagement> MemberManagementAll(MemberManagement memberManagement);
-
+	int MemberManagementTotal(MemberManagement memberManagement);
+	List<MemberManagement> MemberManagementAll(MemberManagement memberManagement,int searchType);
 	int memberManagementDelete(String id);
 }

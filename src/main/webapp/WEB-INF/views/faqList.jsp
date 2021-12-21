@@ -39,24 +39,30 @@ body{
 }
 .faq_div{
 	width: 68%; 
-	height: 80px;
+	height: 100%;
 	line-height: 85px;
 	vertical-align: middle;
 	margin: 0 auto; 
-	margin-bottom: 1%;
 	font-family: NanumBarunGothic;
-	background-color: #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
+	border-bottom-color: #EAEAEA;
+	text-align: center;
 }
 .answer_div{
 	width: 68%; 
-	height: 80px;
+	height: 100%; 
+	padding: 3%;
 	line-height: 30px;
 	vertical-align: middle;
 	text-align: center;
 	margin: 0 auto; 
-	margin-bottom: 1%;
 	font-family: NanumBarunGothic;
-	background-color: #FAE0D4;
+	background-color: #F6F6F6;
+	
+}
+#faq{
+	background-color: #5396E4;
+	color: white;
 }
 </style>
 
@@ -65,7 +71,6 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <script type="text/javascript">
 	function faq_list(num) {
@@ -80,30 +85,20 @@ body{
 <body>
 
   <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
-	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
-
-    </div>
-
+  	<div class="back-to-top"></div>
+  	<%@include file="header.jsp" %>
+	<%@include file="hospitalNav.jsp"%>
     <div>
 	    <c:forEach var="faq" items="${faqList }" varStatus="status">
 		    <div class="faq_div" id="faq_list${status.index}" onclick="faq_list(${status.index})">
-		    	${faq.fnum }&nbsp;${faq.ftitle}
+		    	${faq.rn }&nbsp;${faq.ftitle}
 		    	<c:choose>
 			    	<c:when test="${ varSessionState==4}">
-				    	<button onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
-			    		<button onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
+				    	<button class="btn btn-primary" onclick="location.href='faqUpdateForm?fnum=${faq.fnum}'">수정</button>
+			    		<button class="btn btn-primary" onclick="location.href='faqDeletePro?fnum=${faq.fnum}'">삭제</button>
 		    		</c:when>
 		    	</c:choose>
-		    	
+		    
 		    </div>
 		    <div class="answer_div" id="answer_list" style="display: none;">
 		    	${faq.fcontent }
@@ -111,11 +106,16 @@ body{
 		    <br>
 	    </c:forEach>
     </div>
-		    <c:choose>
-		    	<c:when test="${ varSessionState==4}">
-		    		<button onclick="location.href='faqInsertForm'">작성</button>
-	    		</c:when>
-	    	</c:choose>
+		    
+	<c:choose>
+		<c:when test="${ varSessionState==4}">
+			<div
+				style="text-align: right; width: 68%; margin: 0 auto; margin-top: 2%;">
+				<button onclick="location.href='faqInsertForm'"
+					class="btn btn-info btn-sm">글쓰기</button>
+			</div>
+		</c:when>
+	</c:choose>
 
 </body>
 	<%@include file="footer.jsp" %>

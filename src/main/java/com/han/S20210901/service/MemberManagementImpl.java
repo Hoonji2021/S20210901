@@ -15,16 +15,18 @@ public class MemberManagementImpl implements MemberManagementService {
 	private MemberManagementDao memberManagementDao;
 	
 	@Override
-	public int MemberManagementTotal() {
+	public int MemberManagementTotal(MemberManagement memberManagement) {
 		System.out.println("MemberManagementServiceImpl MemberManagementTotal() Strat...");
-		int totalCnt = memberManagementDao.memberManagementTotal();
+		System.out.println("memberManagement searchOption->"+memberManagement.getSearchOption());
+		System.out.println("memberManagement search->"+memberManagement.getSearch());
+		int totalCnt = memberManagementDao.memberManagementTotal(memberManagement);
 		return totalCnt;
 	}
 
 	@Override
-	public List<MemberManagement> MemberManagementAll(MemberManagement memberManagement) {
+	public List<MemberManagement> MemberManagementAll(MemberManagement memberManagement, int searchType) {
 		System.out.println("MemberManagementServiceImpl MemberManagementAll() Start...");
-		List<MemberManagement> memberManagementList = memberManagementDao.MemberManagementALL(memberManagement);
+		List<MemberManagement> memberManagementList = memberManagementDao.MemberManagementALL(memberManagement, searchType);
 		return memberManagementList;
 	}
 
@@ -34,5 +36,4 @@ public class MemberManagementImpl implements MemberManagementService {
 		int result = memberManagementDao.memberManagementDelete(id);
 		return result;
 	}
-
 }

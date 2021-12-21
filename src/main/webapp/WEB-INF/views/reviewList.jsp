@@ -46,7 +46,7 @@ body{
 	background: white;
 	width: 365px;
 	height: 32%;
-	margin: 20px 20px;
+	margin: 20px 20px 20px 90px;
 	display: inline-block;
 	float: left;
 	border: 1px solid gray;
@@ -116,8 +116,8 @@ function a_mouseover(index){
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4;" ><a href="reviewList" style="color: white;">치료후기</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="mediaList">강연&방송</a></div>
     </div>
-    
-	<div class="container1">
+    <div style="text-align: center;">
+	<div class="container1" align="center">
 	<c:forEach var="review" items="${reviewList}" varStatus="status">
 	<fmt:formatDate value="${review.rdate }" var="rdate" pattern="yy-MM-dd"/>
 		<div class="reviewgl"  id="reviewgl${status.index}" onmouseover="a_mouseover(${status.index})">
@@ -144,6 +144,7 @@ function a_mouseover(index){
 		</div>
 	</c:forEach>
 	
+	</div>
 	</div>
 		<div style="margin: 0 auto; text-align: center; display: block;" >
 		<c:if test="${pg.startPage > pg.pageBlock}">

@@ -18,6 +18,41 @@
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
 <script type="text/javascript">
+
+let selectType="";
+
+function searchBy(searchOption){
+	var inputType = document.getElementById("search");
+		inputType.value = "";
+	var searchType = document.getElementById("searchType");
+		searchType.value = "";
+		
+		selectType = searchOption.value;
+		
+	if(searchOption.value=="id"){
+		searchType.value = "1";
+		
+	}
+	else if(searchOption.value=="email"){
+		searchType.value = "2";
+	}
+	else if(searchOption.value=="name"){
+		searchType.value = "3";
+	}
+	else if(searchOption.value=="phone"){
+		searchType.value = "4";
+	}
+}
+function chk(){
+	if(selectType == ""){
+		alert("검색 방식을 선택하세요");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
 /* input 체크여부 확인 함수 */
 function check(index){
 	var i = index;
@@ -33,22 +68,14 @@ function check(index){
 }
 
 /* value 값을 받고 삭제하기위해 check 값과 비교 후 삭제하는 함수 */
-function memberdel(i,cid) {
-	
-	 var check = document.getElementById("input_check"+i).value;
-	
-	console.log("check의 값은 -> "+ check);
-	console.log("cid->"+cid);
-	
- 	 if(confirm("정말 삭제하시겠습니까?")){	
-		if(check == 1){
-			
-			location.href="memberManagementDelete?id="+cid;
-			console.log("성공");
-		}
-	}else
-			console.log("실패");
-			return false; 
+function memberdel() {
+ 	 if(confirm("정말 삭제하시겠습니까?")){
+ 		alert("삭제 성공");
+ 		return true; 
+ 	 } else {
+		alert("삭제 실패");
+ 	    return false; 
+	}
 }
 
 </script>
@@ -91,12 +118,26 @@ body{
   <div class="back-to-top"></div>
   <%@include file="header.jsp" %>
   <%@include file="empOperationNav.jsp" %>
-	<!-- <div class="row" style="margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-		<div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="MemberManagementInside">회원관리</a></div>
-        <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="EmpManagementInside">직원관리</a></div>
-	</div> -->
+<div style="text-align: center; font-family: 'GowunBatang-Regular';">
+		
+		<form action="MemberManagementMain">
+		<select id="searchOption" name="searchOption" onchange="searchBy(this)">
+			<option value="">==검색방식==</option>
+			<option id="searchById" value="id">아이디</option>
+			<option id="searchByEmail" value="email">이메일</option>
+			<option id="searchByName" value="name">이름</option>
+			<option id="searchByPhone" value="phone">연락처</option>
+		</select>
+		
+			<input type="search" id="search" name="search" value="${search }" >
+			
+			<input type="hidden" id="searchType" name="searchType">
+			<input type="submit" value="검색" onclick="return chk()">
+		</form>
+		
+	</div>    <p>
 	<table style="width: 70%; margin: 0 auto; margin-bottom: 3%">
-	<%-- <div>Pconsult(1대1상담) 게시물 개수 : ${totalCnt}</div> --%>
+
 	
 	<c:choose>
 		<c:when test="${varSessionState==4}">
@@ -122,7 +163,8 @@ body{
 						<td style="width: 15%; border-right: 1px solid #ddd;"><fmt:formatDate value="${memberlist.regdate}" pattern="yyyy-MM-dd"/></td>
 						<!-- member삭제 -->
 						<td style="width: 6%; border-right: 1px solid #ddd;">
-							<form id="fr" onsubmit="memberdel('${status.index}','${memberlist.id}')">
+							<form id="fr" action="memberManagementDelete"  onsubmit="return memberdel()">
+								<input type="hidden"   id="input_checkId${status.index}"  name="id"  value="${memberlist.id}"  >
 								<input type="checkbox" id="input_check${status.index}" value="0" onclick="check(${status.index})">
 								<input type="submit" value="삭제">
 							</form>	
@@ -134,13 +176,13 @@ body{
 	</table>
 	<div style="margin: 0 auto; text-align: center;">
 	<c:if test="${pg.startPage > pg.pageBlock}">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${pg.startPage - pg.pageBlock }">[이전]</a>
 	</c:if>
 	<c:forEach var="i" begin="${pg.startPage }" end="${pg.endPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?currentPage=${i}">[${i}]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${i}">[${i}]</a>
 	</c:forEach>
 	<c:if test="${pg.endPage > pg.totalPage }">
-		<a class="btn btn-primary btn-sm" href="MemberManagementMain?currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
+		<a class="btn btn-primary btn-sm" href="MemberManagementMain?search=${search }&currentPage=${pg.startPage + pg.pageBlock}">[다음]</a>
 	</c:if>
 	</div> 
 		</c:when>

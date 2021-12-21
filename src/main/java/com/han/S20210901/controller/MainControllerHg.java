@@ -29,7 +29,7 @@ public class MainControllerHg {
 		//HttpSession session = request.getSession();
 	//	String sessionId = (String)request.getSession().getAttribute("sessionId");
 //		String sessionId = "admin";
-		
+			System.out.println("MainController starts....");
 		//model.addAttribute("sessionId", sessionId);
 		  
 		  HttpSession session = null;
@@ -37,23 +37,39 @@ public class MainControllerHg {
 		  session = request.getSession();
 		  System.out.println("request.getParameter(id)->"+request.getParameter("id"));
 		  System.out.println("request.getParameter(state)->"+request.getParameter("state"));
+		  System.out.println("request.getParameter(name)->"+request.getParameter("name"));
 		  
 		  if(request.getParameter("id")!=null) {
 			  session.setAttribute("sessionId", request.getParameter("id"));
 			  session.setAttribute("sessionState", request.getParameter("state"));
+			  session.setAttribute("sessionName", request.getParameter("name"));
+			  session.setAttribute("sessionEmpno", request.getParameter("empno"));
+			  session.setAttribute("sessionDept", request.getParameter("dept"));
+			  
 		  }
 		  System.out.println("request.getParameter(state)->"+request.getParameter("state"));
 		  
 	      System.out.println("id ->>>>>>>>>>>>>> " + request.getParameter("id"));
 	      System.out.println("sessionId->"+session.getAttribute("sessionId"));
 	      System.out.println("sessionState->"+session.getAttribute("sessionState"));
+	      System.out.println("sessionName->"+session.getAttribute("sessionName"));
+	      System.out.println("sessionEmpno->"+session.getAttribute("sessionEmpno"));
+	      System.out.println("sessionDept->"+session.getAttribute("sessionDept"));
+	      
 	      model.addAttribute("sessionId", session.getAttribute("sessionId"));
 	      model.addAttribute("sessionState",session.getAttribute("sessionState"));
+
+	      model.addAttribute("sessionName",session.getAttribute("sessionName"));
+	      model.addAttribute("sessionEmpno",session.getAttribute("sessionEmpno"));
+	      model.addAttribute("sesssionDept",session.getAttribute("sessionDept"));
+	    
+
 	      
 	      // media 리스트 가져옴, 서현
 	      List<Media> mediaList = ms.mediaListMain(media);
 	      model.addAttribute("mediaList", mediaList);
 	      System.out.println("mediaList.size-> " + mediaList.size());
+
 	      
 	      //공지사항 목록 가져옴
 	      List<Notice> noticeList = ns.noticeListMain(notice);

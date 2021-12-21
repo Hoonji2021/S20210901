@@ -24,23 +24,6 @@ public class FaqServiceImpl implements FaqService {
 	}
 
 	@Override
-	public Faq faqDetail(int fnum) {
-		System.out.println("FaqServiceImpl faqDetail start");
-		// faq상세페이지, 서현
-		Faq faq = null;
-		faq = fd.faqDetail(fnum);
-		return faq;
-	}
-
-	@Override
-	public String faqListResult(int fnum) {
-		// 이게뭐지..?
-		String faq = null;
-		faq = fd.faqListResult(fnum);
-		return faq;
-	}
-
-	@Override
 	public Faq faqUpdateForm(int fnum) {
 		// faq 업데이트 폼
 		System.out.println("faqServiceImpl faqUpdateForm start");

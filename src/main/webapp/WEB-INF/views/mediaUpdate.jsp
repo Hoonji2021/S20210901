@@ -34,6 +34,10 @@
 body{
 	font-family: 'MaruBuri-Regular';
 }
+#media{
+	background-color: #5396E4;
+	color: white;
+}
 </style>
 
   <meta charset="UTF-8">
@@ -41,23 +45,13 @@ body{
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
-  <title>One Health - Medical Center HTML5 Template</title>
 </head>
 <body>
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  <%@include file="header.jsp" %>
-	
-	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/101">병원소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/102">의료진소개</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; "><a href="/board/103">공지사항</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; background-color: #5396E4"><a href="/board/103" style="color: white;">FAQ</a></div>
-            <div class="col" style="border: 1px solid; padding: 15px; border-color: #DCD3D5; color: black"><a href="/board/103">오시는길</a></div>
-
-    </div>
+  	<!-- Back to top button -->
+  	<div class="back-to-top"></div>
+  	<%@include file="header.jsp" %>
+	<%@include file="hospitalNav.jsp"%>
     <form action="mediaUpdatePro">
 	    <table style="width: 60%; margin: 0 auto; margin-bottom: 3%; font-family: NanumBarunGothic">
 	    <fmt:formatDate value="${media.mdate }" var="mdate" pattern="yy-MM-dd"/>
@@ -75,7 +69,7 @@ body{
 				<p class="mt_10">*ID를 정확히 입력해야 Player 및 썸네일 이미지가 정상적으로 출력이 됩니다.*</p>
 			</td></tr>
 			<tr><td colspan="2">
-				<input type="submit" value="입력완료">
+				<input class="btn btn-primary" type="submit" value="입력완료">
 				
 			</td></tr>
 		</table>

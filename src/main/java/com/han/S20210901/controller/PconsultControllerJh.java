@@ -28,12 +28,13 @@ public class PconsultControllerJh {
 
 	@Autowired
 	private ReplysService replysService;
-
 	
-	@RequestMapping(value = "main")
+
+	@RequestMapping(value = "index")
 	public String test1(Model model) {
 		return "main";
 	}
+
 
 	@RequestMapping("pConsultCount")
 	public String pConsultList(String currentPage, Model model, Pconsult pconsult) {
@@ -41,8 +42,11 @@ public class PconsultControllerJh {
 		// 1대1상담 게시물 총 개수 구하기
 		int totalCnt = pconsultService.pConsultTotal();
 		System.out.println("pConsultList() totalCnt ->" + totalCnt);
+		System.out.println("pconsult.getPageNum()->"+pconsult.getPageNum());
+		System.out.println("pconsult.getPtitle()->"+pconsult.getPtitle());
 		
 		//페이징 totalCnt = 12,1
+		System.out.println("currentPage->"+currentPage);
 		Paging pg = new Paging(totalCnt, currentPage);
 
 		//paging
@@ -192,6 +196,4 @@ public class PconsultControllerJh {
 		return "replyUpdatePro"; 
 	}
 	
-
-
 }
