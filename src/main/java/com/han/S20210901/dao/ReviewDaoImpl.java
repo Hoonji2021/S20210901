@@ -55,6 +55,18 @@ public class ReviewDaoImpl implements ReviewDao {
 		int result = session.update("reviewUpdate", review);
 		return result;
 	}
+
+	@Override
+	public int reviewSearchTotal(int star) {
+		int searchTotal = session.selectOne("reviewSearchTotal", star);
+		return searchTotal;
+	}
+
+	@Override
+	public List<Review> searchReviewAll(Review review) {
+		List<Review> searchReviewList = session.selectList("searchReviewAll", review);
+		return searchReviewList;
+	}
 	
 
 }

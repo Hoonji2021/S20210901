@@ -59,5 +59,17 @@ public class ReviewServiceImpl implements ReviewService {
 		return result;
 	}
 
+	@Override
+	public int reviewSearchTotal(int star) {
+		int searchTotal = reviewDao.reviewSearchTotal(star);
+		return searchTotal;
+	}
+
+	@Override
+	public List<Review> searchReviewAll(Review review) {
+		List<Review> searchReviewList = reviewDao.searchReviewAll(review);
+		return searchReviewList;
+	}
+
 
 }

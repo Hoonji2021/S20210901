@@ -18,5 +18,9 @@ public interface ReviewService {
 
 	public int reviewUpdate(Review review);
 
+	public int reviewSearchTotal(int star);
+
+	public List<Review> searchReviewAll(Review review);
+
 
 }

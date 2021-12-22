@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,6 +17,9 @@
 <script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="vendor/wow/wow.min.js"></script>
 <script src="js/theme.js"></script>
+
+
+
 <style type="text/css">
 
 @font-face {
@@ -104,6 +108,13 @@ function a_mouseover(index){
 		
 	}
 	
+function searchBy(){//searchOption : select값
+	
+	document.starScore.submit();
+
+	}
+
+	
 </script>
 <body>
 
@@ -116,6 +127,22 @@ function a_mouseover(index){
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4;" ><a href="reviewList" style="color: white;">치료후기</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="mediaList">강연&방송</a></div>
     </div>
+    
+    <div style="text-align: center;"> 평점 조회 : 
+    <form name="starScore" id = "optionType" action="reviewSearch" style="display: inline-block;">
+		<select id="searchOption" name="searchOption"  onchange="return searchBy()" >
+		  	
+			<option value="0" <c:if test="${star == 0 || star == null}"> selected="selected" </c:if> >==전체보기==</option>
+			<option value="1" <c:if test="${star == 1}"> selected="selected" </c:if> >⭐1점</option>
+			<option value="2" <c:if test="${star == 2}"> selected="selected" </c:if> >⭐2점</option>
+			<option value="3" <c:if test="${star == 3}"> selected="selected" </c:if> >⭐3점</option>
+			<option value="4" <c:if test="${star == 4}"> selected="selected" </c:if> >⭐4점</option>
+			<option value="5" <c:if test="${star == 5}"> selected="selected" </c:if> >⭐5점</option>
+		
+		</select>
+	</form>
+    </div>
+    
     <div style="text-align: center;">
 	<div class="container1" align="center">
 	<c:forEach var="review" items="${reviewList}" varStatus="status">

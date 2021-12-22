@@ -2,6 +2,8 @@ package com.han.S20210901.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,9 @@ public class ReviewControllerJh {
 
 	@RequestMapping(value = "reviewList")
 	public String reviewList(String currentPage, Model model, Review review) {
+		
 		System.out.println("ReviewControllerJh reviewList() Start...");
+		
 		//치료후기 총 개수 구하기
 		int totalCnt = reviewService.reviewTotal();
 		System.out.println("reviewList() totalCnt -> "+totalCnt);
@@ -88,5 +92,52 @@ public class ReviewControllerJh {
 		model.addAttribute("result", result);
 		
 		return "reviewUpdatePro";
+	}
+	
+	@RequestMapping(value = "reviewSearch")
+	public String reviewSearch(String currentPage, Model model, Review review, HttpServletRequest request) {
+		System.out.println("ReviewControllerJh reviewSearch() Start...");
+		
+		int star = Integer.parseInt(request.getParameter("searchOption"));
+		System.out.println("star 값 ->"+star);
+		
+		int searchTotal = 0;
+		Paging pg = null;
+		List<Review> searchReviewAll = null;
+		
+		if(star == 0) {
+			//리뷰 전체 개수
+			searchTotal = reviewService.reviewTotal();
+			
+			//paging
+			pg = new Paging(searchTotal, currentPage);
+			review.setStart(pg.getStart());
+			review.setEnd(pg.getEnd());
+			
+			//모든 리뷰 정보 가져오기
+			searchReviewAll = reviewService.reviewAll(review);
+
+		}else {
+			//해당 별점 리뷰 총 개수 구하기
+			searchTotal = reviewService.reviewSearchTotal(star);
+			
+			//페이징
+			pg = new Paging(searchTotal, currentPage);	
+			review.setStart(pg.getStart());
+			review.setEnd(pg.getEnd());
+			review.setStar(star);
+			
+			//해당 별점 리뷰 정보 가져오기
+			searchReviewAll = reviewService.searchReviewAll(review);
+			
+		}
+		
+		model.addAttribute("total", searchTotal);
+		model.addAttribute("pg", pg);
+		model.addAttribute("reviewList", searchReviewAll);
+		model.addAttribute("star",star);
+		
+		//int searchTotal = reviewService.searchTotal(star);
+		return "reviewList";
 	}
 }

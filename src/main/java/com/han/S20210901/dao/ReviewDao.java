@@ -18,6 +18,10 @@ public interface ReviewDao {
 
 	public int updateReview(Review review);
 
+	public int reviewSearchTotal(int star);
+
+	public List<Review> searchReviewAll(Review review);
+
 
 
 	
