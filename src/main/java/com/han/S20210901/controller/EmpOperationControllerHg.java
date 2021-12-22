@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.han.S20210901.model.Clinic;
+import com.han.S20210901.model.Emp;
+import com.han.S20210901.model.Member;
 import com.han.S20210901.model.PunchHg;
 import com.han.S20210901.service.ClinicService;
+import com.han.S20210901.service.EmpService;
+import com.han.S20210901.service.MemberService;
 import com.han.S20210901.service.Paging;
 import com.han.S20210901.service.PconsultService;
 import com.han.S20210901.service.PunchServiceHg;
@@ -29,6 +33,10 @@ public class EmpOperationControllerHg {
 	private PunchServiceHg punchService;
 	@Autowired
 	private PconsultService pconsultService;
+	@Autowired
+	private EmpService empService;
+	@Autowired
+	private MemberService memberService;
 	
 	@GetMapping("empOperation")
 	public String empOperation(HttpServletRequest request, Model model) {
@@ -212,6 +220,47 @@ public class EmpOperationControllerHg {
 		else
 			return "main";
 	}
+	@PostMapping(value="clinicUpdatePro")
+	public String clinicUpdatePro(HttpServletRequest request, Model model) {
+		int result=0;
+	
+		System.out.println("EmpOperationController clinicUpdatePro starts...");
+		System.out.println("EmpOperationController clinicUpdatePro request result->"+request.getParameter("result"));
+		Clinic newClinic = new Clinic();
+		System.out.println("request.getParameter(cnum)->"+request.getParameter("cnum"));
+		System.out.println("request.getParameter(ccontent)->"+request.getParameter("ccontent"));
+		System.out.println("request.getParameter(empno)->"+request.getParameter("empno"));
+		System.out.println("request.getParameter(id)->"+request.getParameter("id"));
+		System.out.println("request.getParameter(ctime)->"+request.getParameter("ctime"));
+		
+		newClinic.setCnum(Integer.parseInt(request.getParameter("cnum")));
+		newClinic.setCcontent(request.getParameter("ccontent"));
+		newClinic.setEmpno(Integer.parseInt(request.getParameter("empno")));
+		newClinic.setId(request.getParameter("id"));
+		newClinic.setCtime("");
+		
+		result = clinicService.clinicUpdate(newClinic);
+		if(result>0) {
+			
+			model.addAttribute("result",result);
+			return "redirect:clinicOperation";
+			
+		}
+		else
+			return "main";
+	}
+	@GetMapping(value="deletePro")
+	public String deletePro(HttpServletRequest request) {
+		System.out.println("deletePro starts...");
+		int result = 0;
+		
+		result = clinicService.deleteClinic(Integer.parseInt(request.getParameter("cnum")));
+		
+		System.out.println("deletePro result=>"+result);
+		
+		if(result>0) return "redirect:clinicOperation";
+		else return "main";
+	}
 	
 	@GetMapping(value="punchList")
 	public String punchList(PunchHg punch, String currentPage, HttpServletRequest request, Model model) {
@@ -259,9 +308,15 @@ public class EmpOperationControllerHg {
 	}
 	@GetMapping(value="clinicDetail")
 	public String clinicDetail(HttpServletRequest request, int cnum, Model model) {
-		
 		Clinic clinic = clinicService.clinicDetail(cnum);
+		
+		Member member1 = memberService.memberSelect(clinic.getId());
+		Emp emp = empService.selectEmpno(clinic.getEmpno());
+		Member member2 = memberService.memberSelect(emp.getId());
+		
 		model.addAttribute("clinic",clinic);
+		model.addAttribute("name",member1.getName());
+		model.addAttribute("ename",member2.getName());
 		return "clinicDetail";
 	}
 }

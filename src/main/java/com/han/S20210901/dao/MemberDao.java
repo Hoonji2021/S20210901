@@ -14,4 +14,6 @@ public interface MemberDao {
 
 	int memberDelete(String id);
 
+	Member memberSelect(String id);
+
 }

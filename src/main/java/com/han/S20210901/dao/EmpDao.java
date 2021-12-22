@@ -7,4 +7,6 @@ public interface EmpDao {
 	Emp selectEmp(String id);
 
 	int insertEmp(Member member, String dept);
+
+	Emp selectEmpno(int empno);
 }

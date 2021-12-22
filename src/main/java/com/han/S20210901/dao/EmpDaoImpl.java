@@ -26,4 +26,9 @@ public class EmpDaoImpl implements EmpDao {
 		return result;
 	}
 
+	@Override
+	public Emp selectEmpno(int empno) {
+		return session.selectOne("HGempnoSelect",empno);
+	}
+
 }

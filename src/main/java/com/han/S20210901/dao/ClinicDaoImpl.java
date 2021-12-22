@@ -107,6 +107,23 @@ public class ClinicDaoImpl implements ClinicDao {
 		return clinic;
 	}
 
+	@Override
+	public int clinicUpdate(Clinic newClinic) {
+		int result =0;
+		result = session.update("HGclinicUpdate", newClinic);
+		
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1result=====>"+result);
+		return  result;
+	}
+
+	@Override
+	public int deleteClinic(int cnum) {
+		int result = 0;
+			result = session.delete("HGclinicDelete",cnum);
+			System.out.println("DAO deletePro result=>"+result);
+		return result;
+	}
+
 	
 
 }

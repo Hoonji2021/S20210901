@@ -47,6 +47,9 @@
 	<select id="ghMemberMyInfo" parameterType="java.lang.String" resultType="Member">
 	SELECT id, pw, email, name, addr, phone  FROM member WHERE id=#{sessionId}
 	</select>
+	<select id="HGmemberSelect" parameterType="java.lang.String" resultType="Member">
+		select * from member where id = #{id}
+	</select>
 </mapper>	
 
 

@@ -61,5 +61,11 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
+	@Override
+	public Member memberSelect(String id) {
+		
+		return md.memberSelect(id);
+	}
+
 }
 

@@ -23,4 +23,9 @@ public class EmpServiceImpl implements EmpService {
 		return result;
 	}
 
+	@Override
+	public Emp selectEmpno(int empno) {
+		return empDao.selectEmpno(empno);
+	}
+
 }

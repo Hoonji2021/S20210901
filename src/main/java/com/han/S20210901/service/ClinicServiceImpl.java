@@ -71,6 +71,23 @@ public class ClinicServiceImpl implements ClinicService {
 		return clinic;
 	}
 
+	@Override
+	public int clinicUpdate(Clinic newClinic) {
+		int result = 0;
+		result =clinicDao.clinicUpdate(newClinic); 
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1result=====>"+result);
+		return result;
+	}
+
+	@Override
+	public int deleteClinic(int cnum) {
+		int result =0 ;
+		
+			result = clinicDao.deleteClinic(cnum);
+			System.out.println("SERVICE deletePro result=>"+result);
+		return result;
+	}
+
 	
 
 

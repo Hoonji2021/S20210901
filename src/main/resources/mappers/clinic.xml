@@ -176,4 +176,10 @@
 	<insert id="HGclinicInsert" parameterType="Clinic" >
 		insert into clinic values (clinic_seq.nextval, #{empno},#{id},sysdate,#{ctime},#{ccontent})
 	</insert>
+	<update id="HGclinicUpdate" parameterType="Clinic">
+		update clinic set cdate = sysdate, ccontent = #{ccontent} where cnum = #{cnum}
+	</update>
+	<delete id="HGclinicDelete" parameterType="int">
+		delete from clinic where cnum = #{cnum}
+	</delete>
 </mapper>

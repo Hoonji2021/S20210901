@@ -9,4 +9,7 @@
 	<insert id="GHempInsert" parameterType="Emp" >
 		insert into emp values (emp_seq.nextval, #{id}, #{dept})
 	</insert>
+	<select id="HGempnoSelect" parameterType="int" resultType="Emp">
+		select * from emp where empno = #{empno}
+	</select>
 </mapper>

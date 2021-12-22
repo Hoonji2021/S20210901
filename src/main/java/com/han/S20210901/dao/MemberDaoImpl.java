@@ -74,4 +74,9 @@ public class MemberDaoImpl implements MemberDao {
 		return result;
 	}
 
+	@Override
+	public Member memberSelect(String id) {
+		return session.selectOne("HGmemberSelect",id);
+	}
+
 }

@@ -16,6 +16,10 @@ public interface ClinicService {
 	int clinicInsert(Clinic newClinic);
 
 	Clinic clinicDetail(int cnum);
+
+	int clinicUpdate(Clinic newClinic);
+
+	int deleteClinic(int cnum);
 	
 	
 	
