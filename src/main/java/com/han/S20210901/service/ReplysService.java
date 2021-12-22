@@ -2,6 +2,7 @@ package com.han.S20210901.service;
 
 import java.util.List;
 
+import com.han.S20210901.model.MyselfTest;
 import com.han.S20210901.model.Replys;
 
 public interface ReplysService {
@@ -16,5 +17,5 @@ public interface ReplysService {
 
 	int deleteReplyAll(int pnum);
 	
-
+    int calculatePoint(MyselfTest myselfTest);
 }

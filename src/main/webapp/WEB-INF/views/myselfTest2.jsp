@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
+<%
+	String context = request.getContextPath(); //경로
+%>
 <link href="css/board.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/maicons.css">
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -19,14 +21,13 @@
 <script src="js/theme.js"></script>
 <script type="text/javascript">
 	
-	function getTestResult() {
+	/*------------- Controller Ajax --------------*/
+	function getTotalPoint(){ /* 함수실행  */
 		let nameObj = new Array();
 		let cnt = 0; 
-		let total = 0;
 		let chkValue = document.getElementsByTagName("input");
 		const HIDDEN_CLASS = "hidden";
 		
-		console.log("chkValue->",chkValue);
 		for(var i=0; i<chkValue.length; i++){
 			if(chkValue[i].type == "radio"){
 				if( nameObj[cnt-1] != chkValue[i].name){	
@@ -38,22 +39,23 @@
 			}	
 		}
 		
+		let vMyTest  = new Array();
+		
 		for (var i = 0; i < nameObj.length; i++) { 
 			let chkValue = document.getElementsByName(nameObj[i]);//myTest1~
+			let oneArrSum = 0;
 			for (var j = 0; j < chkValue.length; j++) { 
 				if (chkValue[j].checked == true) { 
-					var numVal = parseInt(chkValue[j].value);
-					total = total+numVal;
-				
+					
+					oneArrSum =   oneArrSum + parseInt(chkValue[j].value);
+					console.log(oneArrSum);
 				} 
-			} 
+			}
+			
+			vMyTest[i] = oneArrSum;
 		} 
 		
-		console.log("total->",total);
-		$("#total").text(total);
-		
-		//-------------------점수에 따른 결과
-		
+		// 계산 결과 출력
 		const yourname = document.getElementById("yourname");
 		const resultname = yourname.value;
 		const resultCon = document.getElementById("resultContainer");
@@ -65,34 +67,62 @@
 		//이름 출력하기
 		$("#resultname").text(resultname);
 		
-		
-		if(total <= 15){
-			//진단 결과
-			conditionIs = "일반적인 상태(정상)";
-			$("#condition").text(conditionIs);
-			//처방 안내
-			const testResult1 = document.getElementById("testResult1");
-			testResult1.style.display = "block";
+ 		$.ajax({
+			url:"<%=context%>/myselfTest4", /* 컨트롤러의 url 호출 context는 경로 */
+			data:{myTest1 : vMyTest[0]
+				, myTest2 : vMyTest[1]
+				, myTest3 : vMyTest[2]
+				, myTest4 : vMyTest[3]
+				, myTest5 : vMyTest[4]
+				, myTest6 : vMyTest[5]
+				, myTest7 : vMyTest[6]
+				, myTest8 : vMyTest[7]
+				, myTest9 : vMyTest[8]
+				, myTest10 : vMyTest[9]
+				, myTest11 : vMyTest[10]
+				, myTest12 : vMyTest[11]
+				, myTest13 : vMyTest[12]
+				, myTest14 : vMyTest[13]
+				, myTest15 : vMyTest[14]
+			     }, 
+			type:'POST',
+			//리턴되는 값
+			dataType:'text', /* text로 받는다 -> text or json이다 */
+			/*컨트롤러 성공 시(리턴값이 올때)  */
+			success:function(data){ /* data = 컨트롤러에서 리턴된 값(strCalTotal) */
+				$('#total').val(data); /* input 태그일때 사용 */
+				$('#total').html(data);
+				$('#msg').html(data); /*sapn 태그일 때 사용  */
 			
-		}else if(total <= 30){
-			conditionIs = "우울증 초기 단계(가끔 우울하지만 극복 가능한 상태)";
-			$("#condition").text(conditionIs);
-			const testResult2 = document.getElementById("testResult2");
-			testResult2.style.display = "block";
-			
-		}else if(total <= 45){
-			conditionIs = "우울증 심각 단계(심한 우울증이 의심되며 주변 주변 지인들의 도움이 필요)";
-			$("#condition").text(conditionIs);
-			const testResult3 = document.getElementById("testResult3");
-			testResult3.style.display = "block";
-		}else{
-			conditionIs = "우울증 말기 단계(최대한 빨리 전문가의 상담치료가 필요)";
-			$("#condition").text(conditionIs);
-			const testResult4 = document.getElementById("testResult4");
-			testResult4.style.display = "block";
-		}
+				if(data <= 15){
+					//진단 결과
+					conditionIs = "일반적인 상태(정상)";
+					$("#condition").text(conditionIs);
+					//처방 안내
+					const testResult1 = document.getElementById("testResult1");
+					testResult1.style.display = "block";
+					
+				}else if(data <= 30){
+					conditionIs = "우울증 초기 단계(가끔 우울하지만 극복 가능한 상태)";
+					$("#condition").text(conditionIs);
+					const testResult2 = document.getElementById("testResult2");
+					testResult2.style.display = "block";
+					
+				}else if(data <= 45){
+					conditionIs = "우울증 심각 단계(심한 우울증이 의심되며 주변 주변 지인들의 도움이 필요)";
+					$("#condition").text(conditionIs);
+					const testResult3 = document.getElementById("testResult3");
+					testResult3.style.display = "block";
+				}else{
+					conditionIs = "우울증 말기 단계(최대한 빨리 전문가의 상담치료가 필요)";
+					$("#condition").text(conditionIs);
+					const testResult4 = document.getElementById("testResult4");
+					testResult4.style.display = "block";
+				}
+			}
 		
-	} 
+		});		
+	}
 
 </script>
 <style type="text/css">
@@ -161,10 +191,10 @@ body{
         <tr>
             <th scope="row">1</th>
             <td class="left">미래에 대한 희망이 없다.</td>
-            <td><input type="radio" class="chkValue" name="myTest1" value="0" id="RadioGroup1_0" title="0" checked="checked"></td>
-            <td><input type="radio" class="chkValue" name="myTest1" value="1" id="RadioGroup1_1" title="1"></td>
-            <td><input type="radio" class="chkValue" name="myTest1" value="2" id="RadioGroup1_2" title="2"></td>
-            <td><input type="radio" class="chkValue" name="myTest1" value="3" id="RadioGroup1_3" title="3"></td>
+            <td><input type="radio" class="chkValue" name="myTest1"  value="0" id="myTest1" title="0" checked="checked"></td>
+            <td><input type="radio" class="chkValue" name="myTest1" value="1" id="myTest1" title="1"></td>
+            <td><input type="radio" class="chkValue" name="myTest1" value="2" id="myTest1" title="2"></td>
+            <td><input type="radio" class="chkValue" name="myTest1" value="3" id="myTest1" title="3"></td>
         </tr>
         <tr>
              <th scope="row">2</th>
@@ -281,7 +311,9 @@ body{
         
         <tr>
 			<td colspan="10" style="text-align: center;"><input size="2" type="hidden" name="total">
-				<input type="button" value="결과보기" class="btn btn-sm btn-primary" onclick="getTestResult(); this.onclick='';">
+<!-- 				<input type="button" value="결과보기" class="btn btn-sm btn-primary" onclick="getTestResult(); this.onclick='';">
+ -->		
+                    <input type="button" value="결과보기" class="btn btn-sm btn-primary" onclick="getTotalPoint(); this.onclick='';">
 			</td>
 		</tr>
     </tbody>    
