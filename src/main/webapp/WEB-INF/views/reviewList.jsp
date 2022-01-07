@@ -41,7 +41,7 @@ body{
 .container1{
 	background: white;
 	text-align:center;
-	width: 80%;
+	width: 1500px;
 	height: 735px;
 	margin: 1% auto;
 	margin-bottom: 91px;

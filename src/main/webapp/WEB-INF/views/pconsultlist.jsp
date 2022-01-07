@@ -106,7 +106,11 @@ body{
   <%@include file="header.jsp" %>
 	
 	<div class="row" style=" margin: 3% auto; width: 65%; text-align: center; font-size: 18px; font-family: NanumBarunGothic;">
-            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="pConsultCount" style="color: white;">온라인상담</a></div>
+            <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; background-color: #5396E4"><a href="pConsultCount" style="color: white;">온라인상담</a>
+            <c:if test="${resultTotal > 0 }">
+             <img src="https://img.icons8.com/fluency/48/000000/brand-new.png" style="width: 30px; height: 30px;"/>
+             </c:if>
+            </div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="oconsultList">공개상담</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="reviewList">치료후기</a></div>
             <div class="col" style="border: 1px solid; padding: 13px; border-color: #DCD3D5; "><a href="mediaList">강연&방송</a></div>

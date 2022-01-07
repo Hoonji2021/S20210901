@@ -51,7 +51,7 @@ body{
 	
 	<form action="pConsultUpdatePro" method="post">
 	<div class="container" style="margin: 5% auto;" >
-		<h2>게시판 수정</h2>
+		<h2>게시물 수정</h2>
 		<hr style="border-top:3px solid #000000">
 		<div class="row" style="margin: 3% auto;">
 			<div class="col">

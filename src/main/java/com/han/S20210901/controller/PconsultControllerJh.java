@@ -45,6 +45,14 @@ public class PconsultControllerJh {
 		System.out.println("pconsult.getPageNum()->"+pconsult.getPageNum());
 		System.out.println("pconsult.getPtitle()->"+pconsult.getPtitle());
 		
+		//admin이 쓴 댓글 개수
+		int admintotal = pconsultService.adminTotal();
+		int resultTotal = totalCnt - admintotal; //7
+		System.out.println("resultTotal 개수 : "+resultTotal);
+				
+		
+		
+		
 		//페이징 totalCnt = 12,1
 		System.out.println("currentPage->"+currentPage);
 		Paging pg = new Paging(totalCnt, currentPage);
@@ -58,6 +66,7 @@ public class PconsultControllerJh {
 		System.out.println("PcontrollerJh pConsultCount pConsultList.size()->"+pConsultList.size());
 		
 		model.addAttribute("totalCnt", totalCnt);
+		model.addAttribute("resultTotal", resultTotal);
 		model.addAttribute("pList", pConsultList);
 		model.addAttribute("pg", pg);
 
