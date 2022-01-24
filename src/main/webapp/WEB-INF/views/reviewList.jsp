@@ -131,14 +131,38 @@ function searchBy(){//searchOption : select값
     <div style="text-align: center;"> 평점 조회 : 
     <form name="starScore" id = "optionType" action="reviewSearch" style="display: inline-block;">
 		<select id="searchOption" name="searchOption"  onchange="return searchBy()" >
-		  	
+		  	<!--by 지훈/ 태그안에서 JSTL 조건문 사용 -->
 			<option value="0" <c:if test="${star == 0 || star == null}"> selected="selected" </c:if> >==전체보기==</option>
 			<option value="1" <c:if test="${star == 1}"> selected="selected" </c:if> >⭐1점</option>
 			<option value="2" <c:if test="${star == 2}"> selected="selected" </c:if> >⭐2점</option>
 			<option value="3" <c:if test="${star == 3}"> selected="selected" </c:if> >⭐3점</option>
 			<option value="4" <c:if test="${star == 4}"> selected="selected" </c:if> >⭐4점</option>
 			<option value="5" <c:if test="${star == 5}"> selected="selected" </c:if> >⭐5점</option>
-		
+			
+			<c:if test="${star == 0 || star == null }">
+			<option value="0" selected="selected"></option>
+			<option value="1" ></option>
+			<option value="2" ></option>
+			<option value="3" ></option>
+			<option value="4"></option>
+			<option value="5" ></option>
+			</c:if>
+			<c:if test="${star == 1}">
+			<option value="0"></option>
+			<option value="1" selected="selected"></option>
+			<option value="2" ></option>
+			<option value="3" ></option>
+			<option value="4"></option>
+			<option value="5" ></option>
+			</c:if>
+			<c:if test="${star == 2}">
+			<option value="0" ></option>
+			<option value="1" ></option>
+			<option value="2" selected="selected"></option>
+			<option value="3" ></option>
+			<option value="4"></option>
+			<option value="5" ></option>
+			</c:if>
 		</select>
 	</form>
     </div>
