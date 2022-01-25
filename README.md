@@ -34,7 +34,11 @@
 -	병원소개 및 소식 전달
 
 # 담당역할
-1. **회원가입 및 로그인**  
+1. **회원가입 및 로그인**
+
+|[<회원가입>](http://3.130.250.18:8181/S20210901/memberJoinForm)|[<로그인>](http://3.130.250.18:8181/S20210901/login)|
+|:-:|:-:|
+|<img src="https://user-images.githubusercontent.com/91710897/150920800-4687cb4c-bee2-45a0-9f14-85c3fb0d707a.png" width="300">|<img src="https://user-images.githubusercontent.com/91710897/150920830-f51bbcbc-fa70-498d-b94e-33092a8e2ce8.png" width="300">|
 
     - 로그인 UI 구현
     - Session 기반 로그인 구현
@@ -42,32 +46,46 @@
     - 중복검사(Ajax)
    
 2. **1대1게시판 CRUD&paging**
- 
-|||
-|:-:|:-:|
-|<img src="https://user-images.githubusercontent.com/91710897/150915284-b9220690-7ec8-452c-a307-8e1543fbaeeb.png" width="250">|<img src="https://user-images.githubusercontent.com/91710897/150915284-b9220690-7ec8-452c-a307-8e1543fbaeeb.png" width="250">|
 
+|[<1대1게시판>](http://3.130.250.18:8181/S20210901/pConsultCount)|
+|:-:|
+|<img src="https://user-images.githubusercontent.com/91710897/150915284-b9220690-7ec8-452c-a307-8e1543fbaeeb.png" width="300">|
 
     - 게시판 CRUD UI 구현 
     - 비밀번호 유효성검사 기능 (JS)
     - 관리자 답변여부 기능(답변대기/답변완료) 
     
 3. **치료후기 게시판 CRUD&paging**
+
+|[<치료후기게시판>](http://3.130.250.18:8181/S20210901/reviewList)|
+|:-:|
+|<img src="https://user-images.githubusercontent.com/91710897/150920657-9636c8ac-cc1c-4f4f-92fe-efdc2f6b0631.png" width="300">|
+
     - 게시판 CRUD UI 구현 
     - 별점 기능
     - 별점별 조회기능(검색)
     
 4. **자가진단 페이지** 
+
+|[<자가진단1>](http://3.130.250.18:8181/S20210901/myselfTest)|[<자가진단2>](http://3.130.250.18:8181/S20210901/myselfTest2)|[<자가진단3>](http://3.130.250.18:8181/S20210901/myselfTest3)|
+|:-:|:-:|:-:|
+|<img src="https://user-images.githubusercontent.com/91710897/150921662-24300200-6630-445e-9a24-d3d33ed9ca28.png" width="300">|<img src="https://user-images.githubusercontent.com/91710897/150921672-b65ec52d-a7b0-44b5-8318-235e21bdfcb3.png" width="300">|<img src="https://user-images.githubusercontent.com/91710897/150921682-ed391e6f-9463-4303-8fb8-bf77f165da59.png" width="300">|
+
     - 자가진단 UI 구현
     - 점수 계산 및 결과 출력 
-    
+
 5. **오시는길 페이지**
+
+|[<오시는길>](http://3.130.250.18:8181/S20210901/map)|
+|:-:|
+|<img src="https://user-images.githubusercontent.com/91710897/150922189-89d6884d-b04e-4abc-98a9-2cb86f1c17f7.png" width="300">|
+    
     - kakao 지도 api 연동
 
 # 노력한 것들
 1. 회원 등급에 따른 기능 구분
     - 비공개 개시판 비밀번호 유효성 검사 기능 추가
-    - Interceptor 이용하여 회원,비회원 & 회원,직원간 
+    - Interceptor 이용하여 회원,비회원 & 회원,직원간 기능구분 
 2. Git&Github 프로젝트 협업
     - Git 주도적 공부
     - 작업 시작 시 pull, 마치기 전 commit 생활화
